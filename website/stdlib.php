@@ -1,12 +1,18 @@
 <?php
 
 /**
- * Autoloads a class
- * @param $class Class
+ * Autoload model
+ * @param $model Model name
  */
-function __autoload($class)
+function __autoload($model)
 {
-    include "$class.php";
+    $file = __SITE_PATH . '/application/models/' . strtolower($model) . '.php';
+
+    if (!file_exists($file)) {
+        return false;
+    }
+
+    include $file;
 }
 
 /**
