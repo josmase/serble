@@ -1,6 +1,6 @@
 <?php
 
-<<<<<<< HEAD
+
 error_reporting(E_ALL);
 
 require_once 'stdlib.php';
@@ -13,7 +13,6 @@ define('__SITE_PATH', $site_path);
 require_once __SITE_PATH . '/application/base/Controller.php';
 require_once __SITE_PATH . '/application/base/Model.php';
 require_once __SITE_PATH . '/application/base/View.php';
-=======
 /**
  * Index file
  */
@@ -50,4 +49,3 @@ include 'stdlib.php';
     </div>
 </body>
 </html>
->>>>>>> 113650ba5c6b0fce7c96f583240a40fdc1163433
