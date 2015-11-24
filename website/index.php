@@ -33,18 +33,7 @@ include 'stdlib.php';
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <p>asd</p>
-            </div>
-            <div class="col-md-3">
-                <p>asd</p>
-            </div>
-            <div class="col-md-3">
-                <p>asd</p>
-            </div>
-            <div class="col-md-3">
-                <p>asd</p>
-            </div>
+
         </div>
     </div>
 </body>

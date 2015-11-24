@@ -3,6 +3,8 @@
 /**
  * Autoload model
  * @param $model Model name
+ * @return false
+ * @return true
  */
 function __autoload($model)
 {
@@ -13,11 +15,13 @@ function __autoload($model)
     }
 
     include $file;
+
+    return true;
 }
 
 /**
  * Outputs HTML code
- * @param $content Code
+ * @param $code
  */
 function html_output($code)
 {
