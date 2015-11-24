@@ -16,7 +16,6 @@ function __autoload($model)
 
     include $file;
 
-    return true;
 }
 
 /**
