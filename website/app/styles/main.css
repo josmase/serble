@@ -66,13 +66,11 @@ h1, h2, h3{
 #searchBar{
   background: white;
   border-radius: 30px;
-  border: 1px solid #000000
-  padding: 2%
+  border: 1px solid #000000;
 }
 #searchBar .row{
   text-align: center;
   padding: 2% 0;
-  margin-bottom: 5%;
 }
 #searchBar input{
   width:85%;
