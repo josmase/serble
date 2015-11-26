@@ -19,6 +19,10 @@ body {
 /*Color for all p elements*/
 p{
   color: #050404;
+  font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3{
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* Custom page header */
