@@ -38,3 +38,7 @@ Thumbs.db
 # Temporary files #
 ###################
 /website/.tmp/styles/main.css
+
+# idea #
+########
+/.idea/*
