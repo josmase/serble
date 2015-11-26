@@ -28,7 +28,7 @@ h1, h2, h3{
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
+  background-color: #FFA400;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -38,7 +38,7 @@ h1, h2, h3{
   padding-bottom: 19px;
 }
 
-/*ad card styling*/
+/*Make the cards white and ad some padding*/
 .cards{
   background: #fdfffc;
   padding: 2%;
