@@ -28,14 +28,33 @@ h1, h2, h3{
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-  background-color: #FFA400;
+  background-color: #FFB100;
+}
+
+/*fix for aligning brand name and menu icon and positioning menu icon to the left*/
+.navbar{
+  padding-top: 2%;
+  margin-bottom: 0;
+}
+.navbar-toggle{
+  padding-top: 0;
+}
+.navbar .navbar-brand{
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+.navbar-header .navbar-toggle .icon-bar{
+  background: black;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
-  padding-bottom: 19px;
+}
+.navbar-toggle{
+  float: left;
 }
 
 /*Make the cards white and ad some padding*/
