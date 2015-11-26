@@ -47,6 +47,9 @@ h1, h2, h3{
 .navbar-header .navbar-toggle .icon-bar{
   background: black;
 }
+.secondNav{
+  text-align: center;
+}
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -56,7 +59,23 @@ h1, h2, h3{
 .navbar-toggle{
   float: left;
 }
-
+/*styling for the search menu*/
+#searchMenu{
+  float: right;
+}
+#searchBar{
+  background: white;
+  border-radius: 30px;
+}
+#searchBar .row{
+  text-align: center;
+  padding: 2% 0;
+}
+#searchBar input{
+  width:85%;
+  outline: 0;
+  border: 0;
+}
 /*Make the cards white and ad some padding*/
 .cards{
   background: #fdfffc;

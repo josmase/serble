@@ -32,6 +32,21 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#/"><h3>Serble</h3></a>
+            <div id="searchMenu">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#searchBar">
+                <span class="glyphicon glyphicon-search search-icon"></span>
+              </button>
+            </div>
+          </div>
+          <div id="searchBar" class="collapse">
+           <div class="row">
+             <div class="col-xs-12 ">
+                <form action="">
+                  <input ng-model="query" placeholder="Search">
+                  <span class="glyphicon glyphicon-remove search-icon"></span>
+                </form>
+            </div>
+          </div>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -47,6 +62,11 @@
           </div>
         </div>
       </nav>
+      <div class="row secondNav">
+        <div class="col-xs-4"><p>Home</p></div>
+        <div class="col-xs-4"><p>Map</p></div>
+        <div class="col-xs-4"><p>Create ad</p></div>
+      </div>
     </div>
 
     <div ng-view=""></div>
