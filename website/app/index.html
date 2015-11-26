@@ -42,8 +42,10 @@
            <div class="row">
              <div class="col-xs-12 ">
                 <form action="">
-                  <input ng-model="query" placeholder="Search">
-                  <span class="glyphicon glyphicon-remove search-icon"></span>
+                  <input ng-model="query" id="searchInput" placeholder="Search">
+                  <a class="clear" ng-click="query = null">
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </a>
                 </form>
             </div>
           </div>
