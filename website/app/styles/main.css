@@ -30,7 +30,15 @@ h1, h2, h3{
   border-bottom: 1px solid #e5e5e5;
   background-color: #FFB100;
 }
+#myNavbar {
+  background-color:#72B01D;
+  padding-left:10px;
+  border-style:outset;
 
+}
+#myNavbar li   {
+list-style:none;
+}
 /*fix for aligning brand name and menu icon and positioning menu icon to the left*/
 .secondNav{
   text-align: center;
@@ -53,6 +61,7 @@ button{
 
 #navMenu .menuButton{
   margin: 0px;
+
 }
 #navMenu .glyphicon-menu-hamburger, #searchMenu .glyphicon-search{
   font-size: 1.5em;
