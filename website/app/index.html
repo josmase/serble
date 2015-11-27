@@ -23,51 +23,42 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <nav class="navbar navbar">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/"><h3>Serble</h3></a>
-            <div id="searchMenu">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#searchBar">
+      <div class="container">
+        <nav>
+          <div class="row">
+            <div class="col-xs-8" id="navMenu">
+              <button type="button" class="menuButton" data-toggle="collapse" data-target="#myNavbar">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+              </button>
+              <a href="#/"><h3>Serble</h3></a>
+            </div>
+
+            <!--Hides or shows the search bar on button click-->
+            <div id="searchMenu" class="col-xs-4">
+              <button type="button" data-toggle="collapse" data-target="#search">
                 <span class="glyphicon glyphicon-search search-icon"></span>
               </button>
             </div>
           </div>
-          <div id="searchBar" class="collapse">
-           <div class="row">
-             <div class="col-xs-12 ">
-                <form action="">
-                  <input ng-model="query" id="searchInput" placeholder="Search">
-                  <a class="clear" ng-click="query = null">
-                    <span class="glyphicon glyphicon-remove"></span>
-                  </a>
-                </form>
-            </div>
+
+          <div class="row collapse" id="search">
+            <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
+              <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
+              <a class="clear col-xs-1 col-md-1" ng-click="query = null">
+                <span class="glyphicon glyphicon-remove"></span>
+              </a>
+            </form>
           </div>
+
+          <div class="collapse" id="myNavbar">
           </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><p>Emil Bertilsson</p></li>
-              <li><a href="#">Page 1</a></li>
-              <li><a href="#">Page 2</a></li>
-              <li><a href="#">Page 3</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-          </div>
+        </nav>
+
+        <div class="row secondNav">
+          <div class="col-xs-4 col-md-4"><p>Home</p></div>
+          <div class="col-xs-4 col-md-4"><p>Map</p></div>
+          <div class="col-xs-4 col-md-4"><p>Create ad</p></div>
         </div>
-      </nav>
-      <div class="row secondNav">
-        <div class="col-xs-4"><p>Home</p></div>
-        <div class="col-xs-4"><p>Map</p></div>
-        <div class="col-xs-4"><p>Create ad</p></div>
       </div>
     </div>
 
@@ -81,14 +72,14 @@
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+      !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+          (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+      }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
     </script>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -105,10 +96,10 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <!-- endbuild -->
-</body>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>

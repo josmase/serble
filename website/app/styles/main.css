@@ -32,21 +32,6 @@ h1, h2, h3{
 }
 
 /*fix for aligning brand name and menu icon and positioning menu icon to the left*/
-.navbar{
-  padding-top: 2%;
-  margin-bottom: 0;
-}
-.navbar-toggle{
-  padding-top: 0;
-}
-.navbar .navbar-brand{
-  margin: 0;
-  padding: 0;
-  height: auto;
-}
-.navbar-header .navbar-toggle .icon-bar{
-  background: black;
-}
 .secondNav{
   text-align: center;
 }
@@ -55,25 +40,35 @@ h1, h2, h3{
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
+  display: inline-block;
 }
-.navbar-toggle{
-  float: left;
+button{
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+#navMenu .menuButton{
+  margin: 0px;
+}
+#navMenu .glyphicon-menu-hamburger, #searchMenu .glyphicon-search{
+  font-size: 1.5em;
 }
 /*styling for the search menu*/
 #searchMenu{
-  float: right;
+  text-align: right;
+  margin-top: 5px;
 }
 #searchBar{
   background: white;
   border-radius: 30px;
   border: 1px solid #000000;
-}
-#searchBar .row{
   text-align: center;
-  padding: 2% 0;
+  padding: 5px;
 }
 #searchBar input{
-  width:85%;
   outline: 0;
   border: 0;
 }
@@ -126,7 +121,12 @@ h1, h2, h3{
   .container {
     max-width: 730px;
   }
-
+  button:hover{
+    background: black;
+  }
+  #searchBar{
+    float:right;
+  }
   /* Remove the padding we set earlier */
   .header,
   .marketing,
