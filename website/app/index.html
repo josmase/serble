@@ -22,15 +22,18 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" >
+    <div class="header">
       <div class="container">
         <nav>
           <div class="row">
             <div class="col-xs-8" id="navMenu">
-              <button type="button" class="menuButton" data-toggle="collapse" data-target="#myNavbar">
+              <button type="button" class="menuButton">
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
               </button>
               <a href="#/"><h3>Serble</h3></a>
+              <label>
+                <input type="checkbox" ng-model="menu">
+              </label>
             </div>
 
             <!--Hides or shows the search bar on button click-->
@@ -40,6 +43,7 @@
               </button>
             </div>
           </div>
+
           <!--Displayed when #searchMenu button is pressed-->
           <div class="row collapse" id="search">
             <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
@@ -49,33 +53,27 @@
               </a>
             </form>
           </div>
-
-          <div class="collapse" id="myNavbar">
-              <p><span class="glyphicon glyphicon-user"></span>Coolname MCAwesome</p>
-             <p> <li>Flöde</li></p>
-              <p><li>Karta</li></p>
-                  <ul>
-                    <p><li>Annonser</li></p>
-                   <p><li>Skapa</li></p>
-                    <p><li>Sponsrade</li></p>
-                    </ul>
-              <p><li>Inställningar</li></p>
-              <p><li>Logga ut</li></p>
-            </ul>
-
-          </div>
         </nav>
-        <label>
-          <input ng-model="map" type="checkbox" >
-        </label>
         <div class="row secondNav">
-          <div class="col-xs-4 col-md-4" ><a href="/#/" >{{ title }}</a></div>
+          <div class="col-xs-4 col-md-4" ><a href="/#/"  >Home {{ location }}</a></div>
           <div class="col-xs-4 col-md-4" ><a href="/#/map" >Map</a></div>
           <div class="col-xs-4 col-md-4" ><a href="/#/">Create ad</a></div>
         </div>
       </div>
     </div>
-
+    <div ng-class="{navMenuVisible: menu}" class="myNavbar">
+      <p><span class="glyphicon glyphicon-user"></span>Coolname MCAwesome</p>
+      <p> <li>Flöde</li></p>
+      <p><li>Karta</li></p>
+      <ul>
+        <p><li>Annonser</li></p>
+        <p><li>Skapa</li></p>
+        <p><li>Sponsrade</li></p>
+      </ul>
+      <p><li>Inställningar</li></p>
+      <p><li>Logga ut</li></p>
+      </ul>
+    </div>
     <div ng-view=""></div>
 
     <div class="footer">

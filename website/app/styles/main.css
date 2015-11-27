@@ -16,7 +16,7 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-/*Color for all p elements*/
+/*Color and font for all p elements*/
 p{
   color: #050404;
   font-family: 'Source Sans Pro', sans-serif;
@@ -25,31 +25,7 @@ h1, h2, h3{
   font-family: 'Raleway', sans-serif;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  background-color: #FFB100;
-}
-#myNavbar {
-  background-color:#72B01D;
-  padding-left:10px;
-  border-style:outset;
-
-}
-#myNavbar li   {
-list-style:none;
-}
-/*fix for aligning brand name and menu icon and positioning menu icon to the left*/
-.secondNav{
-  text-align: center;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  display: inline-block;
-}
+/* Remove default styling from buttons*/
 button{
   background-color: transparent;
   background-image: none;
@@ -59,13 +35,46 @@ button{
   outline: none;
 }
 
+/* Custom page header */
+.header {
+  background-color: #FFB100;
+}
+.myNavbar {
+  visibility: hidden;
+  position: fixed;
+}
+.navMenuVisible{
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color:#72B01D;
+  padding-left:10px;
+  border-style:outset;
+  z-index: 20;
+
+}
+.myNavbar li   {
+list-style:none;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  display: inline-block;
+}
+
 #navMenu .menuButton{
   margin: 0px;
+  z-index: 30;
 
 }
 #navMenu .glyphicon-menu-hamburger, #searchMenu .glyphicon-search{
   font-size: 1.5em;
 }
+
 /*styling for the search menu*/
 #searchMenu{
   text-align: right;
@@ -87,6 +96,11 @@ button{
   border-radius: 30px;
   border: 2px solid black;
 }
+
+.secondNav{
+  text-align: center;
+}
+
 /*Make the cards white and ad some padding*/
 .cards{
   background: #72B01D;
@@ -148,10 +162,7 @@ button{
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
+
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
