@@ -74,9 +74,9 @@ button{
 }
 /*Make the cards white and ad some padding*/
 .cards{
-  background: #fdfffc;
+  background: #72B01D;
   padding: 2%;
-
+  border-style: double;
 }
 .cards h3{
   padding: 0;
@@ -84,7 +84,6 @@ button{
 .cards .details{
   text-align: right;
 }
-
 /* Custom page footer */
 .footer {
   padding-top: 19px;
