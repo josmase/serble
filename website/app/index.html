@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Serble</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -22,7 +22,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
+    <div class="header" >
       <div class="container">
         <nav>
           <div class="row">
@@ -40,7 +40,7 @@
               </button>
             </div>
           </div>
-
+          <!--Displayed when #searchMenu button is pressed-->
           <div class="row collapse" id="search">
             <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
               <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
@@ -53,11 +53,13 @@
           <div class="collapse" id="myNavbar">
           </div>
         </nav>
-
+        <label>
+          <input ng-model="map" type="checkbox" >
+        </label>
         <div class="row secondNav">
-          <div class="col-xs-4 col-md-4"><p>Home</p></div>
-          <div class="col-xs-4 col-md-4"><p>Map</p></div>
-          <div class="col-xs-4 col-md-4"><p>Create ad</p></div>
+          <div class="col-xs-4 col-md-4" ><a href="/#/" >{{ title }}</a></div>
+          <div class="col-xs-4 col-md-4" ><a href="/#/map" >Map</a></div>
+          <div class="col-xs-4 col-md-4" ><a href="/#/">Create ad</a></div>
         </div>
       </div>
     </div>
@@ -99,7 +101,7 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/map.js"></script>
     <!-- endbuild -->
   </body>
 </html>

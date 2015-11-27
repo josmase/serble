@@ -73,6 +73,11 @@ button{
   outline: 0;
   border: 0;
 }
+/*sets a circle if the it's the current page*/
+.navMenuSelected{
+  border-radius: 30px;
+  border: 2px solid black;
+}
 /*Make the cards white and ad some padding*/
 .cards{
   background: #72B01D;
