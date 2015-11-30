@@ -9,19 +9,19 @@
   </div>
 </div>
 <div class="container">
- <div class="col-xs-12 cards" ng-repeat="cards in card">
+ <div class="col-xs-12 cards" ng-repeat="card in cards">
    <div class="row">
      <div class="col-xs-8">
-       <h3>{{header}}</h3>
+       <h3>{{card.header}}</h3>
      </div>
    </div>
    <div class="row">
      <div class="col-xs-8" >
-       <p>{{description}} </p>
+       <p>{{card.description}} </p>
      </div>
      <div class="col-xs-4 details" >
-       <p>{{price | sek}}</p>
-       <p>{{locationDistance}}, {{location}}</p>
+       <p>{{card.price | currency}}</p>
+       <p>{{card.locationDistance}}, {{card.location}}</p>
      </div>
    </div>
  </div>

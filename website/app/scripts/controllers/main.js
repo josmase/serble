@@ -9,34 +9,28 @@
  */
 angular.module('serbleApp')
   .controller('MainCtrl',['$scope', function($scope) {
-    $scope.card= [
+    $scope.cards = [
       {
         header: "I need some help with my computer",
-        description: "I have a preety old computer that wont start",
+        description: "I have an old computer that wont start",
         price: 20,
         locationDistance: 500,
         location: "Umeå"
       },
       {
         header: "I need some help with my computer",
-        description: "I have a preety old computer that wont start",
+        description: "I have an old computer that wont start",
         price: 20,
         locationDistance: 500,
         location: "Umeå"
       },
       {
         header: "I need some help with my computer",
-        description: "I have a preety old computer that wont start",
+        description: "I have an old computer that wont start",
         price: 20,
         locationDistance: 500,
         location: "Umeå"
-      },
-      {
-        header: "I need some help with my computer",
-        description: "I have a preety old computer that wont start",
-        price: 20,
-        locationDistance: 500,
-        location: "Umeå"
-      },
+      }
     ];
+    $scope.apa = "asdasd"
   }]);
