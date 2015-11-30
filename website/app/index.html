@@ -1,120 +1,120 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Serble</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet' type='text/css'>
-  </head>
-  <body ng-app="serbleApp">
-    <!--[if lte IE 8]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Serble</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet'
+        type='text/css'>
+</head>
+<body ng-app="serbleApp">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="container">
-        <nav>
-          <div class="row">
-            <div class="col-xs-8" id="navMenu">
-              <button type="button" class="menuButton">
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-              </button>
-              <a href="#/"><h3>Serble</h3></a>
-              <label>
-                <input type="checkbox" ng-model="menu">
-              </label>
-            </div>
+<!-- Add your site or application content here -->
+<div class="header">
+  <div class="container">
+    <nav>
+      <div class="row">
+        <div class="col-xs-8" id="navMenu">
+          <!--Hides or shows the nav bar on button click-->
+          <button type="button" data-toggle="collapse" data-target="#myNavbar" class="menuButton">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+          <a href="#/"><h3>Serble</h3></a>
+        </div>
 
-            <!--Hides or shows the search bar on button click-->
-            <div id="searchMenu" class="col-xs-4">
-              <button type="button" data-toggle="collapse" data-target="#search">
-                <span class="glyphicon glyphicon-search search-icon"></span>
-              </button>
-            </div>
-          </div>
-          <div ng-class="{navMenuVisible: menu}" class="myNavbar">
-            <p><span class="glyphicon glyphicon-user"></span>Coolname MCAwesome</p>
-            <p> <li>Flöde</li></p>
-            <p><li>Karta</li></p>
-            <ul>
-              <p><li>Annonser</li></p>
-              <p><li>Skapa</li></p>
-              <p><li>Sponsrade</li></p>
-            </ul>
-            <p><li>Inställningar</li></p>
-            <p><li>Logga ut</li></p>
-            </ul>
-          </div>
-          <!--Displayed when #searchMenu button is pressed-->
-          <div class="row collapse" id="search">
-            <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
-              <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
-              <a class="clear col-xs-1 col-md-1" ng-click="query = null">
-                <span class="glyphicon glyphicon-remove"></span>
-              </a>
-            </form>
-          </div>
-        </nav>
-        <div class="row secondNav">
-          <div class="col-xs-4 col-md-4" ><a href="/#/"  >Home</a></div>
-          <div class="col-xs-4 col-md-4" ><a href="/#/map" >Map</a></div>
-          <div class="col-xs-4 col-md-4" ><a href="/#/">Create ad</a></div>
+        <!--Hides or shows the search bar on button click-->
+        <div class="col-xs-4" id="searchMenu">
+          <button type="button" data-toggle="collapse" data-target="#search">
+            <span class="glyphicon glyphicon-search search-icon"></span>
+          </button>
         </div>
       </div>
-    </div>
-
-    <div ng-view=""></div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <!--Displayed when .menubutton is pressed-->
+      <div class="row collapse" id="myNavbar">
+        <ul class="col-xs-12">
+          <li><p> <span class="glyphicon glyphicon-user"></span> Anders Karlsson</p></li>
+          <li><p>Start</p></li>
+          <li><p>Map</p></li>
+          <li><p>Create add</p></li>
+        </ul>
       </div>
+      <!--Displayed when #searchMenu button is pressed-->
+      <div class="row collapse" id="search">
+        <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
+          <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
+          <a class="clear col-xs-1 col-md-1" ng-click="query = null">
+            <span class="glyphicon glyphicon-remove"></span>
+          </a>
+        </form>
+      </div>
+
+
+    </nav>
+    <div class="row secondNav">
+      <div class="col-xs-4 col-md-4"><a href="/#/">Home</a></div>
+      <div class="col-xs-4 col-md-4"><a href="/#/map">Map</a></div>
+      <div class="col-xs-4 col-md-4"><a href="/#/">Create ad</a></div>
     </div>
+  </div>
+</div>
+
+<div ng-view=""></div>
+
+<div class="footer">
+  <div class="container">
+    <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+  </div>
+</div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-          (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-      }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  !function (A, n, g, u, l, a, r) {
+    A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+        (A[l].q = A[l].q || []).push(arguments)
+      }, A[l].l = +new Date, a = n.createElement(g),
+      r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    </script>
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/map.js"></script>
-    <!-- endbuild -->
-  </body>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/map.js"></script>
+<!-- endbuild -->
+</body>
 </html>

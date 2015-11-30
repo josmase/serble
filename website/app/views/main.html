@@ -1,26 +1,29 @@
 <div class="jumbotron">
   <div class="container">
     <h1> Your local services.</h1>
-    <p class="lead">
-      <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-      Serble connects the people that need help with the people that want to help.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#/">Create an ad!</span></a></p>
+
+
+    <p class="lead">Serble connects the people that need help with the people that want to help.</p>
+
+    <p><a class="btn" ng-href="#/">CREATE AN AD!</span></a></p>
   </div>
 </div>
-<div class="container">
-  <div class="col-xs-12 cards" ng-repeat="card in cards">
+<div class="cards" ng-repeat="card in cards">
+  <div class="container">
+
     <div class="row">
       <div class="col-xs-8">
-        <h3>{{card.header}}</h3>
+        <h4>{{card.header}}</h4>
+        </div>
+      <div class="col-xs-4 details">
+        <p>{{card.price | currency : "SEK "}}</p>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-8" >
-        <p>{{card.description}} </p>
+      <div class="col-xs-8">
+        <p>{{card.description | limitTo:60}}... </p>
       </div>
-      <div class="col-xs-4 details" >
-        <p>{{card.price | currency : "SEK "}}</p>
+      <div class="col-xs-4 details">
         <p>{{card.locationDistance}}, {{card.location}}</p>
       </div>
     </div>
