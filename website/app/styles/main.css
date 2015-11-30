@@ -105,7 +105,8 @@ list-style:none;
 .cards{
   background: #72B01D;
   padding: 2%;
-  border-style: double;
+  border: 2px solid black;
+  margin-bottom: 5px;
 }
 .cards h3{
   padding: 0;
