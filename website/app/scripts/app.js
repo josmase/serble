@@ -32,8 +32,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }).controller('appCtrl',['$scope', '$location',
-  function($scope, $location) {
-    console.log($location.path());
-
-  }]);
+  });

@@ -43,7 +43,19 @@
               </button>
             </div>
           </div>
-
+          <div ng-class="{navMenuVisible: menu}" class="myNavbar">
+            <p><span class="glyphicon glyphicon-user"></span>Coolname MCAwesome</p>
+            <p> <li>Flöde</li></p>
+            <p><li>Karta</li></p>
+            <ul>
+              <p><li>Annonser</li></p>
+              <p><li>Skapa</li></p>
+              <p><li>Sponsrade</li></p>
+            </ul>
+            <p><li>Inställningar</li></p>
+            <p><li>Logga ut</li></p>
+            </ul>
+          </div>
           <!--Displayed when #searchMenu button is pressed-->
           <div class="row collapse" id="search">
             <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
@@ -55,25 +67,13 @@
           </div>
         </nav>
         <div class="row secondNav">
-          <div class="col-xs-4 col-md-4" ><a href="/#/"  >Home {{ location }}</a></div>
+          <div class="col-xs-4 col-md-4" ><a href="/#/"  >Home</a></div>
           <div class="col-xs-4 col-md-4" ><a href="/#/map" >Map</a></div>
           <div class="col-xs-4 col-md-4" ><a href="/#/">Create ad</a></div>
         </div>
       </div>
     </div>
-    <div ng-class="{navMenuVisible: menu}" class="myNavbar">
-      <p><span class="glyphicon glyphicon-user"></span>Coolname MCAwesome</p>
-      <p> <li>Flöde</li></p>
-      <p><li>Karta</li></p>
-      <ul>
-        <p><li>Annonser</li></p>
-        <p><li>Skapa</li></p>
-        <p><li>Sponsrade</li></p>
-      </ul>
-      <p><li>Inställningar</li></p>
-      <p><li>Logga ut</li></p>
-      </ul>
-    </div>
+
     <div ng-view=""></div>
 
     <div class="footer">
@@ -105,6 +105,9 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
