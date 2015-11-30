@@ -56,7 +56,7 @@ button{
 
 }
 .myNavbar li   {
-list-style:none;
+  list-style:none;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -146,8 +146,12 @@ list-style:none;
 }
 
 /*Map styling*/
-.angular-google-map-container { height: 400px; }
-
+.angular-google-map-container {
+  height: 400px;
+}
+iframe{
+  margin-top: 10px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

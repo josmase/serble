@@ -3,26 +3,26 @@
     <h1> Your local services.</h1>
     <p class="lead">
       <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-     Serble connects the people that need help with the people that want to help.
+      Serble connects the people that need help with the people that want to help.
     </p>
     <p><a class="btn btn-lg btn-success" ng-href="#/">Create an ad!</span></a></p>
   </div>
 </div>
 <div class="container">
- <div class="col-xs-12 cards" ng-repeat="card in cards">
-   <div class="row">
-     <div class="col-xs-8">
-       <h3>{{card.header}}</h3>
-     </div>
-   </div>
-   <div class="row">
-     <div class="col-xs-8" >
-       <p>{{card.description}} </p>
-     </div>
-     <div class="col-xs-4 details" >
-       <p>{{card.price | currency : "SEK "}}</p>
-       <p>{{card.locationDistance}}, {{card.location}}</p>
-     </div>
-   </div>
- </div>
+  <div class="col-xs-12 cards" ng-repeat="card in cards">
+    <div class="row">
+      <div class="col-xs-8">
+        <h3>{{card.header}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-8" >
+        <p>{{card.description}} </p>
+      </div>
+      <div class="col-xs-4 details" >
+        <p>{{card.price | currency : "SEK "}}</p>
+        <p>{{card.locationDistance}}, {{card.location}}</p>
+      </div>
+    </div>
+  </div>
 </div>
