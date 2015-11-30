@@ -110,10 +110,6 @@ button {
   padding: 10px;
 }
 
-.secondNav:nth-child(1) {
-  2px solid rgba(228, 228, 228, 1);
-}
-
 /* Main marketing message and create ad button */
 .jumbotron {
   background: rgba(106, 106, 106, 1);;
