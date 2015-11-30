@@ -55,15 +55,28 @@ button {
   line-height: 40px;
   display: inline-block;
 }
-
-#myNavbar li {
-  list-style: none;
+#myNavbar{
+  text-align: center;
 }
 
-#navMenu .menuButton {
-  margin: 0px;
-  z-index: 30;
+#myNavbar #userinfo{
+  border-bottom: 2px solid rgba(228, 228, 228, 1);
 
+  padding: 8%;
+}
+#myNavbar .glyphicon{
+  font-size: 4em;
+  border: 2px solid rgba(228, 228, 228, 1);
+  border-radius: 100%;
+  padding: 5%;
+  margin-bottom: 10px;
+}
+#myNavbar ul{
+  padding: 8%;
+  font-size: 2em;
+}
+#myNavbar li {
+  list-style: none;
 }
 
 /*styling for the search menu*/
@@ -73,14 +86,15 @@ button {
 }
 
 #searchBar {
-  background: white;
+  background-color: rgba(106, 106, 106, 1);
   border-radius: 30px;
-  border: 1px solid #000000;
+  border: 2px solid rgba(228, 228, 228, 1);
   text-align: center;
   padding: 5px;
 }
 
 #searchBar input {
+  background-color: rgba(106, 106, 106, 1);
   outline: 0;
   border: 0;
 }
@@ -95,7 +109,8 @@ button {
   text-align: center;
   padding: 10px;
 }
-.secondNav:nth-child(1){
+
+.secondNav:nth-child(1) {
   2px solid rgba(228, 228, 228, 1);
 }
 
@@ -106,12 +121,15 @@ button {
   border-bottom: 2px solid rgba(228, 228, 228, 1);
   margin-bottom: 0px;
 }
-.jumbotron h1{
+
+.jumbotron h1 {
   color: rgba(228, 228, 228, 1);
 }
-.jumbotron p{
+
+.jumbotron p {
   font-size: 14px;
 }
+
 .jumbotron .btn {
   background: rgba(106, 106, 106, 1);
   border: 2px solid white;
@@ -131,6 +149,7 @@ button {
 
 .cards .details {
   text-align: right;
+  margin-top: 10px;
 }
 
 /* Custom page footer */

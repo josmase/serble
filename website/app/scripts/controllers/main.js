@@ -12,7 +12,7 @@ angular.module('serbleApp')
     $scope.cards = [
       {
         header: "computer wont start",
-        description: "I have an old computer that do not want to start and i want it to start real good",
+        description: "I have an old computer that do not want to start and i want it to start real good. I would also like some candy from the shop if that is possible",
         price: 20,
         locationDistance: 500,
         location: "Umeå"

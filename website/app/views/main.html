@@ -21,9 +21,10 @@
     </div>
     <div class="row">
       <div class="col-xs-8">
-        <p>{{card.description | limitTo:60}}... </p>
+        <p>{{card.description | limitTo:100}}... </p>
       </div>
       <div class="col-xs-4 details">
+        <span class="glyphicon glyphicon-chevron-right"></span>
         <p>{{card.locationDistance}}, {{card.location}}</p>
       </div>
     </div>
