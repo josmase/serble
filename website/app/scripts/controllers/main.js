@@ -35,3 +35,17 @@ angular.module('serbleApp')
     ];
     $scope.apa = "asdasd"
   }]);
+
+angular.module('serbleApp').factory('toolbar', function() {
+  var factory = {};
+
+  factory.method1 = function() {
+    return "hello";
+  }
+
+  factory.method2 = function() {
+    return "foo";
+  }
+
+  return factory;
+});
