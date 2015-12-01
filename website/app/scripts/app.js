@@ -18,9 +18,14 @@ angular
     'ngTouch',
     'ngMessages'
   ])
+  .controller('NavCtrl', function($scope, $location) {
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path);
+    };
+  })
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/home', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -41,6 +46,6 @@ angular
         controllerAs: 'profile'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
       });
   });

@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -73,10 +73,10 @@
 
 
     </nav>
-    <div class="row secondNav">
-      <div class="col-xs-4 col-md-4"><a href="/#/">Home</a></div>
-      <div class="col-xs-4 col-md-4"><a href="/#/map">Map</a></div>
-      <div class="col-xs-4 col-md-4"><a href="/#/createad">Create ad</a></div>
+    <div class="row secondNav" ng-controller="NavCtrl">
+      <div class="col-xs-4 col-md-4" ng-class="{active: getClass('/home')}"><a href="/#/home">Home</a></div>
+      <div class="col-xs-4 col-md-4" ng-class="{active: getClass('/map')}"><a href="/#/map">Map</a></div>
+      <div class="col-xs-4 col-md-4" ng-class="{active: getClass('/createad')}"><a href="/#/createad">Create ad</a></div>
     </div>
   </div>
 </div>
