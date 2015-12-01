@@ -1,0 +1,13 @@
+#profile{
+text-align:center;
+}
+
+.profilePicture span {
+border:2px solid rgba(228, 228, 228, 1);
+border-radius:100%;
+padding:2%;
+display:inline-block;
+font-size:3em;
+}
+
+
