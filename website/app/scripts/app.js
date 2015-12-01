@@ -29,6 +29,11 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
+      .when('/createad', {
+        templateUrl: 'views/createAd.html',
+        controller: 'CreateAdCtrl',
+        controllerAs: 'createAd'
+      })
       .otherwise({
         redirectTo: '/'
       });

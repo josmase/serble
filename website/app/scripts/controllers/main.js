@@ -11,11 +11,12 @@ angular.module('serbleApp')
   .controller('MainCtrl',['$scope', function($scope) {
     $scope.cards = [
       {
-        header: "computer wont start",
+        header: "computer won't start",
         description: "I have an old computer that do not want to start and i want it to start real good. I would also like some candy from the shop if that is possible",
         price: 20,
         locationDistance: 500,
-        location: "Umeå"
+        location: "Umeå",
+        link: "/#/map"
       },
       {
         header: "I need some help with my computer",
