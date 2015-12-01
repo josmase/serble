@@ -1,0 +1,62 @@
+<div class="container" id="profile">
+  <div class="profilePicture">
+    <span class="glyphicon glyphicon-user"></span>
+
+    <p>Change Picture</p>
+  </div>
+  <form name="adForm" novalidate>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
+
+          <input type="text" name="header" class="form "
+                 placeholder="Firstname"
+                 ng-model="main.header"
+                 ng-minlength="5"
+                 ng-maxlength="15"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.header.$error" ng-if="adForm.header.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group"
+             ng-class="{'has-error': adForm.description.$touched && adForm.description.$invalid}">
+
+          <input type="text" name="description" class="form " id="description"
+                 placeholder="Lastname"
+                 ng-model="main.description"
+                 ng-minlength="10"
+                 ng-maxlength="200"
+                 required>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+          <div class="row">
+          <input type="email" name="email" class="form "
+                 placeholder="Email"
+                 ng-model="main.email"
+                 ng-minlength="5"
+                 ng-maxlength="20"
+                 required>
+
+          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+<div class="form-group">
+  <button type="submit" class="btn btn-danger">Submit</button>
+</div>
+
+</form>
+
+</div>
