@@ -108,10 +108,13 @@ button {
 .secondNav {
   text-align: center;
   padding: 20px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .secondNav a {
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 /*is applied to the #secondNav element that is the current page*/
