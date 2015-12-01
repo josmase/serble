@@ -1,1 +1,51 @@
-asdsd
+<div class="container">
+  <div class="col-sm-8 col-sm-offset-2">
+
+    <form name="userForm" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-error': userForm.header.$touched && userForm.header.$invalid }">
+        <label>Header</label>
+        <input type="text" name="header" class="form-control"
+               placeholder="My computer is dead"
+               ng-model="main.header"
+               ng-minlength="5"
+               ng-maxlength="15"
+               required>
+
+        <div class="help-block" ng-messages="userForm.header.$error" ng-if="userForm.header.$touched">
+          <div ng-messages-include="../resources/messages.html"></div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': userForm.description.$touched && userForm.description.$invalid}">
+        <label>Description</label>
+        <input type="text" name="description" class="form-control" id="description"
+               placeholder="I need som help with my computer..."
+               ng-model="main.description"
+               ng-minlength="10"
+               ng-maxlength="200"
+               required>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': userForm.email.$touched && userForm.email.$invalid }">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control"
+               placeholder="knugen@knugen.com"
+               ng-model="main.email"
+               ng-minlength="5"
+               ng-maxlength="20"
+               required>
+
+        <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+          <div ng-messages-include="../resources/messages.html"></div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </div>
+
+    </form>
+  </div><!-- col-sm-8 -->
+</div><!-- /container -->

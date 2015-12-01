@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMessages'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -33,6 +34,11 @@ angular
         templateUrl: 'views/createAd.html',
         controller: 'CreateAdCtrl',
         controllerAs: 'createAd'
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileAdCtrl',
+        controllerAs: 'profile'
       })
       .otherwise({
         redirectTo: '/'
