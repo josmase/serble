@@ -34,29 +34,29 @@
                  required>
         </div>
       </div>
-
-      <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
-          <div class="row">
-          <input type="email" name="email" class="form "
-                 placeholder="Email"
-                 ng-model="main.email"
-                 ng-minlength="5"
-                 ng-maxlength="20"
-                 required>
-
-          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
-            <div ng-messages-include="../resources/messages.html"></div>
-          </div>
-
-        </div>
-      </div>
     </div>
-</div>
-<div class="form-group">
-  <button type="submit" class="btn btn-danger">Submit</button>
-</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
 
-</form>
+            <input type="email" name="email" class="form "
+                   placeholder="Email"
+                   ng-model="main.email"
+                   ng-minlength="5"
+                   ng-maxlength="20"
+                   required>
+
+            <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+              <div ng-messages-include="../resources/messages.html"></div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </div>
+
+  </form>
 
 </div>
