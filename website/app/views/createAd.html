@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container" id="createAd">
 
-    <form name="adForm" novalidate>
+  <form name="adForm" novalidate>
 
-      <div class="row">
+    <div class="row">
+      <div class="col-xs-12">
         <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
 
-          <input type="text" name="header" class="form col-xs-12"
+          <input type="text" name="header" class="form "
                  placeholder="Header"
                  ng-model="main.header"
                  ng-minlength="5"
@@ -16,21 +17,40 @@
             <div ng-messages-include="../resources/messages.html"></div>
           </div>
         </div>
-
+      </div>
+      <div class="col-xs-12">
         <div class="form-group"
              ng-class="{'has-error': adForm.description.$touched && adForm.description.$invalid}">
 
-          <input type="text" name="description" class="form col-xs-12" id="description"
+          <input type="text" name="description" class="form " id="description"
                  placeholder="Description"
                  ng-model="main.description"
                  ng-minlength="10"
                  ng-maxlength="200"
                  required>
         </div>
-
+      </div>
+      <div class="col-xs-12">
         <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
 
-          <input type="email" name="email" class="form col-xs-12"
+          <input type="email" name="email" class="form "
+                 placeholder="Email"
+                 ng-model="main.email"
+                 ng-minlength="5"
+                 ng-maxlength="20"
+                 required>
+
+          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+
+          <input type="email" name="email" class="form "
                  placeholder="Email"
                  ng-model="main.email"
                  ng-minlength="5"
@@ -43,12 +63,32 @@
 
         </div>
       </div>
-      <div class="row">
-
+      <div class="col-xs-12">
+          <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+            <p>Category</p>
+            <span class="caret"></span></button>
+          </button>
+          <ul class="dropdown-menu">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+          </ul>
       </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-danger">Submit</button>
+      <div class="col-xs-12">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+          <p>Category</p>
+          <span class="caret"></span></button>
+        </button>
+        <ul class="dropdown-menu">
+          <li>a</li>
+          <li>b</li>
+          <li>c</li>
+        </ul>
       </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
 
-    </form>
+  </form>
 </div><!-- /container -->

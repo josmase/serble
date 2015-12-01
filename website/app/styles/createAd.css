@@ -1,8 +1,25 @@
-#description{
-  min-height: 24px;
+#createAd {
+  background: rgba(106, 106, 106, 1);
 }
-.form{
+
+#createAd .row {
+  border-top: 4px solid rgba(228, 228, 228, 1);
+  padding: 10px 0px;
+}
+#createAd .form {
   border-color: rgba(228, 228, 228, 1);
-  border-width: 0px 0px 2px 0px;
+  border-width: 0px 0px 4px 0px;
   outline: none;
+  width: 100%;
+
 }
+.dropdown-toggle{
+  border-bottom: 4px solid rgba(228, 228, 228, 1);
+  width: 100%;
+}
+#createAd ul{
+     width: 100%;
+    padding: 10px;
+}
+
+
