@@ -37,7 +37,7 @@ ehthumbs.db
 Thumbs.db
 # Temporary files #
 ###################
-/website/.tmp/styles/main.css
+/website/.tmp/*
 /website/node_modules/grunt-newer/.cache/*
 # idea #
 ########
