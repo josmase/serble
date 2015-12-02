@@ -1,0 +1,63 @@
+#sign_Up .container{
+position:center;
+background:red;
+}
+#sign_Up .row {
+  text-align:center;
+  background-color:rgba(106, 106, 106, 1);
+
+}
+#sign_Up .form {
+  padding:2%;
+}
+#sign_Up h1 {
+color:rgba(226, 226, 226, 1);
+
+}
+#sign_Up p {
+
+}
+#sign_Up #textLogin .col-xs-12 {
+padding: 12%;
+}
+#sign_Up .form-group input {
+background: transparent;
+border: 2px solid rgba(226, 226, 226, 1);
+border-radius:30px;
+outline:none;
+}
+#sign_Up ::-webkit-input-placeholder {
+  text-align: center;
+}
+
+#sign_Up :-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
+#sign_Up ::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+}
+
+#sign_Up :-ms-input-placeholder {
+  text-align: center;
+}
+#sign_Up .form {
+width:223px;
+}
+#sign_Up .form-group button {
+  background: transparent;
+  border: 2px solid rgba(226, 226, 226, 1);
+  border-radius:30px;
+  outline:none;
+  width:223px;
+  margin-top:30px;
+  color:white;
+}
+#sign_Up #login_prompt {
+  color: rgba(226, 226, 226, 1);
+  margin-top:30px;
+}
+#sign_Up #login_prompt a {
+  color:blue;
+  text-decoration: underline;
+}

@@ -1,0 +1,68 @@
+<div class="container" id="sign_Up">
+  <div class="row" id="textLogin">
+    <div class="col-xs-12">
+      <h1>Sign up</h1>
+
+      <p>Lorem ipsum dolor sit amet, qui nibh et elit, molestie donec ut volutpat suscipit habitant dolor, habitant in
+        orci lacus praesent cursus</p>
+    </div>
+  </div>
+  <form name="adForm" novalidate>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
+          <input type="text" name="header" class="form "
+                 placeholder="E-MAIL"
+                 ng-model="main.header"
+                 ng-minlength="5"
+                 ng-maxlength="15"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.header.$error" ng-if="adForm.header.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group"
+             ng-class="{'has-error': adForm.description.$touched && adForm.description.$invalid}">
+          <input type="text" name="description" class="form " id="description"
+                 placeholder="PASSWORD"
+                 ng-model="main.description"
+                 ng-minlength="10"
+                 ng-maxlength="200"
+                 required>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+          <input type="email" name="email" class="form "
+                 placeholder="REPEAT PASSWORD"
+                 ng-model="main.email"
+                 ng-minlength="5"
+                 ng-maxlength="20"
+                 required>
+
+          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-xs-12">
+          <button type="submit" class="btn" value="Submit" ng-disabled="adForm.$invalid">SIGN UP!</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <div class="row"id="login_prompt">
+    <div class="col-xs-12">
+    <p>Already have an account? <a href="#/main">Log in</a>.</p>
+  </div>
+    </div>
+</div>

@@ -35,6 +35,11 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
+            .when('/signUp', {
+              templateUrl: 'views/signUp.html',
+              controller: 'SignUpCtrl',
+              controllerAs: 'signUp'
+            })
       .when('/createad', {
         templateUrl: 'views/createAd.html',
         controller: 'CreateAdCtrl',
