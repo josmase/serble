@@ -1,6 +1,6 @@
 <div class="container" id="createAd">
 
-  <form name="adForm" novalidate>
+  <form ng-submit="adForm.$valid && main.submit()" name="adForm" novalidate>
 
     <div class="row">
       <div class="col-xs-12">
@@ -9,7 +9,7 @@
           <input type="text" name="header" class="form "
                  placeholder="Header"
                  ng-model="main.header"
-                 ng-minlength="5"
+                 ng-minlength="1"
                  ng-maxlength="15"
                  required>
 
@@ -25,22 +25,22 @@
           <input type="text" name="description" class="form " id="description"
                  placeholder="Description"
                  ng-model="main.description"
-                 ng-minlength="10"
+                 ng-minlength="1"
                  ng-maxlength="200"
                  required>
         </div>
       </div>
       <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+        <div class="form-group" ng-class="{ 'has-error': adForm.price.$touched && adForm.price.$invalid }">
 
-          <input type="email" name="email" class="form "
-                 placeholder="Email"
-                 ng-model="main.email"
-                 ng-minlength="5"
-                 ng-maxlength="20"
+          <input type="number" name="price" class="form "
+                 placeholder="Price"
+                 ng-model="main.price"
+                 ng-minlength="1"
+                 ng-maxlength="10"
                  required>
 
-          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+          <div class="help-block" ng-messages="adForm.email.$error" ng-if="adForm.price.$touched">
             <div ng-messages-include="../resources/messages.html"></div>
           </div>
         </div>
@@ -48,47 +48,95 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+          <p>{{type.value}} <span class="caret"></span></p>
 
-          <input type="email" name="email" class="form "
-                 placeholder="Email"
-                 ng-model="main.email"
-                 ng-minlength="5"
-                 ng-maxlength="20"
-                 required>
-
-          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
-            <div ng-messages-include="../resources/messages.html"></div>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-xs-12">
-          <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-            <p>Category</p>
-            <span class="caret"></span></button>
-          </button>
-          <ul class="dropdown-menu">
-            <li>a</li>
-            <li>b</li>
-            <li>c</li>
-          </ul>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <label>
+              <input type="radio" ng-model="type.value" value="Buying">
+              Köpes
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" ng-model="type.value" value="Selling">
+              Säljes
+            </label>
+          </li>
+        </ul>
       </div>
       <div class="col-xs-12">
         <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-          <p>Category</p>
-          <span class="caret"></span></button>
+          <p>{{category.value}} <span class="caret"></span></p>
         </button>
         <ul class="dropdown-menu">
-          <li>a</li>
-          <li>b</li>
-          <li>c</li>
+          <li>
+            <label>
+              <input type="radio" ng-model="category.value" value="Computer">
+              Dator och IT
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" ng-model="category.value" value="Gardening">
+              Trädgårdsarbete
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" ng-model="category.value" value="Favor">
+              Tjänst
+            </label>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-danger">Submit</button>
-    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.zipCode.$touched && adForm.zipCode.$invalid }">
+
+          <input type="number" name="zipCode" class="form "
+                 placeholder="Postnummer 5 siffror"
+                 ng-model="main.zipCode"
+                 ng-minlength="5"
+                 ng-maxlength="5"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.zipCode.$error" ng-if="adForm.zipCode.$touched">
+            <div ng-messages-include="../resources/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group"
+             ng-class="{'has-error': adForm.adress.$touched && adForm.adress.$invalid}">
+
+          <input type="text" name="adress" class="form "
+                 placeholder="Adress"
+                 ng-model="main.adress"
+                 ng-minlength="2"
+                 ng-maxlength="40"
+                 required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-6">
+          <button type="button" class="btn">Cancel</button>
+        </div>
+        <div class="col-xs-6">
+          <button type="submit" class="btn" value="Submit" ng-disabled="adForm.$invalid">Submit</button>
+        </div>
+      </div>
+
 
   </form>
 </div><!-- /container -->
+{{main.zipCode}}
+{{category.value}}
+{{type.value}}
+{{main.description}}
+{{main.header}}
+{{main.price}}
+{{main.adress}}

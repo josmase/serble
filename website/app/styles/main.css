@@ -41,7 +41,7 @@ button {
   padding: 0px;
 }
 
-.glyphicon {
+.material-icons {
   font-size: 1.5em;
   color: rgba(228, 228, 228, 1);
 }
@@ -68,7 +68,7 @@ button {
 
   padding: 8%;
 }
-#myNavbar .glyphicon{
+#myNavbar .material-icons{
   font-size: 4em;
   border: 2px solid rgba(228, 228, 228, 1);
   border-radius: 100%;
