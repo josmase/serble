@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl',['$scope', function($scope) {
+  .controller('MainCtrl', ['$scope', function ($scope) {
     $scope.cards = [
       {
         header: "computer won't start",
@@ -36,16 +36,3 @@ angular.module('serbleApp')
     $scope.apa = "asdasd"
   }]);
 
-angular.module('serbleApp').factory('toolbar', function() {
-  var factory = {};
-
-  factory.method1 = function() {
-    return "hello";
-  }
-
-  factory.method2 = function() {
-    return "foo";
-  }
-
-  return factory;
-});

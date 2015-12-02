@@ -1,36 +1,51 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1> Your local services.</h1>
+<div id="main">
+  <div class="jumbotron" id="pitch">
+    <div class="filter">
+      <div class="container">
+        <h1> Your local services.</h1>
 
+        <p class="lead">Serble connects the people that need help with the people that want to help.</p>
 
-    <p class="lead">Serble connects the people that need help with the people that want to help.</p>
-
-    <p><a class="btn" ng-href="#/createad">CREATE AN AD!</span></a></p>
-  </div>
-</div>
-<div class="cards" ng-repeat="card in cards">
-  <a href="{{card.link}}">
-  <div class="container">
-
-      <div class="row">
-        <div class="col-xs-8">
-          <h4>{{card.header}}</h4>
-        </div>
-        <div class="col-xs-4 details">
-          <p>{{card.price | currency : "SEK "}}</p>
-        </div>
+        <p><a class="btn" ng-href="#/createad">READ MORE!</a></p>
       </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <p>{{card.description | limitTo:100}}... </p>
-        </div>
-        <div class="col-xs-4 details">
-          <i class="material-icons">&#xE5CC;</i>
-
-          <p>{{card.locationDistance}}, {{card.location}}</p>
-        </div>
-      </div>
-
+    </div>
   </div>
-  </a>
+  <div class="cards" ng-repeat="card in cards">
+    <a href="{{card.link}}">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-8">
+            <h4>{{card.header}}</h4>
+          </div>
+          <div class="col-xs-4 details">
+            <p>{{card.price | currency : "SEK "}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-8">
+            <p>{{card.description | limitTo:100}}... </p>
+          </div>
+          <div class="col-xs-4 details">
+            <i class="material-icons">&#xE5CC;</i>
+
+            <p>{{card.locationDistance}}, {{card.location}}</p>
+          </div>
+        </div>
+
+      </div>
+    </a>
+  </div>
+  <div class="jumbotron" id="explanation">
+    <div class="filter">
+      <div class="container">
+        <h1> Your local services.</h1>
+
+
+        <p class="lead">Serble connects the people that need help with the people that want to help.</p>
+
+        <p><a class="btn" ng-href="#/createad">CREATE AN AD!</span></a></p>
+      </div>
+    </div>
+  </div>
 </div>
