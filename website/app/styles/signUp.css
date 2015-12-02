@@ -49,6 +49,15 @@ width:223px;
   border: 2px solid rgba(226, 226, 226, 1);
   border-radius:30px;
   outline:none;
-  width:100%;
+  width:223px;
+  margin-top:30px;
   color:white;
+}
+#sign_Up #login_prompt {
+  color: rgba(226, 226, 226, 1);
+  margin-top:30px;
+}
+#sign_Up #login_prompt a {
+  color:blue;
+  text-decoration: underline;
 }
