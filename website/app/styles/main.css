@@ -9,7 +9,6 @@ body {
   padding: 0;
 }
 
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -23,7 +22,8 @@ p, a, a:hover {
   color: rgba(228, 228, 228, 1);
   font-family: 'Source Sans Pro', sans-serif;
 }
-a, a:hover{
+
+a, a:hover {
   text-decoration: none;
 }
 
@@ -48,7 +48,7 @@ button {
 
 /* Custom page header */
 .header {
-  background-color: rgba(106, 106, 106, 1);
+  background-color: rgba(106, 106, 106, 0);
   border-bottom: 2px solid rgba(228, 228, 228, 1);
 }
 
@@ -59,34 +59,27 @@ button {
   line-height: 40px;
   display: inline-block;
 }
-#myNavbar{
-  text-align: center;
-}
-
-#myNavbar #userinfo{
-  border-bottom: 2px solid rgba(228, 228, 228, 1);
-
-  padding: 8%;
-}
-#myNavbar .material-icons{
-  font-size: 4em;
-  margin-bottom: 10px;
-}
-#myNavbar ul{
-  padding: 8%;
-  font-size: 2em;
-}
-#myNavbar li {
-  list-style: none;
-}
-
 
 /*styling for the search menu*/
 #searchMenu {
   text-align: right;
-  margin-top: 5px;
 }
- .collapse.width {
+
+#firstNav {
+  margin-top: 10px;
+  min-height: 40px;
+}
+
+#firstNav {
+  text-align: center;
+}
+
+#firstNav h4 {
+  margin: 0;
+
+}
+
+#firstNav .collapse.width {
   height: auto;
   -webkit-transition: width 0.35s ease;
   -moz-transition: width 0.35s ease;
@@ -94,23 +87,48 @@ button {
   transition: width 0.35s ease;
 }
 
-
 #searchBar {
   background-color: rgba(106, 106, 106, 1);
   border-radius: 30px;
   border: 2px solid rgba(228, 228, 228, 1);
   text-align: center;
-  padding: 5px;
+  padding: 2px;
 }
 
 #searchBar input {
   background-color: rgba(106, 106, 106, 1);
   outline: 0;
   border: 0;
+  float: left;
+  margin-left: 5px;
+  margin-top: 2px;
+  max-width: 70%;
 }
 
+#myNavbar {
+  text-align: center;
+}
 
-.secondNav {
+#myNavbar #userinfo {
+  border-bottom: 2px solid rgba(228, 228, 228, 1);
+  padding: 8%;
+}
+
+#myNavbar .material-icons {
+  font-size: 4em;
+  margin-bottom: 10px;
+}
+
+#myNavbar ul {
+  padding: 8%;
+  font-size: 2em;
+}
+
+#myNavbar li {
+  list-style: none;
+}
+
+#secondNav {
   text-align: center;
   padding: 20px 0px;
   display: flex;
@@ -118,7 +136,7 @@ button {
   justify-content: space-between;
 }
 
-.secondNav a {
+#secondNav a {
   padding: 5px 15px;
 }
 
@@ -130,7 +148,7 @@ button {
 
 /* Main marketing message and create ad button */
 .jumbotron {
-  background: rgba(106, 106, 106, 1);;
+  background-image: url("");
   text-align: center;
   border-bottom: 2px solid rgba(228, 228, 228, 1);
   margin-bottom: 0px;
@@ -156,7 +174,8 @@ button {
   background: rgba(106, 106, 106, 1);
   border-bottom: 2px solid rgba(228, 228, 228, 1);
 }
-.cards a:hover{
+
+.cards a:hover {
   background: rgba(106, 106, 106, 0.8)
 }
 
@@ -184,7 +203,6 @@ button {
 .angular-google-map-container {
   height: 400px;
 }
-
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
