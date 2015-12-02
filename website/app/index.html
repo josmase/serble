@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -43,14 +43,14 @@
         <!--Hides or shows the search bar on button click-->
         <div class="col-xs-4" id="searchMenu">
           <button type="button" data-toggle="collapse" data-target="#search">
-            <span class="glyphicon glyphicon-search search-icon"></span>
+            <i class="material-icons">&#xE8B6;</i>
           </button>
         </div>
       </div>
       <!--Displayed when .menubutton is pressed-->
       <div class="row collapse" id="myNavbar">
         <div class="col-xs-12" id="userinfo">
-          <span class="glyphicon glyphicon-user"></span>
+          <i class="material-icons">&#xE853;</i>
 
           <p>Anders Karlsson</p>
         </div>
@@ -64,21 +64,23 @@
         </ul>
       </div>
       <!--Displayed when #searchMenu button is pressed-->
-      <div class="row collapse" id="search">
-        <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
-          <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
-          <a class="clear col-xs-1 col-md-1" ng-click="query = null">
-            <span class="glyphicon glyphicon-remove"></span>
-          </a>
-        </form>
+      <div class="row">
+        <div class="collapse width" id="search">
+          <form action="" id="searchBar" class="col-xs-12 col-md-4 ">
+            <input ng-model="query" class="col-xs-10 col-md-10" id="searchInput" placeholder="Search">
+            <a class="clear col-xs-1 col-md-1" ng-click="query = null">
+              <i class="material-icons">&#xE8B6;</i>
+            </a>
+          </form>
+        </div>
       </div>
 
 
     </nav>
     <div class="row secondNav" ng-controller="NavCtrl">
-      <div  ><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
-      <div  ><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
-      <div  ><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
+      <div><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
+      <div><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
+      <div><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
     </div>
   </div>
 </div>
