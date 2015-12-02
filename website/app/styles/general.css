@@ -29,8 +29,7 @@ a, a:hover {
 
 h1, h2, h3, h4 {
   color: rgba(228, 228, 228, 1);
-  font-family: 'Raleway', sans-serif;
-}
+  font-family: 'Montserrat', sans-serif;}
 
 /* Remove default styling from buttons*/
 button {

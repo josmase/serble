@@ -45,6 +45,7 @@
 .cards {
   background: rgb(255, 164, 0);
   border-bottom: 1px solid rgba(228, 228, 228, 1);
+  min-height: 145px;
 }
 
 .cards a:hover {
@@ -57,7 +58,12 @@
 
 .cards .details {
   text-align: right;
+}
+.cards #pay{
   margin-top: 10px;
+}
+.cards #location p{
+  margin-top: 100%;
 }
 
 /* Custom page footer */

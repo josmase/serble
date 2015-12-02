@@ -18,17 +18,15 @@
           <div class="col-xs-8">
             <h4>{{card.header}}</h4>
           </div>
-          <div class="col-xs-4 details">
+          <div class="col-xs-4 details" id="pay">
             <p>{{card.price | currency : "SEK "}}</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-8">
-            <p>{{card.description | limitTo:100}}... </p>
+          <div class="col-xs-10">
+            <p>{{card.description | limitTo:170}}... </p>
           </div>
-          <div class="col-xs-4 details">
-            <i class="material-icons">&#xE5CC;</i>
-
+          <div class="col-xs-2 details" id="location">
             <p>{{card.locationDistance}}, {{card.location}}</p>
           </div>
         </div>
