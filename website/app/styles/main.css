@@ -105,6 +105,10 @@ button {
   max-width: 70%;
 }
 
+#searchBar input::-webkit-input-placeholder, #searchBar input:-moz-placeholder, #searchBar input::-moz-placeholder,#searchBar input:-ms-input-placeholder,#searchBar input:-ms-input-placeholder {
+  color: rgba(228,228,228,1);
+}
+
 #searchBar a {
   float: right;
 }
@@ -231,20 +235,11 @@ button {
 .angular-google-map-container {
   height: 400px;
 }
-::-webkit-input-placeholder {
-  text-align: center;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  text-align: center;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-  text-align: center;
-}
-
-:-ms-input-placeholder {
-  text-align: center;
+/*Remove all ugly number spinners on input elements*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
