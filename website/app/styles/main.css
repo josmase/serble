@@ -1,174 +1,14 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
 
-body {
-  padding: 0;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/*Color and font for all p elements*/
-p, a, a:hover {
-  color: rgba(228, 228, 228, 1);
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-a, a:hover {
-  text-decoration: none;
-}
-
-h1, h2, h3, h4 {
-  color: rgba(228, 228, 228, 1);
-  font-family: 'Raleway', sans-serif;
-}
-
-/* Remove default styling from buttons*/
-button {
-  background: none;
-  border: 0px;
-  display: inline-block;
-  outline: none;
-  padding: 0px;
-}
-
-.material-icons {
-  font-size: 1.5em;
-  color: rgba(228, 228, 228, 1);
-}
-
-/* Custom page header */
-.header {
-  background: rgb(255, 164, 0);
-  border-bottom: 1px solid rgba(228, 228, 228, 1);
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  display: inline-block;
-}
-
-/*styling for the search menu*/
-#searchMenu {
-  text-align: right;
-}
-
-#firstNav {
-  margin-top: 10px;
-}
-
-#firstNav {
-  text-align: center;
-}
-
-#firstNav h4 {
-  margin: 0;
-  min-height: 31px;
-}
-
-#firstNav .collapse.width {
-  height: auto;
-  -webkit-transition: width 0.35s ease;
-  -moz-transition: width 0.35s ease;
-  -o-transition: width 0.35s ease;
-  transition: width 0.35s ease;
-}
-
-#searchBar {
-  background-color: rgba(106, 106, 106, 0);
-  border-radius: 30px;
-  border: 1px solid rgba(228, 228, 228, 1);
-  text-align: center;
-  padding: 0px 1px;
-  box-sizing: border-box;
-}
-
-#searchBar input {
-  background-color: rgba(106, 106, 106, 0);
-  outline: 0;
-  border: 0;
-  height: 100%;
-  margin-left: 5px;
-  margin-top: 1px;
-  max-width: 70%;
-}
-
-#searchBar input::-webkit-input-placeholder, #searchBar input:-moz-placeholder, #searchBar input::-moz-placeholder,#searchBar input:-ms-input-placeholder,#searchBar input:-ms-input-placeholder {
-  color: rgba(228,228,228,1);
-}
-
-#searchBar a {
-  float: right;
-}
-
-#myNavbar {
-  text-align: center;
-}
-
-#myNavbar #userinfo {
-  border-bottom: 1px solid rgba(228, 228, 228, 1);
-  padding: 8%;
-}
-
-#myNavbar .material-icons {
-  font-size: 4em;
-  margin-bottom: 10px;
-}
-
-#myNavbar ul {
-  padding: 8%;
-  font-size: 2em;
-}
-
-#myNavbar li {
-  list-style: none;
-}
-
-#secondNav {
-  text-align: center;
-  padding: 20px 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#secondNav a {
-  padding: 5px 15px;
-}
-
-/*is applied to the #secondNav element that is the current page*/
-.active {
-  border: 1px solid rgba(228, 228, 228, 1);
-  border-radius: 30px;
-}
 
 /* Main marketing message and create ad button */
-.jumbotron {
+#main .jumbotron {
   text-align: center;
   border-bottom: 1px solid rgba(228, 228, 228, 1);
   margin-bottom: 0px;
   padding-bottom: 0px;
   padding-top: 0px;
 }
-.filter{
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-  height: 100%;
-  background: rgba(1,1,1,0.5);
-}
+
 #pitch {
   background: url(./../images/handshake.jpg);
   -webkit-background-size: cover;
@@ -185,17 +25,17 @@ button {
   background-size: cover;
 }
 
-.jumbotron h1 {
+#main .jumbotron h1 {
   color: rgba(228, 228, 228, 1);
   border-bottom: 1px solid rgba(228, 228, 228, 1);
   padding-bottom: 10px;
 }
 
-.jumbotron p {
+#main .jumbotron p {
   font-size: 14px;
 }
 
-.jumbotron .btn {
+#main .jumbotron .btn {
   border: 1px solid white;
   border-radius: 30px;
   padding: 10px 30px;
@@ -235,12 +75,6 @@ button {
 .angular-google-map-container {
   height: 400px;
 }
-/*Remove all ugly number spinners on input elements*/
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -264,7 +98,7 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  #main .jumbotron {
     border-bottom: 0;
   }
 }
