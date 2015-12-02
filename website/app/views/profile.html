@@ -1,6 +1,6 @@
 <div class="container" id="profile">
   <div class="profilePicture">
-    <span class="glyphicon glyphicon-user"></span>
+    <i class="material-icons">&#xE853;</i>
 
     <p>Change Picture</p>
   </div>
@@ -52,10 +52,31 @@
 
           </div>
         </div>
-    </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-danger">Submit</button>
-      </div>
+        <div class="col-xs-12">
+          <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
+
+            <input type="number" name="header" class="form "
+                   placeholder="Phonenumber"
+                   ng-model="main.header"
+                   ng-minlength="10"
+                   ng-maxlength="10"
+                   required>
+
+          </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
+
+              <input type="text" name="header" class="form "
+                     placeholder="Address"
+                     ng-model="main.header"
+                     ng-minlength="10"
+                     ng-maxlength="10"
+                     required>
+
+            </div>
+            </div>
 
   </form>
 
