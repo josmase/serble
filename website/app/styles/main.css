@@ -48,8 +48,8 @@ button {
 
 /* Custom page header */
 .header {
-  background-color: rgba(106, 106, 106, 0);
-  border-bottom: 2px solid rgba(228, 228, 228, 1);
+  background: rgb(255, 164, 0);
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
 }
 
 /* Make the masthead heading the same height as the navigation */
@@ -67,7 +67,6 @@ button {
 
 #firstNav {
   margin-top: 10px;
-  min-height: 40px;
 }
 
 #firstNav {
@@ -76,7 +75,7 @@ button {
 
 #firstNav h4 {
   margin: 0;
-
+  min-height: 31px;
 }
 
 #firstNav .collapse.width {
@@ -88,21 +87,26 @@ button {
 }
 
 #searchBar {
-  background-color: rgba(106, 106, 106, 1);
+  background-color: rgba(106, 106, 106, 0);
   border-radius: 30px;
-  border: 2px solid rgba(228, 228, 228, 1);
+  border: 1px solid rgba(228, 228, 228, 1);
   text-align: center;
-  padding: 2px;
+  padding: 0px 1px;
+  box-sizing: border-box;
 }
 
 #searchBar input {
-  background-color: rgba(106, 106, 106, 1);
+  background-color: rgba(106, 106, 106, 0);
   outline: 0;
   border: 0;
-  float: left;
+  height: 100%;
   margin-left: 5px;
-  margin-top: 2px;
+  margin-top: 1px;
   max-width: 70%;
+}
+
+#searchBar a {
+  float: right;
 }
 
 #myNavbar {
@@ -110,7 +114,7 @@ button {
 }
 
 #myNavbar #userinfo {
-  border-bottom: 2px solid rgba(228, 228, 228, 1);
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
   padding: 8%;
 }
 
@@ -142,20 +146,45 @@ button {
 
 /*is applied to the #secondNav element that is the current page*/
 .active {
-  border: 2px solid rgba(228, 228, 228, 1);
+  border: 1px solid rgba(228, 228, 228, 1);
   border-radius: 30px;
 }
 
 /* Main marketing message and create ad button */
 .jumbotron {
-  background-image: url("");
   text-align: center;
-  border-bottom: 2px solid rgba(228, 228, 228, 1);
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
   margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+.filter{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  background: rgba(1,1,1,0.5);
+}
+#pitch {
+  background: url(./../images/handshake.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#explanation {
+  background: url(./../images/carGps.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .jumbotron h1 {
   color: rgba(228, 228, 228, 1);
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
+  padding-bottom: 10px;
 }
 
 .jumbotron p {
@@ -163,16 +192,15 @@ button {
 }
 
 .jumbotron .btn {
-  background: rgba(106, 106, 106, 1);
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 30px;
   padding: 10px 30px;
 }
 
 /*Make the cards white and ad some padding*/
 .cards {
-  background: rgba(106, 106, 106, 1);
-  border-bottom: 2px solid rgba(228, 228, 228, 1);
+  background: rgb(255, 164, 0);
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
 }
 
 .cards a:hover {
@@ -203,7 +231,21 @@ button {
 .angular-google-map-container {
   height: 400px;
 }
+::-webkit-input-placeholder {
+  text-align: center;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

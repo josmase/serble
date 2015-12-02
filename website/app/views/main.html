@@ -1,16 +1,17 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1> Your local services.</h1>
+<div class="jumbotron" id="pitch">
+  <div class="filter">
+    <div class="container">
+      <h1> Your local services.</h1>
 
+      <p class="lead">Serble connects the people that need help with the people that want to help.</p>
 
-    <p class="lead">Serble connects the people that need help with the people that want to help.</p>
-
-    <p><a class="btn" ng-href="#/createad">CREATE AN AD!</span></a></p>
+      <p><a class="btn" ng-href="#/createad">READ MORE!</a></p>
+    </div>
   </div>
 </div>
 <div class="cards" ng-repeat="card in cards">
   <a href="{{card.link}}">
-  <div class="container">
+    <div class="container">
 
       <div class="row">
         <div class="col-xs-8">
@@ -31,6 +32,18 @@
         </div>
       </div>
 
-  </div>
+    </div>
   </a>
+</div>
+<div class="jumbotron" id="explanation">
+  <div class="filter" >
+  <div class="container">
+    <h1> Your local services.</h1>
+
+
+    <p class="lead">Serble connects the people that need help with the people that want to help.</p>
+
+    <p><a class="btn" ng-href="#/createad">CREATE AN AD!</span></a></p>
+  </div>
+  </div>
 </div>
