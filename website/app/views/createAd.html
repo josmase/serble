@@ -75,7 +75,7 @@
       <div class="col-xs-12">
         <div class="form-group" ng-class="{ 'has-error': adForm.phonenumber.$touched && adForm.phonenumber.$invalid }">
 
-          <input type="number" name="phonenumber" class="form "
+          <input type="tel" name="phonenumber" class="form "
                  placeholder="Phone number"
                  ng-model="main.phonenumber"
                  ng-minlength="10"
@@ -94,7 +94,7 @@
                  placeholder="Email"
                  ng-model="main.email"
                  ng-minlength="1"
-                 ng-maxlength="10"
+                 ng-maxlength="100"
                  required>
 
           <div class="help-block" ng-messages="adForm.email.$error" ng-if="adForm.email.$touched">
