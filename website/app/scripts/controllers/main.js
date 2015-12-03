@@ -11,27 +11,42 @@ angular.module('serbleApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
     $scope.cards = [
       {
-        header: "computer won't start",
-        description: "I have an old computer that do not want to start and i want it to start real good. I would also like some candy from the shop if that is possible",
+        header: "Barnvakt",
+        description: "porttitor vestibulum, magna est. Molestie quisque sit. Diam sapien vestibulum faucibus, vitae massa. Ut vehicula felis placerat vel posuere, nisl dictumst massa non ",
         price: 20,
         locationDistance: 500,
         location: "Umeå",
         link: "/#/map"
       },
       {
-        header: "I need some help with my computer",
-        description: "I have an old computer that wont start",
+        header: "Gå ut med hund",
+        description: "Lorem ipsum dolor sit amet, neque consectetuer tincidunt nulla, venenatis pede elit praesent risus, vitae eos lobortis vestibulum nunc sodales mi, bibendum in sed ipsum ",
         price: 20,
         locationDistance: 500,
         location: "Umeå"
       },
       {
-        header: "I need some help with my computer",
-        description: "I have an old computer that wont start",
+        header: "Tvätta bil",
+        description: "et justo, risus fermentum integer nunc habitasse quam. Ut velit pulvinar non ligula, lorem turpis magna dui suscipit nam nulla, sit nunc id vulputate, ac nunc lorem. Iaculis ",
+        price: 20,
+        locationDistance: 500,
+        location: "Umeå"
+      },
+      {
+        header: "Gräsklippning",
+        description: "sit ultrices. Est enim semper ultricies sociosqu, pede justo in pede, magna tempor a fringilla eu odio. Vel lacinia fermentum, torquent nulla convallis justo quam tortor",
+        price: 20,
+        locationDistance: 500,
+        location: "Umeå"
+      },
+      {
+        header: "Städa",
+        description: "ruscipit, aliquet ornare consequatur adipiscing eu. Luctus hendrerit non, mauris elit pharetra nec, eros quam penatibus, adipiscing aliquam tellus saepe. Urna wisi orc",
         price: 20,
         locationDistance: 500,
         location: "Umeå"
       }
+
     ];
     $scope.apa = "asdasd"
   }]);
