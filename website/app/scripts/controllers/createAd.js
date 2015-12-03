@@ -13,5 +13,5 @@ angular.module('serbleApp')
       submit: function(){
         console.log($scope.main.header);
       }
-    }
+    };
   });
