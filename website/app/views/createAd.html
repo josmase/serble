@@ -28,7 +28,7 @@
                     placeholder="Description"
                     ng-model="main.description"
                     ng-minlength="1"
-                    ng-maxlength="10"
+                    ng-maxlength="1000"
                     required>
             </textarea>
         </div>
@@ -41,7 +41,7 @@
         <div class="form-group" ng-class="{ 'has-error': adForm.price.$touched && adForm.price.$invalid }">
 
           <input type="number" name="price" class="form "
-                 placeholder="Price"
+                 placeholder="Price only numbers"
                  ng-model="main.price"
                  ng-minlength="1"
                  ng-maxlength="10"

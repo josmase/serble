@@ -9,5 +9,9 @@
  */
 angular.module('serbleApp')
   .controller('SignUpCtrl', function($scope) {
-
+    $scope.main = {
+      submit: function(){
+        console.log($scope.main.password);
+      }
+    }
   });

@@ -9,6 +9,10 @@
  */
 angular.module('serbleApp')
   .controller('ProfileCtrl', function ($scope) {
-    // function to submit the form after all validation has occurred
+    $scope.main = {
+      submit: function(){
+        console.log($scope.main.firstname);
+      }
+    }
 
   });

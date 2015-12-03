@@ -35,11 +35,11 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
-            .when('/signUp', {
-              templateUrl: 'views/signUp.html',
-              controller: 'SignUpCtrl',
-              controllerAs: 'signUp'
-            })
+      .when('/signUp', {
+        templateUrl: 'views/signUp.html',
+        controller: 'SignUpCtrl',
+        controllerAs: 'signUp'
+      })
       .when('/createad', {
         templateUrl: 'views/createAd.html',
         controller: 'CreateAdCtrl',
@@ -47,7 +47,7 @@ angular
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: 'ProfileAdCtrl',
+        controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
       .otherwise({
