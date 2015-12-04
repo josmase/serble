@@ -1,48 +1,19 @@
-#profile {
+#adInfo{
+  background: url(../images/brush.jpg);
+}
+
+#adInfo .filter{
+  height: 100%;
+  min-height: 500px;
+}
+
+#adInfo .col-xs-12 .material-icons {
+  float: left;
+  padding-right: 10px;
+}
+
+#adInfo #header {
+  margin: 20px 0px;
   text-align: center;
-  background-color: rgba(106, 106, 106, 1);
-  border-bottom: 1px;
-}
-
-#profile .profilePicture .material-icons {
-  display: inline-block;
-  font-size: 4em;
-
-}
-
-#profile #Email {
-  margin-top: 10px;
-}
-
-#profile .form-group {
-  margin-bottom: 10px;
-}
-
-
-#profile .row {
-  border-top: 1px solid rgba(228, 228, 228, 1);
-  padding: 30px 20px;
-}
-
-#profile .form-group input {
-  outline: none;
-  background-color: rgba(106, 106, 106, 1);
-  border-width: 0 0 1px 0;
-  border-color: rgba(228, 228, 228, 1);
-  border-style: solid;
-  width: 100%;
-}
-.form-group .col-xs-6{
-  text-align: center;
-  margin-top: 30px;
-  font-color:red;
-}
-.form-group .col-xs-6 button{
-  border:  1px solid rgba(228, 228, 228, 1);
-  border-radius: 30px;
-  padding: 5px 10px;
-
-}
-.btn {
-font-color:red;
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
 }

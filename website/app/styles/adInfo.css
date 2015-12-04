@@ -14,7 +14,11 @@
 
 #adInfo #header {
   margin: 20px 0px;
+  text-align: center;
   border-bottom: 1px solid rgba(228, 228, 228, 1);
+}
+#adInfo #alignRight{
+  text-align: right;
 }
 
 

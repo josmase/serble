@@ -16,6 +16,8 @@ angular.module('serbleApp')
     $scope.zipCode = '90333';
     $scope.city = 'Umeå';
     $scope.phonenumber = '070-13234543';
-    $scope.email = 'kakmonster@kladdkaka.com'
-
+    $scope.email = 'kakmonster@kladdkaka.com';
+    $scope.price = '2000';
+    $scope.type = 'Behöver hjälp';
+    $scope.category = 'städhjälp';
   });
