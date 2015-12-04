@@ -1,6 +1,7 @@
-#sign_Up{
+#sign_Up {
   background: url("../images/brush.jpg");
 }
+
 #sign_Up .container {
   position: center;
   background: red;
@@ -24,12 +25,14 @@
 }
 
 #sign_Up .form-group input {
+  text-align: center;
   background: transparent;
   border: 1px solid rgba(226, 226, 226, 1);
   border-radius: 30px;
   outline: none;
   padding: 2%;
-  width: 90%
+  width: 90%;
+  color: rgba(226, 226, 226, 1);
 }
 
 #sign_Up ::-webkit-input-placeholder {
@@ -49,15 +52,16 @@
 }
 
 #sign_Up .form-group button {
-  background: rgba(255,164,0,1);
-  border: 1px solid rgba(255,164,0,1);
+  background: rgba(255, 164, 0, 1);
+  border: 1px solid rgba(255, 164, 0, 1);
   border-radius: 30px;
   outline: none;
   width: 90%;
   margin-top: 30px;
   color: white;
 }
-#sign_Up .form-group #facebook{
+
+#sign_Up .form-group #facebook {
   background: #3B5998;
   border-color: #3B5998;
 }
