@@ -169,7 +169,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-<<<<<<< HEAD
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -197,12 +196,4 @@ input[type=number]::-webkit-outer-spin-button {
     border-bottom: 0;
   }
 }
-=======
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
->>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3

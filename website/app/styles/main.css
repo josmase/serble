@@ -28,7 +28,7 @@
 #explanation p {
 margin-bottom:0px;
 }
-#explanation .filter .row .col-xs-6   #terms {
+#explanation .filter .row .col-xs-6 #terms {
     margin-top: 10px;
 }
 #main #explanation .row {
@@ -72,56 +72,8 @@ margin-top:20px;
 .cards #pay{
   margin-top: 10px;
 }
-<<<<<<< HEAD
 
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-=======
 .cards #location p{
   margin-top: 100%;
->>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
-}
-
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-<<<<<<< HEAD
-/*Map styling*/
-.angular-google-map-container {
-  height: 400px;
-=======
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  button:hover {
-    background: black;
-  }
-
-  #searchBar {
-    float: right;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  #main .jumbotron {
-    border-bottom: 0;
-  }
->>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
 }

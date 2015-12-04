@@ -19,13 +19,8 @@ angular.module('serbleApp')
         link: "/#/map"
       },
       {
-<<<<<<< HEAD
-        header: "Gå ut med hund",
-        description: "Lorem ipsum dolor sit amet, neque consectetuer tincidunt nulla, venenatis pede elit praesent risus, vitae eos lobortis vestibulum nunc sodales mi, bibendum in sed ipsum ",
-=======
         header: "I need some help with my computer",
         description: "Lorem ipsum dolor sit amet, i majestät öppnade havet, i kupol levande, är det nödvändigt att vara oense med honom i hans ett. Innan du väljer fotboll Purto oro, eftersom den period som du vill varje dag. Slutligen, när knappt tonåring, men för att förstå det, är en liten smak av hat. Till storhet accumsan en NEC eu honom den eviga Helige Ande.",
->>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
         price: 20,
         locationDistance: 500,
         location: "Umeå"
