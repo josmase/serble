@@ -17,7 +17,7 @@ angular.module('serbleApp')
       zoom: 12,
       markers: [], // array of models to display
       markersEvents: {
-        click: function(marker, eventName, model, arguments) {
+        click: function(marker, eventName, model) {
           $scope.map.window.model = model;
           $scope.map.window.show = true;
         }
