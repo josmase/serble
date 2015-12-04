@@ -1,10 +1,144 @@
 <div class="container" id="createAd">
+  <div class="row noBorder">
+    <div class="col-xs-12">
+      <h3>Skapa Annons</h3>
+    </div>
+  </div>
 
   <form ng-submit="adForm.$valid && main.submit()" name="adForm" novalidate>
+    <div class="row noBorder">
+      <div class="col-lg-12">
+        <h4>Kontaktuppgifter</h4>
+        </div>
+      </div>
+    <div class="row" >
+      <div class="col-xs-12">
 
+
+        <div class="form-group" ng-class="{ 'has-error': adForm.fname.$touched && adForm.fname.$invalid }">
+
+          <input type="text" name="fname" class="form "
+                 placeholder="Förnamn"
+                 ng-model="main.fname"
+                 ng-minlength="1"
+                 ng-maxlength="70"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.fname.$error" ng-if="adForm.fname.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.lname.$touched && adForm.lname.$invalid }">
+
+          <input type="text" name="lname" class="form "
+                 placeholder="Efternamn"
+                 ng-model="main.lname"
+                 ng-minlength="1"
+                 ng-maxlength="70"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.lname.$error" ng-if="adForm.lname.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>What do you need help with?</h4>
+        <div class="form-group"
+             ng-class="{'has-error': adForm.adress.$touched && adForm.adress.$invalid}">
+
+          <input type="text" name="adress" class="form "
+                 placeholder="Adress"
+                 ng-model="main.adress"
+                 ng-minlength="1"
+                 ng-maxlength="70"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.zipCode.$error" ng-if="adForm.zipCode.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.city.$touched && adForm.city.$invalid }">
+
+          <input type="text" name="city" class="form "
+                 placeholder="Stad"
+                 ng-model="main.city"
+                 ng-minlength="1"
+                 ng-maxlength="70"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.city.$error" ng-if="adForm.city.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.zipCode.$touched && adForm.zipCode.$invalid }">
+
+          <input type="number" name="zipCode" class="form "
+                 placeholder="Postnummer 5 siffror"
+                 ng-model="main.zipCode"
+                 ng-minlength="5"
+                 ng-maxlength="5"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.zipCode.$error" ng-if="adForm.zipCode.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.phonenumber.$touched && adForm.phonenumber.$invalid }">
+
+          <input type="tel" name="phonenumber" class="form "
+                 placeholder="Phone number"
+                 ng-model="main.phonenumber"
+                 ng-minlength="10"
+                 ng-maxlength="10"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.phonenumber.$error" ng-if="adForm.phonenumber.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
+
+          <input type="email" name="email" class="form "
+                 placeholder="Email"
+                 ng-model="main.email"
+                 ng-minlength="1"
+                 ng-maxlength="100"
+                 required>
+
+          <div class="help-block" ng-messages="adForm.email.$error" ng-if="adForm.email.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+     <div class="row noBorder">
+       <div class="col-lg-12">
+               <h4>Annons</h4>
+       </div>
+     </div>
+    <div class="row " >
+      <div class="col-xs-12">
+
+
         <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
 
           <input name="header" class="form "
@@ -37,7 +171,6 @@
           <div ng-messages-include="../views/messages.html"></div>
         </div>
       </div>
-
       <div class="col-xs-12">
         <div class="form-group" ng-class="{ 'has-error': adForm.price.$touched && adForm.price.$invalid }">
 
@@ -56,55 +189,6 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h4>Contact information</h4>
-        <div class="form-group" ng-class="{ 'has-error': adForm.name.$touched && adForm.name.$invalid }">
-
-          <input type="text" name="name" class="form "
-                 placeholder="Name"
-                 ng-model="main.name"
-                 ng-minlength="1"
-                 ng-maxlength="70"
-                 required>
-
-          <div class="help-block" ng-messages="adForm.name.$error" ng-if="adForm.name.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.phonenumber.$touched && adForm.phonenumber.$invalid }">
-
-          <input type="tel" name="phonenumber" class="form "
-                 placeholder="Phone number"
-                 ng-model="main.phonenumber"
-                 ng-minlength="10"
-                 ng-maxlength="10"
-                 required>
-
-          <div class="help-block" ng-messages="adForm.phonenumber.$error" ng-if="adForm.phonenumber.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
-
-          <input type="email" name="email" class="form "
-                 placeholder="Email"
-                 ng-model="main.email"
-                 ng-minlength="1"
-                 ng-maxlength="100"
-                 required>
-
-          <div class="help-block" ng-messages="adForm.email.$error" ng-if="adForm.email.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         <div class="form-group"
              ng-class="{'has-error': adForm.type.$touched && adForm.type.$invalid}">
 
@@ -116,10 +200,12 @@
             <option value="buying">Buying</option> <!-- interpolation -->
             <option value="gardening">Selling</option>
           </select>
+
+          <div class="help-block" ng-messages="adForm.type.$error" ng-if="adForm.type.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
         </div>
-        <div class="help-block" ng-messages="adForm.type.$error" ng-if="adForm.type.$touched">
-          <div ng-messages-include="../views/messages.html"></div>
-        </div>
+
       </div>
       <div class="col-xs-12">
         <div class="form-group"
@@ -133,56 +219,21 @@
             <option value="gardening">Gardening</option>
           </select>
         </div>
-        <div class="help-block" ng-messages="adForm.type.$error" ng-if="adForm.type.$touched">
+        <div class="help-block" ng-messages="adForm.category.$error" ng-if="adForm.category.$touched">
           <div ng-messages-include="../views/messages.html"></div>
         </div>
       </div>
-
     </div>
-
-    <div class="row">
-      <div class="col-xs-12">
-        <h4>Where do you need help?</h4>
-        <div class="form-group" ng-class="{ 'has-error': adForm.zipCode.$touched && adForm.zipCode.$invalid }">
-
-          <input type="number" name="zipCode" class="form "
-                 placeholder="Postnummer 5 siffror"
-                 ng-model="main.zipCode"
-                 ng-minlength="5"
-                 ng-maxlength="5"
-                 required>
-
-          <div class="help-block" ng-messages="adForm.zipCode.$error" ng-if="adForm.zipCode.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
-        </div>
+    <div class="form-group">
+      <div class="col-xs-6">
+        <button type="button" class="btn">Cancel</button>
       </div>
-      <div class="col-xs-12">
-        <div class="form-group"
-             ng-class="{'has-error': adForm.adress.$touched && adForm.adress.$invalid}">
-
-          <input type="text" name="adress" class="form "
-                 placeholder="Adress"
-                 ng-model="main.adress"
-                 ng-minlength="2"
-                 ng-maxlength="40"
-                 required>
-        </div>
-        <div class="help-block" ng-messages="adForm.zipCode.$error" ng-if="adForm.zipCode.$touched">
-          <div ng-messages-include="../views/messages.html"></div>
-        </div>
+      <div class="col-xs-6">
+        <button type="submit" class="btn" value="Submit" ng-disabled="adForm.$invalid">Submit</button>
       </div>
-      <div class="form-group">
-        <div class="col-xs-6">
-          <button type="button" class="btn">Cancel</button>
-        </div>
-        <div class="col-xs-6">
-          <button type="submit" class="btn" value="Submit" ng-disabled="adForm.$invalid">Submit</button>
-        </div>
-      </div>
+    </div>
 
 
   </form>
 </div><!-- /container -->
-{{main.description}}
 
