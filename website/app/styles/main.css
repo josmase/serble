@@ -23,8 +23,17 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
 
+}
+#explanation p {
+margin-bottom:0px;
+}
+#explanation .filter .row .col-xs-6   #terms {
+    margin-top: 10px;
+}
+#main #explanation .row {
+margin-top:20px;
+}
 #main .jumbotron h1 {
   color: rgba(228, 228, 228, 1);
   border-bottom: 1px solid rgba(228, 228, 228, 1);
@@ -42,28 +51,39 @@
 }
 
 /*Make the cards white and ad some padding*/
-.cards {
+#main .cards {
   background: rgb(255, 164, 0);
   border-bottom: 1px solid rgba(228, 228, 228, 1);
   min-height: 145px;
 }
 
-.cards a:hover {
-  background: rgba(106, 106, 106, 0.8)
+#main .cards a:hover {
+  background: rgba(106, 106, 106, 0.8);
 }
 
-.cards h3 {
+#main .cards h3 {
   padding: 0;
 }
 
-.cards .details {
+
+#main .cards .details {
   text-align: right;
 }
 .cards #pay{
   margin-top: 10px;
 }
+<<<<<<< HEAD
+
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+=======
 .cards #location p{
   margin-top: 100%;
+>>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
 }
 
 
@@ -71,6 +91,11 @@
   margin: 30px 0;
 }
 
+<<<<<<< HEAD
+/*Map styling*/
+.angular-google-map-container {
+  height: 400px;
+=======
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -98,4 +123,5 @@
   #main .jumbotron {
     border-bottom: 0;
   }
+>>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
 }
