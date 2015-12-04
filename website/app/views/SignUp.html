@@ -7,54 +7,58 @@
         orci lacus praesent cursus</p>
     </div>
   </div>
-  <form name="adForm" novalidate>
+  <form name="createUserForm" novalidate>
     <div class="row">
       <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.header.$touched && adForm.header.$invalid }">
-          <input type="text" name="header" class="form "
+        <div class="form-group" ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
+          <input type="email" name="eMail" class="form "
                  placeholder="E-MAIL"
-                 ng-model="main.header"
-                 ng-minlength="5"
-                 ng-maxlength="15"
+                 ng-model="main.eMail"
+                 ng-minlength="0"
+                 ng-maxlength="40"
                  required>
 
-          <div class="help-block" ng-messages="adForm.header.$error" ng-if="adForm.header.$touched">
-            <div ng-messages-include="../resources/messages.html"></div>
+          <div class="help-block" ng-messages="createUserForm.eMail.$error" ng-if="createUserForm.eMail.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
           </div>
         </div>
       </div>
       <div class="col-xs-12">
         <div class="form-group"
-             ng-class="{'has-error': adForm.description.$touched && adForm.description.$invalid}">
-          <input type="text" name="description" class="form " id="description"
+             ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+          <input type="password" name="password" class="form " id="password"
                  placeholder="PASSWORD"
-                 ng-model="main.description"
-                 ng-minlength="10"
+                 ng-model="main.password"
+                 ng-minlength="4"
                  ng-maxlength="200"
                  required>
+        </div>
+        <div class="help-block" ng-messages="createUserForm.password.$error" ng-if="createUserForm.password.$touched">
+          <div ng-messages-include="../views/messages.html"></div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div class="form-group" ng-class="{ 'has-error': adForm.email.$touched && adForm.email.$invalid }">
-          <input type="email" name="email" class="form "
+        <div class="form-group" ng-class="{ 'has-error': createUserForm.passwordRe.$touched && createUserForm.passwordRe.$invalid }">
+          <input type="password" name="passwordRe" class="form "
                  placeholder="REPEAT PASSWORD"
-                 ng-model="main.email"
-                 ng-minlength="5"
-                 ng-maxlength="20"
+                 ng-model="main.passwordRe"
+                 ng-minlength="4"
+                 ng-maxlength="200"
                  required>
 
-          <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
-            <div ng-messages-include="../resources/messages.html"></div>
+          <div class="help-block" ng-messages="createUserForm.passwordRe.$error" ng-if="createUserForm.passwordRe.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
           </div>
+          {{main.passwordRe}}
         </div>
       </div>
     </div>
     <div class="row">
       <div class="form-group">
         <div class="col-xs-12">
-          <button type="submit" class="btn" value="Submit" ng-disabled="adForm.$invalid">SIGN UP!</button>
+          <button type="submit" class="btn" value="Submit" ng-disabled="createUserForm.$invalid">SIGN UP!</button>
         </div>
       </div>
     </div>

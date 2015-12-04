@@ -18,17 +18,15 @@
           <div class="col-xs-8">
             <h4>{{card.header}}</h4>
           </div>
-          <div class="col-xs-4 details">
+          <div class="col-xs-4 details" id="pay">
             <p>{{card.price | currency : "SEK "}}</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-8">
-            <p>{{card.description | limitTo:100}}... </p>
+          <div class="col-xs-10">
+            <p>{{card.description | limitTo:170}}... </p>
           </div>
-          <div class="col-xs-4 details">
-            <i class="material-icons">&#xE5CC;</i>
-
+          <div class="col-xs-2 details" id="location">
             <p>{{card.locationDistance}}, {{card.location}}</p>
           </div>
         </div>
@@ -39,14 +37,18 @@
   <div class="jumbotron" id="explanation">
     <div class="filter">
       <div class="container">
+<<<<<<< HEAD
         <div id="view_more">
           <p>View more</p>
           <i class="material-icons">&#xE313;</i>
         </div>
         <h1> What is Serble?</h1>
+=======
+        <h1>What is Serble?</h1>
+>>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
 
 
-        <p class="lead">Serble connects the people that need help with the people that want to help.</p>
+        <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way for citizens to perform small time jobs and earn money.</p>
 
         <p><a class="btn" ng-href="#/createad">CREATE AN AD!</a></p>
       </div>

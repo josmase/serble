@@ -16,12 +16,19 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMessages'
+    'ngMessages',
+    'uiGmapgoogle-maps'
   ])
-  .controller('NavCtrl', function($scope, $location) {
+  .controller('NavCtrl', function ($scope, $location) {
     $scope.getClass = function (path) {
       return ($location.path().substr(0, path.length) === path);
     };
+  }).config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+       key: 'AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk',
+      v: '3.20', //defaults to latest 3.X anyhow
+      libraries: 'weather,geometry,visualization'
+    });
   })
   .config(function ($routeProvider) {
     $routeProvider
@@ -35,11 +42,11 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
-            .when('/signUp', {
-              templateUrl: 'views/signUp.html',
-              controller: 'SignUpCtrl',
-              controllerAs: 'signUp'
-            })
+      .when('/signUp', {
+        templateUrl: 'views/signUp.html',
+        controller: 'SignUpCtrl',
+        controllerAs: 'signUp'
+      })
       .when('/createad', {
         templateUrl: 'views/createAd.html',
         controller: 'CreateAdCtrl',
@@ -47,10 +54,11 @@ angular
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: 'ProfileAdCtrl',
+        controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
       .otherwise({
         redirectTo: '/home'
       });
+
   });

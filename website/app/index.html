@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -17,11 +17,17 @@
   <link rel="stylesheet" href="styles/createAd.css">
   <link rel="stylesheet" href="styles/profile.css">
   <link rel="stylesheet" href="styles/SignUp.css">
+<<<<<<< HEAD
+=======
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/map.css">
+>>>>>>> 841b92e42827408e6a1085d4d0ab9467273784b3
   <!-- endbuild -->
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet'
         type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="serbleApp">
 <!--[if lte IE 8]>
@@ -45,7 +51,7 @@
         <div class="col-xs-8">
           <div class="collapse  apa right" id="search">
             <form action="" id="searchBar">
-              <input ng-model="query"  id="searchInput" placeholder="Search">
+              <input type="search" ng-model="query"  id="searchInput" placeholder="Search">
               <a class="clear" ng-click="query = null">
                 <i class="material-icons">&#xE5C9;</i>
               </a>
@@ -70,11 +76,11 @@
           <p>Anders Karlsson</p>
         </div>
         <ul class="col-xs-12">
-          <li><p>Start</p></li>
+          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/home"><p>Start</p></a></li>
           <li><p>Feed</p></li>
-          <li><p>Map</p></li>
-          <li><p>Create add</p></li>
-          <li><p>Profile</p></li>
+          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/map"><p>Map</p></a></li>
+          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/createad"><p>Create ad</p></a></li>
+          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/profile"><p>Profile</p></a></li>
           <li><p>Sign out</p></li>
         </ul>
       </div>
