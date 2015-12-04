@@ -62,6 +62,11 @@ angular
         controller: 'AdInfoCtrl',
         controllerAs: 'adInfo'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/home'
       });
