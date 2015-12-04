@@ -42,7 +42,7 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
-      .when('/signUp', {
+      .when('/signup', {
         templateUrl: 'views/signUp.html',
         controller: 'SignUpCtrl',
         controllerAs: 'signUp'
