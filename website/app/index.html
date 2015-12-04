@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="styles/map.css">
   <link rel="stylesheet" href="styles/adInfo.css">
   <link rel="stylesheet" href="styles/login.css">
+  <link rel="stylesheet" href="styles/createProfile.css">
   <!-- endbuild -->
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet'
         type='text/css'>
@@ -38,53 +39,51 @@
 <div class="header">
   <div class="container">
 
-      <div class="row" id="firstNav">
-        <div class="col-xs-2" id="navMenu">
-          <!--Hides or shows the nav bar on button click-->
-          <button type="button" data-toggle="collapse" data-target="#myNavbar" class="menuButton">
-            <i class="material-icons">&#xE5D2;</i>
-          </button>
-        </div>
-
-
-        <div class="col-xs-8">
-          <div class="collapse  apa right" id="search">
-            <form action="" id="searchBar">
-              <input type="search" ng-model="query"  id="searchInput" placeholder="Search">
-              <a class="clear" ng-click="query = null">
-                <i class="material-icons">&#xE5C9;</i>
-              </a>
-            </form>
-          </div>
-
-          <h4 class=" collapse right apa in">Serble</h4>
-        </div>
-        <!--Hides or shows the search bar on button click-->
-        <div class="col-xs-2" id="searchMenu">
-          <button type="button" data-toggle="collapse" data-target=".apa">
-            <i class="material-icons">&#xE8B6;</i>
-          </button>
-        </div>
-      </div>
-
-      <!--Displayed when .menubutton is pressed-->
-      <div class="row collapse" id="myNavbar">
-        <div class="col-xs-12" id="userinfo">
-          <i class="material-icons">&#xE853;</i>
-
-          <p>Anders Karlsson</p>
-        </div>
-        <ul class="col-xs-12">
-          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/home"><p>Start</p></a></li>
-          <li><p>Feed</p></li>
-          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/map"><p>Map</p></a></li>
-          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/createad"><p>Create ad</p></a></li>
-          <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/profile"><p>Profile</p></a></li>
-          <li><p>Sign out</p></li>
-        </ul>
+    <div class="row" id="firstNav">
+      <div class="col-xs-2" id="navMenu">
+        <!--Hides or shows the nav bar on button click-->
+        <button type="button" data-toggle="collapse" data-target="#myNavbar" class="menuButton">
+          <i class="material-icons">&#xE5D2;</i>
+        </button>
       </div>
 
 
+      <div class="col-xs-8">
+        <div class="collapse  apa right" id="search">
+          <form action="" id="searchBar">
+            <input type="search" ng-model="query" id="searchInput" placeholder="Search">
+            <a class="clear" ng-click="query = null">
+              <i class="material-icons">&#xE5C9;</i>
+            </a>
+          </form>
+        </div>
+
+        <h4 class=" collapse right apa in">Serble</h4>
+      </div>
+      <!--Hides or shows the search bar on button click-->
+      <div class="col-xs-2" id="searchMenu">
+        <button type="button" data-toggle="collapse" data-target=".apa">
+          <i class="material-icons">&#xE8B6;</i>
+        </button>
+      </div>
+    </div>
+
+    <!--Displayed when .menubutton is pressed-->
+    <div class="row collapse" id="myNavbar">
+      <div class="col-xs-12" id="userinfo">
+        <i class="material-icons">&#xE853;</i>
+
+        <p>Anders Karlsson</p>
+      </div>
+      <ul class="col-xs-12">
+        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/home"><p>Start</p></a></li>
+        <li><p>Feed</p></li>
+        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/map"><p>Map</p></a></li>
+        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/createad"><p>Create ad</p></a></li>
+        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/profile"><p>Profile</p></a></li>
+        <li><p>Sign out</p></li>
+      </ul>
+    </div>
 
 
     <div id="secondNav" ng-controller="NavCtrl">
@@ -138,6 +137,7 @@
 <script src="scripts/controllers/SignUp.js"></script>
 <script src="scripts/controllers/adInfo.js"></script>
 <script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/createProfile.js"></script>
 <!-- endbuild -->
 </body>
 </html>

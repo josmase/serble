@@ -57,6 +57,11 @@ angular
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
+      .when('/createprofile', {
+        templateUrl: 'views/createProfile.html',
+        controller: 'CreateProfileCtrl',
+        controllerAs: 'createProfile'
+      })
       .when('/adInfo', {
         templateUrl: 'views/adInfo.html',
         controller: 'AdInfoCtrl',

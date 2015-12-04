@@ -1,0 +1,47 @@
+#createProfile {
+  text-align: center;
+  background-color: rgba(106, 106, 106, 1);
+  border-bottom: 1px;
+}
+
+#createProfile .profilePicture .material-icons {
+  display: inline-block;
+  font-size: 4em;
+
+}
+
+#createProfile #Email {
+  margin-top: 10px;
+}
+
+#createProfile .form-group {
+  margin-bottom: 10px;
+}
+
+
+#createProfile .row {
+  border-top: 1px solid rgba(228, 228, 228, 1);
+  padding: 30px 20px;
+}
+
+#createProfile .form-group input {
+  outline: none;
+  background-color: rgba(106, 106, 106, 1);
+  border-width: 0 0 1px 0;
+  border-color: rgba(228, 228, 228, 1);
+  border-style: solid;
+  width: 100%;
+}
+#createProfile .form-group .col-xs-6{
+  text-align: center;
+  margin-top: 30px;
+  font-color:red;
+}
+#createProfile .form-group .col-xs-6 button{
+  border:  1px solid rgba(228, 228, 228, 1);
+  border-radius: 30px;
+  padding: 5px 10px;
+
+}
+
+
