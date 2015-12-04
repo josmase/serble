@@ -1,0 +1,20 @@
+#adInfo{
+  background: url(../images/brush.jpg);
+}
+
+#adInfo .filter{
+  height: 100%;
+  min-height: 500px;
+}
+
+#adInfo .col-xs-12 .material-icons {
+  float: left;
+  padding-right: 10px;
+}
+
+#adInfo #header {
+  margin: 20px 0px;
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
+}
+
+
