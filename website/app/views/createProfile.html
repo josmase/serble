@@ -1,8 +1,11 @@
 <div class="container" id="createProfile">
+ <div class="row">
+   <h3>SKAPA PROFIL</h3>
+ </div>
   <div class="profilePicture">
     <i class="material-icons">&#xE853;</i>
 
-    <p>Change Picture</p>
+    <p>Ändra bild</p>
   </div>
   <form name="profileForm" ng-submit="profileForm.$valid && main.submit()" novalidate>
 
@@ -12,7 +15,7 @@
              ng-class="{ 'has-error': profileForm.firstname.$touched && profileForm.firstname.$invalid }">
 
           <input type="text" name="firstname" class="form "
-                 placeholder="Firstname"
+                 placeholder="Förnamn"
                  ng-model="main.firstname"
                  ng-minlength="1"
                  ng-maxlength="50"
@@ -28,7 +31,7 @@
              ng-class="{'has-error': profileForm.lastname.$touched && profileForm.lastname.$invalid}">
 
           <input type="text" name="lastname" class="form "
-                 placeholder="Lastname"
+                 placeholder="Efternamn"
                  ng-model="main.lastname"
                  ng-minlength="1"
                  ng-maxlength="200"
@@ -45,7 +48,7 @@
         <div class="form-group" ng-class="{ 'has-error': profileForm.email.$touched && profileForm.email.$invalid }">
 
           <input type="email" name="email" class="form "
-                 placeholder="Email"
+                 placeholder="Address"
                  ng-model="main.email"
                  ng-minlength="1"
                  ng-maxlength="50"
@@ -61,7 +64,7 @@
              ng-class="{ 'has-error': profileForm.phonenumber.$touched && profileForm.phonenumber.$invalid }">
 
           <input type="number" name="phonenumber" class="form "
-                 placeholder="Phonenumber"
+                 placeholder="Postnummer"
                  ng-model="main.phonenumber"
                  ng-minlength="10"
                  ng-maxlength="10"
@@ -73,13 +76,33 @@
 
         </div>
       </div>
+
+      <div class="col-xs-12">
+        <div class="form-group"
+             ng-class="{ 'has-error': profileForm.city.$touched && profileForm.city.$invalid }">
+
+          <input type="text" name="city" class="form "
+                 placeholder="Ort"
+                 ng-model="main.city"
+                 ng-minlength="1"
+                 ng-maxlength="70"
+                 required>
+
+          <div class="help-block" ng-messages="profileForm.city.$error" ng-if="profileForm.city.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+
     <div class="row">
       <div class="col-xs-12">
         <div class="form-group" ng-class="{ 'has-error': profileForm.adress.$touched && profileForm.adress.$invalid }">
 
-          <input type="text" name="adress" class="form "
-                 placeholder="Address"
+          <input type="number" name="adress" class="form "
+                 placeholder="Mobilnummer"
                  ng-model="main.adress"
                  ng-minlength="1"
                  ng-maxlength="50"
@@ -93,26 +116,27 @@
       </div>
       <div class="col-xs-12">
         <div class="form-group"
-             ng-class="{ 'has-error': profileForm.zipcode.$touched && profileForm.zipcode.$invalid }">
+             ng-class="{ 'has-error': profileForm.epost.$touched && profileForm.epost.$invalid }">
 
-          <input type="number" name="zipcode" class="form "
-                 placeholder="Zip code"
-                 ng-model="main.zipcode"
+          <input type="number" name="epost" class="form "
+                 placeholder="E-post"
+                 ng-model="main.epost"
                  ng-minlength="5"
                  ng-maxlength="5"
                  required>
 
-          <div class="help-block" ng-messages="profileForm.zipcode.$error" ng-if="profileForm.zipcode.$touched">
+          <div class="help-block" ng-messages="profileForm.epost.$error" ng-if="profileForm.epost.$touched">
             <div ng-messages-include="../views/messages.html"></div>
           </div>
         </div>
       </div>
+
       <div class="form-group">
         <div class="col-xs-6">
-          <button type="button" class="btn">CANCEL</button>
+          <button type="button" class="btn">AVBRYT</button>
         </div>
         <div class="col-xs-6">
-          <button type="submit" class="btn" value="Submit" ng-disabled="profileForm.$invalid">APPLY</button>
+          <button type="submit" class="btn" value="Submit" ng-disabled="profileForm.$invalid">SPARA</button>
         </div>
       </div>
     </div>
