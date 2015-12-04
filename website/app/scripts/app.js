@@ -57,6 +57,11 @@ angular
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
+      .when('/adInfo', {
+        templateUrl: 'views/adInfo.html',
+        controller: 'AdInfoCtrl',
+        controllerAs: 'adInfo'
+      })
       .otherwise({
         redirectTo: '/home'
       });
