@@ -30,9 +30,19 @@ margin-bottom:0px;
 }
 #explanation .filter .row .col-xs-6 #terms {
     margin-top: 10px;
+    color:rgba(207,207,207,1);
 }
 #main #explanation .row {
-margin-top:20px;
+margin-top:150px;
+}
+#main #view_more {
+background:rgb(255, 164, 0);
+text-align:center;
+
+}
+#main #view_more p {
+margin-top:10px;
+
 }
 #main .jumbotron h1 {
   color: rgba(228, 228, 228, 1);
@@ -45,16 +55,18 @@ margin-top:20px;
 }
 
 #main .jumbotron .btn {
-  border: 1px solid white;
+background:rgb(255, 164, 0);
   border-radius: 30px;
   padding: 10px 30px;
 }
 
+
 /*Make the cards white and ad some padding*/
 #main .cards {
-  background: rgb(255, 164, 0);
-  border-bottom: 1px solid rgba(228, 228, 228, 1);
+  background:rgba(62, 63, 63, 1);
+  border-top: 1px solid rgba(228, 228, 228, 1);
   min-height: 145px;
+  bo
 }
 
 #main .cards a:hover {
