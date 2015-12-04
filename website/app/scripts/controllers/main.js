@@ -11,7 +11,7 @@ angular.module('serbleApp')
   .controller('MainCtrl', ['$scope', function ($scope) {
     $scope.cards = [
       {
-        header: "Barnvakt",
+        header: "Måla",
         description: "porttitor vestibulum, magna est. Molestie quisque sit. Diam sapien vestibulum faucibus, vitae massa. Ut vehicula felis placerat vel posuere, nisl dictumst massa non ",
         price: 20,
         locationDistance: 500,
@@ -19,7 +19,7 @@ angular.module('serbleApp')
         link: "/#/adInfo"
       },
       {
-        header: "I need some help with my computer",
+        header: "Gå ut med hund",
         description: "Lorem ipsum dolor sit amet, i majestät öppnade havet, i kupol levande, är det nödvändigt att vara oense med honom i hans ett. Innan du väljer fotboll Purto oro, eftersom den period som du vill varje dag. Slutligen, när knappt tonåring, men för att förstå det, är en liten smak av hat. Till storhet accumsan en NEC eu honom den eviga Helige Ande.",
         price: 20,
         locationDistance: 500,
