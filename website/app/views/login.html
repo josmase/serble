@@ -1,1 +1,60 @@
-{{apa}}
+<div class="container" id="login">
+  <div class="row" id="textLogin">
+    <div class="col-xs-12">
+      <h1>LOGGA IN</h1>
+
+      <p>Lorem ipsum dolor sit amet, qui nibh et elit, molestie donec ut volutpat suscipit habitant dolor, habitant in
+        orci lacus praesent cursus</p>
+    </div>
+  </div>
+  <form name="createUserForm" novalidate>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group" ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
+          <input type="email" name="eMail" class="form "
+                 placeholder="E-MAIL"
+                 ng-model="main.eMail"
+                 ng-minlength="0"
+                 ng-maxlength="40"
+                 required>
+
+          <div class="help-block" ng-messages="createUserForm.eMail.$error" ng-if="createUserForm.eMail.$touched">
+            <div ng-messages-include="../views/messages.html"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="form-group"
+             ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+          <input type="password" name="password" class="form " id="password"
+                 placeholder="LÖSENORD"
+                 ng-model="main.password"
+                 ng-minlength="4"
+                 ng-maxlength="200"
+                 required>
+        </div>
+        <div class="help-block" ng-messages="createUserForm.password.$error" ng-if="createUserForm.password.$touched">
+          <div ng-messages-include="../views/messages.html"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-xs-12">
+          <button type="submit" class="btn" value="Submit">LOGGA IN</button>
+        </div>
+        <div class="col-xs-12">
+          <button id="facebook"type="submit" class="btn" value="Submit">Logga in med Facbook </button>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+  <div class="row"id="login_prompt">
+    <div class="col-xs-12">
+      <p>Inte registrerad? <a href="#/signup">Skapa en användare här</a>.</p>
+    </div>
+  </div>
+</div>
+
