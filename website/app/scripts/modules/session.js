@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Account session
  *
@@ -6,3 +8,7 @@
  */
 
 var db = require('database');
+
+db.connect(function(e) {
+    console.log(e);
+});
