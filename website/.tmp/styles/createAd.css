@@ -1,5 +1,6 @@
 #createAd {
   background: url('../images/brush.jpg');
+  background-size: cover;
 }
 
 #createAd .row {

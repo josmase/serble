@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMessages',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'infinite-scroll'
   ])
   .controller('NavCtrl', function ($scope, $location) {
     $scope.getClass = function (path) {
