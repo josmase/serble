@@ -47,6 +47,9 @@
   margin-top: 10px;
 
 }
+#main .lead{
+  margin-bottom: 50px;
+}
 
 #main .jumbotron h1 {
   color: rgba(228, 228, 228, 1);

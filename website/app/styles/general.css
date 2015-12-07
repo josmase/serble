@@ -43,7 +43,9 @@ button {
   outline: none;
   padding: 0px;
 }
-
+#createProfile, #login, #adInfo, #createAd, #main #pitch .filter ,#map,#createAd,#profile,#signUp{
+  padding-top: 100px;
+}
 .material-icons {
   font-size: 1.5em;
   color: rgba(228, 228, 228, 1);
@@ -51,7 +53,9 @@ button {
 
 /* Custom page header */
 .header {
-  background: rgb(255, 164, 0);
+  position: absolute;
+  background: transparent;
+  width: 100%;
   border-bottom: 1px solid rgba(228, 228, 228, 1);
 }
 
@@ -182,10 +186,6 @@ input[type=number]::-webkit-outer-spin-button {
     background: black;
   }
 
-  #searchBar {
-    float: right;
-  }
-
   /* Remove the padding we set earlier */
   .header,
   .marketing,
@@ -197,6 +197,15 @@ input[type=number]::-webkit-outer-spin-button {
   /* Remove the bottom border on the jumbotron for visual effect */
   #main .jumbotron {
     border-bottom: 0;
+  }
+  #main .filter{
+    min-height: 500px;
+  }
+   #myNavbar li{
+    display: inline-block;
+  }
+   #userinfo{
+    display: none;
   }
 }
 

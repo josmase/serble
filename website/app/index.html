@@ -48,23 +48,31 @@
       </div>
 
 
-      <div class="col-xs-8">
-        <div class="collapse  apa right" id="search">
-          <form action="" id="searchBar">
-            <input type="search" ng-model="query" id="searchInput" placeholder="Search">
-            <a class="clear" ng-click="query = null">
-              <i class="material-icons">&#xE5C9;</i>
-            </a>
-          </form>
+      <div class="col-xs-10">
+        <div id="logo">
+          <h4 class=" collapse apa in">Serble</h4>
+        </div>
+        <div class="row">
+          <div class="col-xs-10">
+            <div class="collapse  apa " id="search">
+              <form action="" id="searchBar">
+                <input type="search" ng-model="query" id="searchInput" placeholder="Search">
+                <a class="clear" ng-click="query = null">
+                  <i class="material-icons">&#xE5C9;</i>
+                </a>
+              </form>
+            </div>
+          </div>
+          <!--Hides or shows the search bar on button click-->
+          <div class="col-xs-2">
+            <div id="searchMenu">
+              <button type="button" data-toggle="collapse" data-target=".apa">
+                <i class="material-icons">&#xE8B6;</i>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <h4 class=" collapse right apa in">Serble</h4>
-      </div>
-      <!--Hides or shows the search bar on button click-->
-      <div class="col-xs-2" id="searchMenu">
-        <button type="button" data-toggle="collapse" data-target=".apa">
-          <i class="material-icons">&#xE8B6;</i>
-        </button>
       </div>
     </div>
 
@@ -85,12 +93,13 @@
       </ul>
     </div>
 
-
-    <div id="secondNav" ng-controller="NavCtrl">
-      <div><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
-      <div><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
-      <div><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
-    </div>
+    <!--
+   <div id="secondNav" ng-controller="NavCtrl">
+     <div><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
+     <div><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
+     <div><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
+   </div>
+   -->
   </div>
 </div>
 
