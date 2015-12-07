@@ -72,6 +72,7 @@
   background: rgba(62, 63, 63, 1);
   border-top: 1px solid rgba(228, 228, 228, 1);
   min-height: 145px;
+  padding: 0 30px;
 }
 
 #main .cards a:hover {

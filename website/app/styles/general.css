@@ -23,7 +23,7 @@ p, a, a:hover {
   font-family: 'Source Sans Pro', sans-serif;
 }
 /* Rules for sizing the icon. */
-   .material-icons.md-18 { font-size: 18px; }
+.material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
@@ -38,10 +38,10 @@ h1, h2, h3, h4 {
 /* Remove default styling from buttons*/
 button {
   background: none;
-  border: 0px;
+  border: 0;
   display: inline-block;
   outline: none;
-  padding: 0px;
+  padding: 0;
 }
 #createProfile, #login, #adInfo, #createAd, #main #pitch .filter ,#map,#createAd,#profile,#signUp{
   padding-top: 100px;
@@ -56,6 +56,8 @@ button {
   position: absolute;
   background: transparent;
   width: 100%;
+  padding: 0;
+  z-index: 900;
   border-bottom: 1px solid rgba(228, 228, 228, 1);
 }
 
@@ -98,7 +100,7 @@ button {
   border-radius: 30px;
   border: 1px solid rgba(228, 228, 228, 1);
   text-align: center;
-  padding: 0px 1px;
+  padding: 0 1px;
   box-sizing: border-box;
 }
 
@@ -128,17 +130,16 @@ button {
   border-bottom: 1px solid rgba(228, 228, 228, 1);
   padding: 8%;
 }
-
-#myNavbar .material-icons {
-  font-size: 4em;
-  margin-bottom: 10px;
+.navbar{
+  margin: 0;
 }
 
-#myNavbar ul {
-  padding: 8%;
-  font-size: 2em;
+.navbar-toggle{
+  padding: 0;
+  margin: 10px 10px 0px 0px;
+  outline: none;
+  background: none;
 }
-
 #myNavbar li {
   list-style: none;
 }
@@ -200,6 +201,9 @@ input[type=number]::-webkit-outer-spin-button {
   }
   #main .filter{
     min-height: 500px;
+  }
+  #myNavbar{
+    display: inline-block;
   }
    #myNavbar li{
     display: inline-block;

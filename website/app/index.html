@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -37,21 +37,37 @@
 
 <!-- Add your site or application content here -->
 <div class="header">
-  <div class="container">
-
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <i class="material-icons">&#xE5D2;</i>
+        </button>
+        <a class="navbar-brand" href="#">Serble</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#/home">Start</a></li>
+          <li><a href="#/map">Karta</a></li>
+          <li><a href="#/createad">Skapa annons</a></li>
+          <li><a href="#">Flöde</a></li>
+          <li><a href="#/profile">Profil</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="material-icons md-18">&#xE7FD;</i> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--
     <div class="row" id="firstNav">
       <div class="col-xs-2" id="navMenu">
-        <!--Hides or shows the nav bar on button click-->
         <button type="button" data-toggle="collapse" data-target="#myNavbar" class="menuButton">
           <i class="material-icons">&#xE5D2;</i>
         </button>
       </div>
-
-
       <div class="col-xs-10">
-        <div id="logo">
-          <h4 class=" collapse apa in">Serble</h4>
-        </div>
         <div class="row">
           <div class="col-xs-10">
             <div class="collapse  apa " id="search">
@@ -63,7 +79,9 @@
               </form>
             </div>
           </div>
-          <!--Hides or shows the search bar on button click-->
+          <div class="col-xs-10">
+            <h4 class=" collapse apa in">Serble</h4>
+          </div>
           <div class="col-xs-2">
             <div id="searchMenu">
               <button type="button" data-toggle="collapse" data-target=".apa">
@@ -72,35 +90,35 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
+  <div class="row collapse" id="myNavbar">
+    <div class="col-xs-12" id="userinfo">
+      <i class="material-icons">&#xE853;</i>
 
-    <!--Displayed when .menubutton is pressed-->
-    <div class="row collapse" id="myNavbar">
-      <div class="col-xs-12" id="userinfo">
-        <i class="material-icons">&#xE853;</i>
-
-        <p>Anders Karlsson</p>
-      </div>
-      <ul class="col-xs-12">
-        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/home"><p>Start</p></a></li>
-        <li><p>Feed</p></li>
-        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/map"><p>Map</p></a></li>
-        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/createad"><p>Create ad</p></a></li>
-        <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/profile"><p>Profile</p></a></li>
-        <li><p>Sign out</p></li>
-      </ul>
+      <p>Anders Karlsson</p>
     </div>
-
-    <!--
-   <div id="secondNav" ng-controller="NavCtrl">
-     <div><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
-     <div><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
-     <div><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
-   </div>
-   -->
+    <ul class="col-xs-12">
+      <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/home"><p>Start</p></a></li>
+      <li><p>Feed</p></li>
+      <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/map"><p>Map</p></a></li>
+      <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/createad"><p>Create ad</p></a></li>
+      <li><a data-toggle="collapse" data-target="#myNavbar" href="/#/profile"><p>Profile</p></a></li>
+      <li><p>Sign out</p></li>
+    </ul>
   </div>
+
+</div>
+
+<!--Displayed when .menubutton is pressed-->
+
+  <!--
+  <div id="secondNav" ng-controller="NavCtrl">
+   <div><a href="/#/home" ng-class="{active: getClass('/home')}">Home</a></div>
+   <div><a href="/#/map" ng-class="{active: getClass('/map')}">Map</a></div>
+   <div><a href="/#/createad" ng-class="{active: getClass('/createad')}">Create ad</a></div>
+  </div>
+  -->
 </div>
 
 <div ng-view=""></div>
