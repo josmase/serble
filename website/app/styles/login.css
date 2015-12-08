@@ -70,13 +70,15 @@
 }
 
 #login .form-group button {
+  margin-top: 30px;
   background: rgba(255, 164, 0, 1);
   border: 1px solid rgba(255, 164, 0, 1);
   border-radius: 30px;
   outline: none;
-  width: 90%;
-  margin-top: 30px;
+  padding: 13px;
+  width: 100%;
   color: white;
+
 }
 
 #login .form-group #facebook {
