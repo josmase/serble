@@ -68,22 +68,22 @@
 }
 
 /*Make the cards white and ad some padding*/
-#main .cards {
+.cards {
   background: rgba(62, 63, 63, 1);
   border-top: 1px solid rgba(228, 228, 228, 1);
   min-height: 145px;
   padding: 0 30px;
 }
 
-#main .cards a:hover {
+.cards a:hover {
   background: rgba(106, 106, 106, 0.8);
 }
 
-#main .cards h3 {
+.cards h3 {
   padding: 0;
 }
 
-#main .cards .details {
+.cards .details {
   text-align: right;
 }
 

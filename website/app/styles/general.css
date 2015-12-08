@@ -43,7 +43,7 @@ button {
   outline: none;
   padding: 0;
 }
-#createProfile, #login, #adInfo, #createAd, #main #pitch .filter ,#map,#createAd,#profile,#signUp{
+#createProfile, #login, #adInfo, #createAd, #main #pitch .filter ,#map,#createAd,#profile,#signUp, #flow{
   padding-top: 100px;
 }
 .material-icons {
