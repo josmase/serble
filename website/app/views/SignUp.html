@@ -1,75 +1,77 @@
 <div class="container" id="sign_Up">
-  <div class="row" id="textLogin">
-    <div class="col-xs-4">
-      <h4>LOGGA IN</h4>
+    <div class="row" id="textLogin">
+        <div class="col-xs-6">
+            <h4>LOGGA IN</h4>
 
-    </div>
-    <div class="col-xs-4">
-      <h4>REGISTRERA</h4>
-    </div>
-  </div>
-  <form name="createUserForm" novalidate>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group"
-             ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
-          <input type="email" name="eMail" class="form "
-                 placeholder="e-post"
-                 ng-model="main.eMail"
-                 ng-minlength="0"
-                 ng-maxlength="40"
-                 required>
-
-          <div class="help-block" ng-messages="createUserForm.eMail.$error" ng-if="createUserForm.eMail.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
         </div>
-      </div>
-      <div class="col-xs-12">
-        <div class="form-group"
-             ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
-          <input type="password" name="password" class="form " id="password"
-                 placeholder="lösenord"
-                 ng-model="main.password"
-                 ng-minlength="4"
-                 ng-maxlength="200"
-                 required>
+        <div class="col-xs-6">
+            <h4>REGISTRERA</h4>
         </div>
-        <div class="help-block" ng-messages="createUserForm.password.$error" ng-if="createUserForm.password.$touched">
-          <div ng-messages-include="../views/messages.html"></div>
+    </div>
+    <form name="createUserForm" novalidate>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group"
+                     ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
+                    <input type="email" name="eMail" class="form "
+                           placeholder="e-post"
+                           ng-model="main.eMail"
+                           ng-minlength="0"
+                           ng-maxlength="40"
+                           required>
+
+                    <div class="help-block" ng-messages="createUserForm.eMail.$error"
+                         ng-if="createUserForm.eMail.$touched">
+                        <div ng-messages-include="../views/messages.html"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group"
+                     ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+                    <input type="password" name="password" class="form " id="password"
+                           placeholder="lösenord"
+                           ng-model="main.password"
+                           ng-minlength="4"
+                           ng-maxlength="200"
+                           required>
+                </div>
+                <div class="help-block" ng-messages="createUserForm.password.$error"
+                     ng-if="createUserForm.password.$touched">
+                    <div ng-messages-include="../views/messages.html"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="form-group"
-             ng-class="{ 'has-error': createUserForm.passwordRe.$touched && createUserForm.passwordRe.$invalid }">
-          <input type="password" name="passwordRe" class="form "
-                 placeholder="repetera lösenord"
-                 ng-model="main.passwordRe"
-                 ng-minlength="4"
-                 ng-maxlength="200"
-                 required>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group"
+                     ng-class="{ 'has-error': createUserForm.passwordRe.$touched && createUserForm.passwordRe.$invalid }">
+                    <input type="password" name="passwordRe" class="form "
+                           placeholder="repetera lösenord"
+                           ng-model="main.passwordRe"
+                           ng-minlength="4"
+                           ng-maxlength="200"
+                           required>
 
-          <div class="help-block" ng-messages="createUserForm.passwordRe.$error"
-               ng-if="createUserForm.passwordRe.$touched">
-            <div ng-messages-include="../views/messages.html"></div>
-          </div>
+                    <div class="help-block" ng-messages="createUserForm.passwordRe.$error"
+                         ng-if="createUserForm.passwordRe.$touched">
+                        <div ng-messages-include="../views/messages.html"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 form-group">
-        <button type="submit" class="btn" value="Submit">REGISTRERA</button>
-        <p id="form-middle">eller</p>
-        <button id="facebook" type="submit" class="btn" value="Submit">Logga in med Facbook</button>
-      </div>
-    </div>
-
-
-  </form>
-  <div class="row col-xs-12" id="login_prompt">
-    <a class="left"> Användarvillkor</a>
-    <a class="right" href="#/login">Glömt ditt lösenord<a/>
-  </div>
+        <div class="row">
+            <div class="col-xs-12 form-group">
+                <button type="submit" class="btn" value="Submit">REGISTRERA</button>
+                <p id="form-middle">eller</p>
+                <button id="facebook" type="submit" class="btn" value="Submit">Logga in med Facebook</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" id="signup_prompt">
+                <a class="left"> Användarvillkor</a>
+                <a class="right" href="#/login">Glömt ditt lösenord?</a>
+            </div>
+        </div>
+    </form>
 </div>
