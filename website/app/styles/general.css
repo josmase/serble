@@ -177,6 +177,17 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+footer{
+  background: rgba(38,58,66,1);
+  text-align: center;
+}
+footer ul {
+  padding: 0;
+}
+footer ul li{
+  list-style: none;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -213,6 +224,9 @@ input[type=number]::-webkit-outer-spin-button {
   }
    form .col-md-6{
      margin-left: 25%;
+   }
+   footer{
+     text-align: left;
    }
 }
 

@@ -4,6 +4,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 770px;
 }
 
 #sign_Up .container {
@@ -88,6 +89,7 @@
 #sign_Up .form-group #facebook {
   background: #3B5998;
   border-color: #3B5998;
+  margin-top: 0;
 }
 
 #signup_prompt {
