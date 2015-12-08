@@ -15,34 +15,37 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <a href="{{card.link}}">
-      <div class="cards col-xs-12 col-md-6" ng-repeat="card in cards | limitTo: 2 ">
-        <div class="row">
-          <div class="col-xs-8">
-            <h4>{{card.header}}</h4>
+  <div class="container-fluid">
+    <div class="row">
+      <a href="{{card.link}}">
+        <div class="cards col-xs-12 col-md-6" ng-repeat="card in cards | limitTo: quantity ">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>{{card.header}}</h4>
+            </div>
+            <div class="col-xs-4 details" id="pay">
+              <p>{{card.price | currency : "SEK "}}</p>
+            </div>
           </div>
-          <div class="col-xs-4 details" id="pay">
-            <p>{{card.price | currency : "SEK "}}</p>
+          <div class="row">
+            <div class="col-xs-10">
+              <p>{{card.description | limitTo:170}}... </p>
+            </div>
+            <div class="col-xs-2 details" id="location">
+              <p>{{card.locationDistance}}, {{card.location}}</p>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-10">
-            <p>{{card.description | limitTo:170}}... </p>
-          </div>
-          <div class="col-xs-2 details" id="location">
-            <p>{{card.locationDistance}}, {{card.location}}</p>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
+      </a>
+    </div>
+
   <div class="row" id="view_more">
     <div class="col-xs-12">
       <button ng-click="quantity = quantity + 6">
         <p>VISA FLER</p>
       </button>
     </div>
+  </div>
   </div>
   <div class="jumbotron" id="explanation">
     <div class="filter">

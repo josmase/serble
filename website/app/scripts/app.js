@@ -73,6 +73,11 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/flow', {
+        templateUrl: 'views/flow.html',
+        controller: 'FlowCtrl',
+        controllerAs: 'flow'
+      })
       .otherwise({
         redirectTo: '/home'
       });
