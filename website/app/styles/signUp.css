@@ -19,19 +19,29 @@
 
 }
 
-#sign_Up #textLogin .col-xs-12 {
+#sign_Up #textLogin {
   padding-bottom: 12%;
   padding-top: 12%;
+  margin-top:100px;
+
+
 }
+#sign_Up #textLogin .col-xs-6:nth-child(odd) {
+border-right: 1px solid #abacae;
+}
+#sign_Up #textLogin .col-xs-6:nth-child(odd) h4 {
+color: #abacae;
+}
+
 
 #sign_Up .form-group input {
   text-align: center;
-  background: transparent;
-  border: 1px solid rgba(226, 226, 226, 1);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
   border-radius: 30px;
   outline: none;
   padding: 2%;
-  width: 90%;
+  width: 100%;
   color: rgba(226, 226, 226, 1);
 }
 
@@ -56,9 +66,14 @@
   border: 1px solid rgba(255, 164, 0, 1);
   border-radius: 30px;
   outline: none;
-  width: 90%;
-  margin-top: 30px;
+  width: 100%;
   color: white;
+}
+
+#form-middle {
+  display: block;
+  padding: 6px 0;
+  margin: 0;
 }
 
 #sign_Up .form-group #facebook {
@@ -72,7 +87,6 @@
   margin-top: 30px;
 }
 
-#sign_Up #login_prompt a {
-  color: blue;
-  text-decoration: underline;
+#sign_Up #form-bottom {
+  padding-bottom: 40px;
 }
