@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi) {
+  .controller('MapCtrl', function ($scope/*, uiGmapGoogleMapApi*/) {
     $scope.map = {
       center: {
         latitude: 50.6278,
@@ -31,6 +31,7 @@ angular.module('serbleApp')
         options: {} // define when map is ready
       }
     };
+    /*
     uiGmapGoogleMapApi.then(function(maps) {
 
     });
@@ -41,5 +42,5 @@ angular.module('serbleApp')
       for(var i = 1; i <= 8; i++) {
         $scope.images.push(last + i);
       }
-    };
+    };*/
   });

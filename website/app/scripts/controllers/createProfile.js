@@ -9,6 +9,6 @@
  */
 angular.module('serbleApp')
   .controller('CreateProfileCtrl', function ($scope) {
-
+          $scope.test = 'test';
 
   });

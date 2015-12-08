@@ -9,5 +9,5 @@
  */
 angular.module('serbleApp')
   .controller('LoginCtrl', function($scope) {
-    $scope.apa="apa"
+    $scope.apa='apa';
   });

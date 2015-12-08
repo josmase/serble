@@ -6,7 +6,7 @@
  * @author Emil Bertilsson
  * @version 2015-12-04
  */
-
+/*  commented to build dist
 var mysql = require('mysql');
 var database = [];
 var connection = [];
@@ -34,3 +34,4 @@ database.end = function(callback) {
 };
 
 exports.module = database;
+  */
