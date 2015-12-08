@@ -38,14 +38,20 @@
 }
 
 #sign_Up .form-group input {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 30px;
   outline: none;
-  padding: 2%;
+  padding: 13px 13px 13px 40px;
   width: 100%;
   color: rgba(226, 226, 226, 1);
+}
+#sign_Up .input-email{
+  background: url('../images/ic_email_white_24px.svg') no-repeat scroll 10px 10px;
+}
+#sign_Up .input-password{
+  background: url('../images/ic_lock_black_24px.svg') no-repeat scroll 10px 10px;
 }
 
 #sign_Up ::-webkit-input-placeholder {
@@ -63,12 +69,12 @@
 #sign_Up :-ms-input-placeholder {
   text-align: left;
 }
-
 #sign_Up .form-group button {
   background: rgba(255, 164, 0, 1);
   border: 1px solid rgba(255, 164, 0, 1);
   border-radius: 30px;
   outline: none;
+  padding: 13px 13px 13px 40px;
   width: 100%;
   color: white;
 }

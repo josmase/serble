@@ -211,5 +211,8 @@ input[type=number]::-webkit-outer-spin-button {
    #userinfo{
     display: none;
   }
+   form .col-md-6{
+     margin-left: 25%;
+   }
 }
 

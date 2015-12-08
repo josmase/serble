@@ -8,7 +8,6 @@
 
 #login .container {
   position: center;
-  background: red;
 }
 
 #login .row {
@@ -23,36 +22,51 @@
 
 }
 
-#login #textLogin .col-xs-12 {
-  padding-bottom: 12%;
-  padding-top: 12%;
+#login #textLogin {
+  margin-top: 100px;
+  padding-bottom: 30px;
+
+}
+
+#login #textLogin .col-xs-6:nth-child(even) {
+  border-left: 1px solid #abacae;
+}
+
+#login #textLogin .col-xs-6:nth-child(even) h4 {
+  color: #abacae;
 }
 
 #login .form-group input {
-  text-align: center;
-  background: transparent;
-  border: 1px solid rgba(226, 226, 226, 1);
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
   border-radius: 30px;
   outline: none;
-  padding: 2%;
-  width: 90%;
+  padding: 13px 13px 13px 40px;
+  width: 100%;
   color: rgba(226, 226, 226, 1);
+}
+#login .input-email{
+  background: url('../images/ic_email_white_24px.svg') no-repeat scroll 10px 10px;
+}
+#login .input-password{
+  background: url('../images/ic_lock_black_24px.svg') no-repeat scroll 10px 10px;
 }
 
 #login ::-webkit-input-placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 #login :-moz-placeholder { /* Firefox 18- */
-  text-align: center;
+  text-align: left;
 }
 
 #login ::-moz-placeholder { /* Firefox 19+ */
-  text-align: center;
+  text-align: left;
 }
 
 #login :-ms-input-placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 #login .form-group button {
