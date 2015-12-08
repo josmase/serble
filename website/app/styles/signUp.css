@@ -1,95 +1,99 @@
 #sign_Up {
-    background: url("../images/brush.jpg");
+  background: url("../images/brush.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #sign_Up .container {
-    position: center;
+  position: center;
 }
 
 #sign_Up .row {
-    text-align: center;
+  text-align: center;
 
 }
 
 #sign_Up h1 {
-    color: rgba(226, 226, 226, 1);
-    border-bottom: 1px solid rgba(226, 226, 226, 1);
-    padding-bottom: 10px;
+  color: rgba(226, 226, 226, 1);
+  border-bottom: 1px solid rgba(226, 226, 226, 1);
+  padding-bottom: 10px;
 
 }
 
 #sign_Up #textLogin {
-    padding-bottom: 12%;
-    padding-top: 12%;
-    margin-top: 100px;
+  padding-bottom: 12%;
+  padding-top: 12%;
+  margin-top: 100px;
 
 }
 
 #sign_Up #textLogin .col-xs-6:nth-child(odd) {
-    border-right: 1px solid #abacae;
+  border-right: 1px solid #abacae;
 }
 
 #sign_Up #textLogin .col-xs-6:nth-child(odd) h4 {
-    color: #abacae;
+  color: #abacae;
 }
 
 #sign_Up .form-group input {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    padding: 2%;
-    width: 100%;
-    color: rgba(226, 226, 226, 1);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  padding: 2%;
+  width: 100%;
+  color: rgba(226, 226, 226, 1);
 }
 
 #sign_Up ::-webkit-input-placeholder {
-    text-align: center;
+  text-align: left;
 }
 
 #sign_Up :-moz-placeholder { /* Firefox 18- */
-    text-align: center;
+  text-align: left;
 }
 
 #sign_Up ::-moz-placeholder { /* Firefox 19+ */
-    text-align: center;
+  text-align: left;
 }
 
 #sign_Up :-ms-input-placeholder {
-    text-align: center;
+  text-align: left;
 }
 
 #sign_Up .form-group button {
-    background: rgba(255, 164, 0, 1);
-    border: 1px solid rgba(255, 164, 0, 1);
-    border-radius: 30px;
-    outline: none;
-    width: 100%;
-    color: white;
+  background: rgba(255, 164, 0, 1);
+  border: 1px solid rgba(255, 164, 0, 1);
+  border-radius: 30px;
+  outline: none;
+  width: 100%;
+  color: white;
 }
 
 #form-middle {
-    display: block;
-    padding: 6px 0;
-    margin: 0;
+  display: block;
+  padding: 6px 0;
+  margin: 0;
 }
 
 #sign_Up .form-group #facebook {
-    background: #3B5998;
-    border-color: #3B5998;
+  background: #3B5998;
+  border-color: #3B5998;
 }
 
 #signup_prompt {
-    padding-bottom: 30px;
-    color: rgba(226, 226, 226, 1);
-    border-color: rgba(226, 226, 226, 1);
+  padding-bottom: 30px;
+  color: rgba(226, 226, 226, 1);
+  border-color: rgba(226, 226, 226, 1);
 }
 
 .left {
-    float: left;
+  float: left;
 }
 
 .right {
-    float: right;
+  float: right;
 }
