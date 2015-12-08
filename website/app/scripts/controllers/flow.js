@@ -270,7 +270,6 @@ angular.module('serbleApp')
     ];
     $scope.loadMore = function() {
 
-      for(var i = 1; i <= 8; i++) {
         $scope.cards.push({
           header: 'Städa',
           description: 'ruscipit, aliquet ornare consequatur adipiscing eu. Luctus hendrerit non, mauris elit pharetra nec, eros quam penatibus, adipiscing aliquam tellus saepe. Urna wisi orc',
@@ -278,7 +277,6 @@ angular.module('serbleApp')
           locationDistance: 500,
           location: 'Umeå'
         });
-      }
     };
 
   });
