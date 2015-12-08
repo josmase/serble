@@ -26,10 +26,10 @@
 
 
 }
-#sign_Up #textLogin .col-xs-6:nth-child(odd) {
+#sign_Up #textLogin .col-xs-4:nth-child(odd) {
 border-right: 1px solid #abacae;
 }
-#sign_Up #textLogin .col-xs-6:nth-child(odd) h4 {
+#sign_Up #textLogin .col-xs-4:nth-child(odd) h4 {
 color: #abacae;
 }
 
@@ -46,19 +46,19 @@ color: #abacae;
 }
 
 #sign_Up ::-webkit-input-placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 #sign_Up :-moz-placeholder { /* Firefox 18- */
-  text-align: center;
+  text-align: left;
 }
 
 #sign_Up ::-moz-placeholder { /* Firefox 19+ */
-  text-align: center;
+  text-align: left;
 }
 
 #sign_Up :-ms-input-placeholder {
-  text-align: center;
+  text-align: left;
 }
 
 #sign_Up .form-group button {
