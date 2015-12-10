@@ -1,0 +1,153 @@
+<div class="create-article">
+  <div class="container">
+
+    {{createArticle.createArticle.fname}}
+
+    <form ng-submit="article-form.$valid && main.submitContact()" name="article-form" novalidate>
+      <div class="row noBorder">
+        <div class="col-xs-12 col-md-6">
+          <h4>Kontaktuppgifter</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+
+
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form.fname.$touched && article-form.fname.$invalid }">
+
+            <input type="text" name="fname" class="form input-face"
+                   placeholder="Förnamn"
+                   ng-model="createArticle.createArticle.fname"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.fname.$error" ng-if="article-form.fname.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form.lname.$touched && article-form.lname.$invalid }">
+
+            <input type="text" name="lname" class="form input-face"
+                   placeholder="Efternamn"
+                   ng-model="main.lname"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.lname.$error" ng-if="article-form.lname.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': article-form.adress.$touched && article-form.adress.$invalid}">
+
+            <input type="text" name="adress" class="form input-house"
+                   placeholder="Adress"
+                   ng-model="main.adress"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.zipCode.$error" ng-if="article-form.zipCode.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group" ng-class="{ 'has-error': article-form.city.$touched && article-form.city.$invalid }">
+
+            <input type="text" name="city" class="form input-house"
+                   placeholder="Stad"
+                   ng-model="main.city"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.city.$error" ng-if="article-form.city.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form.zipCode.$touched && article-form.zipCode.$invalid }">
+
+            <input type="number" name="zipCode" class="form input-house"
+                   placeholder="Postnummer 5 siffror"
+                   ng-model="main.zipCode"
+                   ng-minlength="5"
+                   ng-maxlength="5"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.zipCode.$error" ng-if="article-form.zipCode.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form.phonenumber.$touched && article-form.phonenumber.$invalid }">
+
+            <input type="number" name="phonenumber" class="form input-phone"
+                   placeholder="Phone number"
+                   ng-model="main.phonenumber"
+                   ng-minlength="10"
+                   ng-maxlength="10"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.phonenumber.$error"
+                 ng-if="article-form.phonenumber.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form.email.$touched && article-form.email.$invalid }">
+
+            <input type="email" name="email" class="form input-email"
+                   placeholder="Email"
+                   ng-model="main.email"
+                   ng-minlength="1"
+                   ng-maxlength="100"
+                   required>
+
+            <div class="help-block" ng-messages="article-form.email.$error" ng-if="article-form.email.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <button type="submit" class="button" value="Submit" ng-disabled="article-form.$invalid">Submit</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <button type="button" class="button">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

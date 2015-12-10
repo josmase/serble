@@ -1,0 +1,151 @@
+$primary-orange: rgba(245, 161, 24, 1);
+$secondary-blue: rgba(38, 58, 66, 1);
+$gray: rgba(182, 182, 182, 1);
+$white: rgba(228, 228, 228, 1);
+$white-transparent: rgba(228, 228, 228, 0.8);
+$black-transparent: rgba(1, 1, 1, 0.5);
+$facebook-color: #3B5998;
+
+.cards {
+  border: 5px solid white;
+  min-height: 145px;
+  text-align: left;
+  background: $secondary-blue;
+  h3 {
+    padding: 0;
+  }
+  .details {
+    text-align: right;
+  }
+  #pay {
+    margin-top: 10px;
+  }
+  #location p {
+    margin-top: 100%;
+  }
+}
+
+.btn, .button {
+  background: $primary-orange;
+  border-radius: 30px;
+  border-width: 0;
+  outline: none;
+  padding: 13px;
+  color: $white;
+  min-width: 150px;
+}
+
+input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder, input:-ms-input-placeholder {
+  color: $white;
+}
+
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: $black-transparent;
+}
+
+/*Remove all ugly number spinners on input elements*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+  li {
+    list-style: none;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.header {
+  background: $primary-orange;
+  width: 100%;
+  padding: 0;
+  z-index: 900;
+  border-bottom: 1px solid $white;
+}
+
+footer {
+  background: $secondary-blue;
+  text-align: center;
+}
+
+.form-group {
+  input, select, textarea {
+    text-align: left;
+    background-color: $black-transparent;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    padding: 13px 13px 13px 40px;
+    width: 100%;
+    color: rgba(226, 226, 226, 1);
+  }
+  .profile-information{
+    @extend input;
+    margin-top: 20px;
+    p{
+      margin-bottom: 0;
+    }
+  }
+  ::-webkit-input-placeholder {
+    text-align: left;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    text-align: left;
+  }
+
+  ::-moz-placeholder { /* Firefox 19+ */
+    text-align: left;
+  }
+
+  :-ms-input-placeholder {
+    text-align: left;
+  }
+
+  button {
+    @extend .button;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+#facebook {
+  background: #3B5998;
+  border-color: #3B5998;
+  margin-top: 0;
+}
+.input-email {
+  background: url('../images/ic_email_white_24px.svg') no-repeat scroll 10px 10px;
+}
+
+.input-password {
+  background: url('../images/ic_lock_black_24px.svg') no-repeat scroll 10px 10px;
+}
+.input-face {
+  background: url('../images/ic_face_white_24px.svg') no-repeat scroll 10px 10px;
+}
+.input-house {
+  background: url('../images/ic_home_white_24px.svg') no-repeat scroll 10px 10px;
+}
+.input-phone {
+  background: url('../images/ic_phone_white_24px.svg') no-repeat scroll 10px 10px;
+}
+.input-bio{
+  background: url('../images/ic_format_align_left_white_24px.svg') no-repeat scroll 10px 10px;
+}
+.center{
+  text-align: center;
+}
+
+
+

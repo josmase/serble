@@ -1,6 +1,12 @@
-# Serble
+# serble
 
-## If you got the time, we got the jobs!
-Serble is a job program where users can post listings for small jobs that other users can apply for and execute.
-Our goal is to simplify management and applications for small jobs to provide a simple way for citizens to perform
-small time jobs and earn money.
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.14.0.
+
+## Build & development
+
+Run `grunt` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `grunt test` will run the unit tests with karma.

@@ -1,0 +1,76 @@
+<div id="main">
+  <div class="jumbotron" id="pitch">
+    <div class="filter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <h1>JOBB NÄRA DIG</h1>
+
+            <p class="lead">Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat
+              feugiat. </p>
+
+            <a class="button" href="#explanation">LÄS VIDARE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="cards col-xs-12 col-md-6" ng-repeat="article in articles | limitTo: quantity ">
+        <a ng-href="#/article/{{article.header}}">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>{{article.header}}</h4>
+            </div>
+            <div class="col-xs-4 details" id="pay">
+              <p>{{article.price | currency : "SEK "}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-10">
+              <p>{{article.description | limitTo:170}}... </p>
+            </div>
+            <div class="col-xs-2 details" id="location">
+              <p>{{article.locationDistance}}, {{article.location}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="row" id="view_more">
+      <div class="col-xs-12">
+        <a href="" ng-click="quantity = quantity + 6">
+          <p>VISA FLER</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron" id="explanation">
+    <div class="filter">
+      <div class="container">
+        <h1>VAD ÄR SERBLE?</h1>
+
+        <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
+          for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
+          for citizens to perform small time jobs and earn money.</p>
+
+        <a class="button" ng-href="#/createad">SKAPA EN ANNONS</a>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <p id="terms"> Användarvilkor</p>
+          </div>
+          <div class="col-xs-6">
+            <a class="button" href="#pitch">TILL BÖRJAN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

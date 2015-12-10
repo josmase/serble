@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row">
+    <div infinite-scroll='loadMore()' infinite-scroll-distance='3'>
+
+      <div class="cards col-xs-12 col-md-6" ng-repeat="card in cards">
+        <a ng-href="#/article/{{card.header}}">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>{{card.header}}</h4>
+            </div>
+            <div class="col-xs-4 details" id="pay">
+              <p>{{card.price | currency : "SEK "}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-10">
+              <p>{{card.description | limitTo:170}}... </p>
+            </div>
+            <div class="col-xs-2 details" id="location">
+              <p>{{card.locationDistance}}, {{card.location}}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

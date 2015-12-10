@@ -1,0 +1,91 @@
+// bower:scss
+// endbower
+@import 'partial.scss';
+@import 'fonts.scss';
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  position: relative;
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid $white;
+  min-height: 500px;
+  margin: 0;
+  p{
+    font-size: 14px;
+  }
+  h1{
+    color: $white;
+    margin-top: 100px;
+  }
+}
+
+#pitch{
+  background: url(./../images/handshake.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  p{
+    margin-bottom: 50px;
+  }
+}
+#explanation{
+  background: url(./../images/carGps.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  .row{
+  margin-top: 120px
+  }
+  #terms {
+    margin-top: 10px;
+    color: rgba(207, 207, 207, 1);
+  }
+  p{
+    margin-bottom: 50px;
+  }
+}
+
+#view_more{
+  padding-top: 10px;
+  background: $primary-orange;
+  text-align: center;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}

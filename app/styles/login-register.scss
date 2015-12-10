@@ -1,0 +1,51 @@
+@import "partial";
+
+#text-register {
+  text-align: center;
+  margin: 10px 0;
+  .col-xs-6:nth-child(even) {
+    border-left: 1px solid $white-transparent;
+  }
+  .col-xs-6:nth-child(odd) h4 {
+    color: $white-transparent;
+  }
+
+}
+
+#text-login {
+  text-align: center;
+  margin: 10px 0;
+  .col-xs-6:nth-child(odd) {
+    border-right: 1px solid $white-transparent;
+  }
+  .col-xs-6:nth-child(even) h4 {
+    color: $white-transparent;
+  }
+}
+
+
+#login_prompt {
+  color: rgba(226, 226, 226, 1);
+  border-color: rgba(226, 226, 226, 1);
+  margin-top: 30px;
+}
+
+#login_prompt a {
+  color: blue;
+  text-decoration: underline;
+}
+
+#form-middle {
+  display: block;
+  padding: 6px 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 992px) {
+  form .col-md-6 {
+    margin-left: 25%;
+  }
+}
+
+
+
