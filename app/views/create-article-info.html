@@ -1,2 +1,86 @@
-{{ createArticleInfo.createArticle.fname }}
-{{ createArticleInfo.createArticle.lname }}
+<div class="create-article">
+  <div class="container">
+
+    {{createArticle.createArticle.header}}
+
+    <form ng-submit="article-form-info.$valid && main.submitContact()" name="article-form-info" novalidate>
+      <div class="row noBorder">
+        <div class="col-xs-12 col-md-6">
+          <h4>Kontaktuppgifter</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+
+
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form-info.header.$touched && article-form-info.header.$invalid }">
+
+            <input type="text" name="header" class="form input-text-field"
+                   placeholder="Rubrik"
+                   ng-model="createArticle.createArticle.header"
+                   ng-minlength="1"
+                   ng-maxlength="20"
+                   required>
+
+            <div class="help-block" ng-messages="article-form-info.header.$error" ng-if="article-form-info.header.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': article-form-info.description.$touched && article-form-info.description.$invalid }">
+
+            <input type="text" name="description" class="form input-text-field"
+                   placeholder="Beskrivning"
+                   ng-model="main.description"
+                   ng-minlength="1"
+                   ng-maxlength="1000"
+                   required>
+
+            <div class="help-block" ng-messages="article-form-info.description.$error" ng-if="article-form-info.description.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': article-form-info.price.$touched && article-form-info.price.$invalid}">
+
+            <input type="number" name="price" class="form input-money"
+                   placeholder="Pris"
+                   ng-model="main.price"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="article-form-info.zipCode.$error" ng-if="article-form-info.zipCode.$touched">
+              <div ng-messages-include="../views/messages.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <button type="submit" class="button" value="Submit" ng-disabled="article-form-info.$invalid">Granska</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <button type="button" class="button">Avbryt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
