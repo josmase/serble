@@ -1,0 +1,27 @@
+{{createArticlePreview.createArticle.fname}}
+{{createArticlePreview.createArticle.lname}}
+{{createArticlePreview.createArticle.phonenumber}}
+{{createArticlePreview.createArticle.email}}
+{{createArticlePreview.createArticle.zipCode}}
+{{createArticlePreview.createArticle.city}}
+{{createArticlePreview.createArticle.header}}
+{{createArticlePreview.createArticle.description}}
+{{createArticlePreview.createArticle.price}}
+<form ng-submit="articleFormPreview.$valid && main.submitContact()" name="articleFormPreview" novalidate>
+  <div class="container">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <button type="submit" class="button" value="Submit" ng-disabled="articleFormPreview.$invalid">Granska</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <button type="button" class="button">Avbryt</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

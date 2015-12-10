@@ -12,7 +12,7 @@ angular.module('serbleApp')
     var contact = this;
     contact.createArticle = createArticle;
     $scope.main = {
-      submitContact: function() {
+      submitContact: function () {
         $location.path('/create-article-info');
       }
     }
