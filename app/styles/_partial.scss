@@ -7,11 +7,24 @@ $white-transparent: rgba(228, 228, 228, 0.8);
 $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
 
-.cards {
-  border: 5px solid white;
-  min-height: 160px;
-  text-align: left;
-  background: $secondary-blue;
+#card {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  background: #d5d5d5;
+  padding:1.5rem 0 0;;
+  .cards {
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px #aaa;
+    background: white;
+    margin: 0 1rem 1rem;
+    border-radius: 3px;
+    user-select: none;
+    animation: fly-in-from-left .5s 1s ease both;
+    transform-origin: top left;
+    flex: 0 1 100%;
+  }
+
   h4 {
     color: $primary-orange;
     padding: 0;
@@ -98,8 +111,20 @@ ul {
 }
 
 footer {
-  background: $gray;
+  background: $secondary-blue;
   text-align: center;
+  padding: 20px 0px;
+  .button {
+    color: $primary-orange;
+    border: 1px solid $primary-orange;
+  }
+  ul {
+    padding: 20px 0px;
+  }
+  h4 {
+    color: $white;
+    font-weight: 700;
+  }
 }
 
 .form-group {
@@ -187,6 +212,15 @@ footer {
 
 .input-bio {
   background: url('../images/ic_format_align_left_white_24px.svg') no-repeat scroll 10px 10px;
+}
+
+@media screen and (min-width: 768px) {
+  #card {
+    .cards {
+      flex: 0 1 48%;
+    }
+  }
+
 }
 
 
