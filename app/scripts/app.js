@@ -33,9 +33,15 @@ angular
     createArticle.price = "";
 
     this.info = {
-      nfame: "",
+      fname: "",
       lname: "",
-      city: ""
+      city: ""        ,
+      phonenumber: "",
+      zipCode: "",
+      email: "",
+      header: "",
+      description: "",
+      price: ""
     };
 
   })

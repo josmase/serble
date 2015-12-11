@@ -1,24 +1,24 @@
-{{createArticlePreview.createArticle.fname}}
-{{createArticlePreview.createArticle.lname}}
-{{createArticlePreview.createArticle.phonenumber}}
-{{createArticlePreview.createArticle.email}}
-{{createArticlePreview.createArticle.zipCode}}
-{{createArticlePreview.createArticle.city}}
-{{createArticlePreview.createArticle.header}}
-{{createArticlePreview.createArticle.description}}
-{{createArticlePreview.createArticle.price}}
+{{createArticlePreview.info.info.fname}}
+{{createArticlePreview.info.info.lname}}
+{{createArticlePreview.info.info.phonenumber}}
+{{createArticlePreview.info.info.email}}
+{{createArticlePreview.info.info.zipCode}}
+{{createArticlePreview.info.info.city}}
+{{createArticlePreview.info.info.header}}
+{{createArticlePreview.info.info.description}}
+{{createArticlePreview.info.info.price}}
 <form ng-submit="articleFormPreview.$valid && main.submitContact()" name="articleFormPreview" novalidate>
   <div class="container">
     <div class="form-group">
       <div class="row">
         <div class="col-xs-12 col-md-6">
-          <button type="submit" class="button" value="Submit" ng-disabled="articleFormPreview.$invalid">Granska</button>
+          <button type="submit" class="button-accept" value="Submit" ng-disabled="articleFormPreview.$invalid">Granska</button>
         </div>
       </div>
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <button type="button" class="button">Avbryt</button>
+            <button type="button" class="button-decline">Avbryt</button>
           </div>
         </div>
       </div>

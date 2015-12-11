@@ -1,7 +1,7 @@
 <div class="create-article">
   <div class="container">
 
-    {{createArticle.createArticle.fname}}
+    {{createArticle.info.info.fname}}
 
     <form ng-submit="articelForm.$valid && main.submitContact()" name="articelForm" novalidate>
       <div class="row noBorder">
@@ -18,7 +18,7 @@
 
             <input type="text" name="fname" class="form input-face"
                    placeholder="Förnamn"
-                   ng-model="createArticle.createArticle.fname"
+                   ng-model="createArticle.info.info.fname"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -34,7 +34,7 @@
 
             <input type="text" name="lname" class="form input-face"
                    placeholder="Efternamn"
-                   ng-model="createArticle.createArticle.lname"
+                   ng-model="createArticle.info.info.lname"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -51,7 +51,7 @@
 
             <input type="text" name="city" class="form input-house"
                    placeholder="Stad"
-                   ng-model="createArticle.createArticle.city"
+                   ng-model="createArticle.info.info.city"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -67,7 +67,7 @@
 
             <input type="number" name="zipCode" class="form input-house"
                    placeholder="Postnummer 5 siffror"
-                   ng-model="createArticle.createArticle.zipCode"
+                   ng-model="createArticle.info.info.zipCode"
                    ng-minlength="5"
                    ng-maxlength="5"
                    required>
@@ -86,7 +86,7 @@
 
             <input type="number" name="phonenumber" class="form input-phone"
                    placeholder="Mobilnummer"
-                   ng-model="createArticle.createArticle.phonenumber"
+                   ng-model="createArticle.info.info.phonenumber"
                    ng-minlength="10"
                    ng-maxlength="10"
                    required>
@@ -103,7 +103,7 @@
 
             <input type="email" name="email" class="form input-email"
                    placeholder="Email"
-                   ng-model="createArticle.createArticle.email"
+                   ng-model="createArticle.info.info.email"
                    ng-minlength="1"
                    ng-maxlength="100"
                    required>

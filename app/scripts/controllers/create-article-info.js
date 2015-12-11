@@ -9,8 +9,7 @@
  */
 angular.module('serbleApp')
   .controller('CreateArticleInfoCtrl', function (createArticle, $location, $scope) {
-    var info = this;
-    info.createArticle = createArticle;
+   this.info = createArticle;
     $scope.main = {
       submitContact: function () {
         $location.path('/create-article-preview');
