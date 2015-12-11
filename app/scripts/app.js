@@ -21,16 +21,6 @@ angular
     'ngMessages'
   ])
   .service("createArticle", function createArticle() {
-    var createArticle = this;
-    createArticle.fname = "";
-    createArticle.lname = "";
-    createArticle.city = "";
-    createArticle.phonenumber = "";
-    createArticle.zipCode = "";
-    createArticle.email = "";
-    createArticle.header = "";
-    createArticle.description = "";
-    createArticle.price = "";
 
     this.info = {
       fname: "",

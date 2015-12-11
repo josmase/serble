@@ -11,7 +11,7 @@
 
 body {
   padding: 0;
-  background: black;
+  background: green;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -66,7 +66,9 @@ body {
     margin-bottom: 50px;
   }
 }
-
+#card{
+  background: $white;
+}
 #view_more{
   padding-top: 10px;
   background: $primary-orange;

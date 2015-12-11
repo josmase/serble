@@ -14,7 +14,7 @@ angular.module('serbleApp')
     $scope.articles = [
       {
         header: 'Måla',
-        description: 'porttitor vestibulum, magna est. Molestie quisque sit. Diam sapien vestibulum faucibus, vitae massa. Ut vehicula felis placerat vel posuere, nisl dictumst massa non ',
+        description: 'porttitor vestibulum, magna est. Molestie quisque sit. Diam sapien vestibulum faucibus, vitae massa. Ut vehicula felis placerat vel posuere, nisl dictumst massa nondsfgsdfgsdfgsdfgsdfgsdfg sdfg sdfg sdfg  gsdfgjdhj jk gikfty  stry  ',
         price: 20,
         locationDistance: 500,
         location: 'Umeå'

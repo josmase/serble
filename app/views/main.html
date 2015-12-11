@@ -15,31 +15,33 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="row">
-
-      <div class="cards col-xs-12 col-md-6" ng-repeat="article in articles | limitTo: quantity ">
-        <a ng-href="#/article/{{article.header}}">
-          <div class="row">
-            <div class="col-xs-8">
-              <h4>{{article.header}}</h4>
+  <div class="container-fluid" id="card">
+    <div class="container">
+      <div class="row">
+        <div class="cards col-xs-12 col-md-6" ng-repeat="article in articles | limitTo: quantity ">
+          <a ng-href="#/article/{{article.header}}">
+            <div class="row">
+              <div class="col-xs-8">
+                <h4>{{article.header}}</h4>
+              </div>
+              <div class="col-xs-4 details" id="pay">
+                <p>{{article.price | currency : "SEK "}}</p>
+              </div>
             </div>
-            <div class="col-xs-4 details" id="pay">
-              <p>{{article.price | currency : "SEK "}}</p>
+            <div class="row">
+              <div class="col-xs-10">
+                <p>{{article.description | limitTo:170}}... </p>
+              </div>
+              <div class="col-xs-2 details" id="location">
+                <p>{{article.locationDistance}}, {{article.location}}</p>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-10">
-              <p>{{article.description | limitTo:170}}... </p>
-            </div>
-            <div class="col-xs-2 details" id="location">
-              <p>{{article.locationDistance}}, {{article.location}}</p>
-            </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
-
+  </div>
+  <div class="container-fluid">
     <div class="row" id="view_more">
       <div class="col-xs-12">
         <a href="" ng-click="quantity = quantity + 6">
