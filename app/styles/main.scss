@@ -72,9 +72,19 @@ body {
   background: $primary-orange;
   text-align: center;
 }
-footer .button{
+footer {
+ padding: 20px 0px;
+ .button {
   color: $primary-orange;
   border: 1px solid $primary-orange;
+  }
+  ul {
+  padding:20px 0px;
+  }
+  h4 {
+  color:$white;
+  font-weight:700;
+  }
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
