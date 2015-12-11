@@ -31,6 +31,13 @@ angular
     createArticle.header = "";
     createArticle.description = "";
     createArticle.price = "";
+
+    this.info = {
+      nfame: "",
+      lname: "",
+      city: ""
+    };
+
   })
   .config(function ($routeProvider) {
       $routeProvider

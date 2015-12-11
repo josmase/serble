@@ -1,28 +1,26 @@
 @import "partial";
 
-#text-register {
-  text-align: center;
+
+#text-login, #text-register {
+  text-align: left;
   margin: 10px 0;
-  .col-xs-6:nth-child(even) {
-    border-left: 1px solid $white-transparent;
-  }
-  .col-xs-6:nth-child(odd) h4 {
-    color: $white-transparent;
+  color: $white;
+  h4{
+
+    display: inline-block;
   }
 
 }
-
-#text-login {
-  text-align: center;
-  margin: 10px 0;
-  .col-xs-6:nth-child(odd) {
-    border-right: 1px solid $white-transparent;
-  }
-  .col-xs-6:nth-child(even) h4 {
-    color: $white-transparent;
-  }
+#text-register:nth-child(odd) h4 {
+  color: $white-transparent;
+  margin-right: 20px;
 }
 
+
+#text-login:nth-child(even) h4 {
+  color: $white-transparent;
+  margin-left: 20px;
+}
 
 #login_prompt {
   color: rgba(226, 226, 226, 1);

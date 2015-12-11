@@ -1,7 +1,7 @@
-$primary-orange: rgba(245, 161, 24, 1);
+$primary-orange: rgba(246, 163, 25, 1);
 $secondary-blue: rgba(38, 58, 66, 1);
 $gray: rgba(182, 182, 182, 1);
-$white: rgba(228, 228, 228, 1);
+$white: rgba(255, 255, 255, 1);
 $white-transparent: rgba(228, 228, 228, 0.8);
 $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
@@ -11,7 +11,8 @@ $facebook-color: #3B5998;
   min-height: 145px;
   text-align: left;
   background: $secondary-blue;
-  h3 {
+  h4 {
+    color: $primary-orange;
     padding: 0;
   }
   .details {
@@ -26,13 +27,20 @@ $facebook-color: #3B5998;
 }
 
 .btn, .button {
-  background: $primary-orange;
-  border-radius: 30px;
   border-width: 0;
   outline: none;
   padding: 13px;
-  color: $white;
   min-width: 150px;
+}
+.btn-accept , .button-accept{
+  @extend .button;
+  background: $primary-orange;
+  color: $white;
+}
+.btn-decline, .button-decline{
+  @extend .button;
+  background: $white;
+  color: $primary-orange;
 }
 
 input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder, input:-ms-input-placeholder {
@@ -83,8 +91,8 @@ footer {
   input, select, textarea {
     text-align: left;
     background-color: $black-transparent;
-    border: none;
-    border-radius: 30px;
+    border: 0;
+    border-bottom: 1px solid $white;
     outline: none;
     padding: 13px 13px 13px 40px;
     width: 100%;

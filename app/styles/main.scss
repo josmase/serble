@@ -11,6 +11,7 @@
 
 body {
   padding: 0;
+  background: black;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -70,6 +71,10 @@ body {
   padding-top: 10px;
   background: $primary-orange;
   text-align: center;
+}
+footer .button{
+  color: $primary-orange;
+  border: 1px solid $primary-orange;
 }
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
