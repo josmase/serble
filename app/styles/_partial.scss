@@ -12,7 +12,7 @@ $facebook-color: #3B5998;
   flex-flow: wrap row;
   justify-content: space-between;
   background: #d5d5d5;
-  padding:1.5rem 0 0;;
+  padding: 1.5rem 0 0;;
   .cards {
     padding: 1.5rem;
     box-shadow: 0 1px 2px #aaa;
@@ -217,7 +217,13 @@ footer {
 @media screen and (min-width: 768px) {
   #card {
     .cards {
-      flex: 0 1 48%;
+      flex: 0 1 49%;
+    }
+    .cards:nth-child(even) {
+      margin-left: 0;
+    }
+    .cards:nth-child(odd) {
+      margin-right: 0;
     }
   }
 
