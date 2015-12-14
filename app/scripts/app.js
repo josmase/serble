@@ -19,7 +19,12 @@ angular
     'angular-loading-bar',
     'infinite-scroll',
     'ngMessages'
-  ])
+  ]).controller('headerCtrl', function ($scope, $location) {
+    $scope.isActive = function (viewLocation) {
+      $("#myNavbar").collapse('hide');
+      return $location.path().indexOf(viewLocation) == 0;
+    };
+  })
   .service("createArticle", function createArticle() {
 
     this.info = {

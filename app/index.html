@@ -8,8 +8,8 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
   <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.css' />
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -30,7 +30,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="header">
+<div class="header" ng-controller="headerCtrl">
   <nav class="navbar">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -41,11 +41,11 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#/home" data-toggle="collapse" data-target="#myNavbar">Start</a></li>
-          <li><a href="#/map" data-toggle="collapse" data-target="#myNavbar">Karta</a></li>
-          <li><a href="#/articles" data-toggle="collapse" data-target="#myNavbar">Flöde</a></li>
-          <li><a href="#/create-article" data-toggle="collapse" data-target="#myNavbar">Skapa annons</a></li>
-          <li><a href="#/profile" data-toggle="collapse" data-target="#myNavbar">Profil</a></li>
+          <li><a href="#/home" ng-class="{ active: isActive('/home')}">Start</a></li>
+          <li><a href="#/map"  ng-class="{ active: isActive('/map')}">Karta</a></li>
+          <li><a href="#/articles" ng-class="{ active: isActive('/articles')}">Flöde</a></li>
+          <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa Annons</a></li>
+          <li><a href="#/profile" ng-class="{ active: isActive('/profile')}">Profil</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#/register"><i class="material-icons md-18">&#xE7FD;</i> Sign Up</a></li>
@@ -177,7 +177,6 @@
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -190,6 +189,7 @@
 <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
