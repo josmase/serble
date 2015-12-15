@@ -36,7 +36,8 @@
                    ng-maxlength="1000"
                    required>
 
-            <div class="help-block" ng-messages="articelFormInfo.description.$error" ng-if="articelFormInfo.description.$touched">
+            <div class="help-block" ng-messages="articelFormInfo.description.$error"
+                 ng-if="articelFormInfo.description.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
@@ -55,18 +56,46 @@
                    ng-maxlength="70"
                    required>
 
-            <div class="help-block" ng-messages="articelFormInfo.zipCode.$error" ng-if="articelFormInfo.zipCode.$touched">
+            <div class="help-block" ng-messages="articelFormInfo.zipCode.$error"
+                 ng-if="articelFormInfo.zipCode.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
         </div>
 
       </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <select ng-model="createArticleInfo.info.info.category"
+                    name="category"
+                    required>
+              <option value="">Vilken kategori</option>
+              <option value="data">Data och sånt</option>
+              <option value="gardening">Trädgårdsarbete</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <select ng-model="createArticleInfo.info.info.type"
+                    name="category"
+                    required>
+              <option value="">Behöver eller erbjuder</option>
+              <option value="buy">Behöver hjälp</option>
+              <option value="sell">Kan hjälpa</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <button type="submit" class="button" value="Submit" ng-disabled="articelFormInfo.$invalid">Granska</button>
+            <button type="submit" class="button-accept" value="Submit" ng-disabled="articelFormInfo.$invalid">Granska
+            </button>
           </div>
         </div>
         <div class="form-group">

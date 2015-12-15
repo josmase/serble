@@ -95,7 +95,15 @@ ul {
   width: 100%;
   padding: 0;
   z-index: 900;
-  border-bottom: 1px solid $white;
+  /*removes bootsrap navigation hover*/
+  .nav {
+    li {
+      a:hover, a:focus {
+        background: none;
+      }
+    }
+  }
+
   .navbar {
     margin-bottom: 0;
 
@@ -128,7 +136,7 @@ footer {
 }
 
 .form-group {
-  input, select, textarea {
+  input, select, textarea, select {
     text-align: left;
     background-color: $black-transparent;
     border: 0;

@@ -36,7 +36,9 @@ angular
       email: "",
       header: "",
       description: "",
-      price: ""
+      price: "" ,
+      category: "",
+      type:""
     };
 
   })
