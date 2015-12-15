@@ -29,12 +29,15 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelFormInfo.description.$touched && articelFormInfo.description.$invalid }">
 
-            <input type="text" name="description" class="form input-text-field"
-                   placeholder="Beskrivning"
-                   ng-model="createArticleInfo.info.info.description"
-                   ng-minlength="1"
-                   ng-maxlength="1000"
-                   required>
+            <textarea type="text" name="description"
+                      cols="40"
+                      rows="10"
+                      class="form input-text-field"
+                      placeholder="Beskrivning"
+                      ng-model="createArticleInfo.info.info.description"
+                      ng-minlength="1"
+                      ng-maxlength="1000"
+                      required> </textarea>
 
             <div class="help-block" ng-messages="articelFormInfo.description.$error"
                  ng-if="articelFormInfo.description.$touched">

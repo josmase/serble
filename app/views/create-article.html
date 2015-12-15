@@ -84,7 +84,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
 
-            <input type="number" name="phonenumber" class="form input-phone"
+            <input type="tel" pattern="^\+46 *7[0236] *\d{4} *\d{3}$" name="phonenumber" class="form input-phone"
                    placeholder="Mobilnummer"
                    ng-model="createArticle.info.info.phonenumber"
                    ng-minlength="10"
