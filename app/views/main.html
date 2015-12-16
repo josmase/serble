@@ -15,19 +15,21 @@
       </div>
     </div>
   </div>
-  <div id="card">
-    <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
-      <a ng-href="#/article/{{article.header}}">
-        <h4>{{article.header}}</h4>
+  <div class="container">
+    <div id="card">
+      <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
+        <a ng-href="#/article/{{article.header}}">
+          <h4>{{article.header}}</h4>
 
 
-        <p>{{article.description | limitTo:170}}... </p>
+          <p>{{article.description | limitTo:170}}... </p>
 
-        <p>{{article.locationDistance}}, {{article.location}}</p>
+          <p>{{article.locationDistance}}, {{article.location}}</p>
 
-        <p>{{article.price | currency : "SEK "}}</p>
+          <p>{{article.price | currency : "SEK "}}</p>
 
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 
