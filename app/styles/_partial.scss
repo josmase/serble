@@ -127,7 +127,7 @@ footer {
     border: 1px solid $primary-orange;
   }
   ul {
-    padding: 20px 0px;
+    padding: 20px 0;
   }
   h4 {
     color: $white;
@@ -138,11 +138,10 @@ footer {
 .form-group {
   input, select, textarea, select {
     text-align: left;
-    background-color: $black-transparent;
-    border: 0;
-    border-bottom: 1px solid $white;
+    background-color: transparent;
+    border: 1px solid $white;
     outline: none;
-    padding: 13px 13px 13px 40px;
+    padding: 13px;
     width: 100%;
     color: rgba(226, 226, 226, 1);
   }
@@ -182,46 +181,9 @@ footer {
   margin-top: 0;
 }
 
-.input-email {
-  background: url('../images/ic_email_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-password {
-  background: url('../images/ic_lock_black_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-face {
-  background: url('../images/ic_face_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-house {
-  background: url('../images/ic_home_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-phone {
-  background: url('../images/ic_phone_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-bio {
-  background: url('../images/ic_format_align_left_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-text-field {
-  background: url('../images/ic_text_fields_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
-.input-money {
-  background: url('../images/ic_attach_money_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
 .center {
   text-align: center;
 }
-
-.input-bio {
-  background: url('../images/ic_format_align_left_white_24px.svg') no-repeat scroll 10px 10px;
-}
-
 @media screen and (min-width: 768px) {
   #card {
     .cards {
