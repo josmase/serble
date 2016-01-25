@@ -15,7 +15,30 @@
       </div>
     </div>
   </div>
+
   <div class="container">
+    <div class="articleFilter">
+      <form ng-submit="filterForm.$valid && submitForm()" name="filterForm" novalidate>
+        <div class="form-group">
+          <input type="text"
+                 name="query"
+                 ng-model="filter.text"
+                 placeholder="Sök efter annonser...">
+          <select ng-model="filter.orderBy"
+                  name="orderBy">
+            <option value="">Sortera</option>
+            <option value="data">Data och sånt</option>
+            <option value="gardening">Trädgårdsarbete</option>
+          </select>
+          <select ng-model="filter.category"
+                  name="category">
+            <option value="">Kategori</option>
+            <option value="data">Data och sånt</option>
+            <option value="gardening">Trädgårdsarbete</option>
+          </select>
+        </div>
+      </form>
+    </div>
     <div id="card">
       <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
         <a ng-href="#/article/{{article.header}}">
