@@ -134,9 +134,13 @@ footer {
     font-weight: 700;
   }
 }
-
+.container .has-error{
+  input, select, textarea {
+   border: 1px solid red;
+  }
+}
 .form-group {
-  input, select, textarea, select {
+  input, select, textarea {
     text-align: left;
     background-color: transparent;
     border: 1px solid $white;
@@ -144,6 +148,7 @@ footer {
     padding: 13px;
     width: 100%;
     color: black;
+
   }
   .profile-information {
     @extend input;

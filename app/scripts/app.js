@@ -72,16 +72,6 @@ angular
           controller: 'CreateProfileCtrl',
           controllerAs: 'createProfile'
         })
-        .when('/create-article-info', {
-          templateUrl: 'views/create-article-info.html',
-          controller: 'CreateArticleInfoCtrl',
-          controllerAs: 'createArticleInfo'
-        })
-        .when('/create-article-preview', {
-          templateUrl: 'views/create-article-preview.html',
-          controller: 'CreateArticlePreviewCtrl',
-          controllerAs: 'createArticlePreview'
-        })
         .otherwise({
           redirectTo: '/home'
         });
