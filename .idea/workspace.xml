@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d24359fd-6dfe-4032-9948-56f674192be7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/resources/error.html" afterPath="$PROJECT_DIR$/app/resources/error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/_partial.scss" afterPath="$PROJECT_DIR$/app/styles/_partial.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/create-article.html" afterPath="$PROJECT_DIR$/app/views/create-article.html" />
     </list>
     <ignored path="serble.iws" />
@@ -69,8 +64,8 @@
       <file leaf-file-name="create-article.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/create-article.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24942264">
-              <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.2078522">
+              <caret line="185" column="29" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -793,12 +788,12 @@
       <workItem from="1450182159757" duration="5244000" />
       <workItem from="1450251488447" duration="1993000" />
       <workItem from="1450261620031" duration="676000" />
-      <workItem from="1453708963781" duration="7587000" />
+      <workItem from="1453708963781" duration="8146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83795000" />
+    <option name="totallyTimeSpent" value="84354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="900" extended-state="6" />
@@ -1220,8 +1215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/create-article.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24942264">
-          <caret line="66" column="2" selection-start-line="66" selection-start-column="2" selection-end-line="66" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.2078522">
+          <caret line="185" column="29" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
           <folding />
         </state>
       </provider>

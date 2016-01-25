@@ -15,9 +15,9 @@
 
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.fname.$touched && articelForm.fname.$invalid }">
-
+<label>Förnamn</label>
             <input type="text" name="fname" class="form input-face"
-                   placeholder="Förnamn"
+                   placeholder="Sven"
                    ng-model="articleData.fname"
                    ng-minlength="1"
                    ng-maxlength="70"
@@ -31,9 +31,9 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.lname.$touched && articelForm.lname.$invalid }">
-
+<label>Efternamn</label>
             <input type="text" name="lname" class="form input-face"
-                   placeholder="Efternamn"
+                   placeholder="Svensson"
                    ng-model="articleData.lname"
                    ng-minlength="1"
                    ng-maxlength="70"
@@ -48,9 +48,9 @@
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group" ng-class="{ 'has-error': articelForm.city.$touched && articelForm.city.$invalid }">
-
+<label>Stad</label>
             <input type="text" name="city" class="form input-house"
-                   placeholder="Stad"
+                   placeholder="Umeå"
                    ng-model="articleData.city"
                    ng-minlength="1"
                    ng-maxlength="70"
@@ -64,9 +64,9 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.zipCode.$touched && articelForm.zipCode.$invalid }">
-  
+            <label>Postnummer</label>
             <input type="number" name="zipCode" class="form input-house"
-                   placeholder="Postnummer 5 siffror"
+                   placeholder="90210"
                    ng-model="articleData.zipCode"
                    ng-minlength="5"
                    ng-maxlength="5"
@@ -83,9 +83,9 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
-
+  <label>Mobilnummer</label>
             <input type="tel" name="phonenumber" class="form input-phone"
-                   placeholder="Mobilnummer"
+                   placeholder="0701234567"
                    ng-model="articleData.phonenumber"
                    ng-minlength="10"
                    ng-maxlength="10"
@@ -100,9 +100,9 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.email.$touched && articelForm.email.$invalid }">
-
+<label>Email</label>
             <input type="email" name="email" class="form input-email"
-                   placeholder="Email"
+                   placeholder="exempel@test.com"
                    ng-model="articleData.email"
                    ng-minlength="1"
                    ng-maxlength="100"
@@ -121,9 +121,9 @@
 
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.header.$touched && articelForm.header.$invalid }">
-
+<label>Rubrik</label>
             <input type="text" name="header" class="form input-text-field"
-                   placeholder="Rubrik"
+                   placeholder="Måla staket..."
                    ng-model="main.header"
                    ng-minlength="1"
                    ng-maxlength="20"
@@ -137,12 +137,12 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.description.$touched && articelForm.description.$invalid }">
-
+<label>Beskrivning</label>
             <textarea type="text" name="description"
                       cols="40"
                       rows="10"
                       class="form input-text-field"
-                      placeholder="Beskrivning"
+                      placeholder="Jag..."
                       ng-model="articleData.description"
                       ng-minlength="1"
                       ng-maxlength="1000"
@@ -160,9 +160,9 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{'has-error': articelForm.price.$touched && articelForm.price.$invalid}">
-
+<label>Pris</label>
             <input type="number" name="price" class="form input-money"
-                   placeholder="Pris"
+                   placeholder="200"
                    ng-model="articleData.price"
                    ng-minlength="1"
                    ng-maxlength="70"
@@ -180,11 +180,11 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{'has-error': articelForm.category.$touched && articelForm.category.$invalid}">
-
+<label>Kategori</label>
             <select ng-model="articleData.category"
                     name="category"
                     required>
-              <option value="">Vilken kategori</option>
+              <option value="">Välj ett alternativ</option>
               <option value="data">Data och sånt</option>
               <option value="gardening">Trädgårdsarbete</option>
             </select>
@@ -200,11 +200,11 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{'has-error': articelForm.type.$touched && articelForm.type.$invalid}">
-
+<label>Köpes/Säljes</label>
             <select ng-model="articleData.type"
                     name="type"
                     required>
-              <option value="">Behöver eller erbjuder</option>
+              <option value="">Välj ett alternativ</option>
               <option value="buy">Behöver hjälp</option>
               <option value="sell">Kan hjälpa</option>
             </select>
