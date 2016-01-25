@@ -25,23 +25,6 @@ angular
       return $location.path().indexOf(viewLocation) == 0;
     };
   })
-  .service("createArticle", function createArticle() {
-
-    this.info = {
-      fname: "",
-      lname: "",
-      city: ""        ,
-      phonenumber: "",
-      zipCode: "",
-      email: "",
-      header: "",
-      description: "",
-      price: "" ,
-      category: "",
-      type:""
-    };
-
-  })
   .config(function ($routeProvider) {
       $routeProvider
         .when('/home', {

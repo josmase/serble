@@ -8,11 +8,9 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function (createArticle, $location, $scope) {
-   this.info = createArticle;
-    $scope.main = {
-      submitContact: function () {
-        $location.path('/create-article-info');
-      }
+  .controller('CreateArticleCtrl', function ( $location, $scope) {
+    $scope.articleData = null;
+    $scope.submitForm = function(){
+      console.log($scope.articleData)
     }
   });

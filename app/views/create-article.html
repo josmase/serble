@@ -1,9 +1,9 @@
 <div class="create-article">
   <div class="container">
 
-    {{createArticle.info.info.fname}}
+    {{articleData | json}}
 
-    <form ng-submit="articelForm.$valid && main.submitContact()" name="articelForm" novalidate>
+    <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row noBorder">
         <div class="col-xs-12 col-md-6">
           <h4>Kontaktuppgifter</h4>
@@ -18,7 +18,7 @@
 
             <input type="text" name="fname" class="form input-face"
                    placeholder="Förnamn"
-                   ng-model="createArticle.info.info.fname"
+                   ng-model="articleData.fname"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -34,7 +34,7 @@
 
             <input type="text" name="lname" class="form input-face"
                    placeholder="Efternamn"
-                   ng-model="createArticle.info.info.lname"
+                   ng-model="articleData.lname"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -51,7 +51,7 @@
 
             <input type="text" name="city" class="form input-house"
                    placeholder="Stad"
-                   ng-model="createArticle.info.info.city"
+                   ng-model="articleData.city"
                    ng-minlength="1"
                    ng-maxlength="70"
                    required>
@@ -67,7 +67,7 @@
 
             <input type="number" name="zipCode" class="form input-house"
                    placeholder="Postnummer 5 siffror"
-                   ng-model="createArticle.info.info.zipCode"
+                   ng-model="articleData.zipCode"
                    ng-minlength="5"
                    ng-maxlength="5"
                    required>
@@ -84,9 +84,9 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
 
-            <input type="tel" pattern="^\+46 *7[0236] *\d{4} *\d{3}$" name="phonenumber" class="form input-phone"
+            <input type="tel" name="phonenumber" class="form input-phone"
                    placeholder="Mobilnummer"
-                   ng-model="createArticle.info.info.phonenumber"
+                   ng-model="articleData.phonenumber"
                    ng-minlength="10"
                    ng-maxlength="10"
                    required>
@@ -103,7 +103,7 @@
 
             <input type="email" name="email" class="form input-email"
                    placeholder="Email"
-                   ng-model="createArticle.info.info.email"
+                   ng-model="articleData.email"
                    ng-minlength="1"
                    ng-maxlength="100"
                    required>
@@ -115,11 +115,113 @@
         </div>
 
       </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+
+
+          <div class="form-group"
+               ng-class="{ 'has-error': articelForm.header.$touched && articelForm.header.$invalid }">
+
+            <input type="text" name="header" class="form input-text-field"
+                   placeholder="Rubrik"
+                   ng-model="main.header"
+                   ng-minlength="1"
+                   ng-maxlength="20"
+                   required>
+
+            <div class="help-block" ng-messages="articelForm.header.$error" ng-if="articelForm.header.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{ 'has-error': articelForm.description.$touched && articelForm.description.$invalid }">
+
+            <textarea type="text" name="description"
+                      cols="40"
+                      rows="10"
+                      class="form input-text-field"
+                      placeholder="Beskrivning"
+                      ng-model="articleData.description"
+                      ng-minlength="1"
+                      ng-maxlength="1000"
+                      required> </textarea>
+
+            <div class="help-block" ng-messages="articelForm.description.$error"
+                 ng-if="articelForm.description.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': articelForm.price.$touched && articelForm.price.$invalid}">
+
+            <input type="number" name="price" class="form input-money"
+                   placeholder="Pris"
+                   ng-model="articleData.price"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="articelForm.price.$error"
+                 ng-if="articelForm.price.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': articelForm.category.$touched && articelForm.category.$invalid}">
+
+            <select ng-model="articleData.category"
+                    name="category"
+                    required>
+              <option value="">Vilken kategori</option>
+              <option value="data">Data och sånt</option>
+              <option value="gardening">Trädgårdsarbete</option>
+            </select>
+
+            <div class="help-block" ng-messages="articelForm.category.$error"
+                 ng-if="articelForm.category.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': articelForm.type.$touched && articelForm.type.$invalid}">
+
+            <select ng-model="articleData.type"
+                    name="type"
+                    required>
+              <option value="">Behöver eller erbjuder</option>
+              <option value="buy">Behöver hjälp</option>
+              <option value="sell">Kan hjälpa</option>
+            </select>
+
+            <div class="help-block" ng-messages="articelForm.type.$error"
+                 ng-if="articelForm.type.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="row">
           <div class="col-xs-12 col-md-6">
-            <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid">Fortsätt</button>
+            <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid">Fortsätt
+            </button>
           </div>
         </div>
         <div class="form-group">
