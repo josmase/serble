@@ -31,26 +31,22 @@
 
 <!-- Add your site or application content here -->
 <div class="header" ng-controller="headerCtrl">
-  <div class="container">
+  <div class="container-fluid">
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <i class="material-icons">&#xE5D2;</i>
           </button>
-          <a class="navbar-brand" href="#/home">Serble</a>
+          <a class="navbar-brand" href="#/home">serble</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="#/home" ng-class="{ active: isActive('/home')}">Start</a></li>
-            <li><a href="#/map" ng-class="{ active: isActive('/map')}">Karta</a></li>
-            <li><a href="#/articles" ng-class="{ active: isActive('/articles')}">Flöde</a></li>
-            <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa Annons</a></li>
-            <li><a href="#/profile" ng-class="{ active: isActive('/profile')}">Profil</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/register"><i class="material-icons md-18">&#xE7FD;</i> Sign Up</a></li>
-            <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#/home" ng-class="{ active: isActive('/home')}">Startsida</a></li>
+            <li><a href="#/map" ng-class="{ active: isActive('/map')}">Skapa annons</a></li>
+            <li><a href="#/articles" ng-class="{ active: isActive('/articles')}">Karta </a></li>
+            <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">+46 90 231 27</a></li>
+            <li><a href="#/profile" ng-class="{ active: isActive('/profile')}">mail@serble.se</a></li>
           </ul>
         </div>
       </div>

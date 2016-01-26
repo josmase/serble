@@ -25,28 +25,23 @@ $green-transparent: rgba(99, 179, 70, 0.8);
     animation: fly-in-from-left .5s 1s ease both;
     transform-origin: top left;
     flex: 0 1 100%;
-  }
-  .card_float_left {
-    float: left;
-    width: 90%;
-  }
-  .card_float_right {
-    float: right;
-    width: 10%;
-    p {
-      padding: 25px 0;
-      color: black;
+    .details {
+      border-top: 2px #eeeeee solid;
+      padding-top:15px;
+      p {
+        color: #7d7b7c;
+        float: right;
+      }
+      a {
+        color: #65b447;
+        float: left;
+      }
     }
-  }
-  p {
-    color: #7d7b7c;
 
   }
-  a{
-    color:#65b447;
-  }
+
   h4 {
-    color: black;
+    color: #3b99d4;
     padding: 0;
   }
   .details {
@@ -111,7 +106,7 @@ ul {
 }
 
 .header {
-  background: $primary-orange;
+  background: white;
   width: 100%;
   padding: 0;
   z-index: 900;
@@ -128,11 +123,15 @@ ul {
     margin-bottom: 0;
 
     .navbar-brand, a {
-      color: $white;
+      border-bottom: 1px #dddfe1 solid;
+      color: #4b4d4a;
+    }
+    .navbar-header{
+      border-bottom: 2px  solid #eeeeee;
     }
     button {
       margin: 0;
-      color: $white;
+      color: black;
     }
   }
 

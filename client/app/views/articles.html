@@ -1,18 +1,14 @@
 <div infinite-scroll='loadMore()' infinite-scroll-distance='3'>
   <div id="card">
     <div class="cards" ng-repeat="card in cards">
-      <div class="card_float_left">
-        <h4>{{card.header}}</h4>
+      <h4>{{card.header}}</h4>
 
-        <p>{{card.description | limitTo:170}}... </p>
-      </div>
-      <div class="card_float_right">
-        <p>{{card.locationDistance}}m</p>
-
-        <p>{{card.price | currency : ""}}</p>
+      <p>{{card.description | limitTo:170}}... </p>
+      <div class="details">
+        <a ng-href="#/article/{{card.header}}">Kontakta</a>
+        <p>{{card.locationDistance}}, {{card.price | currency : ""}}</p>
       </div>
 
-      <a ng-href="#/article/{{card.header}}">Läs mer</a>
 
     </div>
   </div>
