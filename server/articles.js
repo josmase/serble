@@ -1,5 +1,7 @@
 'use strict';
 
+var net = require('./net.js');
+
 /**
  * Articles (Advertisements) module
  * @author Emil Bertillson, Serble
@@ -45,6 +47,7 @@ var exp = {
      * @param articles Articles
      */
     send: function (res, articles) {
+        net.send(res, 'articles', articles);
     }
 };
 

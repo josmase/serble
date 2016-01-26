@@ -18,9 +18,9 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`group`
+-- Table `group`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`group` (
+CREATE TABLE IF NOT EXISTS `group` (
   `group_id` INT NOT NULL,
   `inheritance_id` INT NULL,
   `title` VARCHAR(45) NOT NULL,
@@ -31,16 +31,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`group` (
   INDEX `inheritance_id` (`inheritance_id` ASC),
   CONSTRAINT `inheritance_id`
     FOREIGN KEY (`inheritance_id`)
-    REFERENCES `mydb`.`group` (`group_id`)
+    REFERENCES `group` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`account`
+-- Table `account`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`account` (
+CREATE TABLE IF NOT EXISTS `account` (
   `user_id` INT NOT NULL,
   `group_id` INT NOT NULL,
   `username` VARCHAR(45) NOT NULL,
@@ -54,16 +54,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`account` (
   INDEX `group_id` (`group_id` ASC),
   CONSTRAINT `group_id`
     FOREIGN KEY (`group_id`)
-    REFERENCES `mydb`.`group` (`group_id`)
+    REFERENCES `group` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`profile`
+-- Table `profile`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`profile` (
+CREATE TABLE IF NOT EXISTS `profile` (
   `profile_id` INT NOT NULL,
   `user_id` INT NULL,
   `firstname` VARCHAR(45) NULL,
@@ -80,16 +80,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`profile` (
   UNIQUE INDEX `user_id` (`user_id` ASC),
   CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
-    REFERENCES `mydb`.`account` (`user_id`)
+    REFERENCES `account` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`profile_rating`
+-- Table `profile_rating`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`profile_rating` (
+CREATE TABLE IF NOT EXISTS `profile_rating` (
   `ratings_id` INT NOT NULL,
   `profile_id` INT NOT NULL,
   `author_id` INT NULL,
@@ -100,42 +100,42 @@ CREATE TABLE IF NOT EXISTS `mydb`.`profile_rating` (
   INDEX `author_id` (`author_id` ASC),
   CONSTRAINT `profile_id`
     FOREIGN KEY (`profile_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `author_id`
     FOREIGN KEY (`author_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`profile_contact`
+-- Table `profile_contact`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`profile_contact` (
+CREATE TABLE IF NOT EXISTS `profile_contact` (
   `contact_id` INT NOT NULL,
   `profile1_id` INT NOT NULL,
   `profile2_id` INT NOT NULL,
   PRIMARY KEY (`contact_id`),
   CONSTRAINT `profile1_id`
     FOREIGN KEY (`profile1_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `profile2_id`
     FOREIGN KEY (`profile2_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`advertisement`
+-- Table `advertisement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`advertisement` (
+CREATE TABLE IF NOT EXISTS `advertisement` (
   `advert_id` INT NOT NULL,
   `author_id` INT NOT NULL,
   `title` VARCHAR(45) NULL,
@@ -147,16 +147,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`advertisement` (
   PRIMARY KEY (`advert_id`),
   CONSTRAINT `author_id`
     FOREIGN KEY (`author_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`advertisement_participant`
+-- Table `advertisement_participant`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`advertisement_participant` (
+CREATE TABLE IF NOT EXISTS `advertisement_participant` (
   `participation_id` INT NOT NULL,
   `participant_id` INT NOT NULL,
   `advert_id` INT NOT NULL,
@@ -166,21 +166,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`advertisement_participant` (
   INDEX `advert_id` (`advert_id` ASC),
   CONSTRAINT `participant_id`
     FOREIGN KEY (`participant_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `advert_id`
     FOREIGN KEY (`advert_id`)
-    REFERENCES `mydb`.`advertisement` (`advert_id`)
+    REFERENCES `advertisement` (`advert_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`advertisement_rating`
+-- Table `advertisement_rating`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`advertisement_rating` (
+CREATE TABLE IF NOT EXISTS `advertisement_rating` (
   `rating_id` INT NOT NULL,
   `advert_id` INT NOT NULL,
   `author_id` INT NULL,
@@ -189,21 +189,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`advertisement_rating` (
   PRIMARY KEY (`rating_id`),
   CONSTRAINT `advert_id`
     FOREIGN KEY (`advert_id`)
-    REFERENCES `mydb`.`advertisement` (`advert_id`)
+    REFERENCES `advertisement` (`advert_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `author_id`
     FOREIGN KEY (`author_id`)
-    REFERENCES `mydb`.`profile` (`profile_id`)
+    REFERENCES `profile` (`profile_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`group_privileges`
+-- Table `group_privileges`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`group_privileges` (
+CREATE TABLE IF NOT EXISTS `group_privileges` (
   `privilege_id` INT NOT NULL,
   `group_id` INT NOT NULL,
   `title` VARCHAR(255) NULL,
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`group_privileges` (
   INDEX `group_id` (`group_id` ASC),
   CONSTRAINT `privilege_id`
     FOREIGN KEY (`group_id`)
-    REFERENCES `mydb`.`group` (`group_id`)
+    REFERENCES `group` (`group_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -44,7 +44,7 @@ database.connect(function (e) {
         });
 
         input.on('close', function () {
-            database.query(str.toString('ascii'), function (e) {
+            database.query(str.toString('ascii'), function (e, rows) {
                 if (e) {
                     console.log("Database error: " + e);
                 }
