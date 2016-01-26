@@ -26,9 +26,27 @@ $green-transparent: rgba(99, 179, 70, 0.8);
     transform-origin: top left;
     flex: 0 1 100%;
   }
+  .card_float_left {
+    float: left;
+    width: 90%;
+  }
+  .card_float_right {
+    float: right;
+    width: 10%;
+    p {
+      padding: 25px 0;
+      color: black;
+    }
+  }
+  p {
+    color: #7d7b7c;
 
+  }
+  a{
+    color:#65b447;
+  }
   h4 {
-    color: $primary-orange;
+    color: black;
     padding: 0;
   }
   .details {
