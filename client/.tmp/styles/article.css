@@ -1,0 +1,304 @@
+/*Color and font for all p elements*/
+/* line 6, ../../app/styles/_fonts.scss */
+p, a, a:hover {
+  color: #b4b6b5;
+  font-family: "Source Sans Pro", sans-serif;
+  text-decoration: none;
+}
+
+/* Rules for sizing the icon. */
+/* line 13, ../../app/styles/_fonts.scss */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+/* line 17, ../../app/styles/_fonts.scss */
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+/* line 21, ../../app/styles/_fonts.scss */
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+/* line 25, ../../app/styles/_fonts.scss */
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+/* line 29, ../../app/styles/_fonts.scss */
+a, a:hover {
+  text-decoration: none;
+}
+
+/* line 33, ../../app/styles/_fonts.scss */
+h1, h2, h3, h4 {
+  color: #b4b6b5;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* line 38, ../../app/styles/_fonts.scss */
+.create-article h1 {
+  color: black;
+}
+
+/* line 44, ../../app/styles/_fonts.scss */
+.form-group input, .form-group .profile-information, .form-group select, .form-group textarea {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* line 12, ../../app/styles/_partial.scss */
+#card {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  background: #d5d5d5;
+  padding: 1.5rem 0 0;
+}
+/* line 18, ../../app/styles/_partial.scss */
+#card .cards {
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px #aaa;
+  background: white;
+  margin: 0 0 1rem;
+  border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  animation: fly-in-from-left .5s 1s ease both;
+  transform-origin: top left;
+  flex: 0 1 100%;
+}
+/* line 30, ../../app/styles/_partial.scss */
+#card h4 {
+  color: #f6a319;
+  padding: 0;
+}
+/* line 34, ../../app/styles/_partial.scss */
+#card .details {
+  text-align: right;
+}
+/* line 37, ../../app/styles/_partial.scss */
+#card #pay {
+  margin-top: 10px;
+}
+/* line 40, ../../app/styles/_partial.scss */
+#card #location p {
+  margin-top: 100%;
+}
+/* line 43, ../../app/styles/_partial.scss */
+#card .col-md-6 {
+  background: orange;
+}
+
+/* line 48, ../../app/styles/_partial.scss */
+.btn, .button, .btn-accept, .button-accept, .btn-decline, .button-decline, .form-group button {
+  border-width: 0;
+  outline: none;
+  padding: 13px;
+  min-width: 150px;
+  font-weight: 700;
+}
+
+/* line 56, ../../app/styles/_partial.scss */
+.btn-accept, .button-accept {
+  background: #63b346;
+  color: white;
+}
+
+/* line 62, ../../app/styles/_partial.scss */
+.btn-decline, .button-decline {
+  background: white;
+  color: #f6a319;
+}
+
+/* line 68, ../../app/styles/_partial.scss */
+input::-webkit-input-placeholder, .form-group .profile-information::-webkit-input-placeholder, input:-moz-placeholder, .form-group .profile-information:-moz-placeholder, input::-moz-placeholder, .form-group .profile-information::-moz-placeholder, input:-ms-input-placeholder, .form-group .profile-information:-ms-input-placeholder, input:-ms-input-placeholder, .form-group .profile-information:-ms-input-placeholder {
+  color: white;
+}
+
+/* line 72, ../../app/styles/_partial.scss */
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(1, 1, 1, 0.5);
+}
+
+/*Remove all ugly number spinners on input elements*/
+/* line 82, ../../app/styles/_partial.scss */
+input[type=number]::-webkit-inner-spin-button, .form-group [type=number].profile-information::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+.form-group [type=number].profile-information::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* line 88, ../../app/styles/_partial.scss */
+ul {
+  padding-left: 0;
+}
+/* line 90, ../../app/styles/_partial.scss */
+ul li {
+  list-style: none;
+}
+
+/* line 95, ../../app/styles/_partial.scss */
+.header {
+  background: #f6a319;
+  width: 100%;
+  padding: 0;
+  z-index: 900;
+  /*removes bootsrap navigation hover*/
+}
+/* line 103, ../../app/styles/_partial.scss */
+.header .nav li a:hover, .header .nav li a:focus {
+  background: none;
+}
+/* line 109, ../../app/styles/_partial.scss */
+.header .navbar {
+  margin-bottom: 0;
+}
+/* line 112, ../../app/styles/_partial.scss */
+.header .navbar .navbar-brand, .header .navbar a {
+  color: white;
+}
+/* line 115, ../../app/styles/_partial.scss */
+.header .navbar button {
+  margin: 0;
+  color: white;
+}
+
+/* line 123, ../../app/styles/_partial.scss */
+footer {
+  background: #263a42;
+  text-align: center;
+  padding: 20px 0;
+}
+/* line 127, ../../app/styles/_partial.scss */
+footer .button, footer .btn-accept, footer .button-accept, footer .btn-decline, footer .button-decline, footer .form-group button, .form-group footer button {
+  color: #f6a319;
+  border: 1px solid #f6a319;
+}
+/* line 131, ../../app/styles/_partial.scss */
+footer ul {
+  padding: 20px 0;
+}
+/* line 134, ../../app/styles/_partial.scss */
+footer h4 {
+  color: white;
+  font-weight: 700;
+}
+
+/* line 140, ../../app/styles/_partial.scss */
+.create-article {
+  text-align: center;
+}
+/* line 142, ../../app/styles/_partial.scss */
+.create-article p:nth-child(2) {
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* line 149, ../../app/styles/_partial.scss */
+.container .has-error input, .container .has-error .form-group .profile-information, .form-group .container .has-error .profile-information, .container .has-error select, .container .has-error textarea {
+  border: 1px solid red;
+}
+
+/* line 154, ../../app/styles/_partial.scss */
+.form-group {
+  text-align: left;
+}
+/* line 156, ../../app/styles/_partial.scss */
+.form-group label {
+  color: #151f2f;
+  text-transform: uppercase;
+}
+/* line 160, ../../app/styles/_partial.scss */
+.form-group input, .form-group .profile-information, .form-group select, .form-group textarea {
+  text-align: left;
+  background-color: transparent;
+  border: 1px solid #dedfe0;
+  outline: none;
+  padding: 13px;
+  width: 100%;
+  color: black;
+  box-sizing: border-box;
+}
+/* line 170, ../../app/styles/_partial.scss */
+.form-group input, .form-group .profile-information, .form-group select {
+  height: 50px;
+}
+/* line 173, ../../app/styles/_partial.scss */
+.form-group .profile-information {
+  margin-top: 20px;
+}
+/* line 176, ../../app/styles/_partial.scss */
+.form-group .profile-information p {
+  margin-bottom: 0;
+}
+/* line 180, ../../app/styles/_partial.scss */
+.form-group ::-webkit-input-placeholder {
+  text-align: left;
+}
+/* line 184, ../../app/styles/_partial.scss */
+.form-group :-moz-placeholder {
+  /* Firefox 18- */
+  text-align: left;
+}
+/* line 188, ../../app/styles/_partial.scss */
+.form-group ::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: left;
+}
+/* line 192, ../../app/styles/_partial.scss */
+.form-group :-ms-input-placeholder {
+  text-align: left;
+}
+/* line 196, ../../app/styles/_partial.scss */
+.form-group button {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* line 203, ../../app/styles/_partial.scss */
+#facebook {
+  background: #3B5998;
+  border-color: #3B5998;
+  margin-top: 0;
+}
+
+/* line 209, ../../app/styles/_partial.scss */
+.center {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 215, ../../app/styles/_partial.scss */
+  #card .cards {
+    flex: 0 1 49%;
+  }
+  /* line 218, ../../app/styles/_partial.scss */
+  #card .cards:nth-child(even) {
+    margin-left: 0;
+  }
+  /* line 221, ../../app/styles/_partial.scss */
+  #card .cards:nth-child(odd) {
+    margin-right: 0;
+  }
+}
+/* line 5, ../../app/styles/article.scss */
+.col-xs-12 h2 {
+  color: #f6a319;
+}
+
+/* line 10, ../../app/styles/article.scss */
+#article {
+  background: white;
+}
+
+/*# sourceMappingURL=article.css.map */
