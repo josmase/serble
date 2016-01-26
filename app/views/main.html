@@ -19,66 +19,75 @@
   <div class="container">
     <div class="articleFilter">
       <form ng-submit="filterForm.$valid && submitForm()" name="filterForm" novalidate>
-        <div class="form-group">
-          <input type="text"
-                 name="query"
-                 ng-model="filter.text"
-                 placeholder="Sök efter annonser...">
-          <select ng-model="filter.orderBy"
-                  name="orderBy">
-            <option value="">Sortera</option>
-            <option value="data">Data och sånt</option>
-            <option value="gardening">Trädgårdsarbete</option>
-          </select>
-          <select ng-model="filter.category"
-                  name="category">
-            <option value="">Kategori</option>
-            <option value="data">Data och sånt</option>
-            <option value="gardening">Trädgårdsarbete</option>
-          </select>
+        <div class="row">
+          <div class="col-xs-12 cold-md-6">
+            <div class="form-group">
+              <input type="text"
+                     name="query"
+                     ng-model="filter.text"
+                     placeholder="Sök efter annonser...">
+            </div>
+            <div class="form-group">
+              <select ng-model="filter.orderBy"
+                      name="orderBy">
+                <option value="">Sortera</option>
+                <option value="data">Data och sånt</option>
+                <option value="gardening">Trädgårdsarbete</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select ng-model="filter.category"
+                      name="category">
+                <option value="">Kategori</option>
+                <option value="data">Data och sånt</option>
+                <option value="gardening">Trädgårdsarbete</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </form>
     </div>
-    <div id="card">
-      <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
-        <a ng-href="#/article/{{article.header}}">
-          <h4>{{article.header}}</h4>
+    </form>
+  </div>
+  <div id="card">
+    <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
+      <a ng-href="#/article/{{article.header}}">
+        <h4>{{article.header}}</h4>
 
 
-          <p>{{article.description | limitTo:170}}... </p>
+        <p>{{article.description | limitTo:170}}... </p>
 
-          <p>{{article.locationDistance}}, {{article.location}}</p>
+        <p>{{article.locationDistance}}, {{article.location}}</p>
 
-          <p>{{article.price | currency : "SEK "}}</p>
+        <p>{{article.price | currency : "SEK "}}</p>
 
-        </a>
-      </div>
+      </a>
     </div>
   </div>
+</div>
 
-  <div class="container">
-    <div class="row" id="view_more">
-      <div class="col-xs-12">
-        <a href="" ng-click="quantity = quantity + 6">
-          <p>VISA FLER</p>
-        </a>
-      </div>
+<div class="container">
+  <div class="row" id="view_more">
+    <div class="col-xs-12">
+      <a href="" ng-click="quantity = quantity + 6">
+        <p>VISA FLER</p>
+      </a>
     </div>
   </div>
+</div>
 
-  <div class="jumbotron" id="explanation">
-    <div class="filter">
-      <div class="container">
-        <h1>VAD ÄR SERBLE?</h1>
+<div class="jumbotron" id="explanation">
+  <div class="filter">
+    <div class="container">
+      <h1>VAD ÄR SERBLE?</h1>
 
-        <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
-          for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
-          for citizens to perform small time jobs and earn money.</p>
+      <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
+        for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
+        for citizens to perform small time jobs and earn money.</p>
 
-        <a class="button-decline" ng-href="#/createad">SKAPA EN ANNONS</a>
-      </div>
+      <a class="button-decline" ng-href="#/createad">SKAPA EN ANNONS</a>
     </div>
   </div>
+</div>
 </div>
 
 
