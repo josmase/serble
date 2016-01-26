@@ -17,7 +17,5 @@ describe('Controller: CreateArticleCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(CreateArticleCtrl.awesomeThings.length).toBe(3);
-  });
+
 });

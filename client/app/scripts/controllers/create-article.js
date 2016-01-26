@@ -11,6 +11,6 @@ angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ( $location, $scope) {
     $scope.articleData = null;
     $scope.submitForm = function(){
-      console.log($scope.articleData)
-    }
+      console.log($scope.articleData);
+    };
   });

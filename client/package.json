@@ -31,12 +31,19 @@
     "jshint-stylish": "^1.0.0",
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
-    "time-grunt": "^1.0.0"
+      "time-grunt": "^1.0.0",
+      "vinyl-fs": "2.2.1"
+      
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "phantomjs": "^2.1.2"
   }
 }

@@ -1,3 +1,4 @@
+/*jshind: global $*/
 'use strict';
 
 /**
@@ -20,9 +21,9 @@ angular
     'infinite-scroll',
     'ngMessages'
   ]).controller('headerCtrl', function ($scope, $location) {
-    $scope.isActive = function (viewLocation) {
-      $("#myNavbar").collapse('hide');
-      return $location.path().indexOf(viewLocation) == 0;
+  $scope.isActive = function (viewLocation) {
+      $('#myNavbar').collapse('hide');
+      return $location.path().indexOf(viewLocation) === 0;
     };
   })
   .config(function ($routeProvider) {

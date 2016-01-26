@@ -27,6 +27,8 @@
                      ng-model="filter.text"
                      placeholder="Sök efter annonser...">
             </div>
+          </div>
+          <div class="col-xs-12 cold-md-6">
             <div class="form-group">
               <select ng-model="filter.orderBy"
                       name="orderBy">
@@ -35,6 +37,8 @@
                 <option value="gardening">Trädgårdsarbete</option>
               </select>
             </div>
+          </div>
+          <div class="col-xs-12 cold-md-6">
             <div class="form-group">
               <select ng-model="filter.category"
                       name="category">
@@ -45,49 +49,50 @@
             </div>
           </div>
         </div>
+      </form>
     </div>
-    </form>
-  </div>
-  <div id="card">
-    <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
-      <a ng-href="#/article/{{article.header}}">
-        <h4>{{article.header}}</h4>
 
 
-        <p>{{article.description | limitTo:170}}... </p>
+    <div id="card">
+      <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
+        <a ng-href="#/article/{{article.header}}">
+          <h4>{{article.header}}</h4>
 
-        <p>{{article.locationDistance}}, {{article.location}}</p>
 
-        <p>{{article.price | currency : "SEK "}}</p>
+          <p>{{article.description | limitTo:170}}... </p>
 
-      </a>
-    </div>
-  </div>
-</div>
+          <p>{{article.locationDistance}}, {{article.location}}</p>
 
-<div class="container">
-  <div class="row" id="view_more">
-    <div class="col-xs-12">
-      <a href="" ng-click="quantity = quantity + 6">
-        <p>VISA FLER</p>
-      </a>
+          <p>{{article.price | currency : "SEK "}}</p>
+
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="jumbotron" id="explanation">
-  <div class="filter">
-    <div class="container">
-      <h1>VAD ÄR SERBLE?</h1>
-
-      <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
-        for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
-        for citizens to perform small time jobs and earn money.</p>
-
-      <a class="button-decline" ng-href="#/createad">SKAPA EN ANNONS</a>
+  <div class="container">
+    <div class="row" id="view_more">
+      <div class="col-xs-12">
+        <a href="" ng-click="quantity = quantity + 6">
+          <p>VISA FLER</p>
+        </a>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="jumbotron" id="explanation">
+    <div class="filter">
+      <div class="container">
+        <h1>VAD ÄR SERBLE?</h1>
+
+        <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
+          for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
+          for citizens to perform small time jobs and earn money.</p>
+
+        <a class="button-decline" ng-href="#/createad">SKAPA EN ANNONS</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 

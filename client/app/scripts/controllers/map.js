@@ -8,6 +8,6 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MapCtrl', function ($scope, $location) {
+  .controller('MapCtrl', function () {
 
   });
