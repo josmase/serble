@@ -186,8 +186,10 @@ footer {
   }
   select {
     background-image:url("./../images/ic_expand_more_black_24px.svg");
-    background-position: left 325px top 10px;
+    background-position: right 10px top 50%;
     background-repeat:no-repeat;
+    -webkit-appearance: none;  /*Removes default chrome and safari style*/
+    -moz-appearance: none;  /*Removes default style Firefox*/
   }
   input, select {
     height: 50px;
