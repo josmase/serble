@@ -11,6 +11,7 @@ var PORT_DEFAULT = 3000;
 
 // Module loading
 var express = require('express');
+var path = require('path');
 var app = express();
 var http = require('http').Server(app);
 var mysql = require('mysql');
@@ -18,7 +19,8 @@ var fs = require('fs');
 var readline = require('readline');
 
 // Private (Custom) modules
-var articles = require('./articles.js');
+var net = require('./net.js');
+var articles = require('./articles.js').use(net);
 
 var database = mysql.createConnection({
     host: 'localhost',
@@ -59,10 +61,12 @@ app
     .use(express.static(__dirname + '/../client/dist'))
     .get('/', function (req, res) {
         console.log("test");
-        res.sendFile('/../client/dist/index.html');
+        res.sendFile(path.resolve('./../client/dist/index.html'));
     });
 
 // Creates the server
 http.listen(app.get('port'), function () {
     console.log("Server started at port " + app.get('port'));
 });
+
+net.send({send: function() {}}, 'test', {a: [1, 2, 'str'], b: 'test'});

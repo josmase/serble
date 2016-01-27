@@ -14,7 +14,7 @@ var exp = {
     },
 
     send: function (res, identifier, data) {
-        res.send(net.prepareOutput(identifier, data));
+        res.send(JSON.stringify(exp.prepareOutput(identifier, data)));
     }
 };
 
