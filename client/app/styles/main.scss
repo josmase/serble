@@ -34,6 +34,8 @@ body {
 a {
   background-color:#64b346;
   color:white;
+  padding:10px 100px;
+  border-radius:30px;
 }
   p {
     font-size: 14px;
@@ -51,6 +53,7 @@ a {
   -o-background-size: cover;
   background-size: cover;
   p {
+    color:white;
     margin-bottom: 50px;
   }
 }

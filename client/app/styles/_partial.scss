@@ -184,6 +184,11 @@ footer {
     color: black;
     box-sizing: border-box;
   }
+  select {
+    background-image:url("./../images/ic_expand_more_black_24px.svg");
+    background-position: left 325px top 10px;
+    background-repeat:no-repeat;
+  }
   input, select {
     height: 50px;
   }
