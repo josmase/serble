@@ -76,10 +76,6 @@ a {
   }
 }
 
-#card {
-  background: $white;
-}
-
 #view_more {
   padding-top: 10px;
   background: $primary-orange;
@@ -89,6 +85,12 @@ a {
   }
 }
 
+.articleFilter{
+  margin-top: 20px;
+  p{
+    color: black;
+  }
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

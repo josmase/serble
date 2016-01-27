@@ -56,17 +56,14 @@
 
     <div id="card">
       <div class="cards" ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
-        <a ng-href="#/article/{{article.header}}">
-          <h4>{{article.header}}</h4>
+        <h4>{{article.header}}</h4>
 
+        <p>{{article.description | limitTo:170}}... </p>
+        <div class="details">
+          <a ng-href="#/article/{{card.header}}">Kontakta</a>
+          <p>{{article.locationDistance}}, {{article.price | currency : ""}}</p>
+        </div>
 
-          <p>{{article.description | limitTo:170}}... </p>
-
-          <p>{{article.locationDistance}}, {{article.location}}</p>
-
-          <p>{{article.price | currency : "SEK "}}</p>
-
-        </a>
       </div>
     </div>
   </div>
