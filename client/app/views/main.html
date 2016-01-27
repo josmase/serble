@@ -31,11 +31,11 @@
           </div>
           <div class="col-xs-12 cold-md-6">
             <div class="form-group">
-              <select ng-model="search.orderBy"
+              <select ng-model="search.order"
                       name="order">
                 <option value="">Sortera efter</option>
-                <option value="price">Högst pris fört</option>
-                <option value="-price">lägst pris först</option>
+                <option value="-price">Högst pris fört</option>
+                <option value="price">lägst pris först</option>
               </select>
             </div>
           </div>
@@ -60,7 +60,7 @@
 
         <p>{{article.description | limitTo:170}}... </p>
         <div class="details">
-          <a ng-href="#/article/{{card.header}}">Kontakta</a>
+          <a ng-href="#/article/{{article.header}}">Kontakta</a>
           <p>{{article.locationDistance}}, {{article.price | currency : ""}}</p>
         </div>
 
