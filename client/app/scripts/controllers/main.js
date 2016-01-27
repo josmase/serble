@@ -12,10 +12,10 @@ angular.module('serbleApp')
   $scope.getArticles = function(){
 
     $http({
-      method: 'POST',
-      url: 'http://172.16.0.238:3000/articles/create',
+      method: 'GET',
+      url: 'http://172.16.0.238:3000/articles/get',
       dataType: 'json',
-      data:{"D":";)"}
+      data:{}
     }).then(function successCallback(response) {
      console.log(response);
       $scope.error = response

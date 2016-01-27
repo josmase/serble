@@ -8,9 +8,22 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ( $location, $scope) {
+  .controller('CreateArticleCtrl', function ($scope,$http) {
     $scope.articleData = null;
     $scope.submitForm = function(){
-      console.log($scope.articleData);
+
+      $http({
+        method: 'POST',
+        url: 'http://172.16.0.238:3000/articles/create',
+        dataType: 'json',
+        data:{"D":";)"}
+      }).then(function successCallback(response) {
+        console.log(response);
+        $scope.error = response
+      }, function errorCallback(response) {
+        console.log("error" + response);
+        $scope.error = response
+      });
+
     };
   });
