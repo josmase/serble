@@ -1,6 +1,6 @@
 'use strict';
 
-var net = require('./net.js');
+var net;
 
 /**
  * Articles (Advertisements) module
@@ -34,6 +34,14 @@ var exp = {
     },
 
     /**
+     * Sets the net object to the given one
+     * @param netObj Net object
+     */
+    use: function (netObj) {
+        net = netObj;
+    },
+
+    /**
      * Posts and submits an article object to the database
      * @param db Database-object
      * @param article Article-object
@@ -43,7 +51,7 @@ var exp = {
 
     /**
      * Streams articles to a client
-     * @param res Resource-object
+     * @param res Response-object
      * @param articles Articles
      */
     send: function (res, articles) {
