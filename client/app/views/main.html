@@ -18,30 +18,30 @@
 
   <div class="container">
     <div class="articleFilter">
-      <form ng-submit="filterForm.$valid && submitForm()" name="filterForm" novalidate>
+      <p>FILTRERA ANNONSER</p>
+      <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
         <div class="row">
           <div class="col-xs-12 cold-md-6">
             <div class="form-group">
-              <p>FILTRERA ANNONSER</p>
               <input type="text"
                      name="query"
-                     ng-model="filter.text"
+                     ng-model="search.text"
                      placeholder="Sök efter annonser...">
             </div>
           </div>
           <div class="col-xs-12 cold-md-6">
             <div class="form-group">
-              <select ng-model="filter.orderBy"
-                      name="orderBy">
-                <option value="">Sortera</option>
-                <option value="data">Data och sånt</option>
-                <option value="gardening">Trädgårdsarbete</option>
+              <select ng-model="search.orderBy"
+                      name="order">
+                <option value="">Sortera efter</option>
+                <option value="price">Högst pris fört</option>
+                <option value="-price">lägst pris först</option>
               </select>
             </div>
           </div>
           <div class="col-xs-12 cold-md-6">
             <div class="form-group">
-              <select ng-model="filter.category"
+              <select ng-model="search.category"
                       name="category">
                 <option value="">Kategori</option>
                 <option value="data">Data och sånt</option>
@@ -55,7 +55,7 @@
 
 
     <div id="card">
-      <div class="cards" ng-repeat="article in articles | limitTo: quantity ">
+      <div class="cards" ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
         <a ng-href="#/article/{{article.header}}">
           <h4>{{article.header}}</h4>
 
