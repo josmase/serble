@@ -8,8 +8,22 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', ['$scope', '$http', function ($scope/*, $http*/) {
+  .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
+  $scope.getArticles = function(){
 
+    $http({
+      method: 'POST',
+      url: 'http://172.16.0.238:3000/articles/create',
+      dataType: 'json',
+      data:{"D":";)"}
+    }).then(function successCallback(response) {
+     console.log(response);
+      $scope.error = response
+    }, function errorCallback(response) {
+      console.log("error" + response);
+      $scope.error = response
+    });
+  };
 
     $scope.articles = [
       {
