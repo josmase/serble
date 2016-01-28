@@ -16,7 +16,7 @@ angular.module('serbleApp')
         method: 'POST',
         url: 'http://172.16.0.238:3000/articles/create',
         dataType: 'json',
-        data:{"D":";)"}
+        data:{'user_id':0,'title':'asd',}
       }).then(function successCallback(response) {
         console.log(response);
         $scope.error = response
