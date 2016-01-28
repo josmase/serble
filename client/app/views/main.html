@@ -1,72 +1,82 @@
 <div id="main">
+  <button ng-click="getArticles()">assd</button>
   <div class="jumbotron" id="pitch">
     <div class="filter">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-12">
-            <h1>JOBB NÄRA DIG</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <h1>JOBB NÄRA DIG</h1>
 
-            <p class="lead">Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat
-              feugiat. </p>
+          <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
+            for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
+            for citizens to perform small time jobs and earn money. </p>
 
-            <a class="button-decline" href="#explanation">Annonsera</a>
-          </div>
+          <a class="button-decline" href="#explanation">Annonsera</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="articleFilter">
-      <p>FILTRERA ANNONSER</p>
-      <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
-        <div class="row">
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <input type="text"
-                     name="query"
-                     ng-model="search.text"
-                     placeholder="Sök efter annonser...">
-            </div>
-          </div>
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <select ng-model="search.orderBy"
-                      name="order">
-                <option value="">Sortera efter</option>
-                <option value="price">Högst pris fört</option>
-                <option value="-price">lägst pris först</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <select ng-model="search.category"
-                      name="category">
-                <option value="">Kategori</option>
-                <option value="data">Data och sånt</option>
-                <option value="gardening">Trädgårdsarbete</option>
-              </select>
-            </div>
+  <div class="container articleFilter">
+    <p>FILTRERA ANNONSER</p>
+    <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
+      <div class="row">
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <input type="text"
+                   name="query"
+                   ng-model="search.text"
+                   placeholder="Sök efter annonser...">
           </div>
         </div>
-      </form>
-    </div>
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <select ng-model="search.order"
+                    name="order">
+              <option value="">Sortera efter</option>
+              <option value="-price">Högst pris fört</option>
+              <option value="price">lägst pris först</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <select ng-model="search.category"
+                    name="category">
+              <option value="">Välj kategori</option>
+              <option value="dataAndIT">Data & IT</option>
+              <option value="gardeningAndShoveling">Trädgård & snöskotning</option>
+              <option value="economyAndAdministration">Ekonomi & administration</option>
+              <option value="partAndEntertainment">Fest & underhållning</option>
+              <option value="movingAndBroker">Flytthjälp & mäklare</option>
+              <option value="homeDecoration">Heminredning</option>
+              <option value="handyWork">Hantverk</option>
+              <option value="petSitter">Hund- & djurvakt</option>
+              <option value="healthAndBeauty">Hälsa & skönhet</option>
+              <option value="cookingAndCatering">Matlagning & catering</option>
+              <option value="babySitter">Barnvakt</option>
+              <option value="cleaning">Städhälp</option>
+              <option value="santa">Tomte</option>
+              <option value="transportationAndCarpool">Transport % samåkning</option>
+              <option value="homeworkAndTeaching">Läxhjälp & undervisning </option>
+              <option value="other">Annat</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
+  <div class="container" id="card">
+    <div class="cards"
+         ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
+      <h4>{{article.header}}</h4>
 
-    <div id="card">
-      <div class="cards" ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
-        <a ng-href="#/article/{{article.header}}">
-          <h4>{{article.header}}</h4>
-
-
-          <p>{{article.description | limitTo:170}}... </p>
-
-          <p>{{article.locationDistance}}, {{article.location}}</p>
-
-          <p>{{article.price | currency : "SEK "}}</p>
-
-        </a>
+      <p>{{article.description | limitTo:170}}... </p>
+      <div class="details">
+        <a ng-href="#/article/{{article.header}}">Kontakta</a>
+        <p>{{article.locationDistance}}, {{article.price | currency : ""}} Kr</p>
       </div>
     </div>
   </div>
@@ -74,23 +84,9 @@
   <div class="container">
     <div class="row" id="view_more">
       <div class="col-xs-12">
-        <a href="" ng-click="quantity = quantity + 6">
+        <a href="" ng-click="quantity = quantity + 20">
           <p>VISA FLER</p>
         </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="jumbotron" id="explanation">
-    <div class="filter">
-      <div class="container">
-        <h1>VAD ÄR SERBLE?</h1>
-
-        <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
-          for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
-          for citizens to perform small time jobs and earn money.</p>
-
-        <a class="button-decline" ng-href="#/createad">SKAPA EN ANNONS</a>
       </div>
     </div>
   </div>

@@ -8,13 +8,14 @@ $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
 $green: rgba(99, 179, 70, 1);
 $green-transparent: rgba(99, 179, 70, 0.8);
+$dark-white: #dfdfdf;
 
 #card {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
   background: #d5d5d5;
-  padding: 1.5rem 0 0;;
+  background: $dark-white;
   .cards {
     padding: 1.5rem;
     box-shadow: 0 1px 2px #aaa;
@@ -27,7 +28,7 @@ $green-transparent: rgba(99, 179, 70, 0.8);
     flex: 0 1 100%;
     .details {
       border-top: 2px #eeeeee solid;
-      padding-top:15px;
+      padding-top: 15px;
       p {
         color: #7d7b7c;
         float: right;
@@ -78,7 +79,11 @@ $green-transparent: rgba(99, 179, 70, 0.8);
   color: $primary-orange;
 }
 
-input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder, input:-ms-input-placeholder {
+input::-webkit-input-placeholder,
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder,
+input:-ms-input-placeholder {
   color: $white;
 }
 
@@ -105,10 +110,11 @@ ul {
   }
 }
 
-.header {
+.header.ng-scope {
   background: white;
   width: 100%;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   z-index: 900;
   /*removes bootsrap navigation hover*/
   .nav {
@@ -116,25 +122,68 @@ ul {
       a:hover, a:focus {
         background: none;
       }
+      p {
+        line-height: 20px;
+        margin: 0;
+        padding: 10px 15px
+      }
     }
   }
 
   .navbar {
     margin-bottom: 0;
-
-    .navbar-brand, li {
-      border-bottom: 1px #dddfe1 solid;
+    li {
+      border-bottom: 1px solid #dddfe1;
       color: #4b4d4a;
     }
-    .navbar-header{
-      border-bottom: 2px  solid #eeeeee;
+    .navbar-brand {
+      padding: 15px 15px 0 15px;
     }
-    button {
+    .navbar-header {
+      border-bottom: 1px solid #eeeeee;
+    }
+    .navbar-toggle {
       margin: 0;
-      color: black;
+      padding: 20px;
+      border: 0;
+      border-left: 1px solid #eeeeee;
+      border-radius: 0;
+      background: transparent;
+      height: 50px;
+
+      &:hover {
+        background: transparent !important;
+      }
+
+      .icon-bar {
+        width: 22px;
+        transition: all 0.2s;
+        background-color: black;
+      }
+      .top-bar {
+        transform: rotate(45deg);
+        transform-origin: 10% 10%;
+      }
+      .middle-bar {
+        opacity: 0;
+      }
+      .bottom-bar {
+        transform: rotate(-45deg);
+        transform-origin: 10% 90%;
+      }
+    }
+    .navbar-toggle.collapsed {
+      .top-bar {
+        transform: rotate(0);
+      }
+      .middle-bar {
+        opacity: 1;
+      }
+      .bottom-bar {
+        transform: rotate(0);
+      }
     }
   }
-
 }
 
 footer {
@@ -159,6 +208,9 @@ footer {
   p:nth-child(2) {
     width: 200px;
     margin: 0 auto;
+  }
+  .container{
+    background: $white;
   }
 }
 
@@ -185,11 +237,11 @@ footer {
     box-sizing: border-box;
   }
   select {
-    background-image:url("./../images/ic_expand_more_black_24px.svg");
+    background-image: url("./../images/ic_expand_more_black_24px.svg");
     background-position: right 10px top 50%;
-    background-repeat:no-repeat;
-    -webkit-appearance: none;  /*Removes default chrome and safari style*/
-    -moz-appearance: none;  /*Removes default style Firefox*/
+    background-repeat: no-repeat;
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /*Removes default style Firefox*/
   }
   input, select {
     height: 50px;
@@ -244,6 +296,39 @@ footer {
     }
     .cards:nth-child(odd) {
       margin-right: 0;
+    }
+  }
+  .container {
+    max-width: 1140px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  #main .jumbotron {
+    border-bottom: 0;
+    h1{
+      margin-top: 15%;
+    }
+    a{
+      margin-bottom: 15%;
+    }
+  }
+  .header {
+    .navbar {
+      .nav {
+        li {
+          p {
+            padding-top: 15px;
+            padding-bottom: 15px;
+          }
+        }
+      }
     }
   }
 

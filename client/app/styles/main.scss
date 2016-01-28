@@ -12,7 +12,7 @@
 
 body {
   padding: 0;
-  background: white;
+  background: $dark-white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -29,20 +29,21 @@ body {
   text-align: center;
   padding: 0;
   border-bottom: 1px solid $white;
-  min-height: 500px;
   margin: 0;
 a {
   background-color:#64b346;
   color:white;
   padding:10px 100px;
   border-radius:30px;
+  margin-bottom: 20%;
+  display: inline-block;
 }
   p {
     font-size: 14px;
   }
   h1 {
     color: $white;
-    margin-top: 100px;
+    margin-top: 20%;
   }
 }
 
@@ -76,10 +77,6 @@ a {
   }
 }
 
-#card {
-  background: $white;
-}
-
 #view_more {
   padding-top: 10px;
   background: $primary-orange;
@@ -89,21 +86,11 @@ a {
   }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 1140px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+.articleFilter{
+  background-color: $white;
+  margin-bottom: 10px;
+  p{
+    margin-top: 10px;
+    color: black;
   }
 }
