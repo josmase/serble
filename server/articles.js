@@ -7,7 +7,7 @@ var app, db;
 /**
  * Articles (Advertisements) module
  * @author Emil Bertillson, Serble
- * @version 2016-01-26
+ * @version 2016-01-28
  */
 var exp = {
   /**
@@ -116,8 +116,8 @@ var exp = {
 
   /**
    * Sets the app and database object
-   * @param netObj Net object
    * @param appObj App object
+   * @param dbObj Database object
    */
   use: function (appObj, dbObj) {
     app = appObj;

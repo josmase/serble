@@ -35,7 +35,9 @@ database.connect(function (e) {
         console.log("Database error: " + e);
     }
 });
+
 var articles = require('./articles.js').use(app, database);
+var users = require('./users.js').use(app, database);
 
 // Application environment variables
 app.set('port', process.env.port || PORT_DEFAULT);
