@@ -8,6 +8,9 @@ $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
 $green: rgba(99, 179, 70, 1);
 $green-transparent: rgba(99, 179, 70, 0.8);
+$button-size : 3.5rem;
+$transition: .3s; // increase this to see the transformations in slow-motion
+$color: black;
 
 #card {
   display: flex;
@@ -28,7 +31,7 @@ $green-transparent: rgba(99, 179, 70, 0.8);
     flex: 0 1 100%;
     .details {
       border-top: 2px #eeeeee solid;
-      padding-top:15px;
+      padding-top: 15px;
       p {
         color: #7d7b7c;
         float: right;
@@ -127,17 +130,104 @@ ul {
   .navbar {
     margin-bottom: 0;
 
-    .navbar-brand, li {
-      border-bottom: 1px #dddfe1 solid;
-      color: #4b4d4a;
+    .navbar-brand {
+      padding: 15px 15px 0 15px;
+      li {
+        border-bottom: 1px solid #dddfe1;
+        color: #4b4d4a;
+      }
     }
-    .navbar-header{
-      border-bottom: 2px  solid #eeeeee;
+    .navbar-header {
+      border-bottom: 1px solid #eeeeee;
     }
-    button {
+   /* button {
+      text-align: center;
+      padding: 0;
       margin: 0;
-      color: black;
+      border: 0;
+      border-left: 1px solid #eeeeee;
+      border-radius: 0;
+      i {
+        color: black;
+        border: 0;
+        padding: 15px;
+        height: 50px;
+      }
+    }*/
+    .lines-button.x.close .lines{
+
+      /*hide the middle line*/
+      background: transparent;
+
+      /*overlay the lines by setting both their top values to 0*/
+      &:before, &:after{
+        transform-origin: 50% 50%;
+        top:0;
+        width: $button-size;
+      }
+
+      // rotate the lines to form the x shape
+      &:before{
+        transform: rotate3d(0,0,1,45deg);
+      }
+      &:after{
+        transform: rotate3d(0,0,1,-45deg);
+      }
     }
+
+    .lines-button {
+      display: inline-block;
+      padding: $button-size/2 $button-size/4;
+      transition: .3s;
+      cursor: pointer;
+      user-select: none;
+      border-radius: $button-size/7;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:active {
+        transition: 0;
+        background: rgba(0,0,0,.1);
+      }
+    }
+    @mixin line {
+      display: inline-block;
+      width: $button-size;
+      height: $button-size/7;
+      background: $color;
+      border-radius: $button-size/14;
+      transition: $transition;
+    }
+    .lines {
+
+      //create middle line
+      @include line;
+      position: relative;
+
+      /*create the upper and lower lines as pseudo-elements of the middle line*/
+      &:before, &:after {
+
+        @include line;
+        position: absolute;
+        left:0;
+        content: '';
+        transform-origin: $button-size/14 center;
+      }
+      &:before { top: $button-size/4; }
+      &:after { top: -$button-size/4; }
+    }
+
+    .lines-button:hover {
+      opacity: 1;
+
+      .lines {
+        &:before { top: $button-size/3.5; }
+        &:after { top: -$button-size/3.5; }
+      }
+    }
+
   }
 
 }
@@ -190,11 +280,11 @@ footer {
     box-sizing: border-box;
   }
   select {
-    background-image:url("./../images/ic_expand_more_black_24px.svg");
+    background-image: url("./../images/ic_expand_more_black_24px.svg");
     background-position: right 10px top 50%;
-    background-repeat:no-repeat;
-    -webkit-appearance: none;  /*Removes default chrome and safari style*/
-    -moz-appearance: none;  /*Removes default style Firefox*/
+    background-repeat: no-repeat;
+    -webkit-appearance: none; /*Removes default chrome and safari style*/
+    -moz-appearance: none; /*Removes default style Firefox*/
   }
   input, select {
     height: 50px;
@@ -250,6 +340,21 @@ footer {
     .cards:nth-child(odd) {
       margin-right: 0;
     }
+  }
+  .container {
+    max-width: 1140px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
   }
 
 }

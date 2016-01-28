@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Serble</title>
   <meta name="description" content="">
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
@@ -15,8 +15,6 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/login-register.css">
-  <link rel="stylesheet" href="styles/article.css">
   <!-- endbuild -->
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet'
         type='text/css'>
@@ -32,27 +30,29 @@
 
 <!-- Add your site or application content here -->
 <div class="header" ng-controller="headerCtrl">
-  <div class="container-fluid">
-    <nav class="navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <i class="material-icons">&#xE5D2;</i>
-          </button>
-          <a class="navbar-brand" href="#/home">serble</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><a href="#/home" ng-class="{ active: isActive('/home')}">Startsida</a></li>
-            <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa annons</a></li>
-            <li><a href="#/map" ng-class="{ active: isActive('/map')}">Karta </a></li>
-            <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">+46 90 231 27</a></li>
-            <li><a href="#/profile" ng-class="{ active: isActive('/profile')}">mail@serble.se</a></li>
-          </ul>
-        </div>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <i class="material-icons">&#xE5D2;</i>
+        </button>
+
+        <button class="lines-button x" type="button" role="button" aria-label="Toggle Navigation">
+          <span class="lines"></span>
+        </button>
+        <a class="navbar-brand" href="#/home">serble</a>
       </div>
-    </nav>
-  </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#/home" ng-class="{ active: isActive('/home')}">Startsida</a></li>
+          <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa annons</a></li>
+          <li><a href="#/map" ng-class="{ active: isActive('/map')}">Karta </a></li>
+          <li><p>+46 90 231 27</p></li>
+          <li><p>mail@serble.se</p></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
 <div ng-view=""></div>
 
