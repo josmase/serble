@@ -1,10 +1,14 @@
 {
   "name": "serble",
+  "version": "0.0.1",
   "private": true,
   "description": "Serble server-side",
   "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "fs": "0.0.2",
+    "log-util": "^1.1.1",
     "mysql": "^2.10.2",
     "readline": "^1.3.0"
   }
