@@ -291,10 +291,7 @@ angular.module('serbleApp')
       }
 
     ];
-    $scope.quantity = 6;
-    //$http.get('http://80.244.93.83:8080/articles').success(function(data) {
-    //$scope.articles = JSON.parse(data);
-    //});
+    $scope.quantity = 20;
 
   }]);
 

@@ -132,6 +132,8 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.description.$touched && articelForm.description.$invalid }">
@@ -182,10 +184,23 @@
             <select ng-model="articleData.category"
                     name="category"
                     required>
-              <option value="">Välj ett alternativ</option>
-              <option value="data">Data och sånt</option>
-              <option value="gardening">Trädgårdsarbete</option>
-            </select>
+              <option value="">Välj kategori</option>
+              <option value="dataAndIT">Data & IT</option>
+              <option value="gardeningAndShoveling">Trädgård & snöskotning</option>
+              <option value="economyAndAdministration">Ekonomi & administration</option>
+              <option value="partAndEntertainment">Fest & underhållning</option>
+              <option value="movingAndBroker">Flytthjälp & mäklare</option>
+              <option value="homeDecoration">Heminredning</option>
+              <option value="handyWork">Hantverk</option>
+              <option value="petSitter">Hund- & djurvakt</option>
+              <option value="healthAndBeauty">Hälsa & skönhet</option>
+              <option value="cookingAndCatering">Matlagning & catering</option>
+              <option value="babySitter">Barnvakt</option>
+              <option value="cleaning">Städhälp</option>
+              <option value="santa">Tomte</option>
+              <option value="transportationAndCarpool">Transport % samåkning</option>
+              <option value="homeworkAndTeaching">Läxhjälp & undervisning </option>
+              <option value="other">Annat</option></select>
 
             <div class="help-block" ng-messages="articelForm.category.$error"
                  ng-if="articelForm.category.$touched">
@@ -215,13 +230,15 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-xs-12 col-md-6">
+
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
             <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid">Skapa annons
             </button>
           </div>
         </div>
+      </div>
     </form>
   </div>
 </div>
