@@ -113,10 +113,11 @@ ul {
   }
 }
 
-.header {
+.header.ng-scope {
   background: white;
   width: 100%;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
   z-index: 900;
   /*removes bootsrap navigation hover*/
   .nav {
@@ -124,112 +125,68 @@ ul {
       a:hover, a:focus {
         background: none;
       }
+      p{
+        line-height: 20px;
+        margin: 0;
+        padding: 10px 15px
+      }
     }
   }
 
   .navbar {
     margin-bottom: 0;
-
+    li {
+      border-bottom: 1px solid #dddfe1;
+      color: #4b4d4a;
+    }
     .navbar-brand {
       padding: 15px 15px 0 15px;
-      li {
-        border-bottom: 1px solid #dddfe1;
-        color: #4b4d4a;
-      }
     }
     .navbar-header {
       border-bottom: 1px solid #eeeeee;
     }
-   /* button {
-      text-align: center;
-      padding: 0;
+    .navbar-toggle {
       margin: 0;
+      padding: 20px;
       border: 0;
       border-left: 1px solid #eeeeee;
       border-radius: 0;
-      i {
-        color: black;
-        border: 0;
-        padding: 15px;
-        height: 50px;
-      }
-    }*/
-    .lines-button.x.close .lines{
-
-      /*hide the middle line*/
       background: transparent;
-
-      /*overlay the lines by setting both their top values to 0*/
-      &:before, &:after{
-        transform-origin: 50% 50%;
-        top:0;
-        width: $button-size;
-      }
-
-      // rotate the lines to form the x shape
-      &:before{
-        transform: rotate3d(0,0,1,45deg);
-      }
-      &:after{
-        transform: rotate3d(0,0,1,-45deg);
-      }
-    }
-
-    .lines-button {
-      display: inline-block;
-      padding: $button-size/2 $button-size/4;
-      transition: .3s;
-      cursor: pointer;
-      user-select: none;
-      border-radius: $button-size/7;
+      height: 50px;
 
       &:hover {
+        background: transparent !important;
+      }
+
+      .icon-bar {
+        width: 22px;
+        transition: all 0.2s;
+        background-color: black;
+      }
+      .top-bar {
+        transform: rotate(45deg);
+        transform-origin: 10% 10%;
+      }
+      .middle-bar {
+        opacity: 0;
+      }
+      .bottom-bar {
+        transform: rotate(-45deg);
+        transform-origin: 10% 90%;
+      }
+    }
+    .navbar-toggle.collapsed {
+      .top-bar {
+        transform: rotate(0);
+      }
+      .middle-bar {
         opacity: 1;
       }
-
-      &:active {
-        transition: 0;
-        background: rgba(0,0,0,.1);
+      .bottom-bar {
+        transform: rotate(0);
       }
     }
-    @mixin line {
-      display: inline-block;
-      width: $button-size;
-      height: $button-size/7;
-      background: $color;
-      border-radius: $button-size/14;
-      transition: $transition;
-    }
-    .lines {
-
-      //create middle line
-      @include line;
-      position: relative;
-
-      /*create the upper and lower lines as pseudo-elements of the middle line*/
-      &:before, &:after {
-
-        @include line;
-        position: absolute;
-        left:0;
-        content: '';
-        transform-origin: $button-size/14 center;
-      }
-      &:before { top: $button-size/4; }
-      &:after { top: -$button-size/4; }
-    }
-
-    .lines-button:hover {
-      opacity: 1;
-
-      .lines {
-        &:before { top: $button-size/3.5; }
-        &:after { top: -$button-size/3.5; }
-      }
-    }
-
   }
-
 }
 
 footer {
