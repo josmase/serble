@@ -8,17 +8,14 @@ $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
 $green: rgba(99, 179, 70, 1);
 $green-transparent: rgba(99, 179, 70, 0.8);
-$button-size : 3.5rem;
-$transition: .3s; // increase this to see the transformations in slow-motion
-$color: black;
+$dark-white: #dfdfdf;
 
 #card {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
   background: #d5d5d5;
-  padding: 1.5rem 0 0;;
-  background: $white;
+  background: $dark-white;
   .cards {
     padding: 1.5rem;
     box-shadow: 0 1px 2px #aaa;
@@ -125,7 +122,7 @@ ul {
       a:hover, a:focus {
         background: none;
       }
-      p{
+      p {
         line-height: 20px;
         margin: 0;
         padding: 10px 15px
@@ -310,8 +307,26 @@ footer {
     padding-right: 0;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
+  #main .jumbotron {
     border-bottom: 0;
+    h1{
+      margin-top: 15%;
+    }
+    a{
+      margin-bottom: 15%;
+    }
+  }
+  .header {
+    .navbar {
+      .nav {
+        li {
+          p {
+            padding-top: 15px;
+            padding-bottom: 15px;
+          }
+        }
+      }
+    }
   }
 
 }

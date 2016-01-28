@@ -12,7 +12,7 @@
 
 body {
   padding: 0;
-  background: white;
+  background: $dark-white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -29,20 +29,21 @@ body {
   text-align: center;
   padding: 0;
   border-bottom: 1px solid $white;
-  min-height: 500px;
   margin: 0;
 a {
   background-color:#64b346;
   color:white;
   padding:10px 100px;
   border-radius:30px;
+  margin-bottom: 20%;
+  display: inline-block;
 }
   p {
     font-size: 14px;
   }
   h1 {
     color: $white;
-    margin-top: 100px;
+    margin-top: 20%;
   }
 }
 
@@ -86,12 +87,10 @@ a {
 }
 
 .articleFilter{
-  margin-top: $button-size;
+  background-color: $white;
+  margin-bottom: 10px;
   p{
+    margin-top: 10px;
     color: black;
   }
-}
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-
 }

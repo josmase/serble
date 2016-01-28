@@ -1,69 +1,67 @@
 <div id="main">
   <div class="jumbotron" id="pitch">
     <div class="filter">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12 col-md-12">
-            <h1>JOBB NÄRA DIG</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <h1>JOBB NÄRA DIG</h1>
 
-            <p class="lead">Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat
-              feugiat. </p>
+          <p class="lead">Serble is a job program where users can post listings for small jobs that other users can apply
+            for and execute. Our goal is to simplify management and applications for small jobs to provide a simple way
+            for citizens to perform small time jobs and earn money. </p>
 
-            <a class="button-decline" href="#explanation">Annonsera</a>
-          </div>
+          <a class="button-decline" href="#explanation">Annonsera</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="articleFilter">
-      <p>FILTRERA ANNONSER</p>
-      <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
-        <div class="row">
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <input type="text"
-                     name="query"
-                     ng-model="search.text"
-                     placeholder="Sök efter annonser...">
-            </div>
-          </div>
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <select ng-model="search.order"
-                      name="order">
-                <option value="">Sortera efter</option>
-                <option value="-price">Högst pris fört</option>
-                <option value="price">lägst pris först</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-xs-12 cold-md-6">
-            <div class="form-group">
-              <select ng-model="search.category"
-                      name="category">
-                <option value="">Kategori</option>
-                <option value="data">Data och sånt</option>
-                <option value="gardening">Trädgårdsarbete</option>
-              </select>
-            </div>
+  <div class="container articleFilter">
+    <p>FILTRERA ANNONSER</p>
+    <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
+      <div class="row">
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <input type="text"
+                   name="query"
+                   ng-model="search.text"
+                   placeholder="Sök efter annonser...">
           </div>
         </div>
-      </form>
-    </div>
-
-
-    <div id="card">
-      <div class="cards" ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
-        <h4>{{article.header}}</h4>
-
-        <p>{{article.description | limitTo:170}}... </p>
-        <div class="details">
-          <a ng-href="#/article/{{article.header}}">Kontakta</a>
-          <p>{{article.locationDistance}}, {{article.price | currency : ""}} Kr</p>
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <select ng-model="search.order"
+                    name="order">
+              <option value="">Sortera efter</option>
+              <option value="-price">Högst pris fört</option>
+              <option value="price">lägst pris först</option>
+            </select>
+          </div>
         </div>
+        <div class="col-xs-12 cold-md-6">
+          <div class="form-group">
+            <select ng-model="search.category"
+                    name="category">
+              <option value="">Kategori</option>
+              <option value="data">Data och sånt</option>
+              <option value="gardening">Trädgårdsarbete</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
+  <div class="container" id="card">
+    <div class="cards"
+         ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
+      <h4>{{article.header}}</h4>
+
+      <p>{{article.description | limitTo:170}}... </p>
+      <div class="details">
+        <a ng-href="#/article/{{article.header}}">Kontakta</a>
+        <p>{{article.locationDistance}}, {{article.price | currency : ""}} Kr</p>
       </div>
     </div>
   </div>
