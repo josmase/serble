@@ -13,14 +13,14 @@ angular.module('serbleApp')
 
     $http({
       method: 'GET',
-      url: 'http://172.16.0.238:3000/articles/get',
+      url: 'http://172.16.0.237:3000/articles/get',
       dataType: 'json',
       data:{}
     }).then(function successCallback(response) {
      console.log(response);
       $scope.error = response
     }, function errorCallback(response) {
-      console.log("error" + response);
+      console.log(response);
       $scope.error = response
     });
   };
