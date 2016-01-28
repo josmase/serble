@@ -118,16 +118,16 @@
 
 
           <div class="form-group"
-               ng-class="{ 'has-error': articelForm.header.$touched && articelForm.header.$invalid }">
+               ng-class="{ 'has-error': articelForm.title.$touched && articelForm.title.$invalid }">
             <label>Rubrik</label>
-            <input type="text" name="header" class="form input-text-field"
+            <input type="text" name="title" class="form input-text-field"
                    placeholder="Måla staket..."
-                   ng-model="main.header"
+                   ng-model="articleData.title"
                    ng-minlength="1"
                    ng-maxlength="20"
                    required>
 
-            <div class="help-block" ng-messages="articelForm.header.$error" ng-if="articelForm.header.$touched">
+            <div class="help-block" ng-messages="articelForm.title.$error" ng-if="articelForm.title.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
