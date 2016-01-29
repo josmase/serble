@@ -89,6 +89,10 @@ a {
 .articleFilter{
   background-color: $white;
   margin-bottom: 10px;
+  form{
+    margin: 0 auto;
+    max-width: 1140px;
+  }
   p{
     margin-top: 10px;
     color: black;
