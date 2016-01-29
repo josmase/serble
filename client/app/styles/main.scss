@@ -79,10 +79,12 @@ a {
 
 #view_more {
   padding-top: 10px;
-  background: $primary-orange;
+  background: $white;
   text-align: center;
   p {
     color: $white;
+    padding: 10px 50px;
+    display: inline-block;
   }
 }
 
