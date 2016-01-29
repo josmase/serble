@@ -26,7 +26,7 @@ angular
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
     };
-    var prev = 1;
+    var prev = 50;
     var $window = $(window);
     var header = $('header');
 
