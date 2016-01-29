@@ -9,11 +9,10 @@
       <div class="row">
         <div class="col-xs-12 col-md-6">
 
-
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.fname.$touched && articelForm.fname.$invalid }">
             <label>Förnamn</label>
-            <input type="text" name="fname" class="form input-face"
+            <input type="text" name="fname" class="form"
                    placeholder="Sven"
                    ng-model="articleData.fname"
                    ng-minlength="1"
@@ -29,7 +28,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.lname.$touched && articelForm.lname.$invalid }">
             <label>Efternamn</label>
-            <input type="text" name="lname" class="form input-face"
+            <input type="text" name="lname" class="form"
                    placeholder="Svensson"
                    ng-model="articleData.lname"
                    ng-minlength="1"
@@ -44,7 +43,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group" ng-class="{ 'has-error': articelForm.city.$touched && articelForm.city.$invalid }">
             <label>Stad</label>
-            <input type="text" name="city" class="form input-house"
+            <input type="text" name="city" class="form"
                    placeholder="Umeå"
                    ng-model="articleData.city"
                    ng-minlength="1"
@@ -60,7 +59,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.zipCode.$touched && articelForm.zipCode.$invalid }">
             <label>Postnummer</label>
-            <input type="number" name="zipCode" class="form input-house"
+            <input type="number" name="zipCode" class="form"
                    placeholder="90210"
                    ng-model="articleData.zipCode"
                    ng-minlength="5"
@@ -76,7 +75,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
             <label>Mobilnummer</label>
-            <input type="tel" name="phonenumber" class="form input-phone"
+            <input type="tel" name="phonenumber" class="form"
                    placeholder="0701234567"
                    ng-model="articleData.phonenumber"
                    ng-minlength="10"
@@ -93,7 +92,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.email.$touched && articelForm.email.$invalid }">
             <label>Email</label>
-            <input type="email" name="email" class="form input-email"
+            <input type="email" name="email" class="form"
                    placeholder="exempel@test.com"
                    ng-model="articleData.email"
                    ng-minlength="1"
@@ -111,7 +110,7 @@
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.title.$touched && articelForm.title.$invalid }">
             <label>Rubrik</label>
-            <input type="text" name="title" class="form input-text-field"
+            <input type="text" name="title" class="form"
                    placeholder="Måla staket..."
                    ng-model="articleData.title"
                    ng-minlength="1"
@@ -127,7 +126,7 @@
           <div class="form-group"
                ng-class="{'has-error': articelForm.price.$touched && articelForm.price.$invalid}">
             <label>Pris</label>
-            <input type="number" name="price" class="form input-money"
+            <input type="number" name="price" class="form"
                    placeholder="200"
                    ng-model="articleData.price"
                    ng-minlength="1"
@@ -147,7 +146,7 @@
             <textarea type="text" name="description"
                       cols="40"
                       rows="10"
-                      class="form input-text-field"
+                      class="form"
                       placeholder="Jag..."
                       ng-model="articleData.description"
                       ng-minlength="1"
