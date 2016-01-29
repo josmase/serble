@@ -15,10 +15,10 @@ angular.module('serbleApp')
       method: 'GET',
       url: 'http://172.16.0.237:3000/articles/get',
       dataType: 'json',
-      data:{}
+      params: {'filter':''}
     }).then(function successCallback(response) {
      console.log(response);
-      $scope.error = response
+      $scope.articles = response
     }, function errorCallback(response) {
       console.log(response);
       $scope.articles = response;

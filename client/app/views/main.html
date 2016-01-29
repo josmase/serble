@@ -20,7 +20,7 @@
 
   <div class="container articleFilter">
     <p>FILTRERA ANNONSER</p>
-    <form ng-submit="filterForm.$valid && submitForm()" name="searchForm" novalidate>
+    <form ng-submit="searchForm.$valid && submitForm()" name="searchForm" novalidate>
       <div class="row">
         <div class="col-xs-12 cold-md-6">
           <div class="form-group">
@@ -58,7 +58,7 @@
               <option value="babySitter">Barnvakt</option>
               <option value="cleaning">Städhälp</option>
               <option value="santa">Tomte</option>
-              <option value="transportationAndCarpool">Transport % samåkning</option>
+              <option value="transportationAndCarpool">Transport & samåkning</option>
               <option value="homeworkAndTeaching">Läxhjälp & undervisning </option>
               <option value="other">Annat</option>
             </select>
@@ -70,13 +70,13 @@
 
   <div class="container" id="card">
     <div class="cards"
-         ng-repeat="article in articles | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
-      <h4>{{article.header}}</h4>
+         ng-repeat="article in articles.data | limitTo: quantity | filter:search.text | filter:search.category | orderBy:search.order ">
+      <h4>{{article.title}}</h4>
 
       <p>{{article.description | limitTo:170}}... </p>
       <div class="details">
-        <a ng-href="#/article/{{article.header}}">Kontakta</a>
-        <p>{{article.locationDistance}}, {{article.price | currency : ""}} Kr</p>
+        <a ng-href="#/article/{{article.id}}">Kontakta</a>
+        <p>{{article.locationDistance}}, {{article.payout | currency : ""}} Kr</p>
       </div>
     </div>
   </div>
