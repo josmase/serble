@@ -11,12 +11,12 @@
 }
 
 body {
-  padding: 0;
+  padding: 50px 0 0 0;
   background: $dark-white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+header,
 .marketing,
 .footer {
   padding-left: 15px;
