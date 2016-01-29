@@ -20,7 +20,7 @@ angular
     'angular-loading-bar',
     'infinite-scroll',
     'ngMessages'
-  ]).controller('headerCtrl', function ($scope, $location) {
+  ]).controller('headerCtrl', function ($scope, $location,$anchorScroll) {
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
@@ -34,6 +34,12 @@ angular
       header.toggleClass('hideHeader', scrollTop > prev);
       prev = scrollTop;
     });
+    $scope.gotoTop = function() {
+      $location.hash('top');
+
+      // call $anchorScroll()
+      $anchorScroll();
+    };
   })
   .config(function ($routeProvider) {
       $routeProvider
