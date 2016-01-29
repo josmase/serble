@@ -126,9 +126,9 @@ header.ng-scope {
   padding-right: 0;
   position: fixed;
   top: 0;
-  -webkit-transition: -webkit-transform 1s cubic-bezier(0.86, 0, 0.07, 1);
-  -moz-transition: -moz-transform 1s cubic-bezier(0.86, 0, 0.07, 1);
-  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  -moz-transition: -moz-transform 0.3s linear;
+  transition: transform linear 0.3s;
   z-index: 100;
   .nav {
     li {
