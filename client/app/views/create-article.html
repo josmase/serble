@@ -2,9 +2,8 @@
   <div class="container">
     <h1>Skapa annons</h1>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua.</p>
-    {{articleData | json}}
+    <p>När du skapar en annosn tänk då på att göra en tydlig rubrik som beskriver vad du behöver hjälp med eller vad du
+      kan hjälpa till med. Om ingen kategori passar in perfekt, välj den som passar in bäst.</p>
 
     <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row">
@@ -199,8 +198,9 @@
               <option value="cleaning">Städhälp</option>
               <option value="santa">Tomte</option>
               <option value="transportationAndCarpool">Transport & samåkning</option>
-              <option value="homeworkAndTeaching">Läxhjälp & undervisning </option>
-              <option value="other">Annat</option></select>
+              <option value="homeworkAndTeaching">Läxhjälp & undervisning</option>
+              <option value="other">Annat</option>
+            </select>
 
             <div class="help-block" ng-messages="articelForm.category.$error"
                  ng-if="articelForm.category.$touched">
