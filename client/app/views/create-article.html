@@ -41,8 +41,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group" ng-class="{ 'has-error': articelForm.city.$touched && articelForm.city.$invalid }">
             <label>Stad</label>
@@ -74,9 +72,6 @@
             </div>
           </div>
         </div>
-
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
@@ -110,9 +105,6 @@
             </div>
           </div>
         </div>
-
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
 
 
@@ -131,9 +123,24 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
+          <div class="form-group"
+               ng-class="{'has-error': articelForm.price.$touched && articelForm.price.$invalid}">
+            <label>Pris</label>
+            <input type="number" name="price" class="form input-money"
+                   placeholder="200"
+                   ng-model="articleData.price"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="articelForm.price.$error"
+                 ng-if="articelForm.price.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-12">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.description.$touched && articelForm.description.$invalid }">
             <label>Beskrivning</label>
@@ -153,29 +160,6 @@
             </div>
           </div>
         </div>
-
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
-          <div class="form-group"
-               ng-class="{'has-error': articelForm.price.$touched && articelForm.price.$invalid}">
-            <label>Pris</label>
-            <input type="number" name="price" class="form input-money"
-                   placeholder="200"
-                   ng-model="articleData.price"
-                   ng-minlength="1"
-                   ng-maxlength="70"
-                   required>
-
-            <div class="help-block" ng-messages="articelForm.price.$error"
-                 ng-if="articelForm.price.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{'has-error': articelForm.category.$touched && articelForm.category.$invalid}">
@@ -208,8 +192,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{'has-error': articelForm.type.$touched && articelForm.type.$invalid}">
@@ -229,7 +211,6 @@
           </div>
         </div>
       </div>
-
 
       <div class="row">
         <div class="col-xs-12 col-md-6">

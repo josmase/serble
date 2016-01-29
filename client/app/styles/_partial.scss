@@ -217,6 +217,12 @@ footer {
 
 .create-article {
   text-align: center;
+  .row:last-child{
+    div:first-child{
+      float: none;
+      margin: 0 auto;
+    }
+  }
   p:nth-child(2) {
     width: 200px;
     margin: 0 auto;
