@@ -20,7 +20,7 @@ angular.module('serbleApp')
         params:{'id':$scope.articleId}
       }).then(function successCallback(response) {
         console.log(response);
-        $scope.articleInfo = response
+        $scope.articleInfo = response;
       }, function errorCallback(response) {
         console.log(response);
         $scope.articles = response;

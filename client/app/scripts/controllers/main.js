@@ -17,7 +17,7 @@ angular.module('serbleApp')
         params: {'text': $scope.search.text, 'order': $scope.search.order, 'category': $scope.search.category}
       }).then(function successCallback(response) {
         console.log(response);
-        $scope.articles = response
+        $scope.articles = response;
       }, function errorCallback(response) {
         console.log(response);
         $scope.articles = response;
