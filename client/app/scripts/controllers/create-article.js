@@ -11,11 +11,15 @@ angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ($scope, submitFormService) {
     $scope.articleData = null;
     $scope.submitForm = function () {
-      submitFormService.postFormData($scope.articleData);
-
+      console.log($scope.articleData);
+      submitFormService.geocode($scope.articleData).then(function(data){
+        $scope.articleData.location = data.data.results[0].geometry.location;
+        submitFormService.postFormData($scope.articleData);
+      });
     };
+
   })
-  .service('submitFormService', function ($http) {
+  .service('submitFormService', function ($http, $q) {
     this.postFormData = function (articleData) {
       this.articleData = articleData;
       $http({
@@ -36,6 +40,19 @@ angular.module('serbleApp')
         console.log('error' + response);
         return response;
       });
+    };
+    this.geocode = function (articleData) {
+      var deferred = $q.defer();
+      this.zipCode = articleData.zipCode;
+      this.city = articleData.city;
+      $http({
+        method: 'GET',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + this.zipCode + ',' + this.city + '&key=AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk',
+        dataType: 'json'
+      }).then(function successCallback(response) {
+        deferred.resolve(response);
+      });
+      return deferred.promise;
     }
   });
 
