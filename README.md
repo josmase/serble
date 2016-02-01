@@ -10,9 +10,13 @@ Install  and add it to path then run `gem install compass`.
 Download and install [nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
 
 Run ```npm install --global npm@latest
+
  npm install --global yo bower grunt-cli
+ 
  git clone https://github.com/te4-nti-umea/serble.git
+ 
  cd serble/client
+ 
  npm install && bower install```
 
 Done
