@@ -60,7 +60,7 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
         bounds: {},
         options: {}
       };
-      $scope.map.options = myMapServices.getMapOptions();
+     $scope.map.options = myMapServices.getMapOptions().mapOptions;
 
 
       //$scope.map.center = $scope.myCurrentLocation;
@@ -96,7 +96,7 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
             stylers: [{
               visibility: "off"
             }]
-          }],
+          }]
         }
       };
     };
