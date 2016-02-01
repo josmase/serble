@@ -14,7 +14,7 @@ angular.module('serbleApp')
         method: 'GET',
         url: 'http://172.16.0.237:3000/articles/get',
         dataType: 'json',
-        params: {'text': $scope.search.text, 'order': $scope.search.order, 'category': $scope.search.category}
+        params: {'filterTitle': $scope.search.text, 'filterCategory': $scope.search.category}
       }).then(function successCallback(response) {
         console.log(response);
         $scope.articles = response;
