@@ -8,15 +8,15 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope,submitFormService) {
+  .controller('CreateArticleCtrl', function ($scope, submitFormService) {
     $scope.articleData = null;
     $scope.submitForm = function () {
       submitFormService.postFormData($scope.articleData);
 
     };
   })
-  .service('submitFormService', function($http){
-    this.postFormData = function(articleData){
+  .service('submitFormService', function ($http) {
+    this.postFormData = function (articleData) {
       this.articleData = articleData;
       $http({
         method: 'POST',
@@ -31,10 +31,10 @@ angular.module('serbleApp')
         }
       }).then(function successCallback(response) {
         console.log(response);
-        $scope.error = response;
+        return response;
       }, function errorCallback(response) {
         console.log('error' + response);
-        $scope.error = response;
+        return response;
       });
     }
   });
