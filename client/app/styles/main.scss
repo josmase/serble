@@ -16,7 +16,7 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+header,
 .marketing,
 .footer {
   padding-left: 15px;
@@ -34,7 +34,7 @@ a {
   background-color:#64b346;
   color:white;
   padding:10px 100px;
-  border-radius:30px;
+
   margin-bottom: 20%;
   display: inline-block;
 }
@@ -79,18 +79,34 @@ a {
 
 #view_more {
   padding-top: 10px;
-  background: $primary-orange;
+  background: $white;
   text-align: center;
   p {
     color: $white;
+    padding: 10px 50px;
+    display: inline-block;
   }
 }
 
 .articleFilter{
   background-color: $white;
   margin-bottom: 10px;
+  form{
+    margin: 0 auto;
+    max-width: 1140px;
+  }
   p{
-    margin-top: 10px;
+    margin-top: 20px;
     color: black;
   }
 }
+
+.navabar-collapse.collapsing {
+  -webkit-transform: translateZ(0);
+  -webkit-transition: height 0.35s ease 1s linear;
+  -moz-transition: height 0.35s ease 1s linear;
+  -o-transition: height 0.35s ease 1s linear;
+  transition: height 0.35s ease 1s linear;
+
+}
+

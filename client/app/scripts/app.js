@@ -19,12 +19,23 @@ angular
     'ngTouch',
     'angular-loading-bar',
     'infinite-scroll',
-    'ngMessages'
+    'ngMessages',
+    'angularSmoothscroll',
+    'uiGmapgoogle-maps'
   ]).controller('headerCtrl', function ($scope, $location) {
-  $scope.isActive = function (viewLocation) {
+    $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
     };
+    var prev = 50;
+    var $window = $(window);
+    var header = $('header');
+
+    $window.on('scroll', function(){
+      var scrollTop = $window.scrollTop();
+      header.toggleClass('hideHeader', scrollTop > prev);
+      prev = scrollTop;
+    });
   })
   .config(function ($routeProvider) {
       $routeProvider

@@ -110,13 +110,26 @@ ul {
   }
 }
 
-.header.ng-scope {
+header.hideHeader {
+  -webkit-transform: translateY(0,-100%);
+  -moz-transform: translateY(0,-100%);
+  -ms-transform: translateY(0,-100%);
+  -o-transform: translate(0,-100%);
+  transform: translate(0,-100%);
+}
+
+header.ng-scope {
+  min-height: 55px;
   background: white;
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  z-index: 900;
-  /*removes bootsrap navigation hover*/
+  position: fixed;
+  top: 0;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  -moz-transition: -moz-transform 0.3s linear;
+  transition: transform linear 0.3s;
+  z-index: 100;
   .nav {
     li {
       a:hover, a:focus {
@@ -149,7 +162,6 @@ ul {
       border-left: 1px solid #eeeeee;
       border-radius: 0;
       background: transparent;
-      height: 50px;
 
       &:hover {
         background: transparent !important;
@@ -205,11 +217,17 @@ footer {
 
 .create-article {
   text-align: center;
+  .row:last-child{
+    div:first-child{
+      float: none;
+      margin: 0 auto;
+    }
+  }
   p:nth-child(2) {
     width: 200px;
     margin: 0 auto;
   }
-  .container{
+  .container {
     background: $white;
   }
 }
@@ -221,6 +239,7 @@ footer {
 }
 
 .form-group {
+  margin-top: 20px;
   text-align: left;
   label {
     color: rgba(21, 31, 47, 1);
@@ -286,6 +305,9 @@ footer {
   text-align: center;
 }
 
+.ng-scope .container:first-child, .ng-scope .jumbotron:first-child{
+  padding-top: 50px;
+}
 @media screen and (min-width: 768px) {
   #card {
     .cards {
@@ -303,7 +325,7 @@ footer {
   }
 
   /* Remove the padding we set earlier */
-  .header,
+  header,
   .marketing,
   .footer {
     padding-left: 0;
@@ -312,17 +334,18 @@ footer {
   /* Remove the bottom border on the jumbotron for visual effect */
   #main .jumbotron {
     border-bottom: 0;
-    h1{
+    h1 {
       margin-top: 15%;
     }
-    a{
+    a {
       margin-bottom: 15%;
     }
   }
-  .header {
+  header {
     .navbar {
       .nav {
         li {
+          border: none;
           p {
             padding-top: 15px;
             padding-bottom: 15px;
@@ -333,5 +356,7 @@ footer {
   }
 
 }
+
+.angular-google-map-container { height: 400px; }
 
 

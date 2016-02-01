@@ -24,10 +24,10 @@ angular.module('serbleApp')
         }
       }).then(function successCallback(response) {
         console.log(response);
-        $scope.error = response
+        $scope.error = response;
       }, function errorCallback(response) {
-        console.log("error" + response);
-        $scope.error = response
+        console.log('error' + response);
+        $scope.error = response;
       });
 
     };
