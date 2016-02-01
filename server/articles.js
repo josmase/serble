@@ -21,6 +21,7 @@ var exp = {
    * @constructor
    */
   Article: function (author, title, category, description, payout, location) {
+    this.id = null;
     this.author = author || "Unknown";
     this.title = title || "Unknown";
     this.description = description || "Unknown";
@@ -29,7 +30,9 @@ var exp = {
   },
 
   ArticleRequestObject: function (req) {
-    this.filter = req.filter || null;
+    this.id = req.id || null;
+    this.filterName = req.filterName || null;
+    this.filterCategory = req.filterCategory || null;
     this.loc = {lat: null, long: null};
     this.radius = req.radius || null;
     this.range = [0, 0];
@@ -71,13 +74,27 @@ var exp = {
   getArticles: function (req, callback) {
     var res = [];
 
-    var query = db.query('SELECT * FROM `advertisement`;', function (err, result) {
+    var qstring = 'SELECT * FROM `advertisement`';
+    var options = {};
+
+    if (req.id) {
+      options.advert_id = req.id;
+    } else if (req.filterTitle) {
+      qstring += ' WHERE `title` LIKE ' + db.escape('%' + req.filterTitle + '%');
+    } else if (req.filterCategory) {
+      qstring += ' WHERE `category` LIKE ' + db.escape('%' + req.filterCategory + '%');
+    }
+
+    console.log(qstring);
+
+    var query = db.query(qstring, options, function (err, result) {
       if (err) {
         console.log("Database error: " + err);
         callback();
       } else {
         result.forEach(function (entry) {
           res.push({
+            id: entry.advert_id,
             author: entry.author_id,
             title: entry.title,
             description: entry.description,
@@ -130,6 +147,7 @@ var exp = {
 var initialize = function () {
   // Responds to article requests
   app.get('/articles/get', function (req, res) {
+    console.log(req.query);
     var reqData = new exp.ArticleRequestObject(req.query);
     var data = exp.getArticles(reqData, function (data) {
       res.json(data);

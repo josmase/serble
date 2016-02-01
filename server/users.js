@@ -78,7 +78,7 @@ var exp = {
                 show_age: (data.show_age >= 1),
                 show_avatar: (data.show_avatar >= 1)
               }
-            )
+            );
 
             callback();
           }
