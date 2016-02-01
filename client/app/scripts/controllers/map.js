@@ -14,7 +14,7 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
       libraries: 'weather,geometry,visualization'
     });
   })
-  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices) {
+  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter) {
     $scope.markers = [
       {
         id: 1,
@@ -40,8 +40,9 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
         longitude: 20.2642868
       }
     ];
-    $scope.showArticle = function(clickedMarker,eventName,shortInfoClickedMarker){
-      console.log(shortInfoClickedMarker);
+    $scope.showClickedArticle = function(clickedMarker,eventName,shortInfoClickedMarker){
+      var articleId = shortInfoClickedMarker.id;
+      $scope.clickedArticle = $filter('filter')($scope.markers, {id:articleId})[0];
     };
     myMapServices.getCurrentLocation().then(function (data) {
         $scope.map.center = data;

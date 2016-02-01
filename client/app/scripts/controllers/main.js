@@ -10,7 +10,7 @@
 angular.module('serbleApp')
   .controller('MainCtrl', function ($scope,getArticlesService) {
     $scope.getArticles = function () {
-      $scope.articles = getArticlesService.getArticles($scope.search.text,$scope.search.category);
+      $scope.articles = getArticlesService.getArticles($scope.search);
      console.log($scope.articles);
     };
     $scope.search = {};
@@ -18,9 +18,9 @@ angular.module('serbleApp')
     //$scope.getArticles();
   })
   .service('getArticlesService', function ($http) {
-  this.getArticles = function (title,category) {
-    this.title = title;
-    this.category = category;
+  this.getArticles = function (search) {
+    this.title = search.title;
+    this.category = search.category;
     $http({
       method: 'GET',
       url: 'http://172.16.0.237:3000/articles/get',

@@ -4,9 +4,10 @@
       <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options"
                           bounds="map.bounds">
 
-        <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="showArticle">
+        <ui-gmap-markers models="markers" coords="'self'" icon="'icon'" click="showClickedArticle">
         </ui-gmap-markers>
       </ui-gmap-google-map>
     </div>
   </div>
+  <p>{{clickedArticle}}</p>
 </div>
