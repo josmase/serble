@@ -111,11 +111,11 @@ ul {
 }
 
 header.hideHeader {
-  -webkit-transform: translateY(0,-100%);
-  -moz-transform: translateY(0,-100%);
-  -ms-transform: translateY(0,-100%);
-  -o-transform: translate(0,-100%);
-  transform: translate(0,-100%);
+  -webkit-transform: translateY(0, -100%);
+  -moz-transform: translateY(0, -100%);
+  -ms-transform: translateY(0, -100%);
+  -o-transform: translate(0, -100%);
+  transform: translate(0, -100%);
 }
 
 header.ng-scope {
@@ -217,8 +217,8 @@ footer {
 
 .create-article {
   text-align: center;
-  .row:last-child{
-    div:first-child{
+  .row:last-child {
+    div:first-child {
       float: none;
       margin: 0 auto;
     }
@@ -305,8 +305,12 @@ footer {
   text-align: center;
 }
 
-.ng-scope .container:first-child, .ng-scope .jumbotron:first-child{
+.ng-scope .container:first-child, .ng-scope .jumbotron:first-child {
   padding-top: 50px;
+}
+
+.angular-google-map-container {
+  height: 50vh;
 }
 @media screen and (min-width: 768px) {
   #card {
@@ -357,6 +361,5 @@ footer {
 
 }
 
-.angular-google-map-container { height: 400px; }
 
 
