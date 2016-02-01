@@ -8,19 +8,26 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope, $http) {
+  .controller('CreateArticleCtrl', function ($scope,submitFormService) {
     $scope.articleData = null;
     $scope.submitForm = function () {
+      submitFormService.postFormData($scope.articleData);
+
+    };
+  })
+  .service('submitFormService', function($http){
+    this.postFormData = function(articleData){
+      this.articleData = articleData;
       $http({
         method: 'POST',
         url: 'http://172.16.0.237:3000/articles/create',
         dataType: 'json',
         data: {
           'user_id': 0,
-          'title': $scope.articleData.title,
-          'description': $scope.articleData.description,
-          'payout': $scope.articleData.price,
-          'category': $scope.articleData.category
+          'title': this.articleData.title,
+          'description': this.articleData.description,
+          'payout': this.articleData.price,
+          'category': this.articleData.category
         }
       }).then(function successCallback(response) {
         console.log(response);
@@ -29,6 +36,6 @@ angular.module('serbleApp')
         console.log('error' + response);
         $scope.error = response;
       });
-
-    };
+    }
   });
+
