@@ -9,15 +9,17 @@ Download [ruby] (http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.
 Install  and add it to path then run `gem install compass`.
 Download and install [nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
 
-Run ```npm install --global npm@latest
+Run 
 
- npm install --global yo bower grunt-cli
+`npm install --global npm@latest`
+
+ `npm install --global yo bower grunt-cli`
  
- git clone https://github.com/te4-nti-umea/serble.git
+ `git clone https://github.com/te4-nti-umea/serble.git`
  
- cd serble/client
+ `cd serble/client`
  
- npm install && bower install```
+ `npm install && bower install`
 
 Done
 
