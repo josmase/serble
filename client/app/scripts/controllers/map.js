@@ -40,7 +40,9 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
         longitude: 20.2642868
       }
     ];
-
+    $scope.showArticle = function(clickedMarker,eventName,shortInfoClickedMarker){
+      console.log(shortInfoClickedMarker);
+    };
     myMapServices.getCurrentLocation().then(function (data) {
         $scope.map.center = data;
 
@@ -50,7 +52,7 @@ angular.module('serbleApp').config(function (uiGmapGoogleMapApiProvider) {
 
       $scope.map = {
         center: {
-          latitude: 43.8233639,
+          latitude: 62.8233639,
           longitude: 20.2642868
         },
         zoom: 10,
