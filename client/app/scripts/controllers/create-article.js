@@ -8,12 +8,13 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope, geocodeService) {
+  .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService) {
     $scope.articleData = null;
     $scope.submitForm = function () {
-      console.log($scope.articleData);
-      geocodeService.geocode($scope.articleData).then(function(data){
-        $scope.articleData.location = data.data.results[0].geometry.location;
+      geocodeService.geocode($scope.articleData).then(function (data) {
+        $scope.articleData.latitude = data.data.results[0].geometry.location.lat;
+        $scope.articleData.longitude = data.data.results[0].geometry.location.lng;
+        console.log($scope.articleData);
         getAndPostArticlesService.postArticleData($scope.articleData);
       });
     };

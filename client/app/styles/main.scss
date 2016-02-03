@@ -30,14 +30,14 @@ header,
   padding: 0;
   border-bottom: 1px solid $white;
   margin: 0;
-a {
-  background-color:#64b346;
-  color:white;
-  padding:10px 100px;
+  a {
+    background-color: #64b346;
+    color: white;
+    padding: 10px 100px;
 
-  margin-bottom: 20%;
-  display: inline-block;
-}
+    margin-bottom: 20%;
+    display: inline-block;
+  }
   p {
     font-size: 14px;
   }
@@ -54,7 +54,7 @@ a {
   -o-background-size: cover;
   background-size: cover;
   p {
-    color:white;
+    color: white;
     margin-bottom: 50px;
   }
 }
@@ -88,25 +88,21 @@ a {
   }
 }
 
-.articleFilter{
+.articleFilter {
   background-color: $white;
   margin-bottom: 10px;
-  form{
+  form {
     margin: 0 auto;
     max-width: 1140px;
   }
-  p{
+  p {
     margin-top: 20px;
     color: black;
   }
 }
 
 .navabar-collapse.collapsing {
-  -webkit-transform: translateZ(0);
-  -webkit-transition: height 0.35s ease 1s linear;
-  -moz-transition: height 0.35s ease 1s linear;
-  -o-transition: height 0.35s ease 1s linear;
   transition: height 0.35s ease 1s linear;
-
 }
+
 
