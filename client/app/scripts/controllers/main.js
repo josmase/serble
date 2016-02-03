@@ -17,8 +17,29 @@ angular.module('serbleApp')
     $scope.quantity = 20;
     //$scope.getArticles();
   })
-  .service('getArticlesService', function ($http) {
-  this.getArticles = function (search) {
+  .service('getAndPostArticlesService', function ($http) {
+    this.postArticleData = function (articleData) {
+      this.articleData = articleData;
+      $http({
+        method: 'POST',
+        url: 'http://172.16.0.237:3000/articles/create',
+        dataType: 'json',
+        data: {
+          'user_id': 0,
+          'title': this.articleData.title,
+          'description': this.articleData.description,
+          'payout': this.articleData.price,
+          'category': this.articleData.category
+        }
+      }).then(function successCallback(response) {
+        console.log(response);
+        return response;
+      }, function errorCallback(response) {
+        console.log('error' + response);
+        return response;
+      });
+    };
+    this.getArticles = function (search) {
     this.title = search.title;
     this.category = search.category;
     $http({

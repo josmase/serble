@@ -14,33 +14,12 @@ angular.module('serbleApp')
       console.log($scope.articleData);
       submitFormService.geocode($scope.articleData).then(function(data){
         $scope.articleData.location = data.data.results[0].geometry.location;
-        submitFormService.postFormData($scope.articleData);
+        getAndPostArticlesService.postArticleData($scope.articleData);
       });
     };
 
   })
   .service('submitFormService', function ($http, $q) {
-    this.postFormData = function (articleData) {
-      this.articleData = articleData;
-      $http({
-        method: 'POST',
-        url: 'http://172.16.0.237:3000/articles/create',
-        dataType: 'json',
-        data: {
-          'user_id': 0,
-          'title': this.articleData.title,
-          'description': this.articleData.description,
-          'payout': this.articleData.price,
-          'category': this.articleData.category
-        }
-      }).then(function successCallback(response) {
-        console.log(response);
-        return response;
-      }, function errorCallback(response) {
-        console.log('error' + response);
-        return response;
-      });
-    };
     this.geocode = function (articleData) {
       var deferred = $q.defer();
       this.zipCode = articleData.zipCode;
