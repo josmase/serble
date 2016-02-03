@@ -111,15 +111,11 @@ ul {
 }
 
 header.hideHeader {
-  -webkit-transform: translateY(0, -100%);
-  -moz-transform: translateY(0, -100%);
-  -ms-transform: translateY(0, -100%);
-  -o-transform: translate(0, -100%);
   transform: translate(0, -100%);
 }
 
 header.ng-scope {
-  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0 -2px 10px 0 rgba(0,0,0,0.75);
   min-height: 55px;
   background: white;
   width: 100%;
