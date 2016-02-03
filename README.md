@@ -5,11 +5,11 @@ version 0.14.0.
 
 ##Setup
 
-Download [ruby] (http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.7.exe)
-Install  and add it to path then run `gem install compass`.
-Download and install [nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
+Download [ruby] (http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.7.exe) (add it to path),
+[nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
 
 Run 
+
 
 `npm install --global npm@latest`
 
@@ -19,6 +19,8 @@ Run
  
  `cd serble/client`
  
+`gem install compass`
+
  `npm install && bower install`
 
 Done
