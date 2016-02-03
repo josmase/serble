@@ -15,7 +15,7 @@ angular.module('serbleApp')
       libraries: 'weather,geometry,visualization'
     });
   })
-  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter) {
+  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter,getAndPostArticlesService) {
     $scope.markers = [
       {
         id: 1,
@@ -41,11 +41,18 @@ angular.module('serbleApp')
         longitude: 20.2642868
       }
     ];
-    a
+
+    $scope.getArticles = function () {
+      $scope.articles = getAndPostArticlesService.getArticles($scope.search);
+      console.log($scope.articles);
+    };
+    $scope.getArticles();
+
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
       var articleId = shortInfoClickedMarker.id;
       $scope.clickedArticle = $filter('filter')($scope.markers, {id: articleId})[0];
     };
+
     myMapServices.getCurrentLocation().then(function (data) {
         $scope.map.center = data;
 

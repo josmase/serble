@@ -8,10 +8,10 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', function ($scope,getArticlesService) {
+  .controller('MainCtrl', function ($scope, getAndPostArticlesService) {
     $scope.getArticles = function () {
-      $scope.articles = getArticlesService.getArticles($scope.search);
-     console.log($scope.articles);
+      $scope.articles = getAndPostArticlesService.getArticles($scope.search);
+      console.log($scope.articles);
     };
     $scope.search = {};
     $scope.quantity = 20;
@@ -40,20 +40,22 @@ angular.module('serbleApp')
       });
     };
     this.getArticles = function (search) {
-    this.title = search.title;
-    this.category = search.category;
-    $http({
-      method: 'GET',
-      url: 'http://172.16.0.237:3000/articles/get',
-      dataType: 'json',
-      params: {'filterTitle': this.title, 'filterCategory': this.category}
-    }).then(function successCallback(response) {
-      console.log(response);
-      return response
-    }, function errorCallback(response) {
-      console.log(response);
-      return response;
-    });
-  }
-});
+      if (typeof search !== 'undefined') {
+        this.title = search.title || "";
+        this.category = search.category || "";
+      }
+      $http({
+        method: 'GET',
+        url: 'http://172.16.0.237:3000/articles/get',
+        dataType: 'json',
+        params: {'filterTitle': this.title, 'filterCategory': this.category}
+      }).then(function successCallback(response) {
+        console.log(response);
+        return response
+      }, function errorCallback(response) {
+        console.log(response);
+        return response;
+      });
+    }
+  });
 

@@ -8,18 +8,18 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope, submitFormService) {
+  .controller('CreateArticleCtrl', function ($scope, geocodeService) {
     $scope.articleData = null;
     $scope.submitForm = function () {
       console.log($scope.articleData);
-      submitFormService.geocode($scope.articleData).then(function(data){
+      geocodeService.geocode($scope.articleData).then(function(data){
         $scope.articleData.location = data.data.results[0].geometry.location;
         getAndPostArticlesService.postArticleData($scope.articleData);
       });
     };
 
   })
-  .service('submitFormService', function ($http, $q) {
+  .service('geocodeService', function ($http, $q) {
     this.geocode = function (articleData) {
       var deferred = $q.defer();
       this.zipCode = articleData.zipCode;
