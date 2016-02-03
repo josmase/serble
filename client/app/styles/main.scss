@@ -48,31 +48,10 @@ header,
 }
 
 #pitch {
-  background: url(./../images/handshake.png);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url(./../images/working.jpg);
   background-size: cover;
   p {
     color: white;
-    margin-bottom: 50px;
-  }
-}
-
-#explanation {
-  background: url(./../images/carGps.png);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  .row {
-    margin-top: 120px
-  }
-  #terms {
-    margin-top: 10px;
-    color: rgba(207, 207, 207, 1);
-  }
-  p {
     margin-bottom: 50px;
   }
 }

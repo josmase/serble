@@ -119,6 +119,7 @@ header.hideHeader {
 }
 
 header.ng-scope {
+  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.75);
   min-height: 55px;
   background: white;
   width: 100%;
@@ -126,8 +127,6 @@ header.ng-scope {
   padding-right: 0;
   position: fixed;
   top: 0;
-  -webkit-transition: -webkit-transform 0.3s linear;
-  -moz-transition: -moz-transform 0.3s linear;
   transition: transform linear 0.3s;
   z-index: 100;
   .nav {
