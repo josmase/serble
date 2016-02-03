@@ -15,7 +15,6 @@ describe('Controller: CreateArticleCtrl', function () {
     CreateArticleCtrl = $controller('CreateArticleCtrl', {
       $scope: scope
     });
-
     geocodeService = _geocodeService_;
   }));
 
