@@ -10,14 +10,17 @@
 angular.module('serbleApp')
   .controller('MainCtrl', function ($scope, getAndPostArticlesService) {
     $scope.getArticles = function () {
-      $scope.articles = getAndPostArticlesService.getArticles($scope.search);
-      console.log($scope.articles);
+      getAndPostArticlesService.getArticles($scope.search).then(function(returnedArticles){
+        $scope.articles = returnedArticles;
+        console.log($scope.articles);
+      });
+
     };
     $scope.search = {};
     $scope.quantity = 20;
     //$scope.getArticles();
   })
-  .service('getAndPostArticlesService', function ($http) {
+  .service('getAndPostArticlesService', function ($http,$q) {
     this.postArticleData = function (articleData) {
       this.articleData = articleData;
       $http({
@@ -40,6 +43,7 @@ angular.module('serbleApp')
       });
     };
     this.getArticles = function (search) {
+      var deferred = $q.defer();
       if (typeof search !== 'undefined') {
         this.title = search.title || "";
         this.category = search.category || "";
@@ -50,12 +54,9 @@ angular.module('serbleApp')
         dataType: 'json',
         params: {'filterTitle': this.title, 'filterCategory': this.category}
       }).then(function successCallback(response) {
-        console.log(response);
-        return response
-      }, function errorCallback(response) {
-        console.log(response);
-        return response;
+        deferred.resolve(response);
       });
+      return deferred.promise;
     }
   });
 
