@@ -75,7 +75,7 @@ angular.module('serbleApp')
 
       }
     );
-    uiGmapGoogleMapApi.then(function (maps) {
+    uiGmapGoogleMapApi.then(function () {
 
       $scope.map = {
         center: {
@@ -112,119 +112,119 @@ angular.module('serbleApp')
           keyboardShortcuts: true,
           styles: [
             {
-              "featureType": "administrative.land_parcel",
-              "elementType": "all",
-              "stylers": [
+              'featureType': 'administrative.land_parcel',
+              'elementType': 'all',
+              'stylers': [
                 {
-                  "visibility": "off"
+                  'visibility': 'off'
                 }
               ]
             },
             {
-              "featureType": "landscape.man_made",
-              "elementType": "all",
-              "stylers": [
+              'featureType': 'landscape.man_made',
+              'elementType': 'all',
+              'stylers': [
                 {
-                  "visibility": "off"
+                  'visibility': 'off'
                 }
               ]
             },
             {
-              "featureType": "poi",
-              "elementType": "labels",
-              "stylers": [
+              'featureType': 'poi',
+              'elementType': 'labels',
+              'stylers': [
                 {
-                  "visibility": "off"
+                  'visibility': 'off'
                 }
               ]
             },
             {
-              "featureType": "road",
-              "elementType": "labels",
-              "stylers": [
+              'featureType': 'road',
+              'elementType': 'labels',
+              'stylers': [
                 {
-                  "visibility": "simplified"
+                  'visibility': 'simplified'
                 },
                 {
-                  "lightness": 20
+                  'lightness': 20
                 }
               ]
             },
             {
-              "featureType": "road.highway",
-              "elementType": "geometry",
-              "stylers": [
+              'featureType': 'road.highway',
+              'elementType': 'geometry',
+              'stylers': [
                 {
-                  "hue": "#f49935"
+                  'hue': '#f49935'
                 }
               ]
             },
             {
-              "featureType": "road.highway",
-              "elementType": "labels",
-              "stylers": [
+              'featureType': 'road.highway',
+              'elementType': 'labels',
+              'stylers': [
                 {
-                  "visibility": "simplified"
+                  'visibility': 'simplified'
                 }
               ]
             },
             {
-              "featureType": "road.arterial",
-              "elementType": "geometry",
-              "stylers": [
+              'featureType': 'road.arterial',
+              'elementType': 'geometry',
+              'stylers': [
                 {
-                  "hue": "#fad959"
+                  'hue': '#fad959'
                 }
               ]
             },
             {
-              "featureType": "road.arterial",
-              "elementType": "labels",
-              "stylers": [
+              'featureType': 'road.arterial',
+              'elementType': 'labels',
+              'stylers': [
                 {
-                  "visibility": "off"
+                  'visibility': 'off'
                 }
               ]
             },
             {
-              "featureType": "road.local",
-              "elementType": "geometry",
-              "stylers": [
+              'featureType': 'road.local',
+              'elementType': 'geometry',
+              'stylers': [
                 {
-                  "visibility": "simplified"
+                  'visibility': 'simplified'
                 }
               ]
             },
             {
-              "featureType": "road.local",
-              "elementType": "labels",
-              "stylers": [
+              'featureType': 'road.local',
+              'elementType': 'labels',
+              'stylers': [
                 {
-                  "visibility": "simplified"
+                  'visibility': 'simplified'
                 }
               ]
             },
             {
-              "featureType": "transit",
-              "elementType": "all",
-              "stylers": [
+              'featureType': 'transit',
+              'elementType': 'all',
+              'stylers': [
                 {
-                  "visibility": "off"
+                  'visibility': 'off'
                 }
               ]
             },
             {
-              "featureType": "water",
-              "elementType": "all",
-              "stylers": [
+              'featureType': 'water',
+              'elementType': 'all',
+              'stylers': [
                 {
-                  "hue": "#a1cdfc"
+                  'hue': '#a1cdfc'
                 },
                 {
-                  "saturation": 30
+                  'saturation': 30
                 },
                 {
-                  "lightness": 49
+                  'lightness': 49
                 }
               ]
             }

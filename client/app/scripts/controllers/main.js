@@ -57,6 +57,6 @@ angular.module('serbleApp')
         deferred.resolve(response);
       });
       return deferred.promise;
-    }
+    };
   });
 
