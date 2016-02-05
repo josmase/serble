@@ -21,28 +21,29 @@ angular.module('serbleApp')
         id: 1,
         latitude: 63.8233639,
         longitude: 20.2642868,
-        title: 'a',
-        zipCode: 90364
+        zipCode: 90364,
+        title: 'Klippa gräs'
       },
       {
         id: 2,
         latitude: 64.8233639,
         longitude: 20.2642868,
-        title: 'b',
-        zipCode: 90364
+        zipCode: 90364,
+        title: 'Gräva'
       },
       {
         id: 3,
         latitude: 65.8233639,
         longitude: 20.2642868,
-        title: 'c',
+        title: 'Barnvakt',
         zipCode: 90364
       },
       {
         id: 4,
         latitude: 66.8233639,
         longitude: 20.2642868,
-        zipCode: 9034
+        zipCode: 9034,
+        title: 'Hundvakt'
       }
     ];
 
