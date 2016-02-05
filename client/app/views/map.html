@@ -9,15 +9,17 @@
       </ui-gmap-google-map>
     </div>
   </div>
+</div>
+<div class="container">
   <div id="card">
     <div class="cards"
-      ng-repeat="article in clickedArticle">
+         ng-repeat="article in clickedArticle">
       <h4>{{article.title}}</h4>
 
       <p>{{article.description | limitTo:170}}... </p>
       <div class="details">
         <a ng-href="#/article/{{article.id}}">Kontakta</a>
-        <p>{{article.locationDistance | distance}}, {{article.payout | currency : ""}} Kr</p>
+        <p>{{article.neighborhood}}, {{article.payout | currency : ""}} Kr</p>
       </div>
     </div>
   </div>

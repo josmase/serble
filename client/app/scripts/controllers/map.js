@@ -25,7 +25,7 @@ angular.module('serbleApp')
         zipCode: 90364,
         payout: 200,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        locationDistance: 3000
+        neighborhood: 'Umedalen'
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ angular.module('serbleApp')
         zipCode: 90364,
         payout: 200,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        locationDistance: 500
+        neighborhood: 'Umedalen'
       },
       {
         id: 3,
@@ -45,7 +45,7 @@ angular.module('serbleApp')
         zipCode: 90364,
         payout: 20,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        locationDistance: 500
+        neighborhood: 'Umedalen'
       },
       {
         id: 4,
@@ -55,7 +55,7 @@ angular.module('serbleApp')
         zipCode: 9034,
         payout: 2900,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        locationDistance: 500
+        neighborhood: 'Umedalen'
       }
     ];
 
@@ -244,13 +244,4 @@ angular.module('serbleApp')
       });
       return deferred.promise;
     };
-  })
-  .filter('distance', function () {
-  return function (input) {
-    if (input >= 1000) {
-      return (input/1000).toFixed(2) + 'km';
-    } else {
-      return input + 'm';
-    }
-  }
-});
+  });
