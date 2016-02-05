@@ -93,7 +93,7 @@
       <p>{{article.description | limitTo:170}}... </p>
       <div class="details">
         <a ng-href="#/article/{{article.id}}">Kontakta</a>
-        <p>{{article.locationDistance}}, {{article.payout | currency : ""}} Kr</p>
+        <p>{{article.locationDistance | distance}}, {{article.payout | currency : ""}} Kr</p>
       </div>
     </div>
   </div>

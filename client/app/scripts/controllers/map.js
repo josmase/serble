@@ -21,34 +21,46 @@ angular.module('serbleApp')
         id: 1,
         latitude: 63.8233639,
         longitude: 20.2642868,
+        title: 'Gräs',
         zipCode: 90364,
-        title: 'Klippa gräs'
+        payout: 200,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        locationDistance: 3000
       },
       {
         id: 2,
         latitude: 64.8233639,
         longitude: 20.2642868,
+        title: 'Laga min bil',
         zipCode: 90364,
-        title: 'Gräva'
+        payout: 200,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        locationDistance: 500
       },
       {
         id: 3,
         latitude: 65.8233639,
         longitude: 20.2642868,
-        title: 'Barnvakt',
-        zipCode: 90364
+        title: 'Laga mat',
+        zipCode: 90364,
+        payout: 20,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        locationDistance: 500
       },
       {
         id: 4,
         latitude: 66.8233639,
         longitude: 20.2642868,
+        title: 'Hundvakt',
         zipCode: 9034,
-        title: 'Hundvakt'
+        payout: 2900,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+        locationDistance: 500
       }
     ];
 
     $scope.getArticles = function () {
-      $scope.articles = getAndPostArticlesService.getArticles($scope.search);
+      $scope.articles = getAndPostArticlesService.getArticles();
       console.log($scope.articles);
     };
     $scope.getArticles();
@@ -232,4 +244,13 @@ angular.module('serbleApp')
       });
       return deferred.promise;
     };
-  });
+  })
+  .filter('distance', function () {
+  return function (input) {
+    if (input >= 1000) {
+      return (input/1000).toFixed(2) + 'km';
+    } else {
+      return input + 'm';
+    }
+  }
+});
