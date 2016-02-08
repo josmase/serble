@@ -115,7 +115,7 @@ header.hideHeader {
 }
 
 header.ng-scope {
-  box-shadow: 0 -2px 10px 0 rgba(0,0,0,0.75);
+  box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.75);
   min-height: 55px;
   background: white;
   width: 100%;
@@ -231,6 +231,11 @@ footer {
   input, select, textarea {
     border: 1px solid red;
   }
+  .help-block {
+    p {
+      color: red;
+    }
+  }
 }
 
 .form-group {
@@ -270,19 +275,6 @@ footer {
   ::-webkit-input-placeholder {
     text-align: left;
   }
-
-  :-moz-placeholder { /* Firefox 18- */
-    text-align: left;
-  }
-
-  ::-moz-placeholder { /* Firefox 19+ */
-    text-align: left;
-  }
-
-  :-ms-input-placeholder {
-    text-align: left;
-  }
-
   button {
     @extend .button;
     margin-bottom: 15px;
@@ -307,6 +299,7 @@ footer {
 .angular-google-map-container {
   height: 50vh;
 }
+
 @media screen and (min-width: 768px) {
   #card {
     .cards {
