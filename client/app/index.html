@@ -40,7 +40,6 @@
           <span class="icon-bar middle-bar"></span>
           <span class="icon-bar bottom-bar"></span>
         </button>
-        <button ng-click='toggleModal()'>Open Modal Dialog</button>
         <a class="navbar-brand" href="#/home">serble</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -54,8 +53,9 @@
       </div>
     </div>
   </nav>
-
-  <modal-dialog show='modalShown'>
+  <button ng-click='toggleModalLogin()'>Open Modal Dialog</button>
+  <button ng-click='toggleModalRegister()'>Open Modal Dialog</button>
+  <modal-dialog-login show='modalShownLogin'>
     <div class="row">
       <div class="col-md-6 col-xs-12">
         <form name="createUserForm" novalidate>
@@ -118,7 +118,61 @@
         </div>
       </div>
     </div>
-  </modal-dialog>
+  </modal-dialog-login>
+  <modal-dialog-register show='modalShownRegister'>
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+
+
+                <div class="help-block" ng-messages="createUserForm.eMail.$error"
+                     ng-if="createUserForm.eMail.$touched">
+                  <div ng-messages-include="../resources/error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group"
+                   ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+                <input class="input-password form" type="password" name="password" id="password"
+                       placeholder="LÖSENORD"
+                       ng-model="main.password"
+                       ng-minlength="4"
+                       ng-maxlength="200"
+                       required>
+                <div class="help-block" ng-messages="createUserForm.password.$error"
+                     ng-if="createUserForm.password.$touched">
+                  <div ng-messages-include="../resources/error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <div class="col-xs-12 col-md-12">
+              <div class="form-group">
+                <button id="facebook" type="submit" class="btn-decline" value="Submit">Logga in med Facbook</button>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="row center" id="login_prompt">
+          <div class="col-xs-12">
+            <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </modal-dialog-register>
 
 </header>
 <div ng-view=""></div>
@@ -215,7 +269,8 @@
 <script src="scripts/services/getandpostarticlesservice.js"></script>
 <script src="scripts/services/mymapservices.js"></script>
 <script src="scripts/services/geocodeservice.js"></script>
-<script src="scripts/directives/modaldialog.js"></script>
+<script src="scripts/directives/modaldialoglogin.js"></script>
+<script src="scripts/directives/modaldialogregister.js"></script>
 <!-- endbuild -->
 </body>
 </html>

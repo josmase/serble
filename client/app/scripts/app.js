@@ -30,9 +30,13 @@ angular
     var prev = 50;
     var $window = $(window);
     var header = $('header');
-    $scope.modalShown = false;
-    $scope.toggleModal = function() {
-      $scope.modalShown = !$scope.modalShown;
+    $scope.modalShownLogin = false;
+    $scope.modalShownRegister = false;
+    $scope.toggleModalRegister = function() {
+      $scope.modalShownRegister = !$scope.modalShownRegister;
+    };
+    $scope.toggleModalLogin = function() {
+      $scope.modalShownLogin = !$scope.modalShownLogin;
     };
 
     $window.on('scroll', function(){

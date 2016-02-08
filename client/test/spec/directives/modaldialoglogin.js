@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: modalDialog', function () {
+describe('Directive: modalDialogLogin', function () {
 
   // load the directive's module
   beforeEach(module('serbleApp'));
@@ -13,8 +13,8 @@ describe('Directive: modalDialog', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<modal-dialog></modal-dialog>');
+    element = angular.element('<modal-dialog-login></modal-dialog-login>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the modalDialog directive');
+    expect(element.text()).toBe('this is the modalDialogLogin directive');
   }));
 });

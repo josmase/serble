@@ -123,7 +123,7 @@ header.ng-scope {
   padding-right: 0;
   position: fixed;
   top: 0;
-  transition: transform linear 0.3s;
+  transition: transform ease-in-out 0.3s;
   z-index: 100;
   .nav {
     li {
@@ -212,12 +212,6 @@ footer {
 
 .create-article {
   text-align: center;
-  .row:last-child {
-    div:first-child {
-      float: none;
-      margin: 0 auto;
-    }
-  }
   p:nth-child(2) {
     width: 200px;
     margin: 0 auto;
