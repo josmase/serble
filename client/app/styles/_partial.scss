@@ -354,8 +354,13 @@ footer {
   font-size: 120%;
   font-weight: bold;
   color: black;
-  padding:20px;
+  padding:10px;
   background-color: #fff;
+  text-align: right;
+  p{
+    margin: 0;
+    display: inline-block;
+  }
 }
 
 @media screen and (min-width: 768px) {
