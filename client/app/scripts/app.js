@@ -30,6 +30,10 @@ angular
     var prev = 50;
     var $window = $(window);
     var header = $('header');
+    $scope.modalShown = false;
+    $scope.toggleModal = function() {
+      $scope.modalShown = !$scope.modalShown;
+    };
 
     $window.on('scroll', function(){
       var scrollTop = $window.scrollTop();

@@ -277,7 +277,8 @@ footer {
   }
   button {
     @extend .button;
-    margin-bottom: 15px;
+    height: 50px;
+    padding: 13px;
     width: 100%;
   }
 }
@@ -298,6 +299,49 @@ footer {
 
 .angular-google-map-container {
   height: 50vh;
+}
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100vw;
+  height:110vh;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+
+  /* Center the dialog */
+  top: 50vh;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
 }
 
 @media screen and (min-width: 768px) {
