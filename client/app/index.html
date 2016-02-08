@@ -56,124 +56,130 @@
   <button ng-click='toggleModalLogin()'>Open Modal Dialog</button>
   <button ng-click='toggleModalRegister()'>Open Modal Dialog</button>
   <modal-dialog-login show='modalShownLogin'>
-    <div class="row">
-      <div class="col-md-6 col-xs-12">
-        <form name="createUserForm" novalidate>
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group"
-                   ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
-                <input class="input-email form" type="email" name="eMail"
-                       placeholder="E-MAIL"
-                       ng-model="main.eMail"
-                       ng-minlength="0"
-                       ng-maxlength="40"
-                       required>
+    <form name="createUserForm" novalidate>
+      <h1>Logga in</h1>
+      <p>Skriv in den e-mail och det lösenord du använde när du registrerade dig</p>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
+            <input class="form" type="email" name="eMail"
+                   placeholder="E-MAIL"
+                   ng-model="main.eMail"
+                   ng-minlength="0"
+                   ng-maxlength="40"
+                   required>
 
-                <div class="help-block" ng-messages="createUserForm.eMail.$error"
-                     ng-if="createUserForm.eMail.$touched">
-                  <div ng-messages-include="../resources/error.html"></div>
-                </div>
-              </div>
+            <div class="help-block" ng-messages="createUserForm.eMail.$error"
+                 ng-if="createUserForm.eMail.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group"
-                   ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
-                <input class="input-password form" type="password" name="password" id="password"
-                       placeholder="LÖSENORD"
-                       ng-model="main.password"
-                       ng-minlength="4"
-                       ng-maxlength="200"
-                       required>
-                <div class="help-block" ng-messages="createUserForm.password.$error"
-                     ng-if="createUserForm.password.$touched">
-                  <div ng-messages-include="../resources/error.html"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row center">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group">
-                <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
-              </div>
-            </div>
-          </div>
-          <div class="row center">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group">
-                <button id="facebook" type="submit" class="btn-decline" value="Submit">Logga in med Facbook</button>
-              </div>
-            </div>
-          </div>
-
-
-        </form>
-        <div class="row center" id="login_prompt">
-          <div class="col-xs-12">
-            <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+            <input class="form" type="password" name="password" id="password"
+                   placeholder="LÖSENORD"
+                   ng-model="main.password"
+                   ng-minlength="4"
+                   ng-maxlength="200"
+                   required>
+            <div class="help-block" ng-messages="createUserForm.password.$error"
+                 ng-if="createUserForm.password.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row center">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group">
+            <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row center" id="login_prompt">
+      <div class="col-xs-12">
+        <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
       </div>
     </div>
   </modal-dialog-login>
   <modal-dialog-register show='modalShownRegister'>
-    <div class="row">
-      <div class="col-md-6 col-xs-12">
+    <form name="createUserForm" novalidate>
+      <h1>Registrera</h1>
+      <p>  Du måste ha
+        minst 4 tecken och du kan använda a-z och 0-9</p>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
+            <input class="form" type="email" name="eMail"
+                   placeholder="E-MAIL"
+                   ng-model="main.eMail"
+                   ng-minlength="0"
+                   ng-maxlength="40"
+                   required>
 
-
-                <div class="help-block" ng-messages="createUserForm.eMail.$error"
-                     ng-if="createUserForm.eMail.$touched">
-                  <div ng-messages-include="../resources/error.html"></div>
-                </div>
-              </div>
+            <div class="help-block" ng-messages="createUserForm.eMail.$error"
+                 ng-if="createUserForm.eMail.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group"
-                   ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
-                <input class="input-password form" type="password" name="password" id="password"
-                       placeholder="LÖSENORD"
-                       ng-model="main.password"
-                       ng-minlength="4"
-                       ng-maxlength="200"
-                       required>
-                <div class="help-block" ng-messages="createUserForm.password.$error"
-                     ng-if="createUserForm.password.$touched">
-                  <div ng-messages-include="../resources/error.html"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row center">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group">
-                <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
-              </div>
-            </div>
-          </div>
-          <div class="row center">
-            <div class="col-xs-12 col-md-12">
-              <div class="form-group">
-                <button id="facebook" type="submit" class="btn-decline" value="Submit">Logga in med Facbook</button>
-              </div>
-            </div>
-          </div>
-
-
-        </form>
-        <div class="row center" id="login_prompt">
-          <div class="col-xs-12">
-            <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+            <input class="form" type="password" name="password" id="password"
+                   placeholder="LÖSENORD"
+                   ng-model="main.password"
+                   ng-minlength="4"
+                   ng-maxlength="200"
+                   required>
+            <div class="help-block" ng-messages="createUserForm.password.$error"
+                 ng-if="createUserForm.password.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
+            <input class="form" type="password" name="password" id="password"
+                   placeholder="REPTERA LÖSENORDET"
+                   ng-model="main.password"
+                   ng-minlength="4"
+                   ng-maxlength="200"
+                   required>
+            <div class="help-block" ng-messages="createUserForm.password.$error"
+                 ng-if="createUserForm.password.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row center">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group">
+            <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row center" id="login_prompt">
+      <div class="col-xs-12">
+        <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
+      </div>
     </div>
   </modal-dialog-register>
-
+  <p ng-bind-html="myHTML"></p>
 </header>
 <div ng-view=""></div>
 

@@ -32,14 +32,15 @@ angular
     var header = $('header');
     $scope.modalShownLogin = false;
     $scope.modalShownRegister = false;
-    $scope.toggleModalRegister = function() {
+    $scope.toggleModalRegister = function () {
       $scope.modalShownRegister = !$scope.modalShownRegister;
     };
-    $scope.toggleModalLogin = function() {
+    $scope.toggleModalLogin = function () {
       $scope.modalShownLogin = !$scope.modalShownLogin;
     };
 
-    $window.on('scroll', function(){
+    $scope.closeButtonHtml = '<p>asdasd</p>';
+    $window.on('scroll', function () {
       var scrollTop = $window.scrollTop();
       header.toggleClass('hideHeader', scrollTop > prev);
       prev = scrollTop;
