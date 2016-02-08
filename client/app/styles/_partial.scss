@@ -1,5 +1,5 @@
 $primary-orange: rgba(246, 163, 25, 1);
-$secondary-blue: rgba(38, 52, 65, 1);
+$secondary-black: rgb(34, 34, 34);
 $secondary-blue: rgba(38, 58, 66, 1);
 $gray: rgba(222, 223, 224, 1);
 $white: rgba(255, 255, 255, 1);
@@ -16,8 +16,10 @@ $dark-white: #dfdfdf;
   justify-content: space-between;
   background: #d5d5d5;
   background: $dark-white;
+
+
+
   .cards {
-    padding: 1.5rem;
     box-shadow: 0 1px 2px #aaa;
     background: white;
     margin: 0 0 1rem;
@@ -26,16 +28,29 @@ $dark-white: #dfdfdf;
     animation: fly-in-from-left .5s 1s ease both;
     transform-origin: top left;
     flex: 0 1 100%;
+    .articleImage{
+      img{
+        height: 60px;
+        width: 60px;
+        margin:0 auto;
+
+        border-radius: 100%;
+      }
+    }
+    .row div {
+      padding: 1.5em 3rem 0 3em;
+    }
     .details {
       border-top: 2px #eeeeee solid;
-      padding-top: 15px;
+      padding: 15px;
+      height: 50px;
       p {
         color: #7d7b7c;
         float: right;
       }
       a {
         color: #65b447;
-        float: left;
+        text-align: center;
       }
     }
 
@@ -46,7 +61,7 @@ $dark-white: #dfdfdf;
     padding: 0;
   }
   .details {
-    text-align: right;
+    text-align: center;
   }
   #pay {
     margin-top: 10px;
@@ -194,17 +209,22 @@ header.ng-scope {
 }
 
 footer {
-  background: $secondary-blue;
+  background: $secondary-black;
   text-align: center;
   padding: 20px 0;
   .button {
     color: $primary-orange;
     border: 1px solid $primary-orange;
   }
+  #Copyright {
+    border-top: 1px solid #303030;
+    padding-top: 15px;
+    font-size:12px;
+  }
   ul {
     padding: 20px 0;
   }
-  h4 {
+  h5 {
     color: $white;
     font-weight: 700;
   }

@@ -88,6 +88,7 @@
   <div class="container" id="card">
     <div class="cards"
          ng-repeat="article in articles.data | limitTo: quantity | orderBy:search.order ">
+
       <h4>{{article.title}}</h4>
 
       <p>{{article.description | limitTo:170}}... </p>
