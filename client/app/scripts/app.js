@@ -22,7 +22,7 @@ angular
     'ngMessages',
     'angularSmoothscroll',
     'uiGmapgoogle-maps'
-  ]).controller('headerCtrl', function ($scope, $location) {
+  ]).controller('indexCtrl', function ($scope, $location) {
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
@@ -38,7 +38,10 @@ angular
     $scope.toggleModalLogin = function () {
       $scope.modalShownLogin = !$scope.modalShownLogin;
     };
-
+    $scope.changeModal = function(){
+      toggleModalLogin();
+      toggleModalRegister()
+    };
     $scope.closeButtonHtml = '<p>asdasd</p>';
     $window.on('scroll', function () {
       var scrollTop = $window.scrollTop();

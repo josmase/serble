@@ -29,7 +29,7 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<header ng-controller="headerCtrl">
+<header ng-controller="indexCtrl">
   <nav class="navbar">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -109,7 +109,7 @@
     </form>
     <div class="row center" id="login_prompt">
       <div class="col-xs-12">
-        <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
+        <p>Inte registrerad? <a href="" ng-click="changeModal()">Registrera dig här</a>.</p>
       </div>
     </div>
   </modal-dialog-login>
@@ -148,6 +148,7 @@
                    ng-model="main.password"
                    ng-minlength="4"
                    ng-maxlength="200"
+                   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
                    required>
             <div class="help-block" ng-messages="registrationForm.password.$error"
                  ng-if="registrationForm.password.$touched">
@@ -184,14 +185,14 @@
     </form>
     <div class="row center" id="login_prompt">
       <div class="col-xs-12">
-        <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
+        <p>Redan Registrerad <a href="" ng-click="changeModal()">Logga in här</a>.</p>
       </div>
     </div>
   </modal-dialog-register>
 </header>
 <div ng-view=""></div>
 
-<footer ng-controller="headerCtrl">
+<footer ng-controller="indexCtrl">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-4">

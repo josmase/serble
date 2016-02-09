@@ -152,7 +152,9 @@ header.ng-scope {
       }
     }
   }
-
+  .navbar-nav{
+    margin:0 -15px;
+  }
   .navbar {
     margin-bottom: 0;
     li {
@@ -348,6 +350,14 @@ footer {
       color: black;
      }
   }
+#login_prompt{
+  margin-top: 20px;
+  a{
+    margin-top: 10px;
+    color: $green;
+    text-decoration: underline;
+  }
+}
 }
 .ng-modal-close {
   border-bottom: 1px solid $gray;
