@@ -56,13 +56,19 @@ header,
   }
 }
 
-#view_more {
-  padding-top: 10px;
+#viewMore {
+  padding: 10px 0 10px 0;
   background: $white;
   text-align: center;
-  p {
+  div{
+    margin: 0 auto;
+    float: none;
+  }
+  button {
+    height: 50px;
+    padding: 13px;
+    width: 100%;
     color: $white;
-    padding: 10px 50px;
     display: inline-block;
   }
 }

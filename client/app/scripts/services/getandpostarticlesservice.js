@@ -11,7 +11,7 @@ angular.module('serbleApp')
   .service('getAndPostArticlesService', function ($http,$q) {
     this.postArticleData = function (articleData) {
       this.articleData = articleData;
-      $http({
+      return $http({
         method: 'POST',
         url: 'http://172.16.0.191:3000/articles/create',
         dataType: 'json',
@@ -22,11 +22,7 @@ angular.module('serbleApp')
           'payout': this.articleData.price,
           'category': this.articleData.category
         }
-      }).then(function successCallback(response) {
-        return response;
-      }, function errorCallback(response) {
-        return response;
-      });
+      })
     };
     this.getArticles = function (search) {
       var deferred = $q.defer();

@@ -21,7 +21,8 @@ angular
     'infinite-scroll',
     'ngMessages',
     'angularSmoothscroll',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'angular-ladda'
   ])
   .config(function ($routeProvider) {
       $routeProvider

@@ -10,7 +10,7 @@
           <p class="lead">
             Målet med Serble är att förenkla letandet och ansökandet för vardags jobb. För att göra det lättare för alla
             att tjäna lite extra pengar eller få hjälp med något svårt, exempelvis den där datorn som inte startar.
-            </p>
+          </p>
 
           <a class="button-decline" href="/#/create-article">Annonsera</a>
         </div>
@@ -54,13 +54,13 @@
             </select>
           </div>
         </div>
-          <div class="col-xs-12 col-md-4">
-            <div class="form-group">
-              <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
-                Sök annonser
-              </button>
-            </div>
+        <div class="col-xs-12 col-md-4">
+          <div class="form-group">
+            <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
+              Sök annonser
+            </button>
           </div>
+        </div>
         <div class="col-xs-12 col-md-12">
           <div class="form-group">
             <select ng-model="search.order"
@@ -86,34 +86,34 @@
   </div>
 
   <div class="container" id="card">
-      <div class="cards"
-           ng-repeat="article in articles.data">
-        <div class="row">
-          <div class="col-md-3 col-xs-3 articleImage">
-            <img src="./../images/working.jpg"/>
-          </div>
-          <div class="col-md-8 col-xs-8">
-            <h4>{{article.title}}</h4>
-            <p>{{article.neighborhood}}, {{article.payout | currency : ""}} Kr</p>
-          </div>
+    <div class="cards"
+         ng-repeat="article in articles.data">
+      <div class="row">
+        <div class="col-md-3 col-xs-3 articleImage">
+          <img src="./../images/working.jpg"/>
         </div>
-        <div class="row">
-          <div>
-            <p>{{article.description | limitTo:170}}... </p>
-          </div>
-        </div>
-        <div class="details">
-          <a ng-href="#/article/{{article.id}}">Kontakta</a>
+        <div class="col-md-8 col-xs-8">
+          <h4>{{article.title}}</h4>
+          <p>{{article.neighborhood}}, {{article.payout | currency : ""}} Kr</p>
         </div>
       </div>
+      <div class="row">
+        <div>
+          <p>{{article.description | limitTo:170}}... </p>
+        </div>
+      </div>
+      <div class="details">
+        <a ng-href="#/article/{{article.id}}">Kontakta</a>
+      </div>
+    </div>
   </div>
 
   <div class="container-fluid">
-    <div class="row" id="view_more">
-      <div class="col-xs-12">
-        <a href="" ng-click="quantity = quantity + 20">
-          <p class="btn-accept">VISA FLER</p>
-        </a>
+    <div class="row" id="viewMore">
+      <div class="col-xs-12 col-md-6">
+        <button class="btn-accept" href="" ng-click="quantity = quantity + 20">
+          VISA FLER
+        </button>
       </div>
     </div>
   </div>

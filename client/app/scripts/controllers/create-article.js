@@ -9,17 +9,24 @@
  */
 angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService) {
-    $scope.articleData = null;
     $scope.submitForm = function () {
+      $scope.loading = true;
       geocodeService.geocode($scope.articleData).then(function (response) {
-        console.log(response);
         $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
         $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
         $scope.articleData.neighborhood = response.data.results[0].address_components[1].long_name;
-        console.log($scope.articleData);
-        getAndPostArticlesService.postArticleData($scope.articleData);
+        postArticle()
       });
     };
+
+    function postArticle() {
+      getAndPostArticlesService.postArticleData($scope.articleData)
+        .then(function successCallback(response) {
+          $scope.loading = false;
+        }, function errorCallback(response) {
+          $scope.loading = false;
+        });
+    }
   });
 
 
