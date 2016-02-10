@@ -9,8 +9,7 @@
  */
 angular.module('serbleApp')
   .service('myMapServices', function ($http, $q) {
-    this.getCurrentLocation = getCurrentLocation
-    this.getMapOptions = function () {
+     function getMapOptions() {
       return {
         mapOptions: {
           minZoom: 3,
@@ -144,7 +143,7 @@ angular.module('serbleApp')
           ]
         }
       };
-    };
+    }
      function getCurrentLocation() {
       var deferred = $q.defer();
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -155,5 +154,7 @@ angular.module('serbleApp')
         deferred.resolve(myCurrentLocation);
       });
       return deferred.promise;
-    };
+    }
+    this.getCurrentLocation = getCurrentLocation;
+    this.getMapOptions = getMapOptions;
   });

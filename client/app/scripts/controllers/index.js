@@ -28,7 +28,7 @@ angular.module('serbleApp')
     };
     $scope.changeModal = function () {
       $scope.toggleModalLogin();
-      $scope.toggleModalRegister()
+      $scope.toggleModalRegister();
     };
     $window.on('scroll', function () {
       var scrollTop = $window.scrollTop();

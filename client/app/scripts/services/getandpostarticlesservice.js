@@ -8,7 +8,7 @@
  * Service in the serbleApp.
  */
 angular.module('serbleApp')
-  .service('getAndPostArticlesService', function ($http,$q) {
+  .service('getAndPostArticlesService', function ($http) {
     this.postArticleData = function (articleData) {
       this.articleData = articleData;
       return $http({
@@ -22,23 +22,23 @@ angular.module('serbleApp')
           'payout': this.articleData.price,
           'category': this.articleData.category
         }
-      })
+      });
     };
     this.getArticles = function (search) {
-      var deferred = $q.defer();
+
       if (typeof search !== 'undefined') {
         this.title = search.title || "";
         this.category = search.category || "";
       }
-      $http({
+      return $http({
         method: 'GET',
         url: 'http://172.16.0.191:3000/articles/get',
         dataType: 'json',
         params: {'filterTitle': this.title, 'filterCategory': this.category}
-      }).then(function successCallback(response) {
-        deferred.resolve(response);
+      }).then(function (response) {
+        return response;
       });
-      return deferred.promise;
+
     };
   });
 

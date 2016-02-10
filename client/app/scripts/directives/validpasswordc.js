@@ -16,17 +16,16 @@ angular.module('serbleApp')
 
       },
       link: function (scope, elm, attrs, ctrl) {
-        ctrl.$parsers.unshift(function (viewValue, $scope) {
+        ctrl.$parsers.unshift(function (viewValue) {
 
-          var noMatch = viewValue != scope.reference;
+          var noMatch = viewValue !== scope.reference;
           ctrl.$setValidity('noMatch', !noMatch);
           return (noMatch) ? noMatch : undefined;
         });
 
         scope.$watch("reference", function (value) {
           ctrl.$setValidity('noMatch', value === ctrl.$viewValue);
-
         });
       }
-    }
+    };
   });
