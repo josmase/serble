@@ -10,12 +10,17 @@
 angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService) {
     $scope.submitForm = submitForm;
-    $scope.modalShownSuccess = true;
+    $scope.modalShownSuccess = false;
     $scope.toggleModalSuccess = toggleModalSuccess;
-
+    $scope.modalShownError = false;
+    $scope.toggleModalError = toggleModalError;
 
     function toggleModalSuccess() {
       $scope.modalShownSuccess = !$scope.modalShownSuccess;
+    }
+
+    function toggleModalError() {
+      $scope.modalShownError = !$scope.modalShownError;
     }
 
     function submitForm() {
@@ -39,8 +44,10 @@ angular.module('serbleApp')
       getAndPostArticlesService.postArticleData($scope.articleData)
         .then(function successCallback() {
           $scope.loading = false;
+          toggleModalSuccess()
         }, function errorCallback() {
           $scope.loading = false;
+          toggleModalError()
         });
 
     }

@@ -60,7 +60,7 @@
   </nav>
   <modal-dialog-login show='modalShownLogin'>
     <div class='ng-modal-close'>
-      <p ng-click='toggleModalLogin()'>X</p>
+      <p ng-click='toggleModalLogin()'>✖</p>
     </div>
     <form name="loginForm" novalidate>
       <h1>Logga in</h1>
@@ -116,12 +116,10 @@
   </modal-dialog-login>
   <modal-dialog-register show='modalShownRegister'>
     <div class='ng-modal-close'>
-      <p ng-click='toggleModalRegister()'>X</p>
+      <p ng-click='toggleModalRegister()'>✖</p>
     </div>
     <form name="registrationForm" novalidate>
       <h1>Registrera</h1>
-      <p> Du måste ha
-        minst 4 tecken och du kan använda a-z och 0-9</p>
       <div class="row">
         <div class="col-xs-12 col-md-12">
           <div class="form-group"
@@ -291,6 +289,7 @@
 <script src="scripts/directives/modaldialogregister.js"></script>
 <script src="scripts/directives/validpasswordc.js"></script>
 <script src="scripts/directives/modalsuccess.js"></script>
+<script src="scripts/directives/modaldialogerror.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -222,7 +222,7 @@
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid"
-                    ladda="true">
+                    ladda="false">
               Skapa annons
             </button>
           </div>
@@ -233,10 +233,19 @@
 </div>
 <modal-success show='modalShownSuccess'>
   <div class="modalInfo">
-    <div class="infoIcon">
+    <div class="infoIcon success">
       ✓
     </div>
-    <p>asdkaskdaskdaskd kasd alsd  asdk asdl asd  asd</p>
+    <p>Annonsen blev skapad</p>
   </div>
-    <button class="btn-accept">Ok</button>
+    <a href="#/home" class="btn-accept">Ok</a>
 </modal-success>
+<modal-dialog-error show='modalShownError'>
+  <div class="modalInfo">
+    <div class="infoIcon error">
+      ✖
+    </div>
+    <p>Tyvär gick det inte att skapa annonsen. Var vänlig fösök igen</p>
+  </div>
+  <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
+</modal-dialog-error>
