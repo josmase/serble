@@ -10,14 +10,14 @@ $green: rgba(99, 179, 70, 1);
 $green-transparent: rgba(99, 179, 70, 0.8);
 $dark-white: #dfdfdf;
 
+$circle-size: 100px;
+
 #card {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
   background: #d5d5d5;
   background: $dark-white;
-
-
 
   .cards {
     box-shadow: 0 1px 2px #aaa;
@@ -28,17 +28,17 @@ $dark-white: #dfdfdf;
     animation: fly-in-from-left .5s 1s ease both;
     transform-origin: top left;
     flex: 0 1 100%;
-    .articleImage{
+    .articleImage {
       text-align: center;
-      img{
+      img {
         height: 60px;
         width: 60px;
-        margin:0 auto;
+        margin: 0 auto;
 
         border-radius: 100%;
       }
     }
-    .row{
+    .row {
       padding: 1.5rem 3rem 0 3rem;
     }
     .details {
@@ -153,8 +153,8 @@ header.ng-scope {
       }
     }
   }
-  .navbar-nav{
-    margin:0 -15px;
+  .navbar-nav {
+    margin: 0 -15px;
   }
   .navbar {
     margin-bottom: 0;
@@ -222,7 +222,7 @@ footer {
   #Copyright {
     border-top: 1px solid #303030;
     padding-top: 15px;
-    font-size:12px;
+    font-size: 12px;
   }
   ul {
     padding: 20px 0;
@@ -315,23 +315,25 @@ footer {
 }
 
 .angular-google-map-container {
-  height: 50vh;
+  height: 70vh;
+  margin-top: 50px;
 }
 
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
-  position:absolute;
-  z-index:9999;
-  top:0;
-  left:0;
-  width:100vw;
-  height:110vh;
-  background-color:#000000;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  background-color: #000000;
   opacity: 0.8;
 }
+
 .ng-modal-dialog {
   /* A centered div above the overlay with a box shadow. */
-  z-index:10000;
+  z-index: 10000;
   position: absolute;
 
   /* Center the dialog */
@@ -342,33 +344,50 @@ footer {
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
 }
+
 .ng-modal-dialog-content {
   text-align: center;
-  form{
-    padding:20px;
+  form, .modalInfo {
+    padding: 20px;
     background-color: #fff;
-    h1{
+    h1 {
       color: black;
-     }
+    }
+    .infoIcon {
+      width: $circle-size;
+      height: $circle-size;
+      background: $green;
+      border-radius: 50%;
+      margin: calc(#{$circle-size} * -0.75) auto auto auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      color: white;
+    }
   }
-#login_prompt{
-  margin-top: 20px;
-  a{
-    margin-top: 10px;
-    color: $green;
-    text-decoration: underline;
+  button {
+    width: 100%;
+  }
+  #login_prompt {
+    margin-top: 20px;
+    a {
+      margin-top: 10px;
+      color: $green;
+      text-decoration: underline;
+    }
   }
 }
-}
+
 .ng-modal-close {
   border-bottom: 1px solid $gray;
   font-size: 120%;
   font-weight: bold;
   color: black;
-  padding:10px;
+  padding: 10px;
   background-color: #fff;
   text-align: right;
-  p{
+  p {
     margin: 0;
     display: inline-block;
   }
@@ -378,12 +397,7 @@ footer {
   #card {
     .cards {
       flex: 0 1 49%;
-    }
-    .cards:nth-child(even) {
-      margin-left: 0;
-    }
-    .cards:nth-child(odd) {
-      margin-right: 0;
+      margin: 0.5%;
     }
   }
   .container {

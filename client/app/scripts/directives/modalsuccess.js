@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc directive
- * @name serbleApp.directive:modalDialogLogin
+ * @name serbleApp.directive:modalSuccess
  * @description
- * # modalDialogLogin
+ * # modalSuccess
  */
 angular.module('serbleApp')
-  .directive('modalDialogLogin', function () {
+  .directive('modalSuccess', function () {
     return {
       restrict: 'E',
       scope: {
@@ -21,10 +21,10 @@ angular.module('serbleApp')
           scope.dialogStyle.width = attrs.width;
         if (attrs.height)
           scope.dialogStyle.height = attrs.height;
-        scope.hideModalLogin = function () {
+        scope.hideModalSuccess = function () {
           scope.show = false;
         };
       },
-      template: "<div class='ng-modal' ng-show='show'>\n  <div class='ng-modal-overlay' ng-click='hideModalLogin()'></div>\n  <div class='ng-modal-dialog container' ng-style='dialogStyle'>\n <div class='ng-modal-dialog-content' ng-transclude></div>\n  </div>\n</div>"
+      template: "<div class='ng-modal' ng-show='show'>\n  <div class='ng-modal-overlay' ng-click='hideModalSuccess()'></div>\n  <div class='ng-modal-dialog container' ng-style='dialogStyle'>\n <div class='ng-modal-dialog-content' ng-transclude></div>\n  </div>\n</div>"
     };
   });
