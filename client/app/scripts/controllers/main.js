@@ -18,5 +18,5 @@ angular.module('serbleApp')
     };
     $scope.search = {};
     $scope.quantity = 20;
-    //$scope.getArticles();
+    $scope.getArticles();
   });

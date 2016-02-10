@@ -16,8 +16,4 @@ describe('Controller: IndexctrlCtrl', function () {
       // place here mocked dependencies
     });
   }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(IndexctrlCtrl.awesomeThings.length).toBe(3);
-  });
 });

@@ -59,11 +59,10 @@ angular.module('serbleApp')
       }
     ];
 
-    $scope.getArticles = function () {
-      $scope.articles = getAndPostArticlesService.getArticles();
-      console.log($scope.articles);
-    };
-    $scope.getArticles();
+    getAndPostArticlesService.getArticles($scope.search).then(function (returnedArticles) {
+      $scope.articles = returnedArticles.data;
+      console.log($scope.articles)
+    });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
       var articleId = shortInfoClickedMarker.zipCode;
@@ -88,7 +87,7 @@ angular.module('serbleApp')
       $scope.map.options = myMapServices.getMapOptions().mapOptions;
 
 
-      //$scope.map.center = $scope.myCurrentLocation;
+      $scope.map.center = $scope.myCurrentLocation;
       if (typeof _.contains === 'undefined') {
         _.contains = _.includes;
       } //else it exists and we good for lodash3 without doing anything else

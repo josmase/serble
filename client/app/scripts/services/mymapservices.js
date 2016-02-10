@@ -9,7 +9,7 @@
  */
 angular.module('serbleApp')
   .service('myMapServices', function ($http, $q) {
-
+    this.getCurrentLocation = getCurrentLocation
     this.getMapOptions = function () {
       return {
         mapOptions: {
@@ -145,10 +145,9 @@ angular.module('serbleApp')
         }
       };
     };
-    this.getCurrentLocation = function () {
+     function getCurrentLocation() {
       var deferred = $q.defer();
       navigator.geolocation.getCurrentPosition(function (position) {
-        console.log('position.coords :', position.coords);
         var myCurrentLocation = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude

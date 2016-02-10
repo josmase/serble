@@ -10,9 +10,4 @@ describe('Service: myMapServices', function () {
   beforeEach(inject(function (_myMapServices_) {
     myMapServices = _myMapServices_;
   }));
-
-  it('should do something', function () {
-    expect(!!myMapServices).toBe(true);
-  });
-
 });
