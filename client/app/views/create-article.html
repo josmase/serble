@@ -118,7 +118,7 @@
                    placeholder="Måla staket..."
                    ng-model="articleData.title"
                    ng-minlength="1"
-                   ng-maxlength="20"
+                   ng-maxlength="50"
                    required>
 
             <div class="help-block" ng-messages="articelForm.title.$error" ng-if="articelForm.title.$touched">
@@ -156,7 +156,7 @@
                       placeholder="Jag..."
                       ng-model="articleData.description"
                       ng-minlength="1"
-                      ng-maxlength="1000"
+                      ng-maxlength="10000"
                       required> </textarea>
 
             <div class="help-block" ng-messages="articelForm.description.$error"
