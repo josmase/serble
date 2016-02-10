@@ -29,6 +29,7 @@ $dark-white: #dfdfdf;
     transform-origin: top left;
     flex: 0 1 100%;
     .articleImage{
+      text-align: center;
       img{
         height: 60px;
         width: 60px;
@@ -37,8 +38,8 @@ $dark-white: #dfdfdf;
         border-radius: 100%;
       }
     }
-    .row div {
-      padding: 1.5em 3rem 0 3em;
+    .row{
+      padding: 1.5rem 3rem 0 3rem;
     }
     .details {
       border-top: 2px #eeeeee solid;
@@ -255,7 +256,7 @@ footer {
 }
 
 .form-group {
-  margin: 20px 0 0 0;
+  margin: 10px 0 10px 0;
   text-align: left;
   label {
     color: rgba(21, 31, 47, 1);

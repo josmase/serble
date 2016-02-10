@@ -20,7 +20,6 @@ angular.module('serbleApp')
         getAndPostArticlesService.postArticleData($scope.articleData);
       });
     };
-
-  })
+  });
 
 
