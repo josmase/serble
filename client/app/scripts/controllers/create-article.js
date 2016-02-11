@@ -35,16 +35,13 @@ angular.module('serbleApp')
       $scope.articleData.neighborhood = response.data.results[0].address_components[1].long_name;
     }
 
-    function addLocationAndPost(response) {
-      addLocationToArticle(response);
-      postArticle();
-    }
-
     function submitForm() {
       $scope.loading = true;
       geocodeService.geocode($scope.articleData).then(function (response) {
-        addLocationAndPost(response);
+        addLocationToArticle(response);
+        postArticle();
       });
+
     }
 
 
