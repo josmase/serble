@@ -29,7 +29,7 @@ angular.module('serbleApp')
       });
     };
     this.getArticles = function (search) {
-
+      var arr = [0,100];
       if (typeof search !== 'undefined') {
         this.title = search.title || "";
         this.category = search.category || "";
@@ -38,7 +38,7 @@ angular.module('serbleApp')
         method: 'GET',
         url: 'http://172.16.0.237:3000/articles/get',
         dataType: 'json',
-        params: {'filterTitle': this.title, 'filterCategory': this.category}
+        params: {'filterTitle': this.title, 'filterCategory': this.category ,'range':arr}
       }).then(function (response) {
         return response;
       });
