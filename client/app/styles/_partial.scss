@@ -335,14 +335,11 @@ footer {
   /* A centered div above the overlay with a box shadow. */
   z-index: 10000;
   position: fixed;
-
-  /* Center the dialog */
-  top: 50vh;
-  left: 50%;
-  width: 90%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
 .ng-modal-dialog-content {
