@@ -102,6 +102,9 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
   `category` VARCHAR(45) NULL,
   `location_lat` DOUBLE NULL,
   `location_long` DOUBLE NULL,
+  `zipcode` INT NOT NULL,
+  `neighborhood` VARCHAR(45) NULL,
+  `type` TINYINT(1) NOT NULL DEFAULT 0,
   `stage` TINYINT(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`advert_id`),
   CONSTRAINT `fk_author_id`
