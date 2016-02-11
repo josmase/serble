@@ -345,6 +345,7 @@ footer {
 }
 
 .ng-modal-dialog-content {
+  min-width: 50%;
   text-align: center;
   pointer-events: auto;
   form, .modalInfo {

@@ -76,8 +76,8 @@
             <select ng-model="search.type"
                     name="type">
               <option value="">Köpes och säljes</option>
-              <option value="buying">Köpes</option>
-              <option value="selling">Säljes</option>
+              <option value="0">Köpes</option>
+              <option value="1">Säljes</option>
             </select>
           </div>
         </div>
@@ -85,8 +85,8 @@
     </form>
   </div>
 
-  <div class="container" id="card">
-    <div class="cards"
+  <div class="container fadeInLeft animated" id="card" >
+    <div class="cards "
          ng-repeat="article in articles.data | orderBy:search.order | filter:search.type">
       <div class="row">
         <div class="col-md-3 col-xs-3 articleImage">

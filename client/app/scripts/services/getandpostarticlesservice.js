@@ -35,12 +35,13 @@ angular.module('serbleApp')
       if (typeof search !== 'undefined') {
         this.title = search.text || "";
         this.category = search.category || "";
+        this.type = search.type || "";
       }
       return $http({
         method: 'GET',
         url: 'http://172.16.0.237:3000/articles/get',
         dataType: 'json',
-        params: {'filterTitle': this.title, 'filterCategory': this.category ,'range':arr}
+        params: {'filterTitle': this.title, 'filterCategory': this.category,'type':this.type ,'range':arr}
       }).then(function (response) {
         return response;
       });
