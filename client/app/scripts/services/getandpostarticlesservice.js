@@ -24,7 +24,8 @@ angular.module('serbleApp')
           'latitude': this.articleData.latitude,
           'longitude': this.articleData.longitude,
           'zipcode': this.articleData.zipCode,
-          'neighborhood': this.articleData.neighborhood
+          'neighborhood': this.articleData.neighborhood,
+          'type': this.articleData.type
         }
       });
     };

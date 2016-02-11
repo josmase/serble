@@ -66,8 +66,8 @@
             <select ng-model="search.order"
                     name="order">
               <option value="">Sortera efter</option>
-              <option value="-price">Högst pris fört</option>
-              <option value="price">lägst pris först</option>
+              <option value="-payout">Högst pris fört</option>
+              <option value="payout">lägst pris först</option>
             </select>
           </div>
         </div>
@@ -75,7 +75,7 @@
           <div class="form-group">
             <select ng-model="search.type"
                     name="type">
-              <option value="" disabled>Köpes och säljes</option>
+              <option value="">Köpes och säljes</option>
               <option value="buying">Köpes</option>
               <option value="selling">Säljes</option>
             </select>
@@ -87,7 +87,7 @@
 
   <div class="container" id="card">
     <div class="cards"
-         ng-repeat="article in articles.data">
+         ng-repeat="article in articles.data | orderBy:search.order | filter:search.type">
       <div class="row">
         <div class="col-md-3 col-xs-3 articleImage">
           <img src="./../images/working.jpg"/>
