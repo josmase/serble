@@ -11,23 +11,20 @@ $green-transparent: rgba(99, 179, 70, 0.8);
 $dark-white: #dfdfdf;
 
 $circle-size: 100px;
-
-#card {
+#cards {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
-  background: #d5d5d5;
   background: $dark-white;
+}
 
-  .cards {
-    box-shadow: 0 1px 2px #aaa;
+.card {
+  box-shadow: 0 1px 2px #aaa;
+  flex: 0 1 100%;
+  margin: 0 0 1rem;
+  border-radius: 3px;
+  .article {
     background: white;
-    margin: 0 0 1rem;
-    border-radius: 3px;
-    user-select: none;
-    animation: fly-in-from-left .5s 1s ease both;
-    transform-origin: top left;
-    flex: 0 1 100%;
     .articleImage {
       display: flex;
       align-items: center;
@@ -366,14 +363,14 @@ footer {
       color: white;
       user-select: none;
     }
-    .success{
+    .success {
       background: $green;
     }
-    .error{
+    .error {
       background: orange;
     }
   }
-  button,a {
+  button, a {
     display: block;
     width: 100%;
   }
@@ -402,11 +399,9 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-  #card {
-    .cards {
-      flex: 0 1 49%;
-      margin: 0.5%;
-    }
+  .card {
+    flex: 0 1 49%;
+    margin: 0 1% 1% 0;
   }
   .container {
     max-width: 1140px;

@@ -13,7 +13,7 @@ angular.module('serbleApp')
       this.articleData = articleData;
       return $http({
         method: 'POST',
-        url: 'http://172.16.0.237:3000/articles/create',
+        url: 'http://172.16.0.191:3000/articles/create',
         dataType: 'json',
         data: {
           'user_id': 0,
@@ -29,19 +29,19 @@ angular.module('serbleApp')
         }
       });
     };
-    this.getArticles = function (search) {
-      console.log(search);
-      var arr = [0,100];
+    this.getArticles = function (search,articleRange) {
+
       if (typeof search !== 'undefined') {
         this.title = search.text || "";
         this.category = search.category || "";
         this.type = search.type || "";
       }
+      this.articleRange = articleRange || [0,10];
       return $http({
         method: 'GET',
-        url: 'http://172.16.0.237:3000/articles/get',
+        url: 'http://172.16.0.191:3000/articles/get',
         dataType: 'json',
-        params: {'filterTitle': this.title, 'filterCategory': this.category,'type':this.type ,'range':arr}
+        params: {'filterTitle': this.title, 'filterCategory': this.category,'type':this.type ,'range':this.articleRange}
       }).then(function (response) {
         return response;
       });

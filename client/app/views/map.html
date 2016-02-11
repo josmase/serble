@@ -8,10 +8,9 @@
     </ui-gmap-google-map>
   </div>
 </div>
-<div class="container">
-  <div id="card">
-
-    <div class="cards" ng-repeat="article in clickedArticle">
+<div class="container" id="cards">
+  <div class="card" ng-repeat="article in clickedArticle | orderBy:search.order | filter:search.type">
+    <div class="article fadeInUp animated">
       <div class="row">
         <div class="col-md-3 col-xs-3 articleImage">
           <img src="./../images/working.jpg"/>
@@ -32,4 +31,3 @@
     </div>
   </div>
 </div>
-

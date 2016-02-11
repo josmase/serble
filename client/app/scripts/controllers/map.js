@@ -29,10 +29,12 @@ angular.module('serbleApp')
       clickedArticle.latitude = shortInfoClickedMarker.latitude;
       clickedArticle.longitude = shortInfoClickedMarker.longitude;
       $scope.clickedArticle = $filter('filter')($scope.markers, {latitude:clickedArticle.latitude,longitude:clickedArticle.longitude });
+      console.log('apa');
     };
 
     myMapServices.getCurrentLocation().then(function (data) {
         $scope.map.center = data;
+
       }
     );
     uiGmapGoogleMapApi.then(function () {
