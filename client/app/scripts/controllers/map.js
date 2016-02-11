@@ -16,58 +16,15 @@ angular.module('serbleApp')
     });
   })
   .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService) {
-    $scope.markers = [
-      {
-        id: 1,
-        latitude: 63.8233639,
-        longitude: 20.2642868,
-        title: 'Gräs',
-        zipCode: 90364,
-        payout: 200,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        neighborhood: 'Umedalen'
-      },
-      {
-        id: 2,
-        latitude: 64.8233639,
-        longitude: 20.2642868,
-        title: 'Laga min bil',
-        zipCode: 90364,
-        payout: 200,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        neighborhood: 'Umedalen'
-      },
-      {
-        id: 3,
-        latitude: 65.8233639,
-        longitude: 20.2642868,
-        title: 'Laga mat',
-        zipCode: 90364,
-        payout: 20,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        neighborhood: 'Umedalen'
-      },
-      {
-        id: 4,
-        latitude: 66.8233639,
-        longitude: 20.2642868,
-        title: 'Hundvakt',
-        zipCode: 9034,
-        payout: 2900,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-        neighborhood: 'Umedalen'
-      }
-    ];
 
     getAndPostArticlesService.getArticles($scope.search).then(function (returnedArticles) {
-      $scope.articles = returnedArticles.data;
-      console.log($scope.articles);
-      $scope.markers = $scope.articles;
+      $scope.markers = returnedArticles.data;
+
     });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
-      var articleId = shortInfoClickedMarker.zipCode;
-      $scope.clickedArticle = $filter('filter')($scope.markers, {zipCode: articleId});
+      var zipcode = shortInfoClickedMarker.zipcode;
+      $scope.clickedArticle = $filter('filter')($scope.markers, {zipcode: zipcode});
     };
 
     myMapServices.getCurrentLocation().then(function (data) {

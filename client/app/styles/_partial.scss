@@ -335,7 +335,9 @@ footer {
   /* A centered div above the overlay with a box shadow. */
   z-index: 10000;
   position: fixed;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
