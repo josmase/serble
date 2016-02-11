@@ -346,6 +346,7 @@ footer {
 
 .ng-modal-dialog-content {
   text-align: center;
+  pointer-events: auto;
   form, .modalInfo {
     padding: 20px;
     background-color: #fff;

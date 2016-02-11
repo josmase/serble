@@ -23,8 +23,13 @@ angular.module('serbleApp')
     });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
-      var zipcode = shortInfoClickedMarker.zipcode;
-      $scope.clickedArticle = $filter('filter')($scope.markers, {zipcode: zipcode});
+      var clickedArticle = {
+        longitude:'',
+        latitude:''
+      };
+      clickedArticle.latitude = shortInfoClickedMarker.latitude;
+      clickedArticle.longitude = shortInfoClickedMarker.longitude;
+      $scope.clickedArticle = $filter('filter')($scope.markers, {latitude:clickedArticle.latitude,longitude:clickedArticle.longitude });
     };
 
     myMapServices.getCurrentLocation().then(function (data) {
