@@ -29,9 +29,10 @@ angular.module('serbleApp')
       });
     };
     this.getArticles = function (search) {
+      console.log(search);
       var arr = [0,100];
       if (typeof search !== 'undefined') {
-        this.title = search.title || "";
+        this.title = search.text || "";
         this.category = search.category || "";
       }
       return $http({
