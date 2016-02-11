@@ -61,6 +61,8 @@ angular.module('serbleApp')
 
     getAndPostArticlesService.getArticles($scope.search).then(function (returnedArticles) {
       $scope.articles = returnedArticles.data;
+      console.log($scope.articles);
+      $scope.markers = $scope.articles;
     });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {

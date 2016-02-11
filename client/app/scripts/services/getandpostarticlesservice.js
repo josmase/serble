@@ -22,7 +22,9 @@ angular.module('serbleApp')
           'payout': this.articleData.price,
           'category': this.articleData.category,
           'latitude': this.articleData.latitude,
-          'longitude': this.articleData.longitude
+          'longitude': this.articleData.longitude,
+          'zipcode': this.articleData.zipCode,
+          'neighborhood': this.articleData.neighborhood
         }
       });
     };
