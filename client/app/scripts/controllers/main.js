@@ -18,7 +18,7 @@ angular.module('serbleApp')
 
 
     var loadArticlesIfPage = function () {
-      for (var i = 1; i < currentPage; i++) {
+      for (var i = 0; i < currentPage; i++) {
         console.log(i);
         $scope.getMoreArticles();
       }
@@ -64,9 +64,12 @@ angular.module('serbleApp')
     };
 
     $scope.search = {};
-    $scope.getArticles();
 
-    if (currentPage > 1) {
+
+    if (currentPage >= 1) {
       loadArticlesIfPage()
+    }
+    else{
+      $scope.getArticles();
     }
   });

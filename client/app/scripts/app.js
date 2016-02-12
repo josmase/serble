@@ -29,8 +29,7 @@ angular
         .when('/home', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl',
-          controllerAs: 'main',
-          reloadOnSearch: false
+          controllerAs: 'main'
         })
         .when('/login', {
           templateUrl: 'views/login.html',
