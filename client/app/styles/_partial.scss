@@ -245,11 +245,11 @@ footer {
 
 .container .has-error {
   input, select, textarea {
-    border: 1px solid red;
+    border: 1px solid red ;
   }
   .help-block {
     p {
-      color: red;
+      color: red !important;
     }
   }
 }
@@ -378,10 +378,11 @@ footer {
   }
   #login_prompt {
     margin-top: 20px;
-    a {
+    span {
       margin-top: 10px;
       color: $green;
       text-decoration: underline;
+      cursor:pointer;
     }
   }
 }

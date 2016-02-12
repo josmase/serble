@@ -17,6 +17,9 @@ angular.module('serbleApp')
     var $window = $(window);
     var header = $('header');
 
+    $scope.registerData = {};
+    $scope.loginData = {};
+
     $scope.modalShownLogin = false;
     $scope.modalShownRegister = false;
 
@@ -35,4 +38,14 @@ angular.module('serbleApp')
       header.toggleClass('hideHeader', scrollTop > prev);
       prev = scrollTop;
     });
+
+    $scope.login = function(){
+      console.log($scope.loginData);
+      $scope.toggleModalLogin();
+    };
+
+    $scope.register = function(){
+      console.log($scope.registerData);
+      $scope.toggleModalRegister();
+    }
   });
