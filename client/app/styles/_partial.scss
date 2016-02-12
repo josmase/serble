@@ -21,6 +21,7 @@ $circle-size: 100px;
 .card {
   box-shadow: 0 1px 2px #aaa;
   flex: 0 1 100%;
+  max-width: 100%;
   margin: 0 0 1rem;
   border-radius: 3px;
   .article {
@@ -37,6 +38,7 @@ $circle-size: 100px;
     }
     .row {
       padding: 1.5rem 3rem 0 3rem;
+      word-wrap: break-word;
     }
     .details {
       border-top: 2px #eeeeee solid;
@@ -400,6 +402,7 @@ footer {
 
 @media screen and (min-width: 768px) {
   .card {
+    max-width: 49%;
     flex: 0 1 49%;
     margin: 0 1% 1% 0;
   }
