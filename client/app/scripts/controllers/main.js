@@ -13,7 +13,7 @@ angular.module('serbleApp')
     $scope.search = {};
 
     var startPoint = 0;
-    var NumberOfArticles = 2;
+    var NumberOfArticles = 6;
     var currentPage = $location.search().page;
     var query = $location.search().query;
     var category = $location.search().category;
@@ -31,6 +31,7 @@ angular.module('serbleApp')
       }
     };
     var resetPage = function(){
+      startPoint = 0;
       currentPage = 1;
       $location.search('page', currentPage);
     };
@@ -46,14 +47,12 @@ angular.module('serbleApp')
     };
 
     $scope.getArticles = function () {
+      resetPage();
 
-      startPoint = 0;
-      NumberOfArticles = 2;
       articleRange = [startPoint, NumberOfArticles];
+
       $location.search('query', $scope.search.text);
       $location.search('category', $scope.search.category);
-
-      resetPage();
 
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function (returnedArticles) {
         $scope.articles = returnedArticles.data;
@@ -75,7 +74,7 @@ angular.module('serbleApp')
       });
     };
 
-    if (currentPage >= 1) {
+    if (currentPage > 1) {
       loadArticlesIfPage();
     }
     else{

@@ -36,7 +36,7 @@ angular.module('serbleApp')
         this.category = search.category || "";
         this.type = search.type || "";
       }
-      
+
       this.articleRange = articleRange || [0,10];
       return $http({
         method: 'GET',
