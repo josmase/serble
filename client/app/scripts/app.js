@@ -22,7 +22,8 @@ angular
     'ngMessages',
     'angularSmoothscroll',
     'uiGmapgoogle-maps',
-    'angular-ladda'
+    'angular-ladda',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
       $routeProvider

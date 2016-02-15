@@ -1,10 +1,11 @@
 <div class="create-article">
+
   <div class="container">
+
     <h1>Skapa annons</h1>
 
     <p>När du skapar en annosn tänk då på att göra en tydlig rubrik som beskriver vad du behöver hjälp med eller vad du
       kan hjälpa till med. Om ingen kategori passar in perfekt, välj den som passar in bäst.</p>
-
     <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row">
         <div class="col-xs-12 col-md-6">
@@ -220,6 +221,15 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6">
+          <div class="form-group imageUpload">
+            <img ngf-src="formData.file"/>
+            <input type="file" ngf-drop="" ngf-select="" ng-model="formData.file" name="file" ngf-pattern="'image/*'"
+                   ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-capture="'camera'">
+
+            </input>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid"
                     ladda="loading">
@@ -238,7 +248,7 @@
     </div>
     <p>Annonsen blev skapad</p>
   </div>
-    <a href="#/home" class="btn-accept">Ok</a>
+  <a href="#/home" class="btn-accept">Ok</a>
 </modal-success>
 <modal-dialog-error show='modalShownError'>
   <div class="modalInfo">
@@ -249,3 +259,7 @@
   </div>
   <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
 </modal-dialog-error>
+
+
+<button type="submit" ng-click="sendFile()">submit</button>
+

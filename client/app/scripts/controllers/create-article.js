@@ -8,8 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService) {
-
+  .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload) {
     function toggleModalSuccess() {
       $scope.modalShownSuccess = !$scope.modalShownSuccess;
     }
@@ -52,6 +51,29 @@ angular.module('serbleApp')
     $scope.toggleModalSuccess = toggleModalSuccess;
     $scope.modalShownError = false;
     $scope.toggleModalError = toggleModalError;
+
+    var upload = Upload.upload({
+      url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+      data: {file: $scope.sak, username: 'asd'}
+    });
+
+    $scope.sendFile = function () {
+      upload.then(function (resp) {
+        // file is uploaded successfully
+        console.log(resp);
+      }, function (resp) {
+        // handle error
+      }, function (evt) {
+        var progressPercentage = parseInt(100.0 *
+          evt.loaded / evt.total);
+        $scope.log = 'progress: ' + progressPercentage +
+          '% ' + evt.config.data.file.name + '\n' +
+          $scope.log;
+      });
+    }
+
+
+
   });
 
 
