@@ -44,8 +44,12 @@ angular.module('serbleApp')
       });
 
     }
+    function deleteImage(){
+      $scope.articleData.file = null;
+    }
 
 
+    $scope.deleteImage = deleteImage;
     $scope.submitForm = submitForm;
     $scope.modalShownSuccess = false;
     $scope.toggleModalSuccess = toggleModalSuccess;

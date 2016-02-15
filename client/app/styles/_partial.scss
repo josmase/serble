@@ -406,20 +406,35 @@ footer {
   box-sizing: border-box;
   height: 50px;
   border: 1px solid $gray;
-  input {
-    border: none;
-    outline: none;
-    display: inline-block;
-    width: 70%;
+  flex-flow: wrap row;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  .deleteImage {
+    height: 50px;
+    width: 50px;
+    background-image: url("./../images/ic_close_black_24px.svg");
+    background-position: right 10px top 50%;
+    background-repeat: no-repeat;
+    flex: 0 1 10%;
+  }
+  div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 70%;
+
+    p {
+      margin-bottom: 0;
+      color: black;
+    }
   }
   img {
-    margin: 4px auto auto 4px;
-    width: 40px;
+    display: flex;
     height: 40px;
-    display: inline-block;
-  }
-  p {
-    display: inline-block;
+    flex: 0 1 10%;
   }
 }
 
@@ -463,10 +478,10 @@ footer {
       }
     }
   }
-
+  .imageUpload {
+    div {
+      flex: 0 1 76%;
+    }
+  }
 }
 
-.thumb {
-  width: 100px;
-  height: 100px;
-}
