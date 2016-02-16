@@ -58,7 +58,7 @@ angular.module('serbleApp')
 
     var upload = Upload.upload({
       url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-      data: {file: $scope.sak, username: 'asd'}
+      data: {file: $scope.file, username: 'asd'}
     });
 
     $scope.sendFile = function () {

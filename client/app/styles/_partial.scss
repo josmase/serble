@@ -437,6 +437,59 @@ footer {
   }
 }
 
+#profileImage {
+  width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+  img {
+    filter: blur(2px);
+    margin: 50 -5 -5 -5px;
+    padding: 5px;
+  }
+}
+
+.profileInfo {
+  text-align: center;
+  #name {
+    color: orange;
+    font-size: 18px;
+  }
+  input, textarea {
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    border: none;
+    text-align: center;
+    resize: none;
+  }
+  textarea:focus {
+    border: none;
+    outline-width: 0;
+  }
+  .editable {
+    border: 1px solid $input-border-color;
+  }
+  textarea:focus.editable {
+    outline-width: 5px;
+  }
+  img {
+    filter: blur(0);
+    margin-top: $circle-size * -0.5;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 100%;
+    border: 2px solid white;
+  }
+  button {
+    width: 90%;
+    margin: 10px auto;
+  }
+}
+
+.profile {
+  background: white;
+}
+
 @media screen and (min-width: 768px) {
   .card {
     max-width: 49%;
@@ -480,6 +533,11 @@ footer {
   .imageUpload {
     div {
       flex: 0 1 76%;
+    }
+  }
+  .profileInfo {
+    button {
+      width: 50%;
     }
   }
 }

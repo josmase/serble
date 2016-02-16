@@ -17,9 +17,9 @@ function LoginCtrl($location, authenticationService) {
 
   function login() {
     vm.dataLoading = true;
-    authenticationService.Login(vm.username, vm.password, function (response) {
+    authenticationService.Login(vm.email, vm.password, function (response) {
       if (response.success) {
-        authenticationService.SetCredentials(vm.username, vm.password);
+        authenticationService.SetCredentials(vm.email, vm.password);
         console.log(response);
         $location.path('/');
       } else {
