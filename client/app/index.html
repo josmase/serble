@@ -51,13 +51,18 @@
           <li><p>+46 90 231 27</p></li>
           <li><p>mail@serble.se</p></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-show="!checkIfLoggedIn()">
           <li><a href="" ng-click="toggleModalLogin()">Logga in</a></li>
           <li><a href="" ng-click="toggleModalRegister()">Registrera</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-show="checkIfLoggedIn()">
+          <li><a href="#/profile" >Profile</a></li>
+          <li><a href="" ng-click="signOut()">Logga ut</a></li>
         </ul>
       </div>
     </div>
   </nav>
+  <button ng-click="checkIfLoggedIn()">asd</button>
   <modal-dialog-register show='modalShownRegister'>
   </modal-dialog-register>
   <modal-dialog-login show='modalShownLogin'>

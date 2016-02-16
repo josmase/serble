@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('indexCtrl', function ($scope, $location,$rootScope) {
+  .controller('indexCtrl', function ($scope, $location, $rootScope,authenticationService) {
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
@@ -16,6 +16,8 @@ angular.module('serbleApp')
     var prev = 50;
     var $window = $(window);
     var header = $('header');
+    $scope.checkIfLoggedIn = checkIfLoggedIn;
+    $scope.signOut = signOut;
 
     $rootScope.modalShownLogin = false;
     $rootScope.modalShownRegister = false;
@@ -36,9 +38,12 @@ angular.module('serbleApp')
       header.toggleClass('hideHeader', scrollTop > prev);
       prev = scrollTop;
     });
-
-    $scope.login = function () {
-      console.log($scope.loginData);
-      $scope.toggleModalLogin();
+    function signOut(){
+      authenticationService.ClearCredentials();
     }
+
+    function checkIfLoggedIn() {
+      return $rootScope.globals.currentUser
+    }
+
   });
