@@ -33,11 +33,6 @@ angular
           controllerAs: 'main',
           reloadOnSearch: false
         })
-        .when('/login', {
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl',
-          controllerAs: 'vm'
-        })
         .when('/map', {
           templateUrl: 'views/map.html',
           controller: 'MapCtrl',
@@ -47,11 +42,6 @@ angular
           templateUrl: 'views/article.html',
           controller: 'ArticleCtrl',
           controllerAs: 'article'
-        })
-        .when('/register', {
-          templateUrl: 'views/register.html',
-          controller: 'RegisterCtrl',
-          controllerAs: 'register'
         })
         .when('/articles', {
           templateUrl: 'views/articles.html',

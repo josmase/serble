@@ -34,7 +34,7 @@ angular.module('serbleApp')
       authenticationService.Login(vm.username, vm.password, function (response) {
         if (response.success) {
           authenticationService.SetCredentials(vm.username, vm.password);
-          console.log(response)
+          console.log(response);
           $location.path('/');
         } else {
 
