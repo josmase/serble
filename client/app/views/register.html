@@ -1,78 +1,17 @@
-<div class="container">
-  <div class="row" id="text-register">
-    <a href="#/login">
-      <h4>LOGGA IN</h4>
-    </a>
-    <h4>REGISTRERA</h4>
+<h2>Register</h2>
+<form name="form" ng-submit="vm.register()" role="form">
+  <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" class="form-control" ng-model="vm.user.username" required/>
+    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
   </div>
-  <form name="createUserForm" novalidate>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group"
-             ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
-          <input class="input-email form" type="email" name="eMail"
-                 placeholder="e-post"
-                 ng-model="main.eMail"
-                 ng-minlength="0"
-                 ng-maxlength="40"
-                 required>
-
-          <div class="help-block" ng-messages="createUserForm.eMail.$error"
-               ng-if="createUserForm.eMail.$touched">
-            <div ng-messages-include="../resources/error.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group"
-             ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
-          <input class="input-password form" type="password" name="password" id="password"
-                 placeholder="lösenord"
-                 ng-model="main.password"
-                 ng-minlength="4"
-                 ng-maxlength="200"
-                 required>
-          <div class="help-block" ng-messages="createUserForm.password.$error"
-               ng-if="createUserForm.password.$touched">
-            <div ng-messages-include="../resources/error.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group"
-             ng-class="{ 'has-error': createUserForm.passwordRe.$touched && createUserForm.passwordRe.$invalid }">
-
-          <input class="input-password form" type="password" name="passwordRe"
-                 placeholder="repetera lösenord"
-                 ng-model="main.passwordRe"
-                 ng-minlength="4"
-                 ng-maxlength="200"
-                 required>
-
-          <div class="help-block" ng-messages="createUserForm.passwordRe.$error"
-               ng-if="createUserForm.passwordRe.$touched">
-            <div ng-messages-include="../resources/error.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row center form-group">
-      <div class="col-xs-12 col-md-6 ">
-        <button type="submit" class="btn-accept" value="Submit">REGISTRERA</button>
-        <p id="form-middle">eller</p>
-        <button id="facebook" type="submit" class="btn-accept" value="Submit">Logga in med Facebook</button>
-      </div>
-    </div>
-    <div class="row center">
-      <div class="col-xs-12 col-md-6" id="signup_prompt">
-        <a class="left"> Användarvillkor</a>
-        <a class="right" href="#/login">Glömt ditt lösenord?</a>
-      </div>
-    </div>
-  </form>
-</div>
+  <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" class="form-control" ng-model="vm.user.password" required/>
+    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+  </div>
+  <div class="form-actions">
+    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Register</button>
+    <a href="#/login" class="btn btn-link">Cancel</a>
+  </div>
+</form>

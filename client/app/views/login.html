@@ -1,60 +1,17 @@
-<div class="container">
-  <div class="row" id="text-login">
-    <h4>LOGGA IN</h4>
-    <a href="#/register">
-      <h4>REGISTRERA</h4>
-    </a>
+<h2>Login</h2>
+<form name="form" ng-submit="vm.login()" role="form">
+  <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+    <label for="email">Username</label>
+    <input type="text" name="email" id="email" class="form-control" ng-model="vm.email" required/>
+    <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Username is required</span>
   </div>
-  <form name="createUserForm" novalidate>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group"
-             ng-class="{ 'has-error': createUserForm.eMail.$touched && createUserForm.eMail.$invalid }">
-          <input class="input-email form" type="email" name="eMail"
-                 placeholder="E-MAIL"
-                 ng-model="main.eMail"
-                 ng-minlength="0"
-                 ng-maxlength="40"
-                 required>
-
-          <div class="help-block" ng-messages="createUserForm.eMail.$error" ng-if="createUserForm.eMail.$touched">
-            <div ng-messages-include="../resources/error.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <div class="form-group"
-             ng-class="{'has-error': createUserForm.password.$touched && createUserForm.password.$invalid}">
-          <input class="input-password form" type="password" name="password" id="password"
-                 placeholder="LÖSENORD"
-                 ng-model="main.password"
-                 ng-minlength="4"
-                 ng-maxlength="200"
-                 required>
-          <div class="help-block" ng-messages="createUserForm.password.$error"
-               ng-if="createUserForm.password.$touched">
-            <div ng-messages-include="../resources/error.html"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row center">
-      <div class="form-group">
-        <div class="col-xs-12 col-md-6">
-          <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
-          <p id="form-middle">eller</p>
-          <button id="facebook" type="submit" class="btn-decline" value="Submit">Logga in med Facbook</button>
-        </div>
-      </div>
-    </div>
-
-
-  </form>
-  <div class="row center" id="login_prompt">
-    <div class="col-xs-12">
-      <p>Inte registrerad? <a href="#/register">Skapa en användare här</a>.</p>
-    </div>
+  <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required/>
+    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
   </div>
-</div>
+  <div class="form-actions">
+    <button type="submit" ladda="loading" ng-disabled="form.$invalid" class="btn btn-primary">Login</button>
+    <a href="#/register" class="btn btn-link" >Register</a>
+  </div>
+</form>

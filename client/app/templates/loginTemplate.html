@@ -1,0 +1,61 @@
+<div class='ng-modal' ng-show='modalShownLogin'>
+  <div class='ng-modal-overlay' ng-click='toggleModalLogin()'></div>
+  <div class='ng-modal-dialog'>
+    <div class='ng-modal-dialog-content fadeInUp animated'>
+      <div class='ng-modal-close'>
+        <p ng-click='toggleModalLogin()'>✖</p>
+      </div>
+      <form name="loginForm" ng-submit="loginForm.$valid && login.login()" novalidate>
+        <h1>Logga in</h1>
+        <p>Skriv in den e-mail och det lösenord du använde när du registrerade dig</p>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+              <input class="form" type="email" name="email"
+                     placeholder="E-MAIL"
+                     ng-model="login.email"
+                     ng-minlength="0"
+                     ng-maxlength="40"
+                     required>
+
+              <div class="help-block" ng-messages="loginForm.email.$error"
+                   ng-if="loginForm.email.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$invalid}">
+              <input class="form" type="password" name="password"
+                     placeholder="LÖSENORD"
+                     ng-model="login.password"
+                     ng-minlength="4"
+                     ng-maxlength="200"
+                     required>
+              <div class="help-block" ng-messages="loginForm.password.$error"
+                   ng-if="loginForm.password.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row center">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group">
+              <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row center" id="login_prompt">
+        <div class="col-xs-12">
+          <p>Inte registrerad? <span ng-click="changeModal()">Registrera dig här</span>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
