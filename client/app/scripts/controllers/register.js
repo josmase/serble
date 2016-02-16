@@ -5,7 +5,7 @@ angular
   .controller('RegisterCtrl', RegisterController);
 
 RegisterController.$inject = ['FakeUserService', '$location', '$rootScope'];
-function RegisterController(FakeUserService,$rootScope) {
+function RegisterController(FakeUserService, $rootScope) {
   var vm = this;
 
   vm.register = register;
@@ -16,7 +16,8 @@ function RegisterController(FakeUserService,$rootScope) {
     FakeUserService.Create(vm.user)
       .then(function (response) {
         if (response.success) {
-          console.log(response)
+          console.log(response);
+          $rootScope.modalShownRegister = false;
         } else {
           console.log('fail' + response);
         }
