@@ -11,16 +11,16 @@
         <div class="row">
           <div class="col-xs-12 col-md-12">
             <div class="form-group"
-                 ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
-              <input class="form" type="email" name="email"
+                 ng-class="{ 'has-error': loginForm.credentials.$touched && loginForm.credentials.$invalid }">
+              <input class="form" type="text" name="credentials"
                      placeholder="E-MAIL"
-                     ng-model="login.email"
+                     ng-model="login.credentials"
                      ng-minlength="0"
                      ng-maxlength="40"
                      required>
 
-              <div class="help-block" ng-messages="loginForm.email.$error"
-                   ng-if="loginForm.email.$touched">
+              <div class="help-block" ng-messages="loginForm.credentials.$error"
+                   ng-if="loginForm.credentials.$touched">
                 <div ng-messages-include="../resources/error.html"></div>
               </div>
             </div>

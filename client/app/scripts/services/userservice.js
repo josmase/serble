@@ -8,7 +8,7 @@
   UserService.$inject = ['$http'];
   function UserService($http) {
     var service = {};
-
+    var server = 'http://172.16.0.237:3000';
     service.GetAll = GetAll;
     service.GetById = GetById;
     service.GetByUsername = GetByUsername;
@@ -27,15 +27,28 @@
     }
 
     function GetByUsername(username) {
-      return $http.get('/api/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
+      return $http({
+        method: 'GET',
+        url: server + '/user/profile/get',
+        params: {
+          'username': username
+        }
+      }).then(handleSuccess, handleError('Error getting user by username'));
     }
 
     function Create(user) {
-      return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
+      return $http.post(server+'/user/register', user).then(handleSuccess, handleError('Error creating user'));
     }
 
-    function Update(user) {
-      return $http.put('/api/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
+    function Update(user,currentUser) {
+      return $http({
+        method: 'POST',
+        url: server + '/user/profile/update',
+        data: {
+          'data': user,
+          'token': currentUser.token
+        }
+      }).then(handleSuccess, handleError('Error updating user'));
     }
 
     function Delete(id) {

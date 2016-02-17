@@ -9,16 +9,16 @@ function LoginCtrl($location, authenticationService) {
   var vm = this;
 
   vm.login = login;
-  
+
   function login() {
     vm.dataLoading = true;
-    authenticationService.Login(vm.email, vm.password, function (response) {
+    authenticationService.Login(vm.credentials, vm.password, function (response) {
       if (response.success) {
-        authenticationService.SetCredentials(vm.email, vm.password);
+        authenticationService.SetCredentials(response.result,response.username);
         console.log(response);
         $location.path('/');
       } else {
-
+        console.log(response);
       }
     });
   }

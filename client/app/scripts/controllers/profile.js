@@ -8,23 +8,44 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('ProfileCtrl', function ($scope) {
+  .controller('ProfileCtrl', function ($scope, UserService, $rootScope) {
     $scope.showContactInfo = false;
     $scope.editable = false;
     $scope.toggleContactInfo = toggleContactInfo;
     $scope.toggleEditable = toggleEditable;
+    var username = $rootScope.globals.currentUser.credentials;
+
     function toggleContactInfo() {
       $scope.showContactInfo = !$scope.showContactInfo;
     }
+
     function toggleEditable() {
       $scope.editable = !$scope.editable;
+      if ($scope.editable === false) {
+        update()
+      }
     }
 
-
-
-    $scope.user = {
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      name: 'Nils Nilsson',
-      location: 'Teg, Umeå'
+    function get() {
+      UserService.GetByUsername(username)
+        .then(function (response) {
+          if (response.success) {
+            console.log(response);
+            $scope.user = response.result;
+          } else {
+            console.log(response);
+          }
+        })
     }
+
+    function update() {
+      console.log($scope.user);
+      UserService.Update($scope.user, $rootScope.globals.currentUser).then(function (response) {
+        if (response.success) {
+          console.log(response);
+        }
+      })
+    }
+
+    get();
   });

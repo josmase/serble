@@ -2,13 +2,13 @@
 <div class="container profile">
   <div class="profileInfo">
     <img src="../images/working.jpg">
-    <input id="name" type="text" ng-model="user.name" ng-readonly="!editable" ng-class="{editable:editable}">
-    <input type="text" ng-model="user.location" ng-readonly="!editable"ng-class="{editable:editable}">
-     <textarea type="text" name="bio"
+    <input id="name" type="text" ng-model="user.firstname" ng-readonly="!editable" ng-class="{editable:editable}">
+    <input type="text" ng-model="user.city" ng-readonly="!editable"ng-class="{editable:editable}">
+     <textarea type="text" name="description"
                cols="40"
                rows="10"
                placeholder="Jag..."
-               ng-model="user.bio"
+               ng-model="user.description"
                ng-readonly="!editable"
                ng-class="{editable:editable}"
      > </textarea>

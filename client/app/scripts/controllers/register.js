@@ -4,23 +4,25 @@ angular
   .module('serbleApp')
   .controller('RegisterCtrl', RegisterController);
 
-RegisterController.$inject = ['FakeUserService', '$location', '$rootScope'];
-function RegisterController(FakeUserService, $rootScope) {
+RegisterController.$inject = ['UserService', '$location', '$rootScope'];
+function RegisterController(UserService, $rootScope) {
   var vm = this;
 
   vm.register = register;
-
+  vm.user = {};
+  vm.loading = false;
   function register() {
-    console.log(vm.user);
-    vm.dataLoading = true;
-    FakeUserService.Create(vm.user)
+    vm.user.ssn = new Date();
+    vm.loading = true;
+    UserService.Create(vm.user)
       .then(function (response) {
         if (response.success) {
           console.log(response);
           $rootScope.modalShownRegister = false;
         } else {
-          console.log('fail' + response);
+          console.log(response);
         }
+        vm.loading = false;
       });
   }
 }

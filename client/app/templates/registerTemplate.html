@@ -10,12 +10,28 @@
         <div class="row">
           <div class="col-xs-12 col-md-12">
             <div class="form-group"
+                 ng-class="{ 'has-error': registrationForm.username.$touched && registrationForm.username.$invalid }">
+              <input class="form" type="text" name="username"
+                     placeholder="USERNAME"
+                     ng-model="register.user.username"
+                     ng-minlength="4"
+                     ng-maxlength="40"
+                     required>
+
+              <div class="help-block" ng-messages="registrationForm.username.$error"
+                   ng-if="registrationForm.username.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
                  ng-class="{ 'has-error': registrationForm.email.$touched && registrationForm.email.$invalid }">
               <input class="form" type="email" name="email"
                      placeholder="E-MAIL"
                      ng-model="register.user.email"
-                     ng-minlength="0"
-                     ng-maxlength="40"
                      required>
 
               <div class="help-block" ng-messages="registrationForm.email.$error"
@@ -32,7 +48,7 @@
               <input class="form" type="password" name="password" id="password"
                      placeholder="LÖSENORD"
                      ng-model="register.user.password"
-                     ng-minlength="4"
+                     ng-minlength="6"
                      ng-maxlength="200"
                      required>
               <div class="help-block" ng-messages="registrationForm.password.$error"
@@ -64,7 +80,7 @@
         <div class="row center">
           <div class="col-xs-12 col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn-accept" value="Submit">REGISTRERA ANVÄNDARE</button>
+              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">REGISTRERA ANVÄNDARE</button>
             </div>
           </div>
         </div>
