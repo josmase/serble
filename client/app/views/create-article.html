@@ -1,10 +1,11 @@
 <div class="create-article">
+
   <div class="container">
+
     <h1>Skapa annons</h1>
 
     <p>När du skapar en annosn tänk då på att göra en tydlig rubrik som beskriver vad du behöver hjälp med eller vad du
       kan hjälpa till med. Om ingen kategori passar in perfekt, välj den som passar in bäst.</p>
-
     <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row">
         <div class="col-xs-12 col-md-6">
@@ -64,7 +65,7 @@
             <input type="number" name="zipCode" class="form"
                    placeholder="90210"
                    ng-model="articleData.zipCode"
-                   ng-minlength="5"
+                   ng-minlength="4"
                    ng-maxlength="5"
                    required>
 
@@ -207,8 +208,8 @@
                     name="type"
                     required>
               <option value="">Välj ett alternativ</option>
-              <option value="buy">Behöver hjälp</option>
-              <option value="sell">Kan hjälpa</option>
+              <option value="0">Behöver hjälp</option>
+              <option value="1">Kan hjälpa</option>
             </select>
 
             <div class="help-block" ng-messages="articelForm.type.$error"
@@ -219,6 +220,16 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group imageUpload">
+            <img ngf-src="articleData.file"/>
+            <div ngf-drop="" ngf-select="" ng-model="articleData.file" name="file" ngf-pattern="'image/*'"
+                   ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-capture="'camera'">
+              <p>Klicka för att ladda upp en bild</p>
+            </div>
+            <span class="deleteImage" ng-show="articleData.file" ng-click="deleteImage()"></span>
+          </div>
+        </div>
         <div class="col-xs-12 col-md-6">
           <div class="form-group">
             <button type="submit" class="button-accept" value="Submit" ng-disabled="articelForm.$invalid"
@@ -238,7 +249,7 @@
     </div>
     <p>Annonsen blev skapad</p>
   </div>
-    <a href="#/home" class="btn-accept">Ok</a>
+  <a href="#/home" class="btn-accept">Ok</a>
 </modal-success>
 <modal-dialog-error show='modalShownError'>
   <div class="modalInfo">

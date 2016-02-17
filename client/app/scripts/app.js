@@ -22,14 +22,16 @@ angular
     'ngMessages',
     'angularSmoothscroll',
     'uiGmapgoogle-maps',
-    'angular-ladda'
+    'angular-ladda',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
       $routeProvider
         .when('/home', {
           templateUrl: 'views/main.html',
           controller: 'MainCtrl',
-          controllerAs: 'main'
+          controllerAs: 'main',
+          reloadOnSearch: false
         })
         .when('/login', {
           templateUrl: 'views/login.html',

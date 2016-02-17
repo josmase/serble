@@ -1,9 +1,20 @@
+@font-face {
+  font-family: 'Sak-light'; /*a name to be used later*/
+  src: url('../fonts/Campton-Light.ttf'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'Sak-medium'; /*a name to be used later*/
+  src: url('../fonts/Campton-Medium.ttf'); /*URL to font*/
+}
+
 $primary-font-color: rgba(180, 182, 181, 1);
 $secondary-font-color: rgba (247, 161, 24, 1);
-$h-font-family: 'Montserrat', sans-serif;
-$text-font-family: 'Open-sans', sans-serif;
+$placeholder-font-color: #696969;
+$h-font-family: 'Sak-medium', sans-serif;
+$text-font-family: 'Sak-light', sans-serif;
 /*Color and font for all p elements*/
-p, a, a:hover {
+p, a, a:hover,button {
   color: $primary-font-color;
   font-family: $text-font-family;
   text-decoration: none;
@@ -30,12 +41,17 @@ a, a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, label {
   color: $primary-font-color;
   font-family: $h-font-family;
 }
-.create-article{
-  h1{
+
+label {
+  letter-spacing: 1px;
+}
+
+.create-article {
+  h1 {
     color: black;
   }
 }
@@ -45,3 +61,8 @@ h1, h2, h3, h4 {
     font-family: $text-font-family;
   }
 }
+
+input::placeholder, select, textarea::placeholder {
+  color: $placeholder-font-color;
+}
+

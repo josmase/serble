@@ -9,25 +9,24 @@ $facebook-color: #3B5998;
 $green: rgba(99, 179, 70, 1);
 $green-transparent: rgba(99, 179, 70, 0.8);
 $dark-white: #dfdfdf;
+$input-border-color: #ccc;
 
 $circle-size: 100px;
-
-#card {
+#cards {
   display: flex;
   flex-flow: wrap row;
   justify-content: space-between;
-  background: #d5d5d5;
   background: $dark-white;
+}
 
-  .cards {
-    box-shadow: 0 1px 2px #aaa;
+.card {
+  flex: 0 1 100%;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 3px;
+  .article {
     background: white;
-    margin: 0 0 1rem;
-    border-radius: 3px;
-    user-select: none;
-    animation: fly-in-from-left .5s 1s ease both;
-    transform-origin: top left;
-    flex: 0 1 100%;
+    box-shadow: 0 1px 2px #aaa;
     .articleImage {
       display: flex;
       align-items: center;
@@ -40,6 +39,7 @@ $circle-size: 100px;
     }
     .row {
       padding: 1.5rem 3rem 0 3rem;
+      word-wrap: break-word;
     }
     .details {
       border-top: 2px #eeeeee solid;
@@ -250,7 +250,7 @@ footer {
   }
   .help-block {
     p {
-      color: red;
+      color: red !important;
     }
   }
 }
@@ -265,7 +265,7 @@ footer {
   input, select, textarea {
     text-align: left;
     background-color: transparent;
-    border: 1px solid $gray;
+    border: 1px solid $input-border-color;
     outline: none;
     padding: 10px;
     width: 100%;
@@ -335,7 +335,9 @@ footer {
   /* A centered div above the overlay with a box shadow. */
   z-index: 10000;
   position: fixed;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -343,7 +345,9 @@ footer {
 }
 
 .ng-modal-dialog-content {
+  min-width: 50%;
   text-align: center;
+  pointer-events: auto;
   form, .modalInfo {
     padding: 20px;
     background-color: #fff;
@@ -362,23 +366,24 @@ footer {
       color: white;
       user-select: none;
     }
-    .success{
+    .success {
       background: $green;
     }
-    .error{
+    .error {
       background: orange;
     }
   }
-  button,a {
+  button, a {
     display: block;
     width: 100%;
   }
   #login_prompt {
     margin-top: 20px;
-    a {
+    span {
       margin-top: 10px;
       color: $green;
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
@@ -397,12 +402,47 @@ footer {
   }
 }
 
-@media screen and (min-width: 768px) {
-  #card {
-    .cards {
-      flex: 0 1 49%;
-      margin: 0.5%;
+.imageUpload {
+  box-sizing: border-box;
+  height: 50px;
+  border: 1px solid $gray;
+  flex-flow: wrap row;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  .deleteImage {
+    height: 50px;
+    width: 50px;
+    background-image: url("./../images/ic_close_black_24px.svg");
+    background-position: right 10px top 50%;
+    background-repeat: no-repeat;
+    flex: 0 1 10%;
+  }
+  div {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 70%;
+
+    p {
+      margin-bottom: 0;
+      color: black;
     }
+  }
+  img {
+    display: flex;
+    height: 40px;
+    flex: 0 1 10%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    max-width: 49%;
+    flex: 0 1 49%;
+    margin: 0 1% 1% 0;
   }
   .container {
     max-width: 1140px;
@@ -438,8 +478,10 @@ footer {
       }
     }
   }
-
+  .imageUpload {
+    div {
+      flex: 0 1 76%;
+    }
+  }
 }
-
-
 

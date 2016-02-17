@@ -11,7 +11,7 @@
   <!-- bower:css -->
   <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.css' />
   <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
-  <link rel='stylesheet' href='bower_components/ladda/dist/ladda-themeless.min.css' />
+  <link rel='stylesheet' href='bower_components/ladda/dist/ladda.min.css' />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -48,8 +48,6 @@
           <li><a href="#/home" ng-class="{ active: isActive('/home')}">Startsida</a></li>
           <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa annons</a></li>
           <li><a href="#/map" ng-class="{ active: isActive('/map')}">Karta </a></li>
-          <li><p>+46 90 231 27</p></li>
-          <li><p>mail@serble.se</p></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <lI><a href="" ng-click="toggleModalLogin()">Logga in</a></lI>
@@ -58,26 +56,101 @@
       </div>
     </div>
   </nav>
+  <modal-dialog-register show='modalShownRegister'>
+    <div class='ng-modal-close'>
+      <p ng-click='toggleModalRegister()'>✖</p>
+    </div>
+    <form name="registrationForm" ng-submit="registrationForm.$valid && register()" novalidate>
+      <h1>Registrera</h1>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{ 'has-error': registrationForm.email.$touched && registrationForm.email.$invalid }">
+            <input class="form" type="email" name="email"
+                   placeholder="E-MAIL"
+                   ng-model="registerData.email"
+                   ng-minlength="0"
+                   ng-maxlength="40"
+                   required>
+
+            <div class="help-block" ng-messages="registrationForm.email.$error"
+                 ng-if="registrationForm.email.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid}">
+            <input class="form" type="password" name="password" id="password"
+                   placeholder="LÖSENORD"
+                   ng-model="registerData.password"
+                   ng-minlength="4"
+                   ng-maxlength="200"
+                   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                   required>
+            <div class="help-block" ng-messages="registrationForm.password.$error"
+                 ng-if="registrationForm.password.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group"
+               ng-class="{'has-error': registrationForm.password_verify.$touched && registrationForm.password_verify.$invalid}">
+            <input class="form" type="password" name="password_verify" id="password_verify"
+                   placeholder="REPTERA LÖSENORDET"
+                   ng-minlength="4"
+                   ng-maxlength="200"
+                   ng-model="registerData.password_verify"
+                   data-password-verify="registerData.password"
+                   required>
+            <div class="help-block" ng-messages="registrationForm.password_verify.$error"
+                 ng-if="registrationForm.password_verify.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row center">
+        <div class="col-xs-12 col-md-12">
+          <div class="form-group">
+            <button type="submit" class="btn-accept" value="Submit">REGISTRERA ANVÄNDARE</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="row center" id="login_prompt">
+      <div class="col-xs-12">
+        <p>Redan Registrerad <span ng-click="changeModal()">Logga in här</span>.</p>
+      </div>
+    </div>
+  </modal-dialog-register>
   <modal-dialog-login show='modalShownLogin'>
     <div class='ng-modal-close'>
       <p ng-click='toggleModalLogin()'>✖</p>
     </div>
-    <form name="loginForm" novalidate>
+    <form name="loginForm" ng-submit="loginForm.$valid && login()" novalidate>
       <h1>Logga in</h1>
       <p>Skriv in den e-mail och det lösenord du använde när du registrerade dig</p>
       <div class="row">
         <div class="col-xs-12 col-md-12">
           <div class="form-group"
-               ng-class="{ 'has-error': loginForm.eMail.$touched && loginForm.eMail.$invalid }">
-            <input class="form" type="email" name="eMail"
+               ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+            <input class="form" type="email" name="email"
                    placeholder="E-MAIL"
-                   ng-model="main.eMail"
+                   ng-model="loginData.email"
                    ng-minlength="0"
                    ng-maxlength="40"
                    required>
 
-            <div class="help-block" ng-messages="loginForm.eMail.$error"
-                 ng-if="loginForm.eMail.$touched">
+            <div class="help-block" ng-messages="loginForm.email.$error"
+                 ng-if="loginForm.email.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
@@ -89,7 +162,7 @@
                ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$invalid}">
             <input class="form" type="password" name="password"
                    placeholder="LÖSENORD"
-                   ng-model="main.password"
+                   ng-model="loginData.password"
                    ng-minlength="4"
                    ng-maxlength="200"
                    required>
@@ -110,84 +183,11 @@
     </form>
     <div class="row center" id="login_prompt">
       <div class="col-xs-12">
-        <p>Inte registrerad? <a href="" ng-click="changeModal()">Registrera dig här</a>.</p>
+        <p>Inte registrerad? <span ng-click="changeModal()">Registrera dig här</span>.</p>
       </div>
     </div>
   </modal-dialog-login>
-  <modal-dialog-register show='modalShownRegister'>
-    <div class='ng-modal-close'>
-      <p ng-click='toggleModalRegister()'>✖</p>
-    </div>
-    <form name="registrationForm" novalidate>
-      <h1>Registrera</h1>
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <div class="form-group"
-               ng-class="{ 'has-error': registrationForm.eMail.$touched && registrationForm.eMail.$invalid }">
-            <input class="form" type="email" name="eMail"
-                   placeholder="E-MAIL"
-                   ng-model="main.eMail"
-                   ng-minlength="0"
-                   ng-maxlength="40"
-                   required>
 
-            <div class="help-block" ng-messages="registrationForm.eMail.$error"
-                 ng-if="registrationForm.eMail.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <div class="form-group"
-               ng-class="{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid}">
-            <input class="form" type="password" name="password" id="password"
-                   placeholder="LÖSENORD"
-                   ng-model="main.password"
-                   ng-minlength="4"
-                   ng-maxlength="200"
-                   pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                   required>
-            <div class="help-block" ng-messages="registrationForm.password.$error"
-                 ng-if="registrationForm.password.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-12">
-          <div class="form-group"
-               ng-class="{'has-error': registrationForm.password_c.$touched && registrationForm.password_c.$invalid}">
-            <input class="form" type="password" name="password_c" id="password_c"
-                   placeholder="REPTERA LÖSENORDET"
-                   ng-model="main.passwordc"
-                   ng-minlength="4"
-                   ng-maxlength="200"
-                   valid-password-c="main.password"
-                   required>
-            <div class="help-block" ng-messages="registrationForm.password_c.$error"
-                 ng-if="registrationForm.password_c.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row center">
-        <div class="col-xs-12 col-md-12">
-          <div class="form-group">
-            <button type="submit" class="btn-accept" value="Submit">LOGGA IN</button>
-          </div>
-        </div>
-      </div>
-    </form>
-    <div class="row center" id="login_prompt">
-      <div class="col-xs-12">
-        <p>Redan Registrerad <a href="" ng-click="changeModal()">Logga in här</a>.</p>
-      </div>
-    </div>
-  </modal-dialog-register>
 </header>
 <div ng-view=""></div>
 
@@ -268,6 +268,7 @@
 <script src="bower_components/spin.js/spin.js"></script>
 <script src="bower_components/ladda/dist/ladda.min.js"></script>
 <script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -287,7 +288,7 @@
 <script src="scripts/services/geocodeservice.js"></script>
 <script src="scripts/directives/modaldialoglogin.js"></script>
 <script src="scripts/directives/modaldialogregister.js"></script>
-<script src="scripts/directives/validpasswordc.js"></script>
+<script src="scripts/directives/passwordverify.js"></script>
 <script src="scripts/directives/modalsuccess.js"></script>
 <script src="scripts/directives/modaldialogerror.js"></script>
 <!-- endbuild -->
