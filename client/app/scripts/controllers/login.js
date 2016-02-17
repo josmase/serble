@@ -9,12 +9,7 @@ function LoginCtrl($location, authenticationService) {
   var vm = this;
 
   vm.login = login;
-
-  (function initController() {
-    // reset login status
-    authenticationService.ClearCredentials();
-  })();
-
+  
   function login() {
     vm.dataLoading = true;
     authenticationService.Login(vm.email, vm.password, function (response) {

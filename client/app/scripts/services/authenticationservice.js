@@ -18,8 +18,8 @@ angular.module('serbleApp')
     .module('serbleApp')
     .factory('authenticationService', authenticationService);
 
-  authenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'FakeUserService'];
-  function authenticationService($http, $cookieStore, $rootScope, $timeout, FakeUserService) {
+  authenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'FakeUserService'];
+  function authenticationService($http, $cookies, $rootScope, $timeout, FakeUserService) {
     var service = {};
 
     service.Login = Login;
@@ -37,9 +37,9 @@ angular.module('serbleApp')
         FakeUserService.GetByEmail(email)
           .then(function (user) {
             if (user !== null && user.password === password) {
-              response = { success: true };
+              response = {success: true};
             } else {
-              response = { success: false, message: 'Email or password is incorrect' };
+              response = {success: false, message: 'Email or password is incorrect'};
             }
             callback(response);
           });
@@ -65,12 +65,12 @@ angular.module('serbleApp')
       };
 
       $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-      $cookieStore.put('globals', $rootScope.globals);
+      $cookies.putObject('globals', $rootScope.globals);
     }
 
     function ClearCredentials() {
       $rootScope.globals = {};
-      $cookieStore.remove('globals');
+      $cookies.remove('globals');
       $http.defaults.headers.common.Authorization = 'Basic';
     }
   }
