@@ -6,7 +6,7 @@
  * @version 2016-01-26
  */
 
-// Constants
+// Constants and namespaces
 var PORT_DEFAULT = 3000;
 
 // Module loading
@@ -20,15 +20,19 @@ var app = express()
 
 var http = require('http').Server(app);
 var mysql = require('mysql');
+var serble = require('./serble.js');
 
 // Private (Custom) modules
 var database = mysql.createConnection({
-    host: 'localhost',
-    port: '3306',
-    database: 'serble',
-    user: 'serble',
-    password: 'serble'
+    host: serble.database.host,
+    port: serble.database.port,
+    database: serble.database.name,
+    user: serble.database.user,
+    password: serble.database.password
 });
+
+serble.objects.app = app;
+serble.objects.database = database;
 
 database.connect(function (e) {
     if (e) {
@@ -36,14 +40,27 @@ database.connect(function (e) {
     }
 });
 
-var articles = require('./articles.js').use(app, database);
-var users = require('./users.js').use(app, database);
+serble.loadSettings = function () {
+    database.query("SELECT * FROM `settings`", function (e, data) {
+    });
+};
+
+serble.saveSetting = function (key) {
+    database.query("UPDATE `settings` SET `value` = '" + serble.settings[key] + "' WHERE `key` = '" + key + "'", function (e) {
+        if (e) {
+            console.log("Database error: " + e);
+        }
+    });
+};
+
+serble.loadSettings();
+
+var users = require('./users.js');
 
 // Application environment variables
 app.set('port', process.env.port || PORT_DEFAULT);
 app
     .use(express.static(__dirname + '/../client/dist'))
-
     .get('/', function (req, res) {
         res.sendFile(path.resolve('./../client/dist/index.html'));
     });

@@ -1,7 +1,17 @@
 'use strict';
 
+var serble = require('./serble.js');
 var bcrypt = require('bcryptjs');
-var app, db;
+
+var app = serble.objects.app;
+var database = serble.objects.database;
+
+// Constants
+var USERNAME_LOWER_LIMIT = 4;
+var USERNAME_UPPER_LIMIT = 45;
+var PASSWORD_LOWER_LIMIT = 6;
+var PASSWORD_UPPER_LIMIT = 45;
+var EMAIL_UPPER_LIMIT = 45;
 
 /**
  * Users module
@@ -9,110 +19,152 @@ var app, db;
  * @version 2016-01-28
  */
 var exp = {
-    Profile: function (fn, ln, c, add, d, avt, cfg) {
-        this.firstname = fn;
-        this.lastname = ln;
-        this.city = c;
-        this.address = add;
-        this.description = d;
-        this.avatar_url = avt;
-        this.config = cfg;
-    },
+    /**
+     * Attempts to log in and return token
+     * @param username Username/Email
+     * @param password Password
+     * @param callback Callback
+     */
+    login: function (username, password, callback) {
+        var err = [];
 
-    User: function (id) {
-        this.id = id || null;
-        this.username = null;
-        this.password = null;
-        this.email = null;
-        this.ssn = null;
-        this.profile = null;
+        if (!username) {
+            err.push("nouser");
+        }
+        if (!password) {
+            err.push("nopass");
+        }
 
-        this.fetchUser = function (callback) {
-            var options = {
-                user_id: this.id
-            };
+        if (err.length > 0) {
+            callback(err);
+            return;
+        }
 
-            var self = this;
-            var query = db.query('SELECT * FROM `account` WHERE ?', options, function (err, result) {
-                if (err) {
-                    console.log("Database error: " + err);
-                } else {
-                    var data = result[0];
+        bcrypt.genSalt(10, function (e, salt) {
+            bcrypt.hash(password, salt, function (e, hash) {
+                var query = "SELECT `password` FROM `account` WHERE `username` = "
+                    + database.escape(username)
+                    + " OR `email` = "
+                    + database.escape(username);
 
-                    if (data) {
-                        self.username = data.username;
-                        self.password = data.password;
-                        self.email = data.email;
-                        self.ssn = data.ssn;
-
-                        callback();
-                    }
-                }
-            });
-        };
-
-        this.fetchProfile = function (callback) {
-            var options = {
-                user_id: this.id
-            };
-
-            var self = this;
-            var query = db.query('SELECT * FROM `profile` WHERE ?', options, function (err, result) {
-                if (err) {
-                    console.log("Database error: " + err);
-                } else {
-                    var data = result[0];
-
-                    if (data) {
-                        self.profile = new exp.Profile(
-                            data.firstname,
-                            data.lastname,
-                            data.city,
-                            data.address,
-                            data.description,
-                            data.avatar_url,
-                            {
-                                show_city: (data.show_city >= 1),
-                                show_address: (data.show_address >= 1),
-                                show_age: (data.show_age >= 1),
-                                show_avatar: (data.show_avatar >= 1)
+                database.query(query, function (e, res) {
+                    if (res.length <= 0) {
+                        err.push("noaccount");
+                        callback(err);
+                    } else {
+                        bcrypt.compare(password, res[0].password, function (e, res) {
+                            if (res) {
+                                callback(null, "grisskrik");
+                            } else {
+                                err.push("passwordinvalid");
+                                callback(err);
                             }
-                        );
-
-                        callback();
+                        });
                     }
-                }
-            });
-        };
-
-        this.fetch = function (callback) {
-            var self = this;
-
-            this.fetchUser(function () {
-                self.fetchProfile(function () {
-                    callback();
                 });
             });
+        });
+    },
+
+    /**
+     * Registers a new account
+     * @param username Username
+     * @param password Password
+     * @param email E-mail
+     * @param ssn Social security number
+     * @param callback Callback
+     */
+    register: function (username, password, email, ssn, callback) {
+        var err = [];
+
+        if (!username) {
+            err.push("nouser");
+        } else {
+            if (username.length < USERNAME_LOWER_LIMIT) {
+                err.push("usertooshort");
+            } else if (username.length > USERNAME_UPPER_LIMIT) {
+                err.push("usertoolong");
+            }
         }
-    },
+        if (!password) {
+            err.push("nopass");
+        } else {
+            if (password.length < PASSWORD_LOWER_LIMIT) {
+                err.push("passwordtooshort");
+            } else if (password.length > PASSWORD_UPPER_LIMIT) {
+                err.push("passwordtoolong");
+            }
+        }
+        if (!email) {
+            err.push("noemail");
+        } else {
+            if (email.length > EMAIL_UPPER_LIMIT) {
+                err.push("emailtoolong");
+            }
+        }
+        if (!ssn) {
+            err.push("nossn");
+        }
 
-    /**
-     * Creates and adds the user template to the database
-     * @param user User
-     */
-    create: function (user) {
+        if (err.length > 0) {
+            callback(err);
+            return;
+        }
 
-    },
+        var query = "SELECT `user_id` FROM `account` WHERE `username` = "
+            + database.escape(username)
+            + " OR `email` = "
+            + database.escape(email);
 
-    /**
-     * Sets the app and database object
-     * @param appObj App object
-     * @param dbObj Database object
-     */
-    use: function (appObj, dbObj) {
-        app = appObj;
-        db = dbObj;
+        database.query(query, function (e, res) {
+            if (res.length > 0) {
+                err.push("alreadyexists");
+                callback(err);
+                return;
+            } else {
+                bcrypt.genSalt(10, function (e, salt) {
+                    bcrypt.hash(password, salt, function (e, hash) {
+                        var options = {
+                            group_id: 1,
+                            username: username,
+                            password: hash,
+                            email: email,
+                            ssn: ssn
+                        };
+
+                        database.query("INSERT INTO `account` SET ?", options, function (e) {
+                            if (e) {
+                                console.log("Database error: " + e);
+                            } else {
+                                callback();
+                            }
+                        });
+                    });
+                });
+            }
+        });
     }
 };
+
+exp.login("fisk", "fiskmås", function (e, token) {
+});
+
+app.get('/user/login', function (req, res) {
+    exp.login(req.query.username, req.query.password, function (e) {
+    });
+});
+
+app.post('/user/register', function (req, res) {
+    console.log("Register request started: " + req.body);
+    exp.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
+        res.json(e);
+
+        if (e) {
+            console.log("Register request failed! Errors: " + e);
+        } else {
+            console.log("Register request succesful!");
+        }
+    });
+});
 
 module.exports = exp;
