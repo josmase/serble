@@ -11,6 +11,7 @@ angular.module('serbleApp')
   .controller('ProfileCtrl', function ($scope, UserService, $rootScope) {
     $scope.toggleContactInfo = toggleContactInfo;
     $scope.update = update;
+    $scope.loading=false;
     if ($rootScope.globals) {
       var username = $rootScope.globals.currentUser.credentials || 'invalid';
     }
@@ -34,13 +35,16 @@ angular.module('serbleApp')
 
     function update() {
       console.log($scope.user);
+      $scope.loading=true;
       UserService.Update($scope.user).then(function (response) {
+        $scope.loading=false;
         if (response.success) {
           console.log(response);
         }
         else {
           console.log(response);
         }
+
       })
     }
 
