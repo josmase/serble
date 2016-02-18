@@ -2,25 +2,36 @@
 <div class="container profile">
   <div class="profileInfo">
     <img src="../images/working.jpg">
-    <input id="name" type="text" ng-model="user.firstname" ng-readonly="!editable" ng-class="{editable:editable}">
-    <input type="text" ng-model="user.city" ng-readonly="!editable"ng-class="{editable:editable}">
+    <label>Stad
+      <input type="text" ng-model="user.city">
+    </label>
+    <label>Beskrivning
      <textarea type="text" name="description"
                cols="40"
                rows="10"
-               placeholder="Jag..."
                ng-model="user.description"
-               ng-readonly="!editable"
-               ng-class="{editable:editable}"
      > </textarea>
-    <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
-    <div ng-show="showContactInfo">
-      <ul>
-        <li>070-1234567</li>
-        <li>mail@gmail.com</li>
-      </ul>
-    </div>
+    </label>
+    <label>Förnamn
+      <input type="text" ng-model="user.firstname">
+    </label>
+    <label>Efternamn
+      <input type="text" ng-model="user.lastname">
+    </label>
+    <label> Telefon
+      <input type="tel" ng-model="user.phone">
+    </label>
+    <label>Visa mitt nummer
+      <input type="checkbox" ng-model="user.show_phone">
+    </label>
+    <label>Visa min email
+      <input type="checkbox" ng-model="user.show_email">
+    </label>
+    <label>Visa min stad
+      <input type="checkbox" ng-model="user.show_city">
+    </label>
   </div>
-  <button ng-click="toggleEditable()">edit</button>
+  <button ng-click="update()">save</button>
 </div>
 <modal-success show='modalShownSuccess'>
   <div class="modalInfo">

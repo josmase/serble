@@ -9,10 +9,8 @@
  */
 angular.module('serbleApp')
   .controller('ProfileCtrl', function ($scope, UserService, $rootScope) {
-    $scope.showContactInfo = false;
-    $scope.editable = false;
     $scope.toggleContactInfo = toggleContactInfo;
-    $scope.toggleEditable = toggleEditable;
+    $scope.update = update;
     if ($rootScope.globals) {
       var username = $rootScope.globals.currentUser.credentials || 'invalid';
     }
@@ -21,12 +19,6 @@ angular.module('serbleApp')
       $scope.showContactInfo = !$scope.showContactInfo;
     }
 
-    function toggleEditable() {
-      $scope.editable = !$scope.editable;
-      if ($scope.editable === false) {
-        update()
-      }
-    }
 
     function get() {
       UserService.GetByUsername(username)
