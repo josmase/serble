@@ -9,41 +9,6 @@
     <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row">
         <div class="col-xs-12 col-md-6">
-
-          <div class="form-group"
-               ng-class="{ 'has-error': articelForm.fname.$touched && articelForm.fname.$invalid }">
-            <label>Förnamn</label>
-            <input type="text" name="fname" class="form"
-                   placeholder="Sven"
-                   ng-model="articleData.fname"
-                   ng-minlength="1"
-                   ng-maxlength="70"
-                   required>
-
-            <div class="help-block" ng-messages="articelForm.fname.$error" ng-if="articelForm.fname.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="form-group"
-               ng-class="{ 'has-error': articelForm.lname.$touched && articelForm.lname.$invalid }">
-            <label>Efternamn</label>
-            <input type="text" name="lname" class="form"
-                   placeholder="Svensson"
-                   ng-model="articleData.lname"
-                   ng-minlength="1"
-                   ng-maxlength="70"
-                   required>
-
-            <div class="help-block" ng-messages="articelForm.lname.$error" ng-if="articelForm.lname.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
           <div class="form-group" ng-class="{ 'has-error': articelForm.city.$touched && articelForm.city.$invalid }">
             <label>Stad</label>
             <input type="text" name="city" class="form"
@@ -118,7 +83,7 @@
             <input type="text" name="title" class="form"
                    placeholder="Måla staket..."
                    ng-model="articleData.title"
-                   ng-minlength="1"
+                   ng-minlength="6"
                    ng-maxlength="50"
                    required>
 
@@ -134,8 +99,7 @@
             <input type="number" name="price" class="form"
                    placeholder="200"
                    ng-model="articleData.price"
-                   ng-minlength="1"
-                   ng-maxlength="70"
+                   min="0"
                    required>
 
             <div class="help-block" ng-messages="articelForm.price.$error"
