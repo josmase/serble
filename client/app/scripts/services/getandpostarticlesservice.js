@@ -11,25 +11,14 @@ angular.module('serbleApp')
   .service('getAndPostArticlesService', function ($http) {
     this.server = 'http://172.16.0.237:3000';
 
-    this.postArticleData = function (articleData) {
-      this.articleData = articleData;
+    this.postArticleData = function (data) {
+      this.data = data;
       return $http({
         method: 'POST',
         url: this.server + '/articles/post',
         dataType: 'json',
         data: {
-          data: {
-            'user_id': 0,
-            'title': this.articleData.title,
-            'description': this.articleData.description,
-            'payout': this.articleData.price,
-            'category': this.articleData.category,
-            'latitude': this.articleData.latitude,
-            'longitude': this.articleData.longitude,
-            'zipcode': this.articleData.zipCode,
-            'neighborhood': this.articleData.neighborhood,
-            'type': this.articleData.type
-          }
+          data: this.data
         }
       });
     };
