@@ -23,7 +23,12 @@ var exp = {
     profile: {
         structure: {},
 
-        filter: function (data) {
+        /**
+         * Filters a profile object
+         * @param data Profile data
+         * @param filter Filter hidden information
+         */
+        filter: function (data, filter) {
             var profile = data;
             delete profile.user_id;
             delete profile.profile_id;
@@ -31,8 +36,11 @@ var exp = {
             for (var key in profile) {
                 var match = key.match("^show_(.+)");
 
-                if (!profile[key] && match) {
-                    profile[match[1]] = null;
+                if (match) {
+                    profile[key] = Boolean(profile[key]);
+                    if (!profile[key] && filter) {
+                        profile[match[1]] = null;
+                    }
                 }
             }
 
@@ -46,9 +54,9 @@ var exp = {
             };
 
             for (var dk in data) {
-                if (data[dk] && data[dk].length) {
+                if (data[dk] != null) {
                     for (var sk in this.structure) {
-                        if (dk === sk && !this.structure[sk].ignore) {
+                        if (data[dk].length && dk === sk && !this.structure[sk].ignore) {
                             var err;
 
                             if (err = this.structure[sk].check(data[dk])) {
@@ -56,6 +64,8 @@ var exp = {
                             } else {
                                 result.filtered[dk] = data[dk];
                             }
+                        } else if (dk === "show_" + sk) {
+                            result.filtered[dk] = Number(data[dk]);
                         }
                     }
                 }
@@ -93,6 +103,7 @@ var exp = {
                     } else {
                         database.query("UPDATE `profile` SET ? WHERE `user_id` = "
                             + database.escape(res[0].user_id), verified.filtered, function (e) {
+                            callback();
                         });
                     }
                 });
@@ -103,9 +114,10 @@ var exp = {
     /**
      * Fetches a profile based on username
      * @param username Username
+     * @param filter Use filter (True if the visitor is not the profile owner)
      * @param callback Callback
      */
-    fetchProfile: function (username, callback) {
+    fetchProfile: function (username, filter, callback) {
         var err = [];
 
         if (!username) {
@@ -140,7 +152,7 @@ var exp = {
                             err.push("noprofile");
                             callback(err);
                         } else {
-                            callback(null, self.profile.filter(res[0]));
+                            callback(null, self.profile.filter(res[0], filter));
                         }
                     });
                 }
@@ -429,19 +441,32 @@ app.post('/user/profile/update', function (req, res) {
     }, function () {
         res.json({success: false, err: ["tokeninvalid"]});
     });
-
-    console.log();
 });
 
 app.get('/user/profile/get', function (req, res) {
-    exp.fetchProfile(req.query.username, function (e, profile) {
-        if (e) {
-            res.json({success: false, err: e});
-        } else {
-            res.json({success: true, result: profile});
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        var filter = true;
+
+        if (data.username === req.query.username) {
+            filter = false;
         }
+
+        exp.fetchProfile(req.query.username, filter, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
+        });
+    }, function () {
+        exp.fetchProfile(req.query.username, true, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
+        });
     });
-    console.log();
 });
 
 // HTTP Request handling
