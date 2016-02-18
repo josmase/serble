@@ -265,7 +265,6 @@ footer {
     text-align: left;
     background-color: transparent;
     border: 1px solid $input-border-color;
-    outline: none;
     padding: 10px;
     width: 100%;
     color: black;
@@ -453,10 +452,10 @@ footer {
     color: orange;
     font-size: 18px;
   }
-  label{
+  label {
     display: block;
   }
-  input,textarea{
+  input, textarea {
     display: block;
   }
   img {
