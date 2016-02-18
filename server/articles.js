@@ -1,215 +1,270 @@
 'use strict';
 
-var app, db;
+var serble = require('./serble.js');
+var tokens = require('./tokens.js');
+
+var app = serble.objects.app;
+var database = serble.objects.database;
 
 /**
- * Articles (Advertisements) module
+ * Articles module
  * @author Emil Bertillson, Serble
- * @version 2016-01-28
+ * @version 2016-02-18
  */
 var exp = {
-    /**
-     * Instantiates a new article object
-     * @param id ID
-     * @param author_id Author profile ID
-     * @param title Article title
-     * @param category Category
-     * @param description Description
-     * @param payout Job payout
-     * @param latitude Latitude
-     * @param longitude Longitude
-     * @param zipcode ZIP-code
-     * @param neighborhood Neighborhood (Area)
-     * @param type Article type
-     * @constructor
-     */
-    Article: function (id, author_id, title, category, description, payout, latitude, longitude, zipcode, neighborhood, type) {
-        this.id = id || null;
-        this.author_id = author_id || 0;
-        this.title = title || "Unknown";
-        this.description = description || "Unknown";
-        this.category = category || "Unknown";
-        this.payout = payout || 0;
-        this.latitude = latitude || 0;
-        this.longitude = longitude || 0;
-        this.zipcode = zipcode || 0;
-        this.neighborhood = neighborhood || "Unknown";
-        this.type = type || 1;
-    },
+    structure: {},
 
     /**
-     * Instantiates a new request object
-     * @param req Client request data
-     * @constructor
+     * Verifies user input
+     * @param data Data
      */
-    ArticleRequestObject: function (req) {
-        this.id = req.id || null;
-        this.filterTitle = req.filterTitle || null;
-        this.filterCategory = req.filterCategory || null;
-        this.type = req.type || null;
-        this.latitude = req.latitude || null;
-        this.longitude = req.longitude || null;
-        this.zipcode = req.zipcode || null;
-        this.neighborhood = req.neighborhood || null;
-        this.radius = req.radius || null;
-        this.range = req.range || null;
-    },
+    verify: function (data) {
+        var result = {
+            filtered: {},
+            err: []
+        };
 
-    /**
-     * Instantiates a new post object
-     * @param req Client request data
-     * @constructor
-     */
-    ArticlePostObject: function (req) {
-        this.valid = true;
-        this.title = req.title || null;
-        this.description = req.description || null;
-        this.payout = req.payout || 0;
-        this.category = req.category || "Unspecified";
-        this.latitude = req.latitude || 0;
-        this.longitude = req.longitude || 0;
-        this.zipcode = req.zipcode || 0;
-        this.neighborhood = req.neighborhood || "Unspecified";
-        this.type = req.type || 1;
-        this.stage = req.stage || 0;
+        for (var sk in this.structure) {
+            if (!this.structure[sk].ignore) {
+                var exists = false;
 
-        if (!req.author) {
-            this.valid = false;
-            this.author = 1;
-        } else {
-            this.author = req.author;
-        }
-    },
+                for (var dk in data) {
+                    if (dk === sk) {
+                        exists = true;
 
-    /**
-     * Gets all articles based on request
-     * @param req Article request object
-     * @param callback Callback
-     */
-    getArticles: function (req, callback) {
-        var res = [];
+                        var err;
 
-        var qstring = 'SELECT * FROM `advertisement` WHERE `advert_id` > 0 ';
-
-        if (req.id) {
-            options.advert_id = req.id;
-        } else if (req.filterTitle && req.filterCategory) {
-            qstring += ' AND `title` LIKE ' + db.escape('%' + req.filterTitle + '%')
-                + ' AND `category` LIKE ' + db.escape('%' + req.filterCategory + '%');
-        } else if (req.filterTitle) {
-            qstring += ' AND `title` LIKE ' + db.escape('%' + req.filterTitle + '%');
-        } else if (req.filterCategory) {
-            qstring += ' AND `category` LIKE ' + db.escape('%' + req.filterCategory + '%');
-        } else if (req.zipcode) {
-            qstring += ' AND `zipcode` = ' + db.escape(req.zipcode);
-        } else if (req.neighborhood) {
-            qstring += ' AND `neighborhood` = ' + db.escape(req.neighborhood);
-        }
-
-        if (req.type) {
-            qstring += ' AND `type` = ' + Number(req.type);
-        }
-
-        if (req.range) {
-            qstring += ' LIMIT ' + Number(req.range[0]) + ', ' + Number(req.range[1]);
-        }
-
-        console.log(qstring);
-
-        var query = db.query(qstring, null, function (err, result) {
-            if (err) {
-                console.log("Database error: " + err);
-                callback();
-            } else {
-                result.forEach(function (entry) {
-                    res.push(new exp.Article(
-                        entry.advert_id,
-                        entry.author_id,
-                        entry.title,
-                        entry.category,
-                        entry.description,
-                        entry.payout,
-                        entry.location_lat,
-                        entry.location_long,
-                        entry.zipcode,
-                        entry.neighborhood,
-                        entry.type
-                    ));
-                });
-
-                callback(res);
-            }
-        });
-    },
-
-    /**
-     * Posts an article to the database
-     * @param req Request data
-     */
-    postArticle: function (req) {
-        var result = {};
-
-        if (!req.author
-            || !req.title
-            || !req.description
-            || !req.payout
-            || !req.category
-            || !req.type) {
-            result.err = "Insufficient information, did you fill in all fields?";
-        } else {
-            var options = {
-                author_id: req.author,
-                title: req.title,
-                description: req.description,
-                payout: req.payout,
-                category: req.category,
-                location_lat: req.latitude,
-                location_long: req.longitude,
-                zipcode: req.zipcode,
-                neighborhood: req.neighborhood,
-                type: req.type,
-                stage: req.stage
-            };
-
-            var query = db.query('INSERT INTO `advertisement` SET ?', options, function (err, result) {
-                if (err) {
-                    console.log("Database error: " + err);
-                    result.err = "Internal database error";
+                        if (this.structure[sk].type && typeof data[dk] != this.structure[sk].type) {
+                            result.err.push(sk + "invalidtype");
+                        } else if (typeof this.structure[sk].check == "function" && (err = this.structure[sk].check(data[dk]))) {
+                            result.err.push(err);
+                        } else {
+                            result.filtered[dk] = data[dk];
+                        }
+                    }
                 }
-            });
+
+                if (!exists) {
+                    result.err.push("no" + sk);
+                }
+            }
         }
 
         return result;
     },
 
     /**
-     * Sets the app and database object
-     * @param appObj App object
-     * @param dbObj Database object
+     * Posts an article to the database
+     * @param token Token data
+     * @param data Article data
+     * @param callback Callback
      */
-    use: function (appObj, dbObj) {
-        app = appObj;
-        db = dbObj;
+    postArticle: function (token, data, callback) {
+        var err = [];
 
-        initialize();
+        if (!data) {
+            err.push("nodata");
+        }
+
+        if (err.length > 0) {
+            callback(err);
+        } else {
+            var verified = this.verify(data);
+
+            if (verified.err.length > 0) {
+                callback(verified.err);
+            } else {
+                var sqldata = verified.filtered;
+                sqldata.author_id = token.profile_id;
+                database.query("INSERT INTO `advertisement` SET ?", sqldata, function (e) {
+                    if (e) {
+                        console.log("Database error: " + e);
+                    } else {
+                        callback();
+                    }
+                });
+            }
+        }
+    },
+
+    /**
+     * Retrieves articles
+     * @param filter
+     * @param callback
+     */
+    getArticles: function (filter, callback) {
+        var self = this;
+        var query = "SELECT * FROM `advertisement` WHERE `author_id` > 0";
+
+        if (filter && typeof filter == "object") {
+            for (var key in filter) {
+                if (filter[key].value) {
+                    if (filter[key].strict) {
+                        query += " AND " + database.escape(key) + " = " + database.escape(filter[key.value]);
+                    } else {
+                        query += " AND " + database.escape(key) + " = LIKE(" + database.escape("%" + filter[key.value] + "%") + ")";
+                    }
+                } else {
+                    callback(["filterkeynovalue"]);
+                }
+            }
+        }
+
+        database.query(query, function (e, res) {
+            if (e) {
+                console.log("Database error: " + e);
+                callback(["dberror"]);
+            } else {
+                var result = [];
+
+                if (res) {
+                    res.forEach(function (entry) {
+                        var obj = {};
+
+                        for (var key in entry) {
+                            obj[key] = entry[key];
+                        }
+
+                        result.push(obj);
+                    });
+                }
+
+                callback(null, result);
+            }
+        });
     }
 };
 
-var initialize = function () {
-    // Responds to article requests
-    app.get('/articles/get', function (req, res) {
-        var reqData = new exp.ArticleRequestObject(req.query);
-        var data = exp.getArticles(reqData, function (data) {
-            res.json(data);
-        });
-    });
+// Article structure
 
-    app.post('/articles/create', function (req, res) {
-        var postData = new exp.ArticlePostObject(req.body);
-        var result = exp.postArticle(postData);
-        res.json(result);
-    });
-}
+exp.structure = {
+    advert_id: {
+        ignore: true
+    },
 
+    author_id: {
+        ignore: true
+    },
+
+    title: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length && typeof val == "string") {
+                if (val.length > 45) {
+                    return "titletoolong";
+                } else if (val.length < 6) {
+                    return "titletooshort";
+                }
+            } else {
+                return "titleinvalid";
+            }
+        }
+    },
+
+    description: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 255) {
+                    return "descriptiontoolong";
+                }
+            } else {
+                return "descriptioninvalid";
+            }
+        }
+    },
+
+    price: {
+        ignore: false,
+        type: "number",
+        check: function (val) {
+            if (val < 0) {
+                return "pricebelowzero";
+            }
+        }
+    },
+
+    contact: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "contacttoolong";
+                }
+            } else {
+                return "contactinvalid";
+            }
+        }
+    },
+
+    latitude: {
+        type: "number"
+    },
+
+    longitude: {
+        type: "number"
+    },
+
+    zipcode: {
+        type: "number"
+    },
+
+    neighborhood: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "neighborhoodtoolong";
+                }
+            } else {
+                return "neighborhoodinvalid";
+            }
+        }
+    },
+
+    type: {
+        ignore: false,
+        type: "number",
+        check: function (val) {
+            if (val < 0 || val > 1) {
+                return "typeinvalid";
+            }
+        }
+    }
+};
+
+// HTTP Requests
+
+app.get('/articles/get', function (req, res) {
+    exp.getArticles(req.query.filter, function (e, result) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true, result: result});
+        }
+    });
+});
+
+app.post('/articles/post', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.user_id) {
+            exp.postArticle(data, req.body.data, function (e, result) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
+});
 
 module.exports = exp;

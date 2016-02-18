@@ -3,7 +3,7 @@
 /**
  * Main server-side application initialization
  * @author Emil Bertilsson, Serble
- * @version 2016-01-26
+ * @version 2016-02-18
  */
 
 // Constants and namespaces
@@ -56,6 +56,7 @@ serble.saveSetting = function (key) {
 serble.loadSettings();
 
 var users = require('./users.js');
+var articles = require('./articles.js');
 
 // Application environment variables
 app.set('port', process.env.port || PORT_DEFAULT);
