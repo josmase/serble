@@ -13,7 +13,9 @@ angular.module('serbleApp')
     $scope.editable = false;
     $scope.toggleContactInfo = toggleContactInfo;
     $scope.toggleEditable = toggleEditable;
-    var username = $rootScope.globals.currentUser.credentials;
+    if ($rootScope.globals) {
+      var username = $rootScope.globals.currentUser.credentials || 'invalid';
+    }
 
     function toggleContactInfo() {
       $scope.showContactInfo = !$scope.showContactInfo;

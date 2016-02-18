@@ -39,10 +39,11 @@ angular.module('serbleApp')
 
     }
 
-    function SetCredentials(credentials) {
+    function SetCredentials(token,credentials) {
       $rootScope.globals = {
         currentUser: {
-          credentials:credentials
+          credentials:credentials,
+          token:token
         }
       };
 

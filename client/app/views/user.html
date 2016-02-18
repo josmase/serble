@@ -3,8 +3,8 @@
   <div class="profileInfo">
     <img src="../images/working.jpg">
     <h4 id="name">{{user.fname}} {{user.lname}}</h4>
-    <p>{{city}}</p>
-    <P>{{description}}</P>
+    <p>{{user.city}}</p>
+    <P>{{user.description}}</P>
     <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
     <div ng-show="showContactInfo">
       <ul>
