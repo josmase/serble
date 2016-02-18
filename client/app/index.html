@@ -9,9 +9,9 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.css' />
-  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
-  <link rel='stylesheet' href='bower_components/ladda/dist/ladda.min.css' />
+  <link rel='stylesheet' href='bower_components/angular-loading-bar/build/loading-bar.css'/>
+  <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'/>
+  <link rel='stylesheet' href='bower_components/ladda/dist/ladda.min.css'/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -56,7 +56,7 @@
           <li><a href="" ng-click="toggleModalRegister()">Registrera</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-show="checkIfLoggedIn()">
-          <li><a href="#/profile" >{{username}}</a></li>
+          <li><a href="#/profile">{{username}}</a></li>
           <li><a href="" ng-click="signOut()">Logga ut</a></li>
         </ul>
       </div>
@@ -173,7 +173,6 @@
 <script src="scripts/directives/modaldialogerror.js"></script>
 <script src="scripts/services/authenticationservice.js"></script>
 <script src="scripts/services/userservice.js"></script>
-<script src="scripts/services/fakeuserservice.js"></script>
 <script src="scripts/controllers/user.js"></script>
 <!-- endbuild -->
 </body>
