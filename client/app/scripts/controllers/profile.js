@@ -31,7 +31,7 @@ angular.module('serbleApp')
         .then(function (response) {
           if (response.success) {
             console.log(response);
-            $scope.user = response.resulta;
+            $scope.user = response.result;
           } else {
             console.log(response);
           }
@@ -40,8 +40,11 @@ angular.module('serbleApp')
 
     function update() {
       console.log($scope.user);
-      UserService.Update($scope.user, $rootScope.globals.currentUser).then(function (response) {
+      UserService.Update($scope.user).then(function (response) {
         if (response.success) {
+          console.log(response);
+        }
+        else {
           console.log(response);
         }
       })

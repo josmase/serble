@@ -18,7 +18,7 @@ angular.module('serbleApp')
     .module('serbleApp')
     .factory('authenticationService', authenticationService);
 
-  authenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout'];
+  authenticationService.$inject = ['$http', '$cookies', '$rootScope'];
   function authenticationService($http, $cookies, $rootScope) {
     var service = {};
     var server = 'http://172.16.0.237:3000';
@@ -39,11 +39,10 @@ angular.module('serbleApp')
 
     }
 
-    function SetCredentials(token,credentials) {
+    function SetCredentials(credentials) {
       $rootScope.globals = {
         currentUser: {
-          credentials:credentials,
-          token: token
+          credentials:credentials
         }
       };
 

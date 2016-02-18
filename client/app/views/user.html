@@ -2,9 +2,9 @@
 <div class="container profile">
   <div class="profileInfo">
     <img src="../images/working.jpg">
-    <h4 id="name">ASd sa</h4>
-    <p>Umeå</p>
-    <P>asdasdasdasd</P>
+    <h4 id="name">{{user.fname}} {{user.lname}}</h4>
+    <p>{{city}}</p>
+    <P>{{description}}</P>
     <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
     <div ng-show="showContactInfo">
       <ul>

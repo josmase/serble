@@ -40,13 +40,12 @@
       return $http.post(server+'/user/register', user).then(handleSuccess, handleError('Error creating user'));
     }
 
-    function Update(user,currentUser) {
+    function Update(user) {
       return $http({
         method: 'POST',
         url: server + '/user/profile/update',
         data: {
-          'data': user,
-          'token': currentUser.token
+          'data': user
         }
       }).then(handleSuccess, handleError('Error updating user'));
     }

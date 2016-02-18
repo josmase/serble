@@ -73,7 +73,7 @@ angular
       // keep user logged in after page refresh
       $rootScope.globals = JSON.parse($cookies.get('globals') || "{}");
       if ($rootScope.globals.currentUser) {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+        $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token; // jshint ignore:line
       }
     }
   );
