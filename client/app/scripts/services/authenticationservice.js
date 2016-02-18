@@ -18,8 +18,8 @@ angular.module('serbleApp')
     .module('serbleApp')
     .factory('authenticationService', authenticationService);
 
-  authenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'FakeUserService'];
-  function authenticationService($http, $cookies, $rootScope, $timeout, FakeUserService) {
+  authenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout'];
+  function authenticationService($http, $cookies, $rootScope) {
     var service = {};
     var server = 'http://172.16.0.237:3000';
 

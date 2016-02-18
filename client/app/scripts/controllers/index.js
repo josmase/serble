@@ -45,6 +45,7 @@ angular.module('serbleApp')
     }
 
     function checkIfLoggedIn() {
+      $scope.username = $rootScope.globals.currentUser.credentials;
       return $rootScope.globals.currentUser
     }
 
