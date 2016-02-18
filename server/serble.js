@@ -9,6 +9,10 @@ var exp = {
         name: "serble",
         user: "serble",
         password: "serble"
+    },
+    jwt: {
+        secret: "b4016b366540e3ba3c71fe9420731bbc",
+        expiration: 86400
     }
 };
 
