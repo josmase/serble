@@ -20,24 +20,49 @@ var EMAIL_UPPER_LIMIT = 45;
  * @version 2016-02-17
  */
 var exp = {
-    /**
-     * Filters a profile based on settings
-     * @param data
-     */
-    filterProfile: function (data) {
-        var profile = data;
-        delete profile.user_id;
-        delete profile.profile_id;
+    profile: {
+        structure: {},
 
-        for (var key in profile) {
-            var match = key.match("^show_(.+)");
+        filter: function (data) {
+            var profile = data;
+            delete profile.user_id;
+            delete profile.profile_id;
 
-            if (!profile[key] && match) {
-                profile[match[1]] = null;
+            for (var key in profile) {
+                var match = key.match("^show_(.+)");
+
+                if (!profile[key] && match) {
+                    profile[match[1]] = null;
+                }
             }
-        }
 
-        return profile;
+            return profile;
+        },
+
+        verify: function (data) {
+            var result = {
+                filtered: {},
+                err: []
+            };
+
+            for (var dk in data) {
+                if (data[dk] && data[dk].length) {
+                    for (var sk in this.structure) {
+                        if (dk === sk && !this.structure[sk].ignore) {
+                            var err;
+
+                            if (err = this.structure[sk].check(data[dk])) {
+                                result.err.push(err);
+                            } else {
+                                result.filtered[dk] = data[dk];
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
     },
 
     /**
@@ -55,7 +80,23 @@ var exp = {
 
         if (err.length > 0) {
             callback(err);
-            return;
+        } else {
+            var verified = this.profile.verify(data);
+
+            if (verified.err.length > 0) {
+                callback(verified.err);
+            } else {
+                database.query("SELECT * FROM `account` WHERE ?", {username: username}, function (e, res) {
+                    if (res.length <= 0) {
+                        err.push("noaccount");
+                        callback(err);
+                    } else {
+                        database.query("UPDATE `profile` SET ? WHERE `user_id` = "
+                            + database.escape(res[0].user_id), verified.filtered, function (e) {
+                        });
+                    }
+                });
+            }
         }
     },
 
@@ -99,7 +140,7 @@ var exp = {
                             err.push("noprofile");
                             callback(err);
                         } else {
-                            callback(null, self.filterProfile(res[0]));
+                            callback(null, self.profile.filter(res[0]));
                         }
                     });
                 }
@@ -269,13 +310,118 @@ var exp = {
     }
 };
 
-app.post('/user/profile/update', function (req, res) {
-    console.log("Update profile request:");
-    console.log(req.body);
+// Profile structure setup
 
-    tokens.tryUnlock(req.body.token, function (data) {
+exp.profile.structure = {
+    user_id: {
+        ignore: true
+    },
+
+    profile_id: {
+        ignore: true
+    },
+
+    firstname: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "firstnametoolong";
+                }
+            } else {
+                return "firstnameinvalid";
+            }
+        }
+    },
+
+    lastname: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "lastnametoolong";
+                }
+            } else {
+                return "lastnameinvalid";
+            }
+        }
+    },
+
+    city: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "citytoolong";
+                }
+            } else {
+                return "cityinvalid";
+            }
+        }
+    },
+
+    phone: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "phonetoolong";
+                }
+            } else {
+                return "phoneinvalid";
+            }
+        }
+    },
+
+    address: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "addresstoolong";
+                }
+            } else {
+                return "addressinvalid";
+            }
+        }
+    },
+
+    description: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 255) {
+                    return "descriptiontoolong";
+                }
+            } else {
+                return "descriptioninvalid";
+            }
+        }
+    },
+
+    avatar_url: {
+        ignore: false,
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "avatartoolong";
+                }
+            } else {
+                return "avatarinvalid";
+            }
+        }
+    }
+};
+
+app.post('/user/profile/update', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.username) {
             exp.updateProfile(data.username, req.body.data, function (e) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
             });
         } else {
             res.json({success: false, err: ["tokenerror"]});
@@ -288,48 +434,36 @@ app.post('/user/profile/update', function (req, res) {
 });
 
 app.get('/user/profile/get', function (req, res) {
-    console.log("Get profile request:");
-    console.log(req.query);
     exp.fetchProfile(req.query.username, function (e, profile) {
         if (e) {
-            console.log("Get profile request failed: " + e);
             res.json({success: false, err: e});
         } else {
-            console.log("Get profile request succesful! User: " + req.query.username);
             res.json({success: true, result: profile});
         }
     });
     console.log();
 });
 
+// HTTP Request handling
+
 app.post('/user/login', function (req, res) {
-    console.log("Login request:");
-    console.log(req.body);
     exp.login(req.body.credentials, req.body.password, function (e, token, username) {
         if (e) {
-            console.log("Login request failed: " + e);
             res.json({success: false, err: e});
         } else {
-            console.log("Login request succesful! Token: " + token);
             res.json({success: true, result: token, username: username});
         }
     });
-    console.log();
 });
 
 app.post('/user/register', function (req, res) {
-    console.log("Register request:");
-    console.log(req.body);
     exp.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
         if (e) {
-            console.log("Register request failed: " + e);
             res.json({success: false, err: e});
         } else {
-            console.log("Register request succesful!");
             res.json({success: true});
         }
     });
-    console.log();
 });
 
 module.exports = exp;
