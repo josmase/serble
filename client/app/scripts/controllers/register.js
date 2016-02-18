@@ -1,17 +1,28 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name serbleApp.controller:RegisterCtrl
- * @description
- * # RegisterCtrl
- * Controller of the serbleApp
- */
-angular.module('serbleApp')
-  .controller('RegisterCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular
+  .module('serbleApp')
+  .controller('RegisterCtrl', RegisterController);
+
+RegisterController.$inject = ['UserService', '$location', '$rootScope'];
+function RegisterController(UserService, $rootScope) {
+  var vm = this;
+
+  vm.register = register;
+  vm.user = {};
+  vm.loading = false;
+  function register() {
+    vm.user.ssn = new Date();
+    vm.loading = true;
+    UserService.Create(vm.user)
+      .then(function (response) {
+        if (response.success) {
+          console.log(response);
+          $rootScope.modalShownRegister = false;
+        } else {
+          console.log(response);
+        }
+        vm.loading = false;
+      });
+  }
+}

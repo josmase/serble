@@ -1,0 +1,95 @@
+<div class='ng-modal' ng-show='modalShownRegister'>
+  <div class='ng-modal-overlay' ng-click='toggleModalRegister()'></div>
+  <div class='ng-modal-dialog'>
+    <div class='ng-modal-dialog-content fadeInUp animated'>
+      <div class='ng-modal-close'>
+        <p ng-click='toggleModalRegister()'>✖</p>
+      </div>
+      <form name="registrationForm" ng-submit="registrationForm.$valid && register.register()" novalidate>
+        <h1>Registrera</h1>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error': registrationForm.username.$touched && registrationForm.username.$invalid }">
+              <input class="form" type="text" name="username"
+                     placeholder="USERNAME"
+                     ng-model="register.user.username"
+                     ng-minlength="4"
+                     ng-maxlength="40"
+                     required>
+
+              <div class="help-block" ng-messages="registrationForm.username.$error"
+                   ng-if="registrationForm.username.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{ 'has-error': registrationForm.email.$touched && registrationForm.email.$invalid }">
+              <input class="form" type="email" name="email"
+                     placeholder="E-MAIL"
+                     ng-model="register.user.email"
+                     required>
+
+              <div class="help-block" ng-messages="registrationForm.email.$error"
+                   ng-if="registrationForm.email.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid}">
+              <input class="form" type="password" name="password" id="password"
+                     placeholder="LÖSENORD"
+                     ng-model="register.user.password"
+                     ng-minlength="6"
+                     ng-maxlength="200"
+                     required>
+              <div class="help-block" ng-messages="registrationForm.password.$error"
+                   ng-if="registrationForm.password.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group"
+                 ng-class="{'has-error': registrationForm.password_verify.$touched && registrationForm.password_verify.$invalid}">
+              <input class="form" type="password" name="password_verify" id="password_verify"
+                     placeholder="REPTERA LÖSENORDET"
+                     ng-minlength="4"
+                     ng-maxlength="200"
+                     ng-model="register.user.password_verify"
+                     data-password-verify="register.user.password"
+                     required>
+              <div class="help-block" ng-messages="registrationForm.password_verify.$error"
+                   ng-if="registrationForm.password_verify.$touched">
+                <div ng-messages-include="../resources/error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row center">
+          <div class="col-xs-12 col-md-12">
+            <div class="form-group">
+              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">REGISTRERA ANVÄNDARE</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row center" id="login_prompt">
+        <div class="col-xs-12">
+          <p>Redan Registrerad <span ng-click="changeModal()">Logga in här</span>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

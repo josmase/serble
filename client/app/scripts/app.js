@@ -25,6 +25,7 @@ angular
     'angular-ladda',
     'ngFileUpload'
   ])
+
   .config(function ($routeProvider) {
       $routeProvider
         .when('/home', {
@@ -32,11 +33,6 @@ angular
           controller: 'MainCtrl',
           controllerAs: 'main',
           reloadOnSearch: false
-        })
-        .when('/login', {
-          templateUrl: 'views/login.html',
-          controller: 'LoginCtrl',
-          controllerAs: 'login'
         })
         .when('/map', {
           templateUrl: 'views/map.html',
@@ -47,11 +43,6 @@ angular
           templateUrl: 'views/article.html',
           controller: 'ArticleCtrl',
           controllerAs: 'article'
-        })
-        .when('/register', {
-          templateUrl: 'views/register.html',
-          controller: 'RegisterCtrl',
-          controllerAs: 'register'
         })
         .when('/articles', {
           templateUrl: 'views/articles.html',
@@ -68,8 +59,22 @@ angular
           controller: 'CreateArticleCtrl',
           controllerAs: 'createArticle'
         })
+        .when('/user/:username', {
+          templateUrl: 'views/user.html',
+          controller: 'UserCtrl',
+          controllerAs: 'user'
+        })
         .otherwise({
           redirectTo: '/home'
         });
     }
+  )
+  .run(function ($rootScope, $cookies, $http) {
+      // keep user logged in after page refresh
+      $rootScope.globals = JSON.parse($cookies.get('globals') || "{}");
+      if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token; // jshint ignore:line
+      }
+    }
   );
+

@@ -8,7 +8,8 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('indexCtrl', function ($scope, $location) {
+  .controller('indexCtrl', function ($scope, $location, $rootScope, authenticationService) {
+
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
       return $location.path().indexOf(viewLocation) === 0;
@@ -16,19 +17,19 @@ angular.module('serbleApp')
     var prev = 50;
     var $window = $(window);
     var header = $('header');
+    $scope.checkIfLoggedIn = checkIfLoggedIn;
+    $scope.signOut = signOut;
 
-    $scope.registerData = {};
-    $scope.loginData = {};
-
-    $scope.modalShownLogin = false;
-    $scope.modalShownRegister = false;
+    $rootScope.modalShownLogin = false;
+    $rootScope.modalShownRegister = false;
 
     $scope.toggleModalRegister = function () {
-      $scope.modalShownRegister = !$scope.modalShownRegister;
+      $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
     };
     $scope.toggleModalLogin = function () {
-      $scope.modalShownLogin = !$scope.modalShownLogin;
+      $rootScope.modalShownLogin = !$rootScope.modalShownLogin;
     };
+
     $scope.changeModal = function () {
       $scope.toggleModalLogin();
       $scope.toggleModalRegister();
@@ -39,13 +40,18 @@ angular.module('serbleApp')
       prev = scrollTop;
     });
 
-    $scope.login = function(){
-      console.log($scope.loginData);
-      $scope.toggleModalLogin();
-    };
-
-    $scope.register = function(){
-      console.log($scope.registerData);
-      $scope.toggleModalRegister();
+    function signOut() {
+      authenticationService.ClearCredentials();
     }
+
+    function checkIfLoggedIn() {
+      return $rootScope.globals.currentUser
+    }
+
+    $rootScope.$watch('globals', function () {
+      if ($rootScope.globals.currentUser) {
+        $scope.username = $rootScope.globals.currentUser.credentials || 'profile';
+      }
+    })
+
   });

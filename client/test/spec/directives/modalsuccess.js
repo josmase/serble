@@ -12,9 +12,4 @@ describe('Directive: modalSuccess', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<modal-success></modal-success>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the modalSuccess directive');
-  }));
 });

@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: RegisterctrlCtrl', function () {
+describe('Controller: UserCtrl', function () {
 
   // load the controller's module
   beforeEach(module('serbleApp'));
 
-  var RegisterctrlCtrl,
+  var UserCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    RegisterctrlCtrl = $controller('RegisterctrlCtrl', {
+    UserCtrl = $controller('UserCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
