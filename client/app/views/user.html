@@ -6,10 +6,10 @@
     <p>{{user.city}}</p>
     <P>{{user.description}}</P>
     <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
-    <div ng-show="showContactInfo">
+    <div>
       <ul>
-        <li>{{user.phone}}</li>
-        <li>{{user.email}}</li>
+        <li>{{userPrivate.phone}}</li>
+        <li>{{userPrivate.email}}</li>
       </ul>
     </div>
   </div>

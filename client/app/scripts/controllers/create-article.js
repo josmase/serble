@@ -38,10 +38,11 @@ angular.module('serbleApp')
 
     function submitForm() {
       $scope.loading = true;
-      geocodeService.geocode($scope.articleData).then(function (response) {
-        addLocationToArticle(response);
-        postArticle();
-      });
+      postArticle();
+     // geocodeService.geocode($scope.articleData).then(function (response) {
+       // addLocationToArticle(response);
+
+      //});
 
     }
     function deleteImage(){

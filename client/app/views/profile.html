@@ -38,16 +38,16 @@
     <div class="infoIcon success">
       ✓
     </div>
-    <p>Annonsen blev skapad</p>
+    <p>Din profil har uppdaterats</p>
   </div>
-  <a href="#/home" class="btn-accept">Ok</a>
+  <button class="btn-accept" ng-click="toggleModalSuccess()">Ok</button>
 </modal-success>
 <modal-dialog-error show='modalShownError'>
   <div class="modalInfo">
     <div class="infoIcon error">
       ✖
     </div>
-    <p>Tyvär gick det inte att skapa annonsen. Var vänlig fösök igen</p>
+    <p>{{error}}</p>
   </div>
-  <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
+  <button class="btn-accept error" ng-click="toggleModalError()">Ok</button>
 </modal-dialog-error>

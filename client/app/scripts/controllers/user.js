@@ -10,9 +10,11 @@
 angular.module('serbleApp')
   .controller('UserCtrl', function (UserService, $scope, $location) {
     $scope.toggleContactInfo = toggleContactInfo;
+    $scope.userPrivate = {};
 
     function toggleContactInfo() {
-      $scope.showContactInfo = !$scope.showContactInfo;
+      $scope.userPrivate.email = user.email;
+      $scope.userPrivate.phone = user.phone
     }
 
     var username = $location.path().split("/")[2] || "Unknown";
