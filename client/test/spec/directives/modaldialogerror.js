@@ -12,9 +12,4 @@ describe('Directive: modalDialogError', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<modal-dialog-error></modal-dialog-error>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the modalDialogError directive');
-  }));
 });

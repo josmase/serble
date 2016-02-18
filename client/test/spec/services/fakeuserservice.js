@@ -11,8 +11,4 @@ describe('Service: FakeUserService', function () {
     FakeUserService = _FakeUserService_;
   }));
 
-  it('should do something', function () {
-    expect(!!FakeUserService).toBe(true);
-  });
-
 });

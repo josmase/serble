@@ -11,8 +11,4 @@ describe('Service: authenticationService', function () {
     authenticationService = _authenticationService_;
   }));
 
-  it('should do something', function () {
-    expect(!!authenticationService).toBe(true);
-  });
-
 });
