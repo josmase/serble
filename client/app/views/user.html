@@ -1,0 +1,34 @@
+<div id="profileImage"><img src="../images/working.jpg"/></div>
+<div class="container profile">
+  <div class="profileInfo">
+    <img src="../images/working.jpg">
+    <h4 id="name">ASd sa</h4>
+    <p>Umeå</p>
+    <P>asdasdasdasd</P>
+    <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
+    <div ng-show="showContactInfo">
+      <ul>
+        <li>070-1234567</li>
+        <li>mail@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<modal-success show='modalShownSuccess'>
+  <div class="modalInfo">
+    <div class="infoIcon success">
+      ✓
+    </div>
+    <p>Annonsen blev skapad</p>
+  </div>
+  <a href="#/home" class="btn-accept">Ok</a>
+</modal-success>
+<modal-dialog-error show='modalShownError'>
+  <div class="modalInfo">
+    <div class="infoIcon error">
+      ✖
+    </div>
+    <p>Tyvär gick det inte att skapa annonsen. Var vänlig fösök igen</p>
+  </div>
+  <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
+</modal-dialog-error>

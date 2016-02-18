@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('indexCtrl', function ($scope, $location, $rootScope, authenticationService, $cookies) {
+  .controller('indexCtrl', function ($scope, $location, $rootScope, authenticationService) {
 
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
@@ -45,8 +45,13 @@ angular.module('serbleApp')
     }
 
     function checkIfLoggedIn() {
-      $scope.username = $rootScope.globals.currentUser.credentials;
       return $rootScope.globals.currentUser
     }
+
+    $rootScope.$watch('globals', function () {
+      if ($rootScope.globals.currentUser) {
+        $scope.username = $rootScope.globals.currentUser.credentials || 'profile';
+      }
+    })
 
   });

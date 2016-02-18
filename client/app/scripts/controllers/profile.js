@@ -31,7 +31,7 @@ angular.module('serbleApp')
         .then(function (response) {
           if (response.success) {
             console.log(response);
-            $scope.user = response.result;
+            $scope.user = response.resulta;
           } else {
             console.log(response);
           }

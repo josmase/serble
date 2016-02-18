@@ -59,6 +59,11 @@ angular
           controller: 'CreateArticleCtrl',
           controllerAs: 'createArticle'
         })
+        .when('/user/:username', {
+          templateUrl: 'views/user.html',
+          controller: 'UserCtrl',
+          controllerAs: 'user'
+        })
         .otherwise({
           redirectTo: '/home'
         });
