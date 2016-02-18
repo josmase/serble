@@ -2,14 +2,14 @@
 <div class="container profile">
   <div class="profileInfo">
     <img src="../images/working.jpg">
-    <h4 id="name">{{user.fname}} {{user.lname}}</h4>
+    <h4 id="name">{{user.firstname}} {{user.lastname}}</h4>
     <p>{{user.city}}</p>
     <P>{{user.description}}</P>
     <button class="button-accept" ng-click="toggleContactInfo()">kontakta mig</button>
     <div ng-show="showContactInfo">
       <ul>
-        <li>070-1234567</li>
-        <li>mail@gmail.com</li>
+        <li>{{user.phone}}</li>
+        <li>{{user.email}}</li>
       </ul>
     </div>
   </div>
