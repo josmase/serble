@@ -18,7 +18,7 @@ angular.module('serbleApp')
   .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService) {
 
     getAndPostArticlesService.getArticles($scope.search).then(function (returnedArticles) {
-      $scope.markers = returnedArticles.data;
+      $scope.markers = returnedArticles.data.result;
     });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
