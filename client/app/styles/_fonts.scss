@@ -15,7 +15,7 @@ $h-font-family: 'Sak-medium', sans-serif;
 $text-font-family: 'Sak-light', sans-serif;
 /*Color and font for all p elements*/
 p, a, a:hover,button {
-  color: $primary-font-color;
+  color: #FFF;
   font-family: $text-font-family;
   text-decoration: none;
 }
@@ -65,4 +65,3 @@ label {
 input::placeholder, select, textarea::placeholder {
   color: $placeholder-font-color;
 }
-
