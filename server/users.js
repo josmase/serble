@@ -1,5 +1,6 @@
 'use strict';
 
+var tokens = require('./tokens.js');
 var serble = require('./serble.js');
 var bcrypt = require('bcryptjs');
 
@@ -16,7 +17,7 @@ var EMAIL_UPPER_LIMIT = 45;
 /**
  * Users module
  * @author Emil Bertillson, Serble
- * @version 2016-02-18
+ * @version 2016-02-19
  */
 var exp = {
     profile: {
