@@ -3,7 +3,7 @@
 /**
  * Main server-side application initialization
  * @author Emil Bertilsson, Serble
- * @version 2016-02-18
+ * @version 2016-02-19
  */
 
 // Constants and namespaces
@@ -59,25 +59,71 @@ http.listen(app.get('port'), function () {
 
 // HTTP Requests
 
+app.get('/articles/remove', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.profile_id) {
+            articles.removeArticle(req.query.id, function (e) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
+});
+
 app.get('/articles/get', function (req, res) {
     var filter = req.query.filter;
 
     if (typeof filter == "string") {
-        filter = JSON.parse(filter);
+        try {
+            filter = JSON.parse(filter);
+        } catch (e) {
+            res.json({success: false, err: ["invalidjson"]});
+            return;
+        }
+    } else if (typeof filter != "object") {
+        res.json({success: false, err: ["invalidjson"]});
+        return;
     }
 
-    console.log(filter);
-
-    articles.getArticles(filter, function (e, result) {
-        if (e) {
-            res.json({success: false, err: e});
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.user_id) {
+            articles.getArticles(filter, function (e, result) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true, result: result});
+                }
+            });
         } else {
-            res.json({success: true, result: result});
+            res.json({success: false, err: ["tokenerror"]});
         }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
     });
 });
 
 app.post('/articles/post', function (req, res) {
+    var data = req.body.data;
+
+    if (typeof data == "string") {
+        try {
+            data = JSON.parse(data);
+        } catch (e) {
+            res.json({success: false, err: ["invalidjson"]});
+            return;
+        }
+    } else if (typeof data != "object") {
+        res.json({success: false, err: ["invalidjson"]});
+        return;
+    }
+
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.user_id) {
             articles.postArticle(data, req.body.data, function (e, result) {

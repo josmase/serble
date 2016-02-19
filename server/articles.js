@@ -8,7 +8,7 @@ var database = serble.objects.database;
 /**
  * Articles module
  * @author Emil Bertillson, Serble
- * @version 2016-02-18
+ * @version 2016-02-19
  */
 var exp = {
     structure: {},
@@ -103,7 +103,7 @@ var exp = {
                     range = filter[key];
                     delete filter[key];
                 } else if (filter[key].value) {
-                    if (filter[key].strict) {
+                    if (filter[key].strict === false) {
                         query += " AND `" + key.replace("\\", '').replace('`', '') + "` = " + database.escape(filter[key].value);
                     } else {
                         query += " AND `" + key.replace("\\", '').replace('`', '') + "` LIKE(" + database.escape("%" + filter[key].value + "%") + ")";
@@ -115,8 +115,6 @@ var exp = {
                 query += " LIMIT " + range;
             }
         }
-
-        console.log(query);
 
         database.query(query, function (e, res) {
             if (e) {
@@ -140,6 +138,32 @@ var exp = {
                 callback(null, result);
             }
         });
+    },
+
+    /**
+     * Removes an article
+     * @param id Article ID
+     * @param callback Callback
+     */
+    removeArticle: function (id, callback) {
+        var err = [];
+
+        if (!id) {
+            err.push("noid");
+        }
+
+        if (err.length > 0) {
+            callback(err);
+        } else {
+            database.query("DELETE FROM `advertisement` WHERE ?", {advert_id: id}, function (e) {
+                if (e) {
+                    console.log("Database error: " + e);
+                    callback(["dberror"]);
+                } else {
+                    callback();
+                }
+            });
+        }
     }
 };
 
@@ -244,6 +268,20 @@ exp.structure = {
                 }
             } else {
                 return "neighborhoodinvalid";
+            }
+        }
+    },
+
+    city: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "citytoolong";
+                }
+            } else {
+                return "cityinvalid";
             }
         }
     },
