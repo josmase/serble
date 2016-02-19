@@ -65,9 +65,12 @@
         </div>
         <div class="col-xs-12 col-md-3">
           <div class="form-group">
-            <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
-              Sök annonser
-            </button>
+            <div class="buttonRipple">
+              <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
+                Sök annonser
+              </button>
+              <paper-ripple fit></paper-ripple>
+            </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-12">
@@ -113,6 +116,10 @@
   <div class="container-fluid">
     <div class="row" id="viewMore">
       <div class="col-xs-12 col-md-6">
+        <div class="buttonRipple raised btn-accept">
+          <button class="btn-accept" fit>SUBMIT</button>
+          <paper-ripple fit></paper-ripple>
+        </div>
         <button class="btn-accept" href="" ng-click="viewMore()" ladda="loading">
           Visa fler
         </button>

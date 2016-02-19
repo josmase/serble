@@ -79,7 +79,7 @@ angular.module('serbleApp')
         // file is uploaded successfully
         console.log(resp);
       }, function (resp) {
-        // handle error
+        console.log(resp);
       }, function (evt) {
         var progressPercentage = parseInt(100.0 *
           evt.loaded / evt.total);
@@ -87,9 +87,7 @@ angular.module('serbleApp')
           '% ' + evt.config.data.file.name + '\n' +
           $scope.log;
       });
-    }
-
-
+    };
   });
 
 

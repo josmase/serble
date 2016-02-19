@@ -611,3 +611,7 @@ footer ul {
     }
   }
 }
+.buttonRipple > paper-ripple {
+  border-radius: 2px;
+  overflow: hidden;
+}
