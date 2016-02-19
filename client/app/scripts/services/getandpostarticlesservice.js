@@ -14,6 +14,7 @@ angular.module('serbleApp')
     this.postArticleData = postArticleData;
     this.getArticles = getArticles;
     this.getById = getById;
+    this.removeById = removeById;
 
     function postArticleData(data) {
       this.data = data;
@@ -61,6 +62,25 @@ angular.module('serbleApp')
         params: {
           filter: {
             advert_id: {
+              strict: false,
+              value: this.id
+            }
+          }
+        }
+      }).then(function (response) {
+        return response;
+      });
+    }
+
+    function removeById(id) {
+      this.id = id;
+      return $http({
+        method: 'GET',
+        url: server + '/articles/remove',
+        dataType: 'json',
+        params: {
+          filter: {
+            id: {
               strict: false,
               value: this.id
             }
