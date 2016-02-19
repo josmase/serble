@@ -20,11 +20,18 @@ angular.module('serbleApp')
     function postArticle() {
       getAndPostArticlesService.postArticleData($scope.articleData)
         .then(function successCallback(response) {
-          console.log(response);
+          console.log(response.data);
           $scope.loading = false;
-          toggleModalSuccess();
+          if (response.data.success) {
+            toggleModalSuccess();
+          }
+          else {
+            $scope.errorMessages = response.data.err;
+            toggleModalError();
+          }
         }, function errorCallback() {
           $scope.loading = false;
+          $scope.error = 'Kunde inte nå serble. Vänligen försök igen';
           toggleModalError();
         });
     }
@@ -38,14 +45,19 @@ angular.module('serbleApp')
 
     function submitForm() {
       $scope.loading = true;
+      $scope.articleData.type = parseInt($scope.articleData.type);
+      $scope.articleData.latitude = 1;
+      $scope.articleData.longitude = 1;
+      $scope.articleData.neighborhood = 'Umedalen';
       postArticle();
-     // geocodeService.geocode($scope.articleData).then(function (response) {
-       // addLocationToArticle(response);
+      // geocodeService.geocode($scope.articleData).then(function (response) {
+      // addLocationToArticle(response);
 
       //});
 
     }
-    function deleteImage(){
+
+    function deleteImage() {
       $scope.articleData.file = null;
     }
 
@@ -76,7 +88,6 @@ angular.module('serbleApp')
           $scope.log;
       });
     }
-
 
 
   });

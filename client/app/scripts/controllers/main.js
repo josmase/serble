@@ -24,13 +24,12 @@ angular.module('serbleApp')
     $scope.search.category = category;
 
 
-
     var loadArticlesIfPage = function () {
       for (var i = 0; i < currentPage; i++) {
         $scope.getMoreArticles();
       }
     };
-    var resetPage = function(){
+    var resetPage = function () {
       startPoint = 0;
       currentPage = 1;
       $location.search('page', currentPage);
@@ -55,7 +54,9 @@ angular.module('serbleApp')
       $location.search('category', $scope.search.category);
 
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function (returnedArticles) {
-        $scope.articles = returnedArticles.data;
+        console.log(returnedArticles);
+
+        $scope.articles = returnedArticles.data.result;
       });
     };
 
@@ -67,17 +68,23 @@ angular.module('serbleApp')
     $scope.getMoreArticles = function () {
       $scope.loading = true;
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function (returnedArticles) {
-        $scope.articles = $scope.articles.concat(returnedArticles.data);
+        console.log(returnedArticles);
+        $scope.articles = $scope.articles.concat(returnedArticles.data.result);
         startPoint += NumberOfArticles;
         articleRange = [startPoint, NumberOfArticles];
         $scope.loading = false;
       });
     };
 
+    $scope.noArticles = function () {
+      return ($scope.articles.length === 0 && $scope.loading === false)
+
+    };
+
     if (currentPage > 1) {
       loadArticlesIfPage();
     }
-    else{
+    else {
       $scope.getArticles();
     }
   });

@@ -25,16 +25,16 @@
         </div>
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
-               ng-class="{ 'has-error': articelForm.zipCode.$touched && articelForm.zipCode.$invalid }">
+               ng-class="{ 'has-error': articelForm.zipcode.$touched && articelForm.zipcode.$invalid }">
             <label>Postnummer</label>
-            <input type="number" name="zipCode" class="form"
+            <input type="number" name="zipcode" class="form"
                    placeholder="90210"
-                   ng-model="articleData.zipCode"
+                   ng-model="articleData.zipcode"
                    ng-minlength="4"
                    ng-maxlength="5"
                    required>
 
-            <div class="help-block" ng-messages="articelForm.zipCode.$error" ng-if="articelForm.zipCode.$touched">
+            <div class="help-block" ng-messages="articelForm.zipcode.$error" ng-if="articelForm.zipcode.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
@@ -43,33 +43,16 @@
       <div class="row">
         <div class="col-xs-12 col-md-6">
           <div class="form-group"
-               ng-class="{ 'has-error': articelForm.phonenumber.$touched && articelForm.phonenumber.$invalid }">
-            <label>Mobilnummer</label>
-            <input type="tel" name="phonenumber" class="form"
-                   placeholder="0701234567"
-                   ng-model="articleData.phonenumber"
-                   ng-minlength="10"
-                   ng-maxlength="10"
+               ng-class="{ 'has-error': articelForm.contact.$touched && articelForm.contact.$invalid }">
+            <label>Kontaktinformation</label>
+            <input type="text" name="contact" class="form"
+                   placeholder="070-1234567 eller test@mail.com"
+                   ng-model="articleData.contact"
+                   ng-maxlength="45"
                    required>
 
-            <div class="help-block" ng-messages="articelForm.phonenumber.$error"
-                 ng-if="articelForm.phonenumber.$touched">
-              <div ng-messages-include="../resources/error.html"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="form-group"
-               ng-class="{ 'has-error': articelForm.email.$touched && articelForm.email.$invalid }">
-            <label>Email</label>
-            <input type="email" name="email" class="form"
-                   placeholder="exempel@test.com"
-                   ng-model="articleData.email"
-                   ng-minlength="1"
-                   ng-maxlength="100"
-                   required>
-
-            <div class="help-block" ng-messages="articelForm.email.$error" ng-if="articelForm.email.$touched">
+            <div class="help-block" ng-messages="articelForm.contact.$error"
+                 ng-if="articelForm.contact.$touched">
               <div ng-messages-include="../resources/error.html"></div>
             </div>
           </div>
@@ -220,7 +203,7 @@
     <div class="infoIcon error">
       ✖
     </div>
-    <p>Tyvär gick det inte att skapa annonsen. Var vänlig fösök igen</p>
+    <p ng-repeat="error in errorMessages">{{error}}</p>
   </div>
   <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
 </modal-dialog-error>
