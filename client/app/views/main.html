@@ -110,16 +110,12 @@
       </div>
     </div>
   </div>
-  <div class="container" ng-show="noArticles()">
-    <p>asdasd</p>
+  <div class="container articleStatus" ng-show="noArticles()">
+    <p>tyvär kunde vi inte hitta några annonser</p>
   </div>
   <div class="container-fluid">
     <div class="row" id="viewMore">
       <div class="col-xs-12 col-md-6">
-        <div class="buttonRipple raised btn-accept">
-          <button class="btn-accept" fit>SUBMIT</button>
-          <paper-ripple fit></paper-ripple>
-        </div>
         <button class="btn-accept" href="" ng-click="viewMore()" ladda="loading">
           Visa fler
         </button>

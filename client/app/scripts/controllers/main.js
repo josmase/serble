@@ -25,7 +25,7 @@ angular.module('serbleApp')
 
 
     var loadArticlesIfPage = function () {
-      for (var i = 0; i < currentPage; i++) {
+      for (var i = 1; i < currentPage; i++) {
         $scope.getMoreArticles();
       }
     };
@@ -69,16 +69,22 @@ angular.module('serbleApp')
       $scope.loading = true;
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function (returnedArticles) {
         console.log(returnedArticles);
-        $scope.articles = $scope.articles.concat(returnedArticles.data.result);
-        startPoint += NumberOfArticles;
-        articleRange = [startPoint, NumberOfArticles];
+        if (returnedArticles.data.result) {
+          $scope.articles = $scope.articles.concat(returnedArticles.data.result);
+          startPoint += NumberOfArticles;
+          articleRange = [startPoint, NumberOfArticles];
+        }
         $scope.loading = false;
       });
     };
 
     $scope.noArticles = function () {
-      return ($scope.articles.length === 0 && $scope.loading === false)
-
+      if ($scope.articles) {
+        return ($scope.articles.length === 0 && $scope.loading === false)
+      }
+      else {
+        return false
+      }
     };
 
     if (currentPage > 1) {
