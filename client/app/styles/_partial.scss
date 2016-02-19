@@ -85,8 +85,8 @@ $circle-size: 100px;
 
 .btn-accept, .button-accept {
   @extend .button;
-  background: $dark-white;
-  color: $green;
+  background: $green;
+  color: white;
 }
 
 .btn-decline, .button-decline {
@@ -296,7 +296,6 @@ footer ul {
     text-align: left;
     background-color: transparent;
     border: 1px solid $input-border-color;
-    outline: none;
     padding: 10px;
     width: 100%;
     color: black;
@@ -481,10 +480,10 @@ footer ul {
     color:$green;
     font-size: 18px;
   }
-  label{
+  label {
     display: block;
   }
-  input,textarea{
+  input, textarea {
     display: block;
   }
   img {

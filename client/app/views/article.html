@@ -2,23 +2,21 @@
 <div class="container profile">
   <div class="profileInfo">
     <img src="../images/working.jpg">
-    <h4 id="name">Veronica Eriksson</h4>
-    <p>Röbäck, Umeå (1500m)</p>
-    <p>200kr</p>
-    <P>
-      Qui autem oportere explicari at. Ius ad oratio accusata electram, cu usu rebum deleniti. Elitr efficiendi mei ei,
-      veri choro accusam eum cu. Mea sale sonet eligendi id, an congue discere menandri cum. At qui senserit quaerendum
-    </P>
+    <h4 id="name">{{articleInfo.title}}</h4>
+    <p>{{articleInfo.neighborhood}}, {{articleInfo.city}} (1500m)</p>
+    <p>{{articleInfo.price | currency: ""}} Kr</p>
+    <P>{{articleInfo.description}}</P>
 
     <div>
       <ul>
-        <li>{{userPrivate.phone}}</li>
-        <li>{{userPrivate.email}}</li>
+        <li><p>{{articleInfo.contact}}</P></li>
       </ul>
     </div>
   </div>
 </div>
-<div id="BackgroundContact"><button class="button-accept" ng-click="toggleContactInfo()">Kontakta mig</button></div>
+<div id="BackgroundContact">
+  <button class="button-accept" ng-click="toggleContactInfo()">Kontakta mig</button>
+</div>
 <modal-success show='modalShownSuccess'>
   <div class="modalInfo">
     <div class="infoIcon success">
