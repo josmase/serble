@@ -8,22 +8,20 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('ArticleCtrl', ['$scope', '$routeParams','$http', function ($scope, $routeParams, $http) {
+  .controller('ArticleCtrl', ['$scope', '$routeParams', 'getAndPostArticlesService', function ($scope, $routeParams, getAndPostArticlesService) {
 
-    $scope.articleId = $routeParams.articleId;
-    $scope.getArticleInfo = function(){
+    $scope.getArticle = getArticle;
 
-      $http({
-        method: 'GET',
-        url: 'http://172.16.0.237:3000/articles/get',
-        dataType: 'json',
-        params:{'id':$scope.articleId}
-      }).then(function successCallback(response) {
+    var currentArticleId = parseInt($routeParams.articleId);
+
+    function getArticle() {
+      getAndPostArticlesService.getById(currentArticleId).then(function successCallback(response) {
         console.log(response);
         $scope.articleInfo = response;
       }, function errorCallback(response) {
         console.log(response);
         $scope.articles = response;
       });
-    };
+    }
+    getArticle();
   }]);
