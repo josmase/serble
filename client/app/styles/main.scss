@@ -35,6 +35,8 @@ header,
     background-color: #64b346;
     color: white;
     padding: 10px 100px;
+    width: 339px;
+    height: 50px;
 
     margin-bottom: 20%;
     display: inline-block;
@@ -58,7 +60,7 @@ header,
 }
 
 #viewMore {
-  padding: 10px 0 10px 0;
+  padding: 30px 0 30px 0;
   background: $white;
   text-align: center;
   div{
@@ -67,11 +69,14 @@ header,
   }
   button {
     height: 50px;
-    padding: 13px;
-    width: 100%;
+    width: 339px;
     color: $white;
     display: inline-block;
+    border-radius: 0;
+    background-color: #64b346;
   }
+
+
 }
 
 .articleFilter {
@@ -90,5 +95,3 @@ header,
 .navabar-collapse.collapsing {
   transition: height 0.35s ease 1s linear;
 }
-
-
