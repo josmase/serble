@@ -77,7 +77,6 @@ angular.module('serbleApp')
     };
 
     $scope.noArticles = function () {
-      console.log(typeof $scope.articles[0] !== 'object' );
       return (typeof $scope.articles[0] !== 'object' && $scope.loading === false)
     };
 
