@@ -65,12 +65,9 @@
         </div>
         <div class="col-xs-12 col-md-3">
           <div class="form-group">
-            <div class="buttonRipple">
-              <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
-                Sök annonser
-              </button>
-              <paper-ripple fit></paper-ripple>
-            </div>
+            <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
+              Sök annonser
+            </button>
           </div>
         </div>
         <div class="col-xs-12 col-md-12">
@@ -78,8 +75,8 @@
             <select ng-model="search.order"
                     name="order">
               <option value="">Sortera efter</option>
-              <option value="-payout">Högst pris fört</option>
-              <option value="payout">lägst pris först</option>
+              <option value="-price">Högst pris fört</option>
+              <option value="price">lägst pris först</option>
             </select>
           </div>
         </div>
