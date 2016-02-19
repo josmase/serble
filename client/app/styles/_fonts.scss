@@ -15,7 +15,7 @@ $h-font-family: 'Sak-medium', sans-serif;
 $text-font-family: 'Sak-light', sans-serif;
 /*Color and font for all p elements*/
 p, a, a:hover,button {
-  color: #FFF;
+  color: $primary-font-color;
   font-family: $text-font-family;
   text-decoration: none;
 }
