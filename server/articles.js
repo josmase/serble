@@ -1,7 +1,6 @@
 'use strict';
 
 var serble = require('./serble.js');
-var tokens = require('./tokens.js');
 
 var app = serble.objects.app;
 var database = serble.objects.database;
@@ -97,18 +96,27 @@ var exp = {
         var query = "SELECT * FROM `advertisement` WHERE `author_id` > 0";
 
         if (filter && typeof filter == "object") {
+            var range;
+
             for (var key in filter) {
-                if (filter[key].value) {
+                if (key == "range") {
+                    range = filter[key];
+                    delete filter[key];
+                } else if (filter[key].value) {
                     if (filter[key].strict) {
-                        query += " AND " + database.escape(key) + " = " + database.escape(filter[key.value]);
+                        query += " AND `" + key.replace("\\", '').replace('`', '') + "` = " + database.escape(filter[key].value);
                     } else {
-                        query += " AND " + database.escape(key) + " = LIKE(" + database.escape("%" + filter[key.value] + "%") + ")";
+                        query += " AND `" + key.replace("\\", '').replace('`', '') + "` LIKE(" + database.escape("%" + filter[key].value + "%") + ")";
                     }
-                } else {
-                    callback(["filterkeynovalue"]);
                 }
             }
+
+            if (range) {
+                query += " LIMIT " + range;
+            }
         }
+
+        console.log(query);
 
         database.query(query, function (e, res) {
             if (e) {
@@ -167,7 +175,7 @@ exp.structure = {
         type: "string",
         check: function (val) {
             if (val.length) {
-                if (val.length > 255) {
+                if (val.length > 2048) {
                     return "descriptiontoolong";
                 }
             } else {
@@ -182,6 +190,20 @@ exp.structure = {
         check: function (val) {
             if (val < 0) {
                 return "pricebelowzero";
+            }
+        }
+    },
+
+    category: {
+        ignore: false,
+        type: "string",
+        check: function (val) {
+            if (val.length) {
+                if (val.length > 45) {
+                    return "categorytoolong";
+                }
+            } else {
+                return "categoryinvalid";
             }
         }
     },
@@ -236,35 +258,5 @@ exp.structure = {
         }
     }
 };
-
-// HTTP Requests
-
-app.get('/articles/get', function (req, res) {
-    exp.getArticles(req.query.filter, function (e, result) {
-        if (e) {
-            res.json({success: false, err: e});
-        } else {
-            res.json({success: true, result: result});
-        }
-    });
-});
-
-app.post('/articles/post', function (req, res) {
-    tokens.tryUnlock(req.headers.authorization, function (data) {
-        if (data.user_id) {
-            exp.postArticle(data, req.body.data, function (e, result) {
-                if (e) {
-                    res.json({success: false, err: e});
-                } else {
-                    res.json({success: true});
-                }
-            });
-        } else {
-            res.json({success: false, err: ["tokenerror"]});
-        }
-    }, function () {
-        res.json({success: false, err: ["tokeninvalid"]});
-    });
-});
 
 module.exports = exp;

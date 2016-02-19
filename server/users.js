@@ -1,7 +1,6 @@
 'use strict';
 
 var serble = require('./serble.js');
-var tokens = require('./tokens.js');
 var bcrypt = require('bcryptjs');
 
 var app = serble.objects.app;
@@ -430,71 +429,5 @@ exp.profile.structure = {
         }
     }
 };
-
-app.post('/user/profile/update', function (req, res) {
-    tokens.tryUnlock(req.headers.authorization, function (data) {
-        if (data.username) {
-            exp.updateProfile(data.username, req.body.data, function (e) {
-                if (e) {
-                    res.json({success: false, err: e});
-                } else {
-                    res.json({success: true});
-                }
-            });
-        } else {
-            res.json({success: false, err: ["tokenerror"]});
-        }
-    }, function () {
-        res.json({success: false, err: ["tokeninvalid"]});
-    });
-});
-
-app.get('/user/profile/get', function (req, res) {
-    tokens.tryUnlock(req.headers.authorization, function (data) {
-        var filter = true;
-
-        if (data.username.toLowerCase() === req.query.username.toLowerCase()) {
-            filter = false;
-        }
-
-        exp.fetchProfile(req.query.username, filter, function (e, profile) {
-            if (e) {
-                res.json({success: false, err: e});
-            } else {
-                res.json({success: true, result: profile});
-            }
-        });
-    }, function () {
-        exp.fetchProfile(req.query.username, true, function (e, profile) {
-            if (e) {
-                res.json({success: false, err: e});
-            } else {
-                res.json({success: true, result: profile});
-            }
-        });
-    });
-});
-
-// HTTP Request handling
-
-app.post('/user/login', function (req, res) {
-    exp.login(req.body.credentials, req.body.password, function (e, token, username) {
-        if (e) {
-            res.json({success: false, err: e});
-        } else {
-            res.json({success: true, result: token, username: username});
-        }
-    });
-});
-
-app.post('/user/register', function (req, res) {
-    exp.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
-        if (e) {
-            res.json({success: false, err: e});
-        } else {
-            res.json({success: true});
-        }
-    });
-});
 
 module.exports = exp;

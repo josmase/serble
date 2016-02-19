@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
   `advert_id`     INT          NOT NULL AUTO_INCREMENT,
   `author_id`     INT          NOT NULL,
   `title`         VARCHAR(45)  NULL,
-  `description`   VARCHAR(255) NULL,
+  `description`   VARCHAR(2048) NULL,
   `price`         INT          NULL,
   `category`      VARCHAR(45)  NULL,
   `contact`       VARCHAR(45)  NULL,
