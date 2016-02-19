@@ -227,19 +227,6 @@ footer {
 
 }
 
-
-.social-media {
-  width: 40px;
-  height: 40px;
-  background-color: #FFF;
-  display: inline-block;
-  border-radius: 50%;
-  float: left;
-  margin-right: 10px;
-  text-align: center;
-  line-height: 40px;
-}
-
 footer ul {
 
   margin-top: 110px;
@@ -521,7 +508,7 @@ footer ul {
 
 footer {
   background: #2a2b2f;
-  text-align: left;
+  text-align: center;
 
   #Copyright {
     font-family: 'Sak-light';
@@ -535,17 +522,9 @@ footer {
 
 }
 
-
 .social-media {
-  width: 40px;
-  height: 40px;
-  background-color: #FFF;
-  display: inline-block;
-  border-radius: 50%;
-  float: left;
-  margin-right: 10px;
-  text-align: center;
-  line-height: 40px;
+  color: #FFF;
+  font-size: 40px;
 }
 
 footer ul {
@@ -573,6 +552,10 @@ footer ul {
 }
 
 @media screen and (min-width: 768px) {
+
+  footer {
+    text-align: left;
+  }
 
   .no-padding {
     padding: 0px;
