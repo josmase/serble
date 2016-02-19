@@ -85,8 +85,8 @@ $circle-size: 100px;
 
 .btn-accept, .button-accept {
   @extend .button;
-  background: $green;
-  color: $white;
+  background: $dark-white;
+  color: $green;
 }
 
 .btn-decline, .button-decline {
@@ -269,7 +269,7 @@ footer {
     width: 100%;
     color: black;
     box-sizing: border-box;
-  }
+  }f
   select {
     background-image: url("./../images/ic_expand_more_black_24px.svg");
     background-position: right 10px top 50%;
@@ -448,8 +448,9 @@ footer {
 }
 
 .profileInfo {
+    text-align:center;
   #name {
-    color: orange;
+    color:$green;
     font-size: 18px;
   }
   label {
@@ -468,12 +469,21 @@ footer {
     border-radius: 100%;
     border: 2px solid white;
   }
+
+}
+#BackgroundContact {
+  width:100%;
+  background:$dark-white;
+  padding:10px;
+  text-align: center;
   button {
     width: 90%;
+    border: 1px solid $green;
+    border-radius: 30px;
     margin: 10px auto;
   }
-}
 
+}
 .profile {
   background: white;
 }

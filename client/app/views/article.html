@@ -1,30 +1,39 @@
-<div class="container" id="article">
-  <button ng-click="getArticleInfo()">Get stuff</button>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d28161.091048271875!2d20.26428675!3d63.823363949999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssv!2sse!4v1450187482809" width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+<div id="profileImage"><img src="../images/working.jpg"/></div>
+<div class="container profile">
+  <div class="profileInfo">
+    <img src="../images/working.jpg">
+    <h4 id="name">Veronica Eriksson</h4>
+    <p>Röbäck, Umeå (1500m)</p>
+    <p>200kr</p>
+    <P>
+      Qui autem oportere explicari at. Ius ad oratio accusata electram, cu usu rebum deleniti. Elitr efficiendi mei ei,
+      veri choro accusam eum cu. Mea sale sonet eligendi id, an congue discere menandri cum. At qui senserit quaerendum
+    </P>
 
-  <div class="row">
-    <div class="col-xs-12"><h2> Måla mitt hus </h2></div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12"><p>Lorem ipsum dolor sit amet, dapibus sagittis suscipit augue, suscipit maecenas tellus amet
-      orci, bibendum lectus </p></div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <p> Behöver tjänst inom hantverk </p>
-
-      <p> 100-300kr</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6"><p> Sten Holt </p>
-
-      <p> Umeå, Baggböle</p></div>
-    <div class="col-xs-6"><p>+46 70 234 56 78</p>
-
-      <p> sten.holt@mail.se</p>
+    <div>
+      <ul>
+        <li>{{userPrivate.phone}}</li>
+        <li>{{userPrivate.email}}</li>
+      </ul>
     </div>
   </div>
 </div>
+<div id="BackgroundContact"><button class="button-accept" ng-click="toggleContactInfo()">Kontakta mig</button></div>
+<modal-success show='modalShownSuccess'>
+  <div class="modalInfo">
+    <div class="infoIcon success">
+      ✓
+    </div>
+    <p>Annonsen blev skapad</p>
+  </div>
+  <a href="#/home" class="btn-accept">Ok</a>
+</modal-success>
+<modal-dialog-error show='modalShownError'>
+  <div class="modalInfo">
+    <div class="infoIcon error">
+      ✖
+    </div>
+    <p>Tyvär gick det inte att skapa annonsen. Var vänlig fösök igen</p>
+  </div>
+  <button class="btn-accept error" ng-click="submitForm()">Försök igen</button>
+</modal-dialog-error>

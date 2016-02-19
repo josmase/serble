@@ -3,7 +3,7 @@
 /**
  * Main server-side application initialization
  * @author Emil Bertilsson, Serble
- * @version 2016-01-26
+ * @version 2016-02-18
  */
 
 // Constants and namespaces
@@ -40,22 +40,9 @@ database.connect(function (e) {
     }
 });
 
-serble.loadSettings = function () {
-    database.query("SELECT * FROM `settings`", function (e, data) {
-    });
-};
-
-serble.saveSetting = function (key) {
-    database.query("UPDATE `settings` SET `value` = '" + serble.settings[key] + "' WHERE `key` = '" + key + "'", function (e) {
-        if (e) {
-            console.log("Database error: " + e);
-        }
-    });
-};
-
-serble.loadSettings();
-
+var tokens = require('./tokens.js');
 var users = require('./users.js');
+var articles = require('./articles.js');
 
 // Application environment variables
 app.set('port', process.env.port || PORT_DEFAULT);
@@ -68,4 +55,106 @@ app
 // Creates the server
 http.listen(app.get('port'), function () {
     console.log("Server started at port " + app.get('port'));
+});
+
+// HTTP Requests
+
+app.get('/articles/get', function (req, res) {
+    var filter = req.query.filter;
+
+    if (typeof filter == "string") {
+        filter = JSON.parse(filter);
+    }
+
+    console.log(filter);
+
+    articles.getArticles(filter, function (e, result) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true, result: result});
+        }
+    });
+});
+
+app.post('/articles/post', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.user_id) {
+            articles.postArticle(data, req.body.data, function (e, result) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
+});
+
+app.post('/user/profile/update', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.username) {
+            users.updateProfile(data.username, req.body.data, function (e) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
+});
+
+app.get('/user/profile/get', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        var filter = true;
+
+        if (data.username.toLowerCase() === req.query.username.toLowerCase()) {
+            filter = false;
+        }
+
+        users.fetchProfile(req.query.username, filter, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
+        });
+    }, function () {
+        users.fetchProfile(req.query.username, true, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
+        });
+    });
+});
+
+app.post('/user/login', function (req, res) {
+    users.login(req.body.credentials, req.body.password, function (e, token, username) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true, result: token, username: username});
+        }
+    });
+});
+
+app.post('/user/register', function (req, res) {
+    users.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true});
+        }
+    });
 });
