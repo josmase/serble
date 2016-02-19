@@ -18,24 +18,24 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,700' rel='stylesheet'
-        type='text/css'>
+  type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
+  rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="serbleApp">
-<!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  <!--[if lte IE 8]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
-<![endif]-->
+  <![endif]-->
 
-<!-- Add your site or application content here -->
-<header ng-controller="indexCtrl">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
-                aria-expanded="false" aria-controls="navbar">
+  <!-- Add your site or application content here -->
+  <header ng-controller="indexCtrl">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
+          aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar top-bar"></span>
           <span class="icon-bar middle-bar"></span>
@@ -72,106 +72,110 @@
 <footer ng-controller="indexCtrl">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <ul>
-          <li><h5>BESÖK OSS</h5></li>
-          <li><a href="#/home"><p>Kungsgatan 63 D</p></a></li>
-          <li><a href="#/flow"><p>903 26 Umea</p></a></li>
 
+      <div class="col-xs-6 col-md-3">
+        <ul>
+          <li><h5>Besök oss</h5></li>
+          <li><p>Kungsgatan 63 D</p></li>
+          <li><p>903 26 Umea</p></li>
         </ul>
       </div>
 
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-6 col-md-3">
         <ul>
-          <li><h5>KONTAKT</h5></li>
+          <li><h5>Säg hej!</h5></li>
           <li><a href=""><p>mail@serble.se</p></a></li>
-          <li><a href=""><p></p>+46 90 231 28</a></li>
+          <li><a href=""><p>+46 90 231 28</p></a></li>
         </ul>
       </div>
-      <div class="col-xs-12 col-md-4">
 
+      <div class="col-xs-6 col-md-3">
         <ul>
-
-          <li><h5>SUPPORT</h5></li>
+          <li><h5>Support</h5></li>
           <li><a href=""><p>support@serble.se</p></a></li>
           <li><a href=""><p>+46 90 231 38</p></a></li>
-
         </ul>
       </div>
 
-      <div class="col-xs-12 xcl-md-12">
+      <div class="col-xs-6 col-md-3">
         <ul>
-          <li><a class="button" smooth-scroll-jquery target="">GÅ TILL BÖRJAN</a></li>
-        </ul>
+          <li class="social-media">T</li>
+          <li class="social-media">F</li>
+          <ul>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <p id="Copyright">Copyright (©) Serble 2016</p>
+        </div>
+
       </div>
-      "<p id="Copyright">Copyright (©) Serble 2016</p>
-    </div>
-  </div>
-</footer>
+    </footer>
 
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<script>
-  !function (A, n, g, u, l, a, r) {
-    A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    !function (A, n, g, u, l, a, r) {
+      A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
         (A[l].q = A[l].q || []).push(arguments)
       }, A[l].l = +new Date, a = n.createElement(g),
       r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-XXXXX-X');
-  ga('send', 'pageview');
-</script>
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
 
-<!-- build:js(.) scripts/vendor.js -->
-<!-- bower:js -->
-<script src="bower_components/es5-shim/es5-shim.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="bower_components/angular-touch/angular-touch.js"></script>
-<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
-<script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
-<script src="bower_components/lodash/lodash.js"></script>
-<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
-<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-<script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/json3/lib/json3.js"></script>
-<script src="bower_components/angular-smoothscroll/dist/scripts/bb15da28.scripts.js"></script>
-<script src="bower_components/spin.js/spin.js"></script>
-<script src="bower_components/ladda/dist/ladda.min.js"></script>
-<script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
-<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-<!-- endbower -->
-<!-- endbuild -->
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-smoothscroll/dist/scripts/bb15da28.scripts.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
+    <script src="bower_components/ladda/dist/ladda.min.js"></script>
+    <script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-<!-- build:js({.tmp,app}) scripts/scripts.js -->
-<script src="scripts/app.js"></script>
-<script src="scripts/controllers/index.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/login.js"></script>
-<script src="scripts/controllers/map.js"></script>
-<script src="scripts/controllers/article.js"></script>
-<script src="scripts/controllers/register.js"></script>
-<script src="scripts/controllers/articles.js"></script>
-<script src="scripts/controllers/profile.js"></script>
-<script src="scripts/controllers/create-article.js"></script>
-<script src="scripts/services/getandpostarticlesservice.js"></script>
-<script src="scripts/services/mymapservices.js"></script>
-<script src="scripts/services/geocodeservice.js"></script>
-<script src="scripts/directives/modaldialoglogin.js"></script>
-<script src="scripts/directives/modaldialogregister.js"></script>
-<script src="scripts/directives/passwordverify.js"></script>
-<script src="scripts/directives/modalsuccess.js"></script>
-<script src="scripts/directives/modaldialogerror.js"></script>
-<script src="scripts/services/authenticationservice.js"></script>
-<script src="scripts/services/userservice.js"></script>
-<script src="scripts/controllers/user.js"></script>
-<!-- endbuild -->
-</body>
-</html>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/index.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/map.js"></script>
+    <script src="scripts/controllers/article.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/articles.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/controllers/create-article.js"></script>
+    <script src="scripts/services/getandpostarticlesservice.js"></script>
+    <script src="scripts/services/mymapservices.js"></script>
+    <script src="scripts/services/geocodeservice.js"></script>
+    <script src="scripts/directives/modaldialoglogin.js"></script>
+    <script src="scripts/directives/modaldialogregister.js"></script>
+    <script src="scripts/directives/passwordverify.js"></script>
+    <script src="scripts/directives/modalsuccess.js"></script>
+    <script src="scripts/directives/modaldialogerror.js"></script>
+    <script src="scripts/services/authenticationservice.js"></script>
+    <script src="scripts/services/userservice.js"></script>
+    <script src="scripts/controllers/user.js"></script>
+    <!-- endbuild -->
+  </body>
+  </html>
