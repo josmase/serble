@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
     `phone`        VARCHAR(45)  NULL,
     `address`      VARCHAR(45)  NULL,
     `description`  VARCHAR(255) NULL,
-    `avatar_url`   VARCHAR(45) '/img/avatars/default.png',
+    `avatar_url`   VARCHAR(45)  default '/img/avatars/default.png',
     `show_city`    TINYINT(1)   NOT NULL DEFAULT 1,
     `show_address` TINYINT(1)   NOT NULL DEFAULT 0,
     `show_age`     TINYINT(1)   NOT NULL DEFAULT 0,
