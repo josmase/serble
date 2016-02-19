@@ -218,7 +218,7 @@ footer {
   #Copyright {
     font-family: 'Sak-light';
     color: #999;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 13px;
     margin-bottom: 42px;
@@ -287,7 +287,8 @@ footer ul {
     width: 100%;
     color: black;
     box-sizing: border-box;
-  }f
+  }
+  f
   select {
     background-image: url("./../images/ic_expand_more_black_24px.svg");
     background-position: right 10px top 50%;
@@ -462,9 +463,9 @@ footer ul {
 }
 
 .profileInfo {
-    text-align:center;
+  text-align: center;
   #name {
-    color:$green;
+    color: $green;
     font-size: 18px;
   }
   label {
@@ -485,10 +486,11 @@ footer ul {
   }
 
 }
+
 #BackgroundContact {
-  width:100%;
-  background:$dark-white;
-  padding:10px;
+  width: 100%;
+  background: $dark-white;
+  padding: 10px;
   text-align: center;
   button {
     width: 90%;
@@ -498,12 +500,13 @@ footer ul {
   }
 
 }
+
 .profile {
   background: white;
 }
 
 .no-padding {
-  padding: 0px;
+  padding: 0;
 }
 
 footer {
@@ -511,9 +514,9 @@ footer {
   text-align: center;
 
   #Copyright {
-    font-family: 'Sak-light';
+    font-family: 'Sak-light', sans-serif;
     color: #999;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 13px;
     margin-bottom: 42px;
@@ -540,15 +543,13 @@ footer ul {
   margin-bottom: 100px;
 
   h5 {
-    font-family: 'Sak-medium';
+    font-family: 'Sak-medium', sans-serif;
     letter-spacing: 2px;
     font-size: 13px;
     font-weight: 500;
-    margin-bottom: 20px;
     text-transform: uppercase;
     color: #fcfcfc;
-    margin: 0px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
   }
 
   p {
@@ -556,6 +557,14 @@ footer ul {
     color: #999;
   }
 
+}
+
+.articleStatus{
+  background: white;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -614,6 +623,7 @@ footer ul {
     }
   }
 }
+
 .buttonRipple > paper-ripple {
   border-radius: 2px;
   overflow: hidden;
