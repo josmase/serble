@@ -10,8 +10,6 @@
 angular.module('serbleApp')
   .controller('ArticleCtrl', ['$scope', '$routeParams', 'getAndPostArticlesService', function ($scope, $routeParams, getAndPostArticlesService) {
 
-    $scope.getArticle = getArticle;
-    $scope.removeArticle = removeArticle;
 
     var currentArticleId = parseInt($routeParams.articleId);
 
@@ -32,6 +30,11 @@ angular.module('serbleApp')
         console.log(response);
       });
     }
+
+    $scope.getArticle = getArticle;
+    $scope.removeArticle = removeArticle;
+
+
     getArticle();
     removeArticle();
   }]);
