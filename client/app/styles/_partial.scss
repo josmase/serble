@@ -85,8 +85,8 @@ $circle-size: 100px;
 
 .btn-accept, .button-accept {
   @extend .button;
-  background: $dark-white;
-  color: $green;
+  background: $green;
+  color: white;
 }
 
 .btn-decline, .button-decline {
