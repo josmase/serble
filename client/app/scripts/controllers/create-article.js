@@ -47,7 +47,6 @@ angular.module('serbleApp')
       $scope.loading = true;
       $scope.articleData.type = parseInt($scope.articleData.type);
       $scope.articleData.latitude = 1;
-      $scope.articleData.longitude = 1;
       $scope.articleData.neighborhood = 'Umedalen';
       postArticle();
       // geocodeService.geocode($scope.articleData).then(function (response) {
