@@ -523,8 +523,15 @@ footer {
 }
 
 .social-media {
-  color: #FFF;
+  color: #999;
   font-size: 40px;
+  display: inline-block;
+  line-height: 35px;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-media:hover {
+  color: #2d9;
 }
 
 footer ul {
@@ -552,10 +559,6 @@ footer ul {
 }
 
 @media screen and (min-width: 768px) {
-
-  footer {
-    text-align: left;
-  }
 
   .no-padding {
     padding: 0px;
