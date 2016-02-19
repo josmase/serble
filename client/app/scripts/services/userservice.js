@@ -8,7 +8,7 @@
   UserService.$inject = ['$http'];
   function UserService($http) {
     var service = {};
-    var server = 'http://172.16.0.237:3000';
+    var server = 'http://172.16.0.191:3000';
     service.GetAll = GetAll;
     service.GetById = GetById;
     service.GetByUsername = GetByUsername;
