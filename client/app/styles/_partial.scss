@@ -80,6 +80,13 @@ $circle-size: 100px;
   outline: none;
 }
 
+.btn-primary {
+  font-family: 'Sak-light',sans-serif;
+  font-size: 16px;
+  color: #fcfcfc;
+}
+
+
 input::-webkit-input-placeholder,
 input:-moz-placeholder,
 input::-moz-placeholder,
@@ -126,10 +133,20 @@ header.ng-scope {
   top: 0;
   transition: transform ease-in-out 0.3s;
   z-index: 100;
+  .navbar-header {
+    border-bottom: 1px solid #eee;
+  }
   .nav {
     li {
+      padding: 10px 0 10px 0;
       a:hover, a:focus {
         background: none;
+      }
+      a {
+        font-family: 'Sak-light',sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: #2a2b2f;
       }
       p {
         line-height: 20px;
@@ -138,13 +155,13 @@ header.ng-scope {
       }
     }
   }
-
   .navbar-nav {
     margin: 0 -15px;
   }
   .navbar {
     margin-bottom: 0;
-    border-bottom: 0;
+    border-bottom: 0 solid #EEE;
+    min-height: 50px;
     li {
       color: #4b4d4a;
       border-bottom: 1px solid #EEE;
@@ -195,50 +212,6 @@ header.ng-scope {
       }
     }
   }
-}
-
-footer {
-  background: #2a2b2f;
-  text-align: left;
-
-  #Copyright {
-    font-family: 'Sak-light',sans-serif;
-    color: #999;
-    border-top: 2px solid rgba(255,255,255,0.1);
-    text-align: center;
-    font-size: 13px;
-    margin-bottom: 42px;
-    padding-top: 40px;
-  }
-
-}
-
-.btn-primary {
-  font-family: 'Sak-light',sans-serif;
-  font-size: 16px;
-  color: #fcfcfc;
-}
-
-footer ul {
-
-  margin-top: 110px;
-  margin-bottom: 100px;
-
-  h5 {
-    font-family: 'Sak-medium',sans-serif;
-    letter-spacing: 2px;
-    font-size: 200px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #fcfcfc;
-    margin: 0 0 20px 0;
-  }
-
-  p {
-    font-size: 16px;
-    color: #888;
-  }
-
 }
 
 .create-article {
@@ -499,9 +472,11 @@ footer ul {
   padding: 0;
 }
 
+
 footer {
   background: #2a2b2f;
   text-align: left;
+
 
   #Copyright {
     font-family: 'Sak-light',sans-serif;
@@ -515,7 +490,26 @@ footer {
     padding-top: 40px;
     text-transform: uppercase;
   }
+  ul {
 
+    margin-top: 110px;
+    margin-bottom: 100px;
+
+    h5 {
+      font-family: 'Sak-medium', sans-serif;
+      letter-spacing: 2px;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #fcfcfc;
+      margin: 0 0 20px 0;
+    }
+    p {
+      font-size: 16px;
+      color: #888;
+    }
+
+  }
 }
 
 .social-media {
@@ -530,46 +524,6 @@ footer {
   color: #2d9;
 }
 
-footer ul {
-
-  margin-top: 130px;
-  margin-bottom: 120px;
-
-  h5 {
-    font-family: 'Sak-medium', sans-serif;
-    letter-spacing: 2px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    color: #fcfcfc;
-    margin: 0 0 20px 0;
-  }
-
-  p {
-    font-size: 16px;
-    color: #999;
-  }
-
-}
-.navbar-header {
-  border-bottom: 1px solid #eee;
-}
-
-.navbar {
-  min-height: 50px;
-}
-
-.nav > li {
-  padding: 10px 0 10px 0;
-}
-
-.nav > li > a {
-  font-family: 'Sak-light',sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #2a2b2f;
-}
-
 .articleStatus{
   background: white;
   text-align: center;
@@ -580,17 +534,9 @@ footer ul {
 
 @media screen and (min-width: 768px) {
 
-  .navbar-header {
-    border-bottom: none;
-  }
-
-  .navbar {
-    min-height: 75px;
-  }
-
 
   .no-padding {
-    padding: 0px;
+    padding: 0;
   }
 
   .card {
@@ -602,14 +548,11 @@ footer ul {
     max-width: 1140px;
   }
 
-  /* Remove the padding we set earlier */
   header,
-  .marketing,
-  .footer {
+  footer {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
   #main .jumbotron {
     border-bottom: 0;
     h1 {
@@ -620,7 +563,12 @@ footer ul {
     }
   }
   header {
+    .navbar-header {
+      border-bottom: none;
+    }
+
     .navbar {
+      min-height: 75px;
       .nav {
         li {
           border: none;
@@ -642,9 +590,4 @@ footer ul {
       width: 50%;
     }
   }
-}
-
-.buttonRipple > paper-ripple {
-  border-radius: 2px;
-  overflow: hidden;
 }
