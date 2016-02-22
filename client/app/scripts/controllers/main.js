@@ -13,7 +13,7 @@ angular.module('serbleApp')
     $scope.search = {};
 
     var startPoint = 0;
-    var NumberOfArticles = 6;
+    var NumberOfArticles = 1;
     var currentPage = $location.search().page;
     var query = $location.search().query;
     var category = $location.search().category;
@@ -25,28 +25,24 @@ angular.module('serbleApp')
 
 
     var loadArticlesIfPage = function () {
-      for (var i = 1; i < currentPage; i++) {
+      for (var i = 1; i <= currentPage; i++) {
         $scope.getMoreArticles();
       }
     };
+
     var resetPage = function () {
       startPoint = 0;
       currentPage = 1;
       $location.search('page', currentPage);
     };
     var incrementPage = function () {
-      if (currentPage > 0) {
-        currentPage++;
-        $location.search('page', currentPage);
-      }
-      else {
-        currentPage = 1;
-        $location.search('page', currentPage);
-      }
+      currentPage++;
+      $location.search('page', currentPage);
     };
 
     $scope.getArticles = function () {
       resetPage();
+      console.log('asd');
 
       articleRange = [startPoint, NumberOfArticles];
 
@@ -56,27 +52,22 @@ angular.module('serbleApp')
 
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function successCallback(returnedArticles) {
           $scope.articles = returnedArticles.data.result;
-          console.log(articleRange);
           startPoint += NumberOfArticles;
+          articleRange = [startPoint, NumberOfArticles]
         }, function errorFCallback() {
         }
       );
     };
 
-    $scope.viewMore = function () {
-      incrementPage();
-      $scope.getMoreArticles();
-    };
-
-    $scope.getMoreArticles = function () {
+    $scope.getMoreArticles = function (callback) {
       $scope.loading = true;
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function successCallback(returnedArticles) {
           if (returnedArticles.data.success) {
             $scope.articles = $scope.articles.concat(returnedArticles.data.result);
-            startPoint += NumberOfArticles;
-            console.log(articleRange);
-            articleRange = [startPoint, NumberOfArticles];
             $scope.loading = false;
+            if (callback) {
+              callback();
+            }
           }
           else {
             $scope.loading = false;
@@ -85,11 +76,22 @@ angular.module('serbleApp')
           $scope.loading = false;
         }
       );
+      startPoint += NumberOfArticles;
+      articleRange = [startPoint, NumberOfArticles];
     };
 
     $scope.noArticles = function () {
-      console.log(typeof $scope.articles === 'undefined' && $scope.loading === false);
-      return !(typeof $scope.articles === 'undefined')
+      return (!$scope.loading && $scope.articles.length < 1 )
+    };
+
+
+    $scope.viewMore = function () {
+      var articlesLength = $scope.articles.length;
+      $scope.getMoreArticles(function () {
+        if (articlesLength !== $scope.articles.length) {
+          incrementPage()
+        }
+      });
     };
 
     if (currentPage > 1) {
