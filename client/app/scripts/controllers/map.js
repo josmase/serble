@@ -33,7 +33,6 @@ angular.module('serbleApp')
 
     myMapServices.getCurrentLocation().then(function (data) {
         $scope.map.center = data;
-
       }
     );
     uiGmapGoogleMapApi.then(function () {

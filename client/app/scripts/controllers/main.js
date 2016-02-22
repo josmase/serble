@@ -8,12 +8,12 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location) {
+  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices) {
     $scope.articles = [];
     $scope.search = {};
 
     var startPoint = 0;
-    var NumberOfArticles = 1;
+    var NumberOfArticles = 6;
     var currentPage = $location.search().page;
     var query = $location.search().query;
     var category = $location.search().category;
@@ -53,7 +53,7 @@ angular.module('serbleApp')
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function successCallback(returnedArticles) {
           $scope.articles = returnedArticles.data.result;
           startPoint += NumberOfArticles;
-          articleRange = [startPoint, NumberOfArticles]
+          articleRange = [startPoint, NumberOfArticles];
         }, function errorFCallback() {
         }
       );
@@ -84,7 +84,6 @@ angular.module('serbleApp')
       return (!$scope.loading && $scope.articles.length < 1 )
     };
 
-
     $scope.viewMore = function () {
       var articlesLength = $scope.articles.length;
       $scope.getMoreArticles(function () {
@@ -100,4 +99,17 @@ angular.module('serbleApp')
     else {
       $scope.getArticles();
     }
+
+    myMapServices.getCurrentLocation().then(function (data) {
+        $scope.currentLocation = data;
+        for (var article = 0; article < $scope.articles.length; article++) {
+          $scope.articles[article].distance = calculateDistance($scope.articles[article])
+        }
+      }
+    );
+
+    var calculateDistance = function (articleLocation) {
+      return geocodeService.getDistanceFromLatLon($scope.currentLocation, articleLocation);
+    };
+
   });

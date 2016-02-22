@@ -9,6 +9,8 @@
  */
 angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload) {
+   $scope.articleData = {};
+
     function toggleModalSuccess() {
       $scope.modalShownSuccess = !$scope.modalShownSuccess;
     }
@@ -40,7 +42,8 @@ angular.module('serbleApp')
       console.log(response);
       $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
       $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
-      $scope.articleData.neighborhood = response.data.results[0].address_components[1].long_name;
+      $scope.articleData.neighborhood = response.data.results[0].address_components[2].long_name;
+      console.log($scope.articleData);
 
     }
 
@@ -86,6 +89,29 @@ angular.module('serbleApp')
           $scope.log;
       });
     };
+
+    function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+      console.log(lat1);
+      var R = 6371; // Radius of the earth in km
+      var dLat = deg2rad(lat2-lat1);  // deg2rad below
+      var dLon = deg2rad(lon2-lon1);
+      var a =
+          Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+          Math.sin(dLon/2) * Math.sin(dLon/2)
+        ;
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      var d = R * c*1000; // Distance in m
+      return d;
+    }
+
+    function deg2rad(deg) {
+      return deg * (Math.PI/180)
+    }
+
+    var sak = getDistanceFromLatLonInKm(63.8404974,20.1497412,63.8032587,20.2008248);
+    console.log(sak);
+
   });
 
 
