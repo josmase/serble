@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS `account` (
     `ssn`        VARCHAR(45) NOT NULL,
     `accountcol` VARCHAR(45) NULL,
     PRIMARY KEY (`user_id`),
-    UNIQUE INDEX `ssn` (`ssn` ASC),
     UNIQUE INDEX `username` (`username` ASC),
     INDEX `group_id` (`group_id` ASC),
     CONSTRAINT `group_id`
@@ -40,29 +39,32 @@ CREATE TABLE IF NOT EXISTS `account` (
 );
 
 CREATE TABLE IF NOT EXISTS `profile` (
-    `profile_id`   INT          NOT NULL AUTO_INCREMENT,
-    `user_id`      INT          NULL,
-    `firstname`    VARCHAR(45)  NULL,
-    `lastname`     VARCHAR(45)  NULL,
-    `city`         VARCHAR(45)  NULL,
-    `email`        VARCHAR(45)  NULL,
-    `phone`        VARCHAR(45)  NULL,
-    `address`      VARCHAR(45)  NULL,
-    `description`  VARCHAR(255) NULL,
-    `avatar_url`   VARCHAR(45)  default '/img/avatars/default.png',
-    `show_city`    TINYINT(1)   NOT NULL DEFAULT 1,
-    `show_address` TINYINT(1)   NOT NULL DEFAULT 0,
-    `show_age`     TINYINT(1)   NOT NULL DEFAULT 0,
-    `show_email`   TINYINT(1)   NOT NULL DEFAULT 1,
-    `show_phone`   TINYINT(1)   NOT NULL DEFAULT 0,
-    `show_avatar`  TINYINT(1)   NOT NULL DEFAULT 1,
+    `profile_id`   INT           NOT NULL AUTO_INCREMENT,
+    `user_id`      INT           NULL,
+    `firstname`    VARCHAR(45)   NULL,
+    `lastname`     VARCHAR(45)   NULL,
+    `city`         VARCHAR(45)   NULL,
+    `email`        VARCHAR(45)   NULL,
+    `phone`        VARCHAR(45)   NULL,
+    `address`      VARCHAR(45)   NULL,
+    `description`  VARCHAR(2048) NULL,
+    `avatar_url`   VARCHAR(45)            DEFAULT '/img/avatars/default.png',
+    `show_city`    TINYINT(1)    NOT NULL DEFAULT 1,
+    `show_address` TINYINT(1)    NOT NULL DEFAULT 0,
+    `show_age`     TINYINT(1)    NOT NULL DEFAULT 0,
+    `show_email`   TINYINT(1)    NOT NULL DEFAULT 1,
+    `show_phone`   TINYINT(1)    NOT NULL DEFAULT 0,
+    `show_avatar`  TINYINT(1)    NOT NULL DEFAULT 1,
     PRIMARY KEY (`profile_id`),
     UNIQUE INDEX `user_id` (`user_id` ASC),
     CONSTRAINT `user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `account` (`user_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (`email`)
+    REFERENCES `account` (`email`)
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `profile_rating` (
@@ -104,20 +106,23 @@ CREATE TABLE IF NOT EXISTS `profile_contact` (
 );
 
 CREATE TABLE IF NOT EXISTS `advertisement` (
-    `advert_id`     INT           NOT NULL AUTO_INCREMENT,
-    `author_id`     INT           NOT NULL,
-    `title`         VARCHAR(45)   NULL,
-    `description`   VARCHAR(2048) NULL,
-    `price`         INT           NULL,
-    `category`      VARCHAR(45)   NULL,
-    `contact`       VARCHAR(45)   NULL,
-    `location_lat`  DOUBLE        NULL,
-    `location_long` DOUBLE        NULL,
-    `zipcode`       INT           NOT NULL,
-    `neighborhood`  VARCHAR(45)   NULL,
-    `city`          VARCHAR(45)   NULL,
-    `type`          TINYINT(1)    NOT NULL DEFAULT 0,
-    `stage`         TINYINT(4)    NOT NULL DEFAULT 0,
+    `advert_id`       INT           NOT NULL AUTO_INCREMENT,
+    `author_id`       INT           NOT NULL,
+    `title`           VARCHAR(45)   NULL,
+    `description`     VARCHAR(2048) NULL,
+    `price`           INT           NULL,
+    `category`        VARCHAR(45)   NULL,
+    `contact`         VARCHAR(45)   NULL,
+    `location_lat`    DOUBLE        NULL,
+    `location_long`   DOUBLE        NULL,
+    `zipcode`         INT           NOT NULL,
+    `neighborhood`    VARCHAR(45)   NULL,
+    `city`            VARCHAR(45)   NULL,
+    `date_creation`   DATETIME(6)   NULL,
+    `date_expiration` DATETIME(6)   NULL,
+    `archived`        TINYINT(1)    NOT NULL DEFAULT 0,
+    `type`            TINYINT(1)    NOT NULL DEFAULT 0,
+    `stage`           TINYINT(4)    NOT NULL DEFAULT 0,
     PRIMARY KEY (`advert_id`),
     CONSTRAINT `fk_author_id`
     FOREIGN KEY (`author_id`)

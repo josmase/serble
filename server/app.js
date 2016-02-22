@@ -92,20 +92,12 @@ app.get('/articles/get', function (req, res) {
         return;
     }
 
-    tokens.tryUnlock(req.headers.authorization, function (data) {
-        if (data.user_id) {
-            articles.getArticles(filter, function (e, result) {
-                if (e) {
-                    res.json({success: false, err: e});
-                } else {
-                    res.json({success: true, result: result});
-                }
-            });
+    articles.getArticles(filter, function (e, result) {
+        if (e) {
+            res.json({success: false, err: e});
         } else {
-            res.json({success: false, err: ["tokenerror"]});
+            res.json({success: true, result: result});
         }
-    }, function () {
-        res.json({success: false, err: ["tokeninvalid"]});
     });
 });
 
@@ -167,7 +159,7 @@ app.get('/user/profile/get', function (req, res) {
             filter = false;
         }
 
-        users.fetchProfile(req.query.username, filter, function (e, profile) {
+        users.getProfile(req.query.username, filter, function (e, profile) {
             if (e) {
                 res.json({success: false, err: e});
             } else {
@@ -175,7 +167,7 @@ app.get('/user/profile/get', function (req, res) {
             }
         });
     }, function () {
-        users.fetchProfile(req.query.username, true, function (e, profile) {
+        users.getProfile(req.query.username, true, function (e, profile) {
             if (e) {
                 res.json({success: false, err: e});
             } else {
