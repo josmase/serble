@@ -13,7 +13,7 @@ angular.module('serbleApp')
     $scope.search = {};
 
     var startPoint = 0;
-    var NumberOfArticles = 6;
+    var NumberOfArticles = 2;
     var currentPage = $location.search().page;
     var query = $location.search().query;
     var category = $location.search().category;
@@ -54,6 +54,7 @@ angular.module('serbleApp')
           $scope.articles = returnedArticles.data.result;
           startPoint += NumberOfArticles;
           articleRange = [startPoint, NumberOfArticles];
+          calculateDistance();
         }, function errorFCallback() {
         }
       );
@@ -65,6 +66,7 @@ angular.module('serbleApp')
           if (returnedArticles.data.success) {
             $scope.articles = $scope.articles.concat(returnedArticles.data.result);
             $scope.loading = false;
+            calculateDistance();
             if (callback) {
               callback();
             }
@@ -100,16 +102,15 @@ angular.module('serbleApp')
       $scope.getArticles();
     }
 
-    myMapServices.getCurrentLocation().then(function (data) {
-        $scope.currentLocation = data;
-        for (var article = 0; article < $scope.articles.length; article++) {
-          $scope.articles[article].distance = calculateDistance($scope.articles[article])
-        }
-      }
-    );
 
-    var calculateDistance = function (articleLocation) {
-      return geocodeService.getDistanceFromLatLon($scope.currentLocation, articleLocation);
+    var calculateDistance = function () {
+      myMapServices.getCurrentLocation().then(function (data) {
+          $scope.currentLocation = data;
+          for (var article = 0; article < $scope.articles.length; article++) {
+            $scope.articles[article].distance = geocodeService.getDistanceFromLatLon($scope.currentLocation, $scope.articles[article])
+          }
+        }
+      );
     };
 
   });
