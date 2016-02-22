@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices) {
+  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices,distanceFilter) {
     $scope.articles = [];
     $scope.search = {};
 
