@@ -12,7 +12,7 @@ angular.module('serbleApp')
 
 
     var currentArticleId = parseInt($routeParams.articleId);
-
+    console.log(currentArticleId);
     function getArticle() {
       getAndPostArticlesService.getById(currentArticleId).then(function successCallback(response) {
         console.log(response);
@@ -36,5 +36,5 @@ angular.module('serbleApp')
 
 
     getArticle();
-    removeArticle();
+    //removeArticle();
   }]);

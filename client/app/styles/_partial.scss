@@ -144,7 +144,7 @@ header.ng-scope {
   }
   .navbar {
     margin-bottom: 0;
-    border-bottom: 0px solid #EEE;
+    border-bottom: 0;
     li {
       color: #4b4d4a;
       border-bottom: 1px solid #EEE;
@@ -202,7 +202,7 @@ footer {
   text-align: left;
 
   #Copyright {
-    font-family: 'Sak-light';
+    font-family: 'Sak-light',sans-serif;
     color: #999;
     border-top: 2px solid rgba(255,255,255,0.1);
     text-align: center;
@@ -214,7 +214,7 @@ footer {
 }
 
 .btn-primary {
-  font-family: 'Sak-light';
+  font-family: 'Sak-light',sans-serif;
   font-size: 16px;
   color: #fcfcfc;
 }
@@ -225,15 +225,13 @@ footer ul {
   margin-bottom: 100px;
 
   h5 {
-    font-family: 'Sak-medium';
+    font-family: 'Sak-medium',sans-serif;
     letter-spacing: 2px;
     font-size: 200px;
     font-weight: 500;
-    margin-bottom: 20px;
     text-transform: uppercase;
     color: #fcfcfc;
-    margin: 0px;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
   }
 
   p {
@@ -506,7 +504,7 @@ footer {
   text-align: left;
 
   #Copyright {
-    font-family: 'Sak-light', Sans-serif;
+    font-family: 'Sak-light',sans-serif;
     letter-spacing: 1px;
     color: rgba(255,255,255,0.3);
     border-top: 1px solid rgba(255,255,255,0.1);
@@ -562,11 +560,11 @@ footer ul {
 }
 
 .nav > li {
-  padding: 10px 0px 10px 0px;
+  padding: 10px 0 10px 0;
 }
 
 .nav > li > a {
-  font-family: 'Sak-light';
+  font-family: 'Sak-light',sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #2a2b2f;
