@@ -41,6 +41,9 @@ $circle-size: 100px;
       padding: 1.5rem 3rem 0 3rem;
       word-wrap: break-word;
     }
+    .articleDescription{
+      min-height: 110px;
+    }
     .details {
       border-top: 2px #eee solid;
       padding: 15px;
@@ -432,6 +435,12 @@ header.ng-scope {
 }
 
 .profileInfo {
+  pre{
+    background: none;
+    border: none;
+    border-radius: 0;
+    text-align: left;
+  }
   text-align: center;
   #name {
     color: $green;
