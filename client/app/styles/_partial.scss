@@ -7,7 +7,7 @@ $white-transparent: rgba(228, 228, 228, 0.8);
 $black-transparent: rgba(1, 1, 1, 0.5);
 $facebook-color: #3B5998;
 $green: rgba(99, 179, 70, 1);
-$green-transparent: rgba(99, 179, 70, 0.8);
+$green-light: rgba(80, 160, 51, 1);
 $dark-white: #dfdfdf;
 $input-border-color: #ccc;
 
@@ -95,7 +95,9 @@ $circle-size: 100px;
   height: 50px;
   color: white;
 }
-
+.btn-accept:hover,.button-accept:hover{
+  background: $green-light;
+}
 
 input::-webkit-input-placeholder,
 input:-moz-placeholder,
