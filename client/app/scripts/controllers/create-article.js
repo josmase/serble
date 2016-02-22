@@ -37,19 +37,20 @@ angular.module('serbleApp')
     }
 
     function addLocationToArticle(response) {
+      console.log(response);
       $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
       $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
       $scope.articleData.neighborhood = response.data.results[0].address_components[1].long_name;
-      console.log(response);
+
     }
 
     function submitForm() {
       $scope.loading = true;
       $scope.articleData.type = parseInt($scope.articleData.type);
-      postArticle();
-      geocodeService.geocode($scope.articleData).then(function (response) {
-      addLocationToArticle(response);
 
+      geocodeService.geocode($scope.articleData).then(function (response) {
+        addLocationToArticle(response);
+        postArticle();
       });
 
     }
