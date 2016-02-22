@@ -86,6 +86,13 @@ $circle-size: 100px;
   color: #fcfcfc;
 }
 
+.btn-accept,.button-accept{
+  @extend .btn;
+  background: $green;
+  height: 50px;
+  color: white;
+}
+
 
 input::-webkit-input-placeholder,
 input:-moz-placeholder,

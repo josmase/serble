@@ -16,7 +16,10 @@ angular.module('serbleApp')
       $http({
         method: 'GET',
         url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + this.zipCode + ',' + this.city + '&key=AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk',
-        dataType: 'json'
+        dataType: 'json',
+        headers: {
+          'Authorization': undefined
+        }
       }).then(function successCallback(response) {
         deferred.resolve(response);
       });

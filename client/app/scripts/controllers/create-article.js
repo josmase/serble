@@ -46,13 +46,11 @@ angular.module('serbleApp')
     function submitForm() {
       $scope.loading = true;
       $scope.articleData.type = parseInt($scope.articleData.type);
-      $scope.articleData.latitude = 1;
-      $scope.articleData.neighborhood = 'Umedalen';
       postArticle();
-      // geocodeService.geocode($scope.articleData).then(function (response) {
-      // addLocationToArticle(response);
+      geocodeService.geocode($scope.articleData).then(function (response) {
+      addLocationToArticle(response);
 
-      //});
+      });
 
     }
 
