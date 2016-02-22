@@ -67,9 +67,7 @@ angular.module('serbleApp')
             }
           }
         }
-      }).then(function (response) {
-        return response;
-      });
+      })
     }
 
     function removeById(id) {
@@ -86,9 +84,7 @@ angular.module('serbleApp')
             }
           }
         }
-      }).then(function (response) {
-        return response;
-      });
+      })
     }
   });
 
