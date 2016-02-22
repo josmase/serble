@@ -112,12 +112,12 @@ var exp = {
     },
 
     /**
-     * Fetches a profile based on username
+     * Gets a profile based on username
      * @param username Username
      * @param filter Use filter (True if the visitor is not the profile owner)
      * @param callback Callback
      */
-    fetchProfile: function (username, filter, callback) {
+    getProfile: function (username, filter, callback) {
         var err = [];
 
         if (!username) {
@@ -147,7 +147,7 @@ var exp = {
                         user_id: res[0].user_id
                     };
 
-                    database.query("SELECT * FROM `profile` WHERE ?", options, function (e, res) {
+                    database.query("SELECT * FROM `profile` WHERE ?", options, function (e, pres) {
                         if (res.length <= 0) {
                             err.push("noprofile");
                             callback(err);
@@ -310,6 +310,7 @@ var exp = {
 
                                     var options = {
                                         user_id: res.insertId,
+                                        firstname: username,
                                         email: email.toLowerCase()
                                     };
 

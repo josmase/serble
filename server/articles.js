@@ -116,6 +116,8 @@ var exp = {
             }
         }
 
+        console.log(query);
+
         database.query(query, function (e, res) {
             if (e) {
                 console.log("Database error: " + e);
