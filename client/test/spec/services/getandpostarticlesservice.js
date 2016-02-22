@@ -17,7 +17,7 @@ describe('Service: getAndPostArticlesService', function () {
   }));
 
   it('should return article data', function () {
-    httpBackend.whenGET('http://172.16.0.237:3000/articles/get?range=0&range=10').respond({
+    httpBackend.whenGET('http://172.16.0.237:3000/articles/get?filter=%7B%22title%22:%7B%22strict%22:false%7D,%22range%22:%5B0,10%5D%7D').respond({
       article: [
         {
           title: 'grilla',
