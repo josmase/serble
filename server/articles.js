@@ -75,7 +75,7 @@ var exp = {
             } else {
                 var sqldata = verified.filtered;
                 sqldata.author_id = token.profile_id;
-                database.query("INSERT INTO `advertisement` SET ?", sqldata, function (e) {
+                database.query("INSERT INTO `advertisement` SET ?, `date_creation` = NOW()", sqldata, function (e) {
                     if (e) {
                         console.log("Database error: " + e);
                     } else {
@@ -133,7 +133,9 @@ var exp = {
                             obj[key] = entry[key];
                         }
 
-                        result.push(obj);
+                        if (!entry.archived) {
+                            result.push(obj);
+                        }
                     });
                 }
 

@@ -47,6 +47,10 @@ var exp = {
             return profile;
         },
 
+        /**
+         * Verifies and filters a profile, returning eventual errors
+         * @param data Profile data and settings
+         */
         verify: function (data) {
             var result = {
                 filtered: {},
@@ -147,7 +151,7 @@ var exp = {
                         user_id: res[0].user_id
                     };
 
-                    database.query("SELECT * FROM `profile` WHERE ?", options, function (e, pres) {
+                    database.query("SELECT * FROM `profile` WHERE ?", options, function (e, res) {
                         if (res.length <= 0) {
                             err.push("noprofile");
                             callback(err);
@@ -290,6 +294,7 @@ var exp = {
                         err.push("ssnexists");
                     }
 
+
                     callback(err);
                 } else {
                     bcrypt.genSalt(10, function (e, salt) {
@@ -409,7 +414,7 @@ exp.profile.structure = {
         ignore: false,
         check: function (val) {
             if (val.length) {
-                if (val.length > 255) {
+                if (val.length > 2048) {
                     return "descriptiontoolong";
                 }
             } else {
