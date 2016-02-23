@@ -4,7 +4,7 @@ angular
   .module('serbleApp')
   .controller('RegisterCtrl', RegisterController);
 
-RegisterController.$inject = ['UserService', '$location', '$rootScope'];
+RegisterController.$inject = ['UserService', '$rootScope'];
 function RegisterController(UserService, $rootScope) {
   var vm = this;
 
@@ -19,7 +19,7 @@ function RegisterController(UserService, $rootScope) {
         if (response.success) {
           console.log(response);
           $rootScope.modalShownRegister = false;
-          $rootScope.modalShownRegister = true;
+          $rootScope.modalShownLogin = true;
 
         } else {
           vm.error=response.result;

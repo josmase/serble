@@ -3,7 +3,7 @@
 angular
   .module('serbleApp')
   .controller('LoginCtrl', LoginCtrl);
-function LoginCtrl(authenticationService) {
+function LoginCtrl($rootScope,authenticationService) {
   var vm = this;
 
   vm.login = login;
@@ -14,7 +14,7 @@ function LoginCtrl(authenticationService) {
       if (response.success) {
         authenticationService.SetCredentials(response.result, response.username);
         console.log(response);
-        $rootscope.modalShownLogin = false;
+        $rootScope.modalShownLogin = false;
       } else {
         console.log(response);
       }
