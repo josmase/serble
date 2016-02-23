@@ -9,7 +9,7 @@
  */
 angular.module('serbleApp')
   .service('getAndPostArticlesService', function ($http) {
-    var server = 'http://172.16.0.237:3000';
+    var server = 'http://172.16.0.238:3000';
 
     this.postArticleData = postArticleData;
     this.getArticles = getArticles;
