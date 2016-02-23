@@ -48,13 +48,12 @@ $circle-size: 100px;
       border-top: 2px #eee solid;
       padding: 15px;
       height: 50px;
-      p {
-        color: #7d7b7c;
-        float: right;
-      }
-      a {
+      text-align: center;
+      p{
         color: #65b447;
-        text-align: center;
+      }
+      p:hover{
+        color: #54a336;
       }
     }
 
