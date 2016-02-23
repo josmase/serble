@@ -73,16 +73,11 @@ angular.module('serbleApp')
     function removeById(id) {
       this.id = id;
       return $http({
-        method: 'GET',
+        method: 'POST',
         url: server + '/articles/remove',
         dataType: 'json',
-        params: {
-          filter: {
-            id: {
-              strict: false,
-              value: this.id
-            }
-          }
+        data: {
+          id: this.id
         }
       })
     }

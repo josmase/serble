@@ -80,7 +80,7 @@ angular.module('serbleApp')
     // upload on file select or drop
     $scope.upload = function (file) {
       Upload.upload({
-        url: 'http://172.16.0.237:3000/imgupload',
+        url: 'http://172.16.0.238:3000/imgupload',
         data: {file: file, 'username': 'asd'}
       }).then(function (resp) {
         console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
