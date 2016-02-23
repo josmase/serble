@@ -41,7 +41,7 @@ $circle-size: 100px;
       padding: 1.5rem 3rem 0 3rem;
       word-wrap: break-word;
     }
-    .articleDescription{
+    .articleDescription {
       min-height: 110px;
     }
     .details {
@@ -84,18 +84,19 @@ $circle-size: 100px;
 }
 
 .btn-primary {
-  font-family: 'Sak-light',sans-serif;
+  font-family: 'Sak-light', sans-serif;
   font-size: 16px;
   color: #fcfcfc;
 }
 
-.btn-accept,.button-accept{
+.btn-accept, .button-accept {
   @extend .btn;
   background: $green;
   height: 50px;
   color: white;
 }
-.btn-accept:hover,.button-accept:hover{
+
+.btn-accept:hover, .button-accept:hover {
   background: $green-light;
 }
 
@@ -155,7 +156,7 @@ header.ng-scope {
         background: none;
       }
       a {
-        font-family: 'Sak-light',sans-serif;
+        font-family: 'Sak-light', sans-serif;
         font-size: 16px;
         font-weight: 500;
         color: #2a2b2f;
@@ -179,8 +180,9 @@ header.ng-scope {
       border-bottom: 1px solid #EEE;
     }
     .navbar-brand {
-      padding: 15px 15px 0 15px;
-
+      height: 50px;
+      padding: 15px 15px;
+      color: $primary-orange;
     }
 
     .navbar-toggle {
@@ -224,6 +226,7 @@ header.ng-scope {
       }
     }
   }
+
 }
 
 .create-article {
@@ -438,7 +441,7 @@ header.ng-scope {
 }
 
 .profileInfo {
-  pre{
+  pre {
     background: none;
     border: none;
     border-radius: 0;
@@ -490,17 +493,15 @@ header.ng-scope {
   padding: 0;
 }
 
-
 footer {
   background: #2a2b2f;
   text-align: left;
 
-
   #Copyright {
-    font-family: 'Sak-light',sans-serif;
+    font-family: 'Sak-light', sans-serif;
     letter-spacing: 1px;
-    color: rgba(255,255,255,0.3);
-    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #999;
     text-align: center;
     font-size: 12px;
@@ -542,7 +543,7 @@ footer {
   color: #2d9;
 }
 
-.articleStatus{
+.articleStatus {
   background: white;
   text-align: center;
   margin-bottom: 10px;
@@ -551,7 +552,6 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-
 
   .no-padding {
     padding: 0;
@@ -580,13 +580,17 @@ footer {
       margin-bottom: 15%;
     }
   }
-  header {
+  header.ng-scope {
     .navbar-header {
       border-bottom: none;
     }
 
     .navbar {
       min-height: 75px;
+      .navbar-brand {
+        height: 70px;
+        padding: 25px;
+      }
       .nav {
         li {
           border: none;
