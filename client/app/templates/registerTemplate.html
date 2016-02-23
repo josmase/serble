@@ -12,7 +12,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error': registrationForm.username.$touched && registrationForm.username.$invalid }">
               <input class="form" type="text" name="username"
-                     placeholder="USERNAME"
+                     placeholder="Användarnamn"
                      ng-model="register.user.username"
                      ng-minlength="4"
                      ng-maxlength="40"
@@ -30,7 +30,7 @@
             <div class="form-group"
                  ng-class="{ 'has-error': registrationForm.email.$touched && registrationForm.email.$invalid }">
               <input class="form" type="email" name="email"
-                     placeholder="E-MAIL"
+                     placeholder="E-mail"
                      ng-model="register.user.email"
                      required>
 
@@ -46,7 +46,7 @@
             <div class="form-group"
                  ng-class="{'has-error': registrationForm.password.$touched && registrationForm.password.$invalid}">
               <input class="form" type="password" name="password" id="password"
-                     placeholder="LÖSENORD"
+                     placeholder="Lösenord"
                      ng-model="register.user.password"
                      ng-minlength="6"
                      ng-maxlength="200"
@@ -63,7 +63,7 @@
             <div class="form-group"
                  ng-class="{'has-error': registrationForm.password_verify.$touched && registrationForm.password_verify.$invalid}">
               <input class="form" type="password" name="password_verify" id="password_verify"
-                     placeholder="REPTERA LÖSENORDET"
+                     placeholder="Repetera lösenord"
                      ng-minlength="4"
                      ng-maxlength="200"
                      ng-model="register.user.password_verify"
@@ -80,7 +80,8 @@
         <div class="row center">
           <div class="col-xs-12 col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">REGISTRERA ANVÄNDARE</button>
+              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">REGISTRERA</button>
+              <p>{{register.error}}</p>
             </div>
           </div>
         </div>

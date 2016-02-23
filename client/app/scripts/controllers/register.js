@@ -19,7 +19,10 @@ function RegisterController(UserService, $rootScope) {
         if (response.success) {
           console.log(response);
           $rootScope.modalShownRegister = false;
+          $rootScope.modalShownRegister = true;
+
         } else {
+          vm.error=response.result;
           console.log(response);
         }
         vm.loading = false;
