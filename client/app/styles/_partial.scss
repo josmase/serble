@@ -117,14 +117,6 @@ input:-ms-input-placeholder {
   color: $white;
 }
 
-.filter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: $black-transparent;
-}
 
 /*Remove all ugly number spinners on input elements*/
 input[type=number]::-webkit-inner-spin-button,

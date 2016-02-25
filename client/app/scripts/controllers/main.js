@@ -8,9 +8,10 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices,distanceFilter) {
+  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices, $http) {
     $scope.articles = [];
     $scope.search = {};
+    $scope.key = 'AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk';
 
     var startPoint = 0;
     var NumberOfArticles = 2;
@@ -112,5 +113,8 @@ angular.module('serbleApp')
         }
       );
     };
-
+    myMapServices.getCurrentLocation().then(function (data) {
+      $scope.currentLocation = data;
+    });
+    calculateDistance()
   });
