@@ -42,7 +42,13 @@ angular
         .when('/article/:articleId', {
           templateUrl: 'views/article.html',
           controller: 'ArticleCtrl',
-          controllerAs: 'article'
+          controllerAs: 'article',
+          resolve: {
+            currentArticleId: function( $route ) {
+              console.log($route.current.params.articleId);
+              return $route.current.params.articleId;
+            }
+          }
         })
         .when('/articles', {
           templateUrl: 'views/articles.html',

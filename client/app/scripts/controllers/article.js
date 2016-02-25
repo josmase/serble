@@ -8,10 +8,8 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('ArticleCtrl', ['$scope', '$routeParams', 'getAndPostArticlesService', function ($location,$scope, $routeParams, getAndPostArticlesService,UserService) {
-
-
-    var currentArticleId = parseInt($routeParams.articleId);
+  .controller('ArticleCtrl', ['$scope', 'getAndPostArticlesService','UserService','currentArticleId',
+    function ($scope, getAndPostArticlesService,UserService,currentArticleId) {
 
     function getArticle() {
       getAndPostArticlesService.getById(currentArticleId).then(function successCallback(response) {
@@ -37,7 +35,7 @@ angular.module('serbleApp')
       });
     }
     function getAuthorById(authorId){
-      UserService.getById(authorId).then(function(response){
+      UserService.GetById(authorId).then(function(response){
         if(response.success){
           $scope.authorInfo = response.data.result[0];
         }
