@@ -27,7 +27,6 @@ $circle-size: 100px;
   .article {
     background: white;
     box-shadow: 0 1px 2px #aaa;
-    width: 100%;
     .articleImage {
       display: flex;
       align-items: center;
@@ -55,10 +54,10 @@ $circle-size: 100px;
       padding: 15px;
       height: 50px;
       text-align: center;
-      p {
+      p{
         color: #65b447;
       }
-      p:hover {
+      p:hover{
         color: #54a336;
       }
     }
@@ -93,8 +92,7 @@ $circle-size: 100px;
   font-size: 16px;
   color: #fcfcfc;
 }
-
-.btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:active:hover {
+.btn-primary:active,.btn-primary:focus,.btn-primary:active:focus,.btn-primary:active:hover{
   background: $green-light;
 }
 
@@ -116,7 +114,6 @@ input:-ms-input-placeholder,
 input:-ms-input-placeholder {
   color: $white;
 }
-
 
 /*Remove all ugly number spinners on input elements*/
 input[type=number]::-webkit-inner-spin-button,
@@ -581,6 +578,7 @@ footer {
     }
     a {
       margin-bottom: 15%;
+      padding: 15px 10%;
     }
   }
   header.ng-scope {

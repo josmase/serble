@@ -34,8 +34,7 @@ header,
   a {
     background-color: #64b346;
     color: white;
-    padding: 15px 100px;
-    width: 339px;
+    padding: 15px 20%;
     margin-bottom: 20%;
     display: inline-block;
   }
@@ -50,10 +49,13 @@ header,
 
 #pitch {
   img {
-    height: 102%;
-    width: 102%;
+    height: 110%;
+    width: 110%;
     filter: blur(3px) brightness(0.5);
-    margin: -5px -10px -10px -5px;
+    margin: -5px -10px -100px -5px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
   }
   .filter {
     height: 100%;
@@ -79,7 +81,7 @@ header,
   }
   button {
     height: 50px;
-    width: 339px;
+    width: 50%;
     color: $white;
     display: inline-block;
     border-radius: 0;
