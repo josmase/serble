@@ -62,9 +62,6 @@ CREATE TABLE IF NOT EXISTS `profile` (
     REFERENCES `account` (`user_id`)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
-    FOREIGN KEY (`email`)
-    REFERENCES `account` (`email`)
-        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `profile_rating` (
@@ -113,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
     `price`           INT           NULL,
     `category`        VARCHAR(45)   NULL,
     `contact`         VARCHAR(45)   NULL,
-    `location_lat`    DOUBLE        NULL,
-    `location_long`   DOUBLE        NULL,
+    `latitude`        DOUBLE        NULL,
+    `longitude`       DOUBLE        NULL,
     `zipcode`         INT           NOT NULL,
     `neighborhood`    VARCHAR(45)   NULL,
     `city`            VARCHAR(45)   NULL,
