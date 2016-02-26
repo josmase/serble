@@ -18,9 +18,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'angular-loading-bar',
-    'infinite-scroll',
     'ngMessages',
-    'angularSmoothscroll',
     'uiGmapgoogle-maps',
     'angular-ladda',
     'ngFileUpload'
