@@ -8,6 +8,7 @@
     </ui-gmap-google-map>
   </div>
 </div>
+
 <div class="container" id="cards">
   <div class="card" ng-repeat="article in clickedArticle | orderBy:search.order | filter:search.type">
     <div class="article fadeInUp animated">
@@ -17,17 +18,19 @@
         </div>
         <div class="col-md-8 col-xs-8">
           <h4>{{article.title}}</h4>
-          <p>{{article.neighborhood}}, {{article.price | currency : ""}} Kr</p>
+          <p>{{article.neighborhood}}, {{article.price | currency : ""}}Kr</p>
         </div>
       </div>
-      <div class="row">
+      <div class="row articleDescription">
         <div>
           <p>{{article.description | limitTo:170}}... </p>
         </div>
       </div>
-      <div class="details">
-        <a ng-href="#/article/{{article.advert_id}}">Kontakta</a>
-      </div>
+      <a ng-href="#/article/{{article.advert_id}}">
+        <div class="details">
+          <p>Visa Mer</p>
+        </div>
+      </a>
     </div>
   </div>
 </div>
