@@ -48,11 +48,6 @@ angular
             }
           }
         })
-        .when('/articles', {
-          templateUrl: 'views/articles.html',
-          controller: 'ArticlesCtrl',
-          controllerAs: 'articles'
-        })
         .when('/profile', {
           templateUrl: 'views/profile.html',
           controller: 'ProfileCtrl',
