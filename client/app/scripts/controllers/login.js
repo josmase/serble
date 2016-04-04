@@ -16,6 +16,7 @@ function LoginCtrl($rootScope,authenticationService) {
         console.log(response);
         $rootScope.modalShownLogin = false;
       } else {
+        vm.error=response.message || response.err[0];
         console.log(response);
       }
       vm.loading = false;

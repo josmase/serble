@@ -22,7 +22,7 @@ function RegisterController(UserService, $rootScope) {
           $rootScope.modalShownLogin = true;
 
         } else {
-          vm.error=response.result;
+          vm.error=response.message || response.err[0];
           console.log(response);
         }
         vm.loading = false;
