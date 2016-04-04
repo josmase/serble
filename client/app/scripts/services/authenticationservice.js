@@ -21,7 +21,7 @@ angular.module('serbleApp')
   authenticationService.$inject = ['$http', '$cookies', '$rootScope'];
   function authenticationService($http, $cookies, $rootScope) {
     var service = {};
-    var server = 'http://172.16.0.238:3000';
+    var server = 'http://localhost:3000';
 
     service.Login = Login;
     service.SetCredentials = SetCredentials;
