@@ -8,13 +8,13 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices, $http) {
+  .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices) {
     $scope.articles = [];
     $scope.search = {};
     $scope.key = 'AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk';
 
     var startPoint = 0;
-    var NumberOfArticles = 2;
+    var NumberOfArticles = 20;
     var currentPage = $location.search().page;
     var query = $location.search().query;
     var category = $location.search().category;
