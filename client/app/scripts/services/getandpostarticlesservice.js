@@ -44,7 +44,7 @@ angular.module('serbleApp')
         params: {
           filter: {
             title: {
-              strict: false,
+              strict: true,
               value: this.title
             },
             range: this.articleRange
