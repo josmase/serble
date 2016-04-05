@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload) {
+  .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload, $rootScope) {
     $scope.articleData = {};
 
     if (!$rootScope.globals.currentUser) {
