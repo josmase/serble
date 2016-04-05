@@ -1,6 +1,6 @@
 'use strict';
 
-function LoginCtrl($rootScope,authenticationService) {
+function LoginCtrl($rootScope,authenticationService,$route) {
   var vm = this;
 
   function login() {
@@ -8,11 +8,10 @@ function LoginCtrl($rootScope,authenticationService) {
     authenticationService.Login(vm.credentials, vm.password, function (response) {
       if (response.success) {
         authenticationService.SetCredentials(response.result, response.username);
-        console.log(response);
         $rootScope.modalShownLogin = false;
+        $route.reload();
       } else {
         vm.error=response.message || response.err[0];
-        console.log(response);
       }
       vm.loading = false;
     });
