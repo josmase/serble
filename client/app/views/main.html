@@ -98,7 +98,7 @@
           </div>
           <div class="col-md-8 col-xs-8">
             <h4>{{article.title}}</h4>
-            <p>{{article.neighborhood}}, {{article.price | currency : ""}}Kr {{article.distance | distance:0}}</p>
+            <p>{{article.neighborhood}}, {{article.price | money:"kr"}} {{article.distance | distance:0}}</p>
           </div>
         </div>
         <div class="row articleDescription">
