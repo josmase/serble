@@ -43,7 +43,6 @@ angular
           controllerAs: 'article',
           resolve: {
             currentArticleId: function( $route ) {
-              console.log($route.current.params.articleId);
               return $route.current.params.articleId;
             }
           }
