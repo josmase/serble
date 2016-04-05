@@ -16,5 +16,5 @@ angular.module('serbleApp')
       } else {
         return (input/1).toFixed(0) + 'm';
       }
-    }
+    };
   });

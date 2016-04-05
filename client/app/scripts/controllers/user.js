@@ -28,7 +28,7 @@ angular.module('serbleApp')
           } else {
             console.log(response);
           }
-        })
+        });
     }
 
     get();

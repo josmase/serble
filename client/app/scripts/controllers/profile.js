@@ -9,14 +9,9 @@
  */
 angular.module('serbleApp')
   .controller('ProfileCtrl', function ($scope, UserService, $rootScope) {
-    $scope.toggleContactInfo = toggleContactInfo;
-    $scope.update = update;
     $scope.loading = false;
-
     $scope.modalShownSuccess = false;
-    $scope.toggleModalSuccess = toggleModalSuccess;
     $scope.modalShownError = false;
-    $scope.toggleModalError = toggleModalError;
 
 
     if ($rootScope.globals) {
@@ -45,7 +40,7 @@ angular.module('serbleApp')
           } else {
             console.log(response);
           }
-        })
+        });
     }
 
     function update() {
@@ -64,8 +59,12 @@ angular.module('serbleApp')
           toggleModalError();
         }
 
-      })
+      });
     }
-
+    
+    $scope.toggleModalSuccess = toggleModalSuccess;
+    $scope.toggleModalError = toggleModalError;
+    $scope.toggleContactInfo = toggleContactInfo;
+    $scope.update = update;
     get();
   });

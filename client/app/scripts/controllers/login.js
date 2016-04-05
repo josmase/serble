@@ -1,12 +1,7 @@
 'use strict';
 
-angular
-  .module('serbleApp')
-  .controller('LoginCtrl', LoginCtrl);
 function LoginCtrl($rootScope,authenticationService) {
   var vm = this;
-
-  vm.login = login;
 
   function login() {
     vm.loading = true;
@@ -22,4 +17,10 @@ function LoginCtrl($rootScope,authenticationService) {
       vm.loading = false;
     });
   }
+
+  vm.login = login;
 }
+
+angular
+  .module('serbleApp')
+  .controller('LoginCtrl', LoginCtrl);

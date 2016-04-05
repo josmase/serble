@@ -17,8 +17,6 @@ angular.module('serbleApp')
     var prev = 50;
     var $window = $(window);
     var header = $('header');
-    $scope.checkIfLoggedIn = checkIfLoggedIn;
-    $scope.signOut = signOut;
 
     $rootScope.modalShownLogin = false;
     $rootScope.modalShownRegister = false;
@@ -45,13 +43,15 @@ angular.module('serbleApp')
     }
 
     function checkIfLoggedIn() {
-      return $rootScope.globals.currentUser
+      return $rootScope.globals.currentUser;
     }
 
     $rootScope.$watch('globals', function () {
       if ($rootScope.globals.currentUser) {
         $scope.username = $rootScope.globals.currentUser.credentials || 'profile';
       }
-    })
+    });
 
+    $scope.signOut = signOut;
+    $scope.checkIfLoggedIn = checkIfLoggedIn;
   });

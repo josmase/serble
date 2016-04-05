@@ -11,19 +11,13 @@ angular.module('serbleApp')
   .service('getAndPostArticlesService', function ($http) {
     var server = 'http://localhost:3000';
 
-    this.postArticleData = postArticleData;
-    this.getArticles = getArticles;
-    this.getById = getById;
-    this.removeById = removeById;
-
     function postArticleData(data) {
-      this.data = data;
       return $http({
         method: 'POST',
         url: server + '/articles/post',
         dataType: 'json',
         data: {
-          data: this.data
+          data: data
         }
       });
     }
@@ -31,11 +25,11 @@ angular.module('serbleApp')
     function getArticles(search, articleRange) {
 
       if (typeof search !== 'undefined') {
-        this.title = search.text || "";
-        this.category = search.category || "";
-        this.type = search.type || "";
+        var title = search.text || "";
+        var category = search.category || "";
+        var type = search.type || "";
       }
-      this.articleRange = articleRange || [0, 10];
+      articleRange = articleRange || [0, 10];
 
       return $http({
         method: 'GET',
@@ -45,16 +39,15 @@ angular.module('serbleApp')
           filter: {
             title: {
               strict: true,
-              value: this.title
+              value: title
             },
-            range: this.articleRange
+            range: articleRange
           }
         }
-      })
+      });
     }
 
     function getById(id) {
-      this.id = id;
       return $http({
         method: 'GET',
         url: server + '/articles/get',
@@ -63,24 +56,28 @@ angular.module('serbleApp')
           filter: {
             advert_id: {
               strict: false,
-              value: this.id
+              value: id
             }
           }
         }
-      })
+      });
     }
 
     function removeById(id) {
-      this.id = id;
       return $http({
         method: 'POST',
         url: server + '/articles/remove',
         dataType: 'json',
         data: {
-          id: this.id
+          id: id
         }
-      })
+      });
     }
+
+    this.postArticleData = postArticleData;
+    this.getArticles = getArticles;
+    this.getById = getById;
+    this.removeById = removeById;
   });
 
 

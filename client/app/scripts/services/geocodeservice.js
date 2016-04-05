@@ -26,6 +26,10 @@ angular.module('serbleApp')
       return deferred.promise;
     };
 
+    function deg2rad(deg) {
+      return deg * (Math.PI/180);
+    }
+
     this.getDistanceFromLatLon = function (location1,location2) {
       var lat1 = location1.latitude;
       var lon1 = location1.longitude;
@@ -46,8 +50,4 @@ angular.module('serbleApp')
       var distance = R * c*1000; // Distance in m
       return distance;
     };
-
-    function deg2rad(deg) {
-      return deg * (Math.PI/180)
-    }
   });

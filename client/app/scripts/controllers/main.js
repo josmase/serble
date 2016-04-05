@@ -41,6 +41,17 @@ angular.module('serbleApp')
       $location.search('page', currentPage);
     };
 
+
+    function calculateDistance() {
+      myMapServices.getCurrentLocation().then(function (data) {
+          $scope.currentLocation = data;
+          for (var article = 0; article < $scope.articles.length; article++) {
+            $scope.articles[article].distance = geocodeService.getDistanceFromLatLon($scope.currentLocation, $scope.articles[article]);
+          }
+        }
+      );
+    }
+
     $scope.getArticles = function () {
       resetPage();
       console.log('asd');
@@ -51,6 +62,7 @@ angular.module('serbleApp')
       $location.search('query', $scope.search.text);
       $location.search('category', $scope.search.category);
 
+
       getAndPostArticlesService.getArticles($scope.search, articleRange).then(function successCallback(returnedArticles) {
           $scope.articles = returnedArticles.data.result;
           startPoint += NumberOfArticles;
@@ -60,6 +72,7 @@ angular.module('serbleApp')
         }
       );
     };
+
 
     $scope.getMoreArticles = function (callback) {
       $scope.loading = true;
@@ -84,14 +97,14 @@ angular.module('serbleApp')
     };
 
     $scope.noArticles = function () {
-      return (!$scope.loading && $scope.articles.length < 1 )
+      return (!$scope.loading && $scope.articles.length < 1 );
     };
 
     $scope.viewMore = function () {
       var articlesLength = $scope.articles.length;
       $scope.getMoreArticles(function () {
         if (articlesLength !== $scope.articles.length) {
-          incrementPage()
+          incrementPage();
         }
       });
     };
@@ -103,18 +116,9 @@ angular.module('serbleApp')
       $scope.getArticles();
     }
 
-
-    var calculateDistance = function () {
-      myMapServices.getCurrentLocation().then(function (data) {
-          $scope.currentLocation = data;
-          for (var article = 0; article < $scope.articles.length; article++) {
-            $scope.articles[article].distance = geocodeService.getDistanceFromLatLon($scope.currentLocation, $scope.articles[article])
-          }
-        }
-      );
-    };
     myMapServices.getCurrentLocation().then(function (data) {
       $scope.currentLocation = data;
     });
-    calculateDistance()
+
+    calculateDistance();
   });
