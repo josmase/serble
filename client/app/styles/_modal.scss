@@ -21,6 +21,14 @@
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  .form-group{
+    text-align: center;
+  }
+  .errorMessage{
+    margin-top: 10px ;
+    color: red;
+    font-size: 18px;
+  }
 }
 
 .ng-modal-dialog-content {
