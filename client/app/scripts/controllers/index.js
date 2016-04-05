@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('indexCtrl', function ($scope, $location, $rootScope, authenticationService) {
+  .controller('indexCtrl', function ($scope, $location, $rootScope, authenticationService, $route) {
 
     $scope.isActive = function (viewLocation) {
       $('#myNavbar').collapse('hide');
@@ -23,9 +23,15 @@ angular.module('serbleApp')
 
     $scope.toggleModalRegister = function () {
       $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
+      if(!$rootScope.modalShownRegister){
+        $route.reload();
+      }
     };
     $scope.toggleModalLogin = function () {
       $rootScope.modalShownLogin = !$rootScope.modalShownLogin;
+      if(!$rootScope.modalShownLogin){
+        $route.reload();
+      }
     };
 
     $scope.changeModal = function () {
