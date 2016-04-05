@@ -3,8 +3,8 @@
   <div class="profileInfo">
     <img src="../images/working.jpg">
     <h4 id="name">{{articleInfo.title}}</h4>
-    <p>{{articleInfo.neighborhood}}, {{articleInfo.city}} (1500m)</p>
-    <p>{{articleInfo.price | currency: ""}} Kr</p>
+    <p>{{articleInfo.neighborhood}}, {{articleInfo.city}} {{articleInfo.distance | distance:0}}</p>
+    <p>{{articleInfo.price | money: "kr"}}</p>
     <pre>{{articleInfo.description}}</pre>
     <div>
       <ul>
