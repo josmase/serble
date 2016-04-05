@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `serble`;
+USE `serble`;
 CREATE TABLE IF NOT EXISTS `settings` (
     `key`   VARCHAR(255) NOT NULL,
     `value` VARCHAR(255) NOT NULL,
@@ -61,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
     FOREIGN KEY (`user_id`)
     REFERENCES `account` (`user_id`)
         ON DELETE CASCADE
-        ON UPDATE CASCADE,
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `profile_rating` (
