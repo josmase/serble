@@ -1,87 +1,6 @@
-$primary-orange: rgba(246, 163, 25, 1);
-$secondary-black: rgb(34, 34, 34);
-$secondary-blue: rgba(38, 58, 66, 1);
-$gray: rgba(222, 223, 224, 1);
-$white: rgba(255, 255, 255, 1);
-$white-transparent: rgba(228, 228, 228, 0.8);
-$black-transparent: rgba(1, 1, 1, 0.5);
-$facebook-color: #3B5998;
-$green: rgba(99, 179, 70, 1);
-$green-light: rgba(80, 160, 51, 1);
-$dark-white: #dfdfdf;
-$input-border-color: #ccc;
 
 $circle-size: 100px;
-#cards {
-  display: flex;
-  flex-flow: wrap row;
-  justify-content: space-between;
-  background: $dark-white;
-}
 
-.card {
-  flex: 0 1 100%;
-  max-width: 100%;
-  margin: 0 0 1rem;
-  border-radius: 3px;
-  .article {
-    width: 100%;
-    background: white;
-    box-shadow: 0 1px 2px #aaa;
-    .articleImage {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
-        height: 80px;
-        width: 80px;
-        border-radius: 100%;
-      }
-    }
-    .row {
-      padding: 1.5rem 3rem 0 3rem;
-      word-wrap: break-word;
-    }
-    .articleDescription {
-      min-height: 110px;
-      padding-bottom: 50px;
-    }
-    .details {
-      position: absolute;
-      display: block;
-      bottom: 0;
-      width: 100%;
-      border-top: 2px #eee solid;
-      padding: 15px;
-      height: 50px;
-      text-align: center;
-      p{
-        color: #65b447;
-      }
-      p:hover{
-        color: #54a336;
-      }
-    }
-
-  }
-
-  h4 {
-    color: #3b99d4;
-    padding: 0;
-  }
-  .details {
-    text-align: center;
-  }
-  #pay {
-    margin-top: 10px;
-  }
-  #location p {
-    margin-top: 100%;
-  }
-  .col-md-6 {
-    background: orange;
-  }
-}
 
 .btn, .button {
   border-width: 0;
@@ -134,99 +53,6 @@ header.hideHeader {
   transform: translate(0, -100%);
 }
 
-header.ng-scope {
-  //box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.75);
-  min-height: 55px;
-  background: white;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-  position: fixed;
-  top: 0;
-  transition: transform ease-in-out 0.3s;
-  z-index: 100;
-  .navbar-header {
-    border-bottom: 1px solid #eee;
-  }
-  .nav {
-    li {
-      padding: 10px 0 10px 0;
-      a:hover, a:focus {
-        background: none;
-      }
-      a {
-        font-family: 'Sak-light', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        color: #2a2b2f;
-      }
-      p {
-        line-height: 20px;
-        margin: 0;
-        padding: 10px 15px
-      }
-    }
-  }
-  .navbar-nav {
-    margin: 0 -15px;
-  }
-  .navbar {
-    margin-bottom: 0;
-    border-bottom: 0 solid #EEE;
-    min-height: 50px;
-    li {
-      color: #4b4d4a;
-      border-bottom: 1px solid #EEE;
-    }
-    .navbar-brand {
-      height: 50px;
-      padding: 15px 15px;
-      color: $primary-orange;
-    }
-
-    .navbar-toggle {
-      margin: 0;
-      padding: 20px;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      border-left: 1px solid #EEE;
-
-      &:hover {
-        background: transparent !important;
-      }
-
-      .icon-bar {
-        width: 22px;
-        transition: all 0.2s;
-        background-color: black;
-      }
-      .top-bar {
-        transform: rotate(45deg);
-        transform-origin: 10% 10%;
-      }
-      .middle-bar {
-        opacity: 0;
-      }
-      .bottom-bar {
-        transform: rotate(-45deg);
-        transform-origin: 10% 90%;
-      }
-    }
-    .navbar-toggle.collapsed {
-      .top-bar {
-        transform: rotate(0);
-      }
-      .middle-bar {
-        opacity: 1;
-      }
-      .bottom-bar {
-        transform: rotate(0);
-      }
-    }
-  }
-
-}
 
 .create-article {
   text-align: center;
@@ -251,48 +77,6 @@ header.ng-scope {
   }
 }
 
-.form-group {
-  margin: 10px 0 10px 0;
-  text-align: left;
-  label {
-    color: rgba(21, 31, 47, 1);
-  }
-  input, select, textarea {
-    text-align: left;
-    background-color: transparent;
-    border: 1px solid $input-border-color;
-    padding: 10px;
-    width: 100%;
-    color: black;
-    box-sizing: border-box;
-  }
-  select {
-    background-image: url("./../images/ic_expand_more_black_24px.svg");
-    background-position: right 10px top 50%;
-    background-repeat: no-repeat;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  input, select {
-    height: 50px;
-  }
-  .profile-information {
-    @extend input;
-    margin-top: 20px;
-    p {
-      margin-bottom: 0;
-    }
-  }
-  ::-webkit-input-placeholder {
-    text-align: left;
-  }
-  button {
-    @extend .button;
-    height: 50px;
-    padding: 13px;
-    width: 100%;
-  }
-}
 
 #facebook {
   background: #3B5998;
@@ -307,89 +91,6 @@ header.ng-scope {
 .angular-google-map-container {
   height: 70vh;
   margin-top: 50px;
-}
-
-.ng-modal-overlay {
-  /* A dark translucent div that covers the whole screen */
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 110vh;
-  background-color: #000000;
-  opacity: 0.8;
-}
-
-.ng-modal-dialog {
-  /* A centered div above the overlay with a box shadow. */
-  z-index: 10000;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
-
-.ng-modal-dialog-content {
-  min-width: 50%;
-  text-align: center;
-  pointer-events: auto;
-  form, .modalInfo {
-    padding: 20px;
-    background-color: #fff;
-    h1 {
-      color: black;
-    }
-    .infoIcon {
-      width: $circle-size;
-      height: $circle-size;
-      border-radius: 50%;
-      margin: calc(#{$circle-size} * -0.75) auto auto auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      color: white;
-      user-select: none;
-    }
-    .success {
-      background: $green;
-    }
-    .error {
-      background: orange;
-    }
-  }
-  button, a {
-    display: block;
-    width: 100%;
-  }
-  #login_prompt {
-    margin-top: 20px;
-    span {
-      margin-top: 10px;
-      color: $green;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-  }
-}
-
-.ng-modal-close {
-  border-bottom: 1px solid $gray;
-  font-size: 120%;
-  font-weight: bold;
-  color: black;
-  padding: 10px;
-  background-color: #fff;
-  text-align: right;
-  p {
-    margin: 0;
-    display: inline-block;
-  }
 }
 
 .imageUpload {
@@ -428,51 +129,7 @@ header.ng-scope {
   }
 }
 
-#profileImage {
-  width: 100%;
-  max-height: 60vh;
-  overflow: hidden;
-  img {
-    filter: blur(2px);
-    margin: 50 -5 -5 -5px;
-    padding: 5px;
-  }
-}
 
-.profileInfo {
-  text-align: center;
-  pre {
-    background: none;
-    border: none;
-    border-radius: 0;
-    text-align: left;
-  }
-  #name {
-    color: $green;
-    font-size: 18px;
-  }
-  label {
-    display: block;
-  }
-  input, textarea {
-    display: block;
-    margin: 0 auto 10px;
-  }
-  input[type=checkbox]{
-    display: inline;
-  }
-  img {
-    filter: blur(0);
-    margin-top: $circle-size * -0.5;
-    margin-left: auto;
-    margin-right: auto;
-    width: $circle-size;
-    height: $circle-size;
-    border-radius: 100%;
-    border: 2px solid white;
-  }
-
-}
 
 #BackgroundContact {
   width: 100%;
@@ -496,43 +153,6 @@ header.ng-scope {
   padding: 0;
 }
 
-footer {
-  background: #2a2b2f;
-  text-align: left;
-
-  #Copyright {
-    font-family: 'Sak-light', sans-serif;
-    letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #999;
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 42px;
-    padding-top: 40px;
-    text-transform: uppercase;
-  }
-  div.no-padding {
-
-    margin-top: 110px;
-    margin-bottom: 100px;
-
-    h5 {
-      font-family: 'Sak-medium', sans-serif;
-      letter-spacing: 2px;
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: #fcfcfc;
-      margin: 0 0 20px 0;
-    }
-    p {
-      font-size: 16px;
-      color: #888;
-    }
-
-  }
-}
 
 .social-media {
   color: #888;
@@ -559,14 +179,6 @@ footer {
   .no-padding {
     padding: 0;
   }
-
-  .card {
-    max-width: 49%;
-    flex: 0 1 49%;
-    margin: 0 1% 1rem 0;
-    align-items: stretch;
-    display: flex;
-  }
   .container {
     max-width: 1140px;
   }
@@ -586,28 +198,7 @@ footer {
       padding: 15px 10%;
     }
   }
-  header.ng-scope {
-    .navbar-header {
-      border-bottom: none;
-    }
 
-    .navbar {
-      min-height: 75px;
-      .navbar-brand {
-        height: 70px;
-        padding: 25px;
-      }
-      .nav {
-        li {
-          border: none;
-          p {
-            padding-top: 15px;
-            padding-bottom: 15px;
-          }
-        }
-      }
-    }
-  }
   .imageUpload {
     div {
       flex: 0 1 76%;

@@ -1,8 +1,15 @@
 // bower:scss
 // endbower
+@import 'colors.scss';
 @import 'partial.scss';
 @import 'fonts.scss';
 @import 'animation.scss';
+@import 'cards.scss';
+@import 'footer.scss';
+@import 'forms.scss';
+@import 'header.scss';
+@import 'modal.scss';
+@import 'profile.scss';
 
 .browsehappy {
   margin: 0.2em 0;

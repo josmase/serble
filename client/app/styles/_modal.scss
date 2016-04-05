@@ -1,0 +1,82 @@
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 110vh;
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index: 10000;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.ng-modal-dialog-content {
+  min-width: 50%;
+  text-align: center;
+  pointer-events: auto;
+  form, .modalInfo {
+    padding: 20px;
+    background-color: #fff;
+    h1 {
+      color: black;
+    }
+    .infoIcon {
+      width: $circle-size;
+      height: $circle-size;
+      border-radius: 50%;
+      margin: calc(#{$circle-size} * -0.75) auto auto auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      color: white;
+      user-select: none;
+    }
+    .success {
+      background: $green;
+    }
+    .error {
+      background: orange;
+    }
+  }
+  button, a {
+    display: block;
+    width: 100%;
+  }
+  #login_prompt {
+    margin-top: 20px;
+    span {
+      margin-top: 10px;
+      color: $green;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+
+.ng-modal-close {
+  border-bottom: 1px solid $gray;
+  font-size: 120%;
+  font-weight: bold;
+  color: black;
+  padding: 10px;
+  background-color: #fff;
+  text-align: right;
+  p {
+    margin: 0;
+    display: inline-block;
+  }
+}

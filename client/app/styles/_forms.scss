@@ -1,0 +1,43 @@
+
+.form-group {
+  margin: 10px 0 10px 0;
+  text-align: left;
+  label {
+    color: rgba(21, 31, 47, 1);
+  }
+  input, select, textarea {
+    text-align: left;
+    background-color: transparent;
+    border: 1px solid $input-border-color;
+    padding: 10px;
+    width: 100%;
+    color: black;
+    box-sizing: border-box;
+  }
+  select {
+    background-image: url("./../images/ic_expand_more_black_24px.svg");
+    background-position: right 10px top 50%;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  input, select {
+    height: 50px;
+  }
+  .profile-information {
+    @extend input;
+    margin-top: 20px;
+    p {
+      margin-bottom: 0;
+    }
+  }
+  ::-webkit-input-placeholder {
+    text-align: left;
+  }
+  button {
+    @extend .button;
+    height: 50px;
+    padding: 13px;
+    width: 100%;
+  }
+}
