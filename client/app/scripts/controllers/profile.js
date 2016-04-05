@@ -14,8 +14,11 @@ angular.module('serbleApp')
     $scope.modalShownError = false;
 
 
-    if ($rootScope.globals) {
+    if ($rootScope.globals.currentUser) {
       var username = $rootScope.globals.currentUser.credentials || 'invalid';
+    }
+    else{
+      $rootScope.modalShownLogin = true;
     }
 
     function toggleContactInfo() {
@@ -35,7 +38,6 @@ angular.module('serbleApp')
       UserService.GetByUsername(username)
         .then(function (response) {
           if (response.success) {
-            console.log(response);
             $scope.user = response.result;
           } else {
             console.log(response);
@@ -61,10 +63,11 @@ angular.module('serbleApp')
 
       });
     }
-    
+
     $scope.toggleModalSuccess = toggleModalSuccess;
     $scope.toggleModalError = toggleModalError;
     $scope.toggleContactInfo = toggleContactInfo;
     $scope.update = update;
+
     get();
   });

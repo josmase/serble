@@ -11,6 +11,10 @@ angular.module('serbleApp')
   .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload) {
     $scope.articleData = {};
 
+    if (!$rootScope.globals.currentUser) {
+      $rootScope.modalShownLogin = true;
+    }
+
     function toggleModalSuccess() {
       $scope.modalShownSuccess = !$scope.modalShownSuccess;
     }
@@ -71,7 +75,7 @@ angular.module('serbleApp')
     $scope.toggleModalError = toggleModalError;
 
     // upload later on form submit or something similar
-    $scope.submit = function() {
+    $scope.submit = function () {
       if ($scope.file) {
         $scope.upload($scope.file);
       }
