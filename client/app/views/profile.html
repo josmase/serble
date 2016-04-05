@@ -5,6 +5,11 @@
     <label>Stad
       <input type="text" ng-model="user.city">
     </label>
+    <label class="checkbox">
+      <input type="checkbox" ng-model="user.show_city">
+      Visa min stad
+    </label>
+
     <label>Beskrivning
      <textarea type="text" name="description"
                cols="40"
@@ -21,14 +26,16 @@
     <label> Telefon
       <input type="tel" ng-model="user.phone">
     </label>
-    <label>Visa mitt nummer
+    <label>
       <input type="checkbox" ng-model="user.show_phone">
+      Visa mitt nummer
     </label>
-    <label>Visa min email
+    <label>Email
+      <input type="email" ng-model="user.email">
+    </label>
+    <label>
       <input type="checkbox" ng-model="user.show_email">
-    </label>
-    <label>Visa min stad
-      <input type="checkbox" ng-model="user.show_city">
+      Visa min email
     </label>
   </div>
   <button class="btn-accept" ladda="loading" ng-click="update()">save</button>

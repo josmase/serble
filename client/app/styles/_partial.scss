@@ -440,13 +440,13 @@ header.ng-scope {
 }
 
 .profileInfo {
+  text-align: center;
   pre {
     background: none;
     border: none;
     border-radius: 0;
     text-align: left;
   }
-  text-align: center;
   #name {
     color: $green;
     font-size: 18px;
@@ -456,6 +456,10 @@ header.ng-scope {
   }
   input, textarea {
     display: block;
+    margin: 0 auto 10px;
+  }
+  input[type=checkbox]{
+    display: inline;
   }
   img {
     filter: blur(0);
