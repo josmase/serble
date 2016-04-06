@@ -21,25 +21,30 @@
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  .form-group{
+  .form-group {
     text-align: center;
   }
-  .errorMessage{
-    margin-top: 10px ;
+  .errorMessage {
+    margin-top: 10px;
     color: red;
     font-size: 18px;
   }
 }
 
 .ng-modal-dialog-content {
-  min-width: 50%;
+  max-width: 600px;
+  min-width: 300px;
   text-align: center;
   pointer-events: auto;
   form, .modalInfo {
     padding: 20px;
     background-color: #fff;
     h1 {
-      color: black;
+      color: $green;
+      font-size: 28px;
+    }
+    p{
+      font-size: 13px;
     }
     .infoIcon {
       width: $circle-size;
@@ -64,27 +69,54 @@
     display: block;
     width: 100%;
   }
+  button {
+    font-weight: bold;
+    font-size: 17px;
+  }
+  .terms a {
+    color: $green;
+    font-weight: bold;
+    display: inline;
+  }
   #login_prompt {
     margin-top: 20px;
+    font-size: 13px;
+    p {
+      color: white;
+
+    }
     span {
       margin-top: 10px;
       color: $green;
-      text-decoration: underline;
       cursor: pointer;
+      font-weight: bold;
     }
   }
 }
 
 .ng-modal-close {
+  padding: 10px 15px;
+  height: 50px;
   border-bottom: 1px solid $gray;
-  font-size: 120%;
-  font-weight: bold;
-  color: black;
-  padding: 10px;
   background-color: #fff;
-  text-align: right;
-  p {
-    margin: 0;
-    display: inline-block;
+  .closeModalDiv {
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-right: -7px;
+  }
+  .closeModal {
+    background-color: $primary-font-color;
+    position: absolute;
+    right: 26px;
+    top: 14px;
+    width: 2px;
+    height: 21px;
+  }
+  .left {
+    transform: rotate(-45deg);
+  }
+  .right {
+    transform: rotate(45deg);
   }
 }

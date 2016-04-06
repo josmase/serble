@@ -35,6 +35,7 @@ angular.module('serbleApp')
         $scope.map.center = data;
       }
     );
+
     uiGmapGoogleMapApi.then(function () {
 
       $scope.map = {
@@ -46,10 +47,10 @@ angular.module('serbleApp')
         bounds: {},
         options: {}
       };
+      console.log($scope.map);
+
       $scope.map.options = myMapServices.getMapOptions().mapOptions;
 
-
-      $scope.map.center = $scope.myCurrentLocation;
       if (typeof _.contains === 'undefined') {
         _.contains = _.includes;
       } //else it exists and we good for lodash3 without doing anything else

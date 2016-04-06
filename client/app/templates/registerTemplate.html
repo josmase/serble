@@ -3,7 +3,10 @@
   <div class='ng-modal-dialog'>
     <div class='ng-modal-dialog-content fadeInUp animated'>
       <div class='ng-modal-close'>
-        <p ng-click='toggleModalRegister()'>✖</p>
+        <div class="closeModalDiv" ng-click='toggleModalRegister()'>
+          <span class="closeModal left"></span>
+          <span class="closeModal right"></span>
+        </div>
       </div>
       <form name="registrationForm" ng-submit="registrationForm.$valid && register.register()" novalidate>
         <h1>Registrera</h1>
@@ -80,15 +83,17 @@
         <div class="row center">
           <div class="col-xs-12 col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">REGISTRERA</button>
+              <button type="submit" class="btn-accept" value="Submit" ladda="register.loading">Registrera dig</button>
               <p class="errorMessage">{{register.error}}</p>
+              <p>Genom att trycka på "Registrera dig" går du med på våra <span class="terms"><a href="">Användarvilkor</a></span>.
+              </p>
             </div>
           </div>
         </div>
       </form>
       <div class="row center" id="login_prompt">
         <div class="col-xs-12">
-          <p>Redan Registrerad <span ng-click="changeModal()">Logga in här</span>.</p>
+          <p>Redan medlem? <span ng-click="changeModal()">Logga in här</span>.</p>
         </div>
       </div>
     </div>

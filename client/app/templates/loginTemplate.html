@@ -3,17 +3,19 @@
   <div class='ng-modal-dialog'>
     <div class='ng-modal-dialog-content fadeInUp animated'>
       <div class='ng-modal-close'>
-        <p ng-click='toggleModalLogin()'>✖</p>
+        <div class="closeModalDiv" ng-click='toggleModalRegister()'>
+          <span class="closeModal left"></span>
+          <span class="closeModal right"></span>
+        </div>
       </div>
       <form name="loginForm" ng-submit="loginForm.$valid && login.login()" novalidate>
         <h1>Logga in</h1>
-        <p>Skriv in den e-mail och det lösenord du använde när du registrerade dig</p>
         <div class="row">
           <div class="col-xs-12 col-md-12">
             <div class="form-group"
                  ng-class="{ 'has-error': loginForm.credentials.$touched && loginForm.credentials.$invalid }">
               <input class="form" type="text" name="credentials"
-                     placeholder="E-MAIL"
+                     placeholder="Användarnamn eller email"
                      ng-model="login.credentials"
                      ng-minlength="0"
                      ng-maxlength="40"
@@ -31,7 +33,7 @@
             <div class="form-group"
                  ng-class="{'has-error': loginForm.password.$touched && loginForm.password.$invalid}">
               <input class="form" type="password" name="password"
-                     placeholder="LÖSENORD"
+                     placeholder="Lösenord"
                      ng-model="login.password"
                      ng-minlength="4"
                      ng-maxlength="200"
@@ -46,8 +48,10 @@
         <div class="row center">
           <div class="col-xs-12 col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn-accept" value="Submit" ladda="login.loading">LOGGA IN</button>
+              <button type="submit" class="btn-accept" value="Submit" ladda="login.loading">Logga in</button>
               <p class="errorMessage">{{login.error}}</p>
+              <p>Genom att trycka på "Logga in" går du med på våra <span class="terms"><a href="">Användarvilkor</a></span>.
+              </p>
             </div>
           </div>
         </div>
