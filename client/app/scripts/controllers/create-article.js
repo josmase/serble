@@ -26,7 +26,6 @@ angular.module('serbleApp')
     function postArticle() {
       getAndPostArticlesService.postArticleData($scope.articleData)
         .then(function successCallback(response) {
-          console.log(response.data);
           $scope.loading = false;
           if (response.data.success) {
             toggleModalSuccess();
@@ -43,12 +42,9 @@ angular.module('serbleApp')
     }
 
     function addLocationToArticle(response) {
-      console.log(response);
       $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
       $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
       $scope.articleData.neighborhood = response.data.results[0].address_components[2].long_name;
-      console.log($scope.articleData);
-
     }
 
     function submitForm() {
