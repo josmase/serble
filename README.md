@@ -23,11 +23,12 @@ Run
 `gem install compass`
 
  `npm install && bower install` 
+ 
 Done
 
 ###Server
 
- Download and install [MySql] (http://dev.mysql.com/downloads/mysql/) and createa a user "serble" with the password "serble"
+ Download and install [MySql] (http://dev.mysql.com/downloads/mysql/) and create a user "serble" with the password "serble"
  
  `cd ../server`
  
