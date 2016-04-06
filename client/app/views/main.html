@@ -20,95 +20,97 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid articleFilter">
-    <form ng-submit="searchForm.$valid && getArticles()" name="searchForm" novalidate>
-      <p>SÖK ANNONSER</p>
-      <div class="row">
-        <div class="col-xs-12 col-md-3">
-          <div class="form-group">
-            <input type="text"
-                   name="query"
-                   ng-model="search.text"
-                   placeholder="Sök efter annonser...">
+  <div class="articleFilter">
+    <div class="container">
+      <form ng-submit="searchForm.$valid && getArticles()" name="searchForm" novalidate>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+            <div class="form-group">
+              <input type="text"
+                     name="query"
+                     ng-model="search.text"
+                     placeholder="Sök efter annonser...">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <div class="form-group">
+              <select ng-model="search.category"
+                      name="category">
+                <option value="">Välj kategori</option>
+                <option value="dataAndIT">Data & IT</option>
+                <option value="gardeningAndShoveling">Trädgård & snöskotning</option>
+                <option value="economyAndAdministration">Ekonomi & administration</option>
+                <option value="partAndEntertainment">Fest & underhållning</option>
+                <option value="movingAndBroker">Flytthjälp & mäklare</option>
+                <option value="homeDecoration">Heminredning</option>
+                <option value="handyWork">Hantverk</option>
+                <option value="petSitter">Hund- & djurvakt</option>
+                <option value="healthAndBeauty">Hälsa & skönhet</option>
+                <option value="cookingAndCatering">Matlagning & catering</option>
+                <option value="babySitter">Barnvakt</option>
+                <option value="cleaning">Städhälp</option>
+                <option value="santa">Tomte</option>
+                <option value="transportationAndCarpool">Transport & samåkning</option>
+                <option value="homeworkAndTeaching">Läxhjälp & undervisning</option>
+                <option value="other">Annat</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="form-group">
+              <select ng-model="search.type"
+                      name="type">
+                <option value="">Alla annonser</option>
+                <option value="0">Köpes</option>
+                <option value="1">Säljes</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+            <div class="form-group">
+              <select ng-model="search.order"
+                      name="order">
+                <option value="">Sortera efter</option>
+                <option value="-price">Högst pris fört</option>
+                <option value="price">lägst pris först</option>
+                <option value="distance">Närmast först</option>
+                <option value="-distance">Närmast sist</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+            <div class="form-group">
+              <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
+                Sök annonser
+              </button>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-3">
-          <div class="form-group">
-            <select ng-model="search.category"
-                    name="category">
-              <option value="">Välj kategori</option>
-              <option value="dataAndIT">Data & IT</option>
-              <option value="gardeningAndShoveling">Trädgård & snöskotning</option>
-              <option value="economyAndAdministration">Ekonomi & administration</option>
-              <option value="partAndEntertainment">Fest & underhållning</option>
-              <option value="movingAndBroker">Flytthjälp & mäklare</option>
-              <option value="homeDecoration">Heminredning</option>
-              <option value="handyWork">Hantverk</option>
-              <option value="petSitter">Hund- & djurvakt</option>
-              <option value="healthAndBeauty">Hälsa & skönhet</option>
-              <option value="cookingAndCatering">Matlagning & catering</option>
-              <option value="babySitter">Barnvakt</option>
-              <option value="cleaning">Städhälp</option>
-              <option value="santa">Tomte</option>
-              <option value="transportationAndCarpool">Transport & samåkning</option>
-              <option value="homeworkAndTeaching">Läxhjälp & undervisning</option>
-              <option value="other">Annat</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-3">
-          <div class="form-group">
-            <select ng-model="search.type"
-                    name="type">
-              <option value="">Köpes och säljes</option>
-              <option value="0">Köpes</option>
-              <option value="1">Säljes</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-3">
-          <div class="form-group">
-            <button type="submit" class="button-accept" value="Submit" ng-disabled="searchForm.$invalid">
-              Sök annonser
-            </button>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-12">
-          <div class="form-group">
-            <select ng-model="search.order"
-                    name="order">
-              <option value="">Sortera efter</option>
-              <option value="-price">Högst pris fört</option>
-              <option value="price">lägst pris först</option>
-              <option value="distance">Närmast först</option>
-              <option value="-distance">Närmast sist</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 
   <div class="container" id="cards">
     <div class="card" ng-repeat="article in articles | orderBy:search.order | filter:search.type">
       <div class="article fadeInUp animated">
-        <div class="row">
-          <div class="col-md-3 col-xs-3 articleImage">
-            <img src="./../images/working.jpg"/>
+        <div class="articleHeader">
+          <div class="articleImage">
+          <img src="./../images/working.jpg"/>
           </div>
-          <div class="col-md-8 col-xs-8">
+          <div class="articleInfo">
             <h4>{{article.title}}</h4>
-            <p>{{article.neighborhood}}, {{article.price | money:"kr"}} {{article.distance | distance:0}}</p>
+            <p>{{article.neighborhood}}, {{article.city}} ({{article.distance | distance:0}})</p>
           </div>
         </div>
         <div class="row articleDescription">
           <div>
             <p>{{article.description | limitTo:170}}... </p>
+            <p><span class="blue">{{article.price | money:"kr"}}</span></p>
           </div>
         </div>
         <a ng-href="#/article/{{article.advert_id}}">
           <div class="details">
-            <p>Visa Mer</p>
+            <p>Läs mer</p>
           </div>
         </a>
       </div>
