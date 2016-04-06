@@ -4,7 +4,7 @@
 
     <h1>Skapa annons</h1>
 
-    <p>När du skapar en annosn tänk då på att göra en tydlig rubrik som beskriver vad du behöver hjälp med eller vad du
+    <p>När du skapar en annons tänk då på att göra en tydlig rubrik som beskriver vad du behöver hjälp med eller vad du
       kan hjälpa till med. Om ingen kategori passar in perfekt, välj den som passar in bäst.</p>
     <form ng-submit="articelForm.$valid && submitForm()" name="articelForm" novalidate>
       <div class="row">
@@ -66,8 +66,8 @@
             <input type="text" name="title" class="form"
                    placeholder="Måla staket..."
                    ng-model="articleData.title"
-                   ng-minlength="6"
-                   ng-maxlength="50"
+                   ng-minlength="1"
+                   ng-maxlength="32"
                    required>
 
             <div class="help-block" ng-messages="articelForm.title.$error" ng-if="articelForm.title.$touched">
