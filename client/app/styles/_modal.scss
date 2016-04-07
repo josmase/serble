@@ -45,6 +45,7 @@
     }
     p{
       font-size: 13px;
+      margin: 10px 0 0 0;
     }
     .infoIcon {
       width: $circle-size;
@@ -68,6 +69,11 @@
   button, a {
     display: block;
     width: 100%;
+  }
+  a{
+    padding: 18px;
+    color: white;
+    text-decoration: none;
   }
   button {
     font-weight: bold;
