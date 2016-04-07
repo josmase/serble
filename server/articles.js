@@ -33,6 +33,12 @@ var exp = {
 
                         var err;
 
+                        //check if type is string when supposed to be int and try to parse
+                        if (this.structure[sk].type == "number" && typeof data[dk] =="string") {
+                              try{data[dk] = parseInt(data[dk]);}
+                              catch(e){result.err.push(sk + "cantparsetoint");}
+                        }
+
                         if (this.structure[sk].type && typeof data[dk] != this.structure[sk].type) {
                             result.err.push(sk + "invalidtype");
                         } else if (typeof this.structure[sk].check == "function" && (err = this.structure[sk].check(data[dk]))) {
@@ -74,7 +80,8 @@ var exp = {
                 callback(verified.err);
             } else {
                 var sqldata = verified.filtered;
-                sqldata.author_id = token.profile_id;
+              console.log(sqldata);
+              sqldata.author_id = token.profile_id;
                 database.query("INSERT INTO `advertisement` SET ?, `date_creation` = NOW()", sqldata, function (e) {
                     if (e) {
                         console.log("Database error: " + e);
@@ -298,7 +305,14 @@ exp.structure = {
                 return "typeinvalid";
             }
         }
+    },
+
+    file: {
+      ignore:false,
+      type: "string"
     }
+
+
 };
 
 module.exports = exp;
