@@ -8,8 +8,8 @@
  * Service in the serbleApp.
  */
 angular.module('serbleApp')
-  .service('getAndPostArticlesService', function ($http) {
-    var server = 'http://localhost:3000';
+  .service('getAndPostArticlesService', function ($http ,$rootScope) {
+    var server = $rootScope.apiURL;
 
     function postArticleData(data) {
       return $http({

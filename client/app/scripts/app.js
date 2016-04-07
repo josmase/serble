@@ -70,6 +70,7 @@ angular
   .run(function ($rootScope, $cookies, $http) {
       // keep user logged in after page refresh
       $rootScope.globals = JSON.parse($cookies.get('globals') || "{}");
+      $rootScope.apiURL = "http://localhost:3000";
       if ($rootScope.globals.currentUser) {
         $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token; // jshint ignore:line
       }

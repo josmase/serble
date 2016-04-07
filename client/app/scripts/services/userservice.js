@@ -5,10 +5,12 @@
     .module('serbleApp')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$http'];
-  function UserService($http) {
+  UserService.$inject = ['$http','$rootScope'];
+  function UserService($http,$rootScope) {
+   
     var service = {};
-    var server = 'http://localhost:3000';
+    var server = $rootScope.apiURL;
+    
     service.GetAll = GetAll;
     service.GetById = GetById;
     service.GetByUsername = GetByUsername;

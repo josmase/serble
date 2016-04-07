@@ -11,7 +11,7 @@
 
 function authenticationService($http, $cookies, $rootScope) {
   var service = {};
-  var server = 'http://localhost:3000';
+  var server = $rootScope.apiURL;
 
   function Login(credentials, password, callback) {
     $http.post(server + '/user/login', {credentials: credentials, password: password})

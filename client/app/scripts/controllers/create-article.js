@@ -75,7 +75,7 @@ angular.module('serbleApp')
     $scope.upload = function (file) {
       console.log($scope.articleData);
       Upload.upload({
-        url: 'http://localhost:3000/upload',
+        url: $rootScope.apiURL+'/upload',
         dataType: 'json',
         data: {file: file, data: $scope.articleData}
       }).then(function (response) {
