@@ -12,23 +12,24 @@
 <div class="container" id="cards">
   <div class="card" ng-repeat="article in clickedArticle | orderBy:search.order | filter:search.type">
     <div class="article fadeInUp animated">
-      <div class="row">
-        <div class="col-md-3 col-xs-3 articleImage">
-          <img src="./../images/working.jpg"/>
+      <div class="articleHeader">
+        <div class="articleImage">
+          <img src="http://localhost:3000/file/{{article.file}}"/>
         </div>
-        <div class="col-md-8 col-xs-8">
+        <div class="articleInfo">
           <h4>{{article.title}}</h4>
-          <p>{{article.neighborhood}}, {{article.price | currency : ""}}Kr</p>
+          <p>{{article.neighborhood}}, {{article.city}} ({{article.distance | distance:0}})</p>
         </div>
       </div>
       <div class="row articleDescription">
         <div>
           <p>{{article.description | limitTo:170}}... </p>
+          <p><span class="blue">{{article.price | money:"kr"}}</span></p>
         </div>
       </div>
       <a ng-href="#/article/{{article.advert_id}}">
         <div class="details">
-          <p>Visa Mer</p>
+          <p>Läs mer</p>
         </div>
       </a>
     </div>
