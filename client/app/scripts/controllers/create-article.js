@@ -49,7 +49,6 @@ angular.module('serbleApp')
 
     function submitForm() {
       $scope.loading = true;
-      $scope.articleData.type = parseInt($scope.articleData.type);
 
       geocodeService.geocode($scope.articleData).then(function (response) {
         addLocationToArticle(response);
