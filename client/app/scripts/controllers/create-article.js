@@ -53,7 +53,8 @@ angular.module('serbleApp')
 
       geocodeService.geocode($scope.articleData).then(function (response) {
         addLocationToArticle(response);
-        postArticle();
+        $scope.submit();
+       // postArticle();
       });
 
     }
@@ -62,6 +63,33 @@ angular.module('serbleApp')
       $scope.file = null;
     }
 
+    $scope.submit = function () {
+      if ($scope.file) {
+        $scope.upload($scope.file);
+      }
+      else{
+        $scope.loading = false;
+      }
+    };
+
+    // upload on file select or drop
+    $scope.upload = function (file) {
+      console.log($scope.articleData);
+      Upload.upload({
+        url: 'http://localhost:3000/upload',
+        dataType: 'json',
+        data: {file: file, data: $scope.articleData}
+      }).then(function (resp) {
+        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ');
+        $scope.loading = false;
+      }, function (resp) {
+        console.log('Error status: ' + resp.status);
+        $scope.loading = false;
+      }, function (evt) {
+        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      });
+    };
 
     $scope.deleteImage = deleteImage;
     $scope.submitForm = submitForm;
@@ -70,27 +98,6 @@ angular.module('serbleApp')
     $scope.modalShownError = false;
     $scope.toggleModalError = toggleModalError;
 
-    // upload later on form submit or something similar
-    $scope.submit = function () {
-      if ($scope.file) {
-        $scope.upload($scope.file);
-      }
-    };
-
-    // upload on file select or drop
-    $scope.upload = function (file) {
-      Upload.upload({
-        url: 'http://172.16.0.238:3000/imgupload',
-        data: {file: file, 'username': 'asd'}
-      }).then(function (resp) {
-        console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-      }, function (resp) {
-        console.log('Error status: ' + resp.status);
-      }, function (evt) {
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-      });
-    };
   });
 
 
