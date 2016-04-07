@@ -18,8 +18,11 @@ angular.module('serbleApp')
     var $window = $(window);
     var header = $('header');
 
-    $rootScope.modalShownLogin = false;
-    $rootScope.modalShownRegister = false;
+    $scope.$on('$routeChangeStart', function () {
+      $rootScope.modalShownLogin = false;
+      $rootScope.modalShownRegister = false;
+    });
+    
 
     $scope.toggleModalRegister = function () {
       $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
@@ -35,8 +38,8 @@ angular.module('serbleApp')
     };
 
     $scope.changeModal = function () {
-      $scope.toggleModalLogin();
-      $scope.toggleModalRegister();
+      $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
+      $rootScope.modalShownLogin = !$rootScope.modalShownLogin;
     };
     $window.on('scroll', function () {
       var scrollTop = $window.scrollTop();
