@@ -2,7 +2,30 @@
 footer {
   background: #2a2b2f;
   text-align: left;
+  .row{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    div {
+      margin-top: 110px;
+      margin-bottom: 100px;
 
+      h5 {
+        font-family: 'Sak-medium', sans-serif;
+        letter-spacing: 2px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: #fcfcfc;
+        margin: 0 0 20px 0;
+      }
+      p {
+        font-size: 16px;
+        color: #888;
+      }
+
+    }
+  }
   #Copyright {
     font-family: 'Sak-light', sans-serif;
     letter-spacing: 1px;
@@ -14,25 +37,6 @@ footer {
     margin-bottom: 42px;
     padding-top: 40px;
     text-transform: uppercase;
-  }
-  div.no-padding {
-
-    margin-top: 110px;
-    margin-bottom: 100px;
-
-    h5 {
-      font-family: 'Sak-medium', sans-serif;
-      letter-spacing: 2px;
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: #fcfcfc;
-      margin: 0 0 20px 0;
-    }
-    p {
-      font-size: 16px;
-      color: #888;
-    }
-
+    flex: 1 0 100%;
   }
 }
