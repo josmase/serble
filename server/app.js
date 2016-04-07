@@ -201,7 +201,7 @@ var multer = require('multer');
 var filename = "";
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './uploads/')
+    cb(null, './img/article/')
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
@@ -263,11 +263,13 @@ var fs = require('fs');
 
 app.get('/file/:filename', function (req, res) {
   var filename;
+  var defaultFile = __dirname + '/img/article/default.png';
+  var retry = false;
   if (req.params.filename) {
-    filename = __dirname + '/uploads/' + req.params.filename;
+    filename = __dirname + '/img/article/' + req.params.filename;
   }
   else {
-    filename = __dirname + '/img/avatars/default.png';
+    filename = defaultFile;
   }
 
   //read the file
@@ -276,7 +278,13 @@ app.get('/file/:filename', function (req, res) {
   function makeInformFunction() {
     return function (err, content) {
       if (err) {
-        res.json({success: false, err: err});
+        if(retry){
+          res.json({success: false, err: err});
+          return
+        }
+        retry = true;
+        filename = defaultFile;
+        fs.readFile(filename, makeInformFunction(filename));
       }
       else {
         res.writeHead(200, {'Content-Type': 'image/gif'});
