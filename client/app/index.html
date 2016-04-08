@@ -44,17 +44,17 @@
           <span class="icon-bar middle-bar"></span>
           <span class="icon-bar bottom-bar"></span>
         </button>
-        <a class="navbar-brand" href="#/home">serble</a>
+        <a class="navbar-brand" href="#/home">Serble</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="#/home" ng-class="{ active: isActive('/home')}">Startsida</a></li>
-          <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">Skapa annons</a></li>
-          <li><a href="#/map" ng-class="{ active: isActive('/map')}">Karta </a></li>
+          <li><a href="#/home" ng-class="{ active: isActive('/home')}">startsida</a></li>
+          <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">skapa annons</a></li>
+          <li><a href="#/map" ng-class="{ active: isActive('/map')}">karta </a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-show="!checkIfLoggedIn()">
-          <li><a href="" ng-click="toggleModalLogin()">Logga in</a></li>
-          <li><a href="" ng-click="toggleModalRegister()">Registrera</a></li>
+          <li><a href="" ng-click="toggleModalLogin()">logga in</a></li>
+          <li><a href="" ng-click="toggleModalRegister()">registrera</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" ng-show="checkIfLoggedIn()">
           <li><a href="#/profile">{{username}}</a></li>
