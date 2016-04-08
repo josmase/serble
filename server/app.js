@@ -11,14 +11,11 @@ var PORT_DEFAULT = 3000;
 
 // Module loading
 var express = require('express');
+var https = require('https');
 var path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
-var app = express()
-    .use(cors())
-    .use(bodyParser.json());
 
-var http = require('http').Server(app);
 var mysql = require('mysql');
 var serble = require('./serble.js');
 
@@ -30,6 +27,25 @@ var database = mysql.createConnection({
     user: serble.database.user,
     password: serble.database.password
 });
+
+var privateKey = "q"
+var certificate = "asd";
+
+var credentials = {key: privateKey, cert: certificate};
+
+var app = express()
+    .use(cors())
+    .use(bodyParser.json());
+
+app.listen(PORT_DEFAULT);
+
+https.createServer(app);
+
+app
+    .use(express.static(__dirname + '/../client/dist'))
+    .get('/', function (req, res) {
+        res.sendFile(path.resolve('./../client/dist/index.html'));
+    });
 
 serble.objects.app = app;
 serble.objects.database = database;
@@ -43,19 +59,6 @@ database.connect(function (e) {
 var tokens = require('./tokens.js');
 var users = require('./users.js');
 var articles = require('./articles.js');
-
-// Application environment variables
-app.set('port', process.env.port || PORT_DEFAULT);
-app
-    .use(express.static(__dirname + '/../client/dist'))
-    .get('/', function (req, res) {
-        res.sendFile(path.resolve('./../client/dist/index.html'));
-    });
-
-// Creates the server
-http.listen(app.get('port'), function () {
-    console.log("Server started at port " + app.get('port'));
-});
 
 // HTTP Requests
 
@@ -209,7 +212,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
     }
 });
 
-var upload = multer({ //multer settings
+var upload = multer({
     storage: storage
 }).single('file');
 
