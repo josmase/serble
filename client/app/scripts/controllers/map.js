@@ -45,6 +45,7 @@ angular.module('serbleApp')
         $scope.map.center = data;
       }
     );
+    $scope.zoom = 10;
 
     uiGmapGoogleMapApi.then(function () {
 
