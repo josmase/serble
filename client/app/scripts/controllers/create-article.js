@@ -42,18 +42,30 @@ angular.module('serbleApp')
     }
 
     function addLocationToArticle(response) {
-      $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
-      $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
-      $scope.articleData.neighborhood = response.data.results[0].address_components[2].long_name;
+      if (response.data.results[0]) {
+        $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
+        $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
+        $scope.articleData.neighborhood = response.data.results[0].address_components[2].long_name;
+        return true;
+      } else {
+        return false;
+      }
+
     }
 
     function submitForm() {
       $scope.loading = true;
 
       geocodeService.geocode($scope.articleData).then(function (response) {
-        addLocationToArticle(response);
-        $scope.submit();
-       // postArticle();
+        if(addLocationToArticle(response)){
+          $scope.submit();
+        }
+        else{
+         $scope.loading = false;
+          toggleModalError();
+          $scope.errorMessages = ["Adressen gick inte att använda"];
+        }
+        // postArticle();
       });
 
     }
@@ -66,7 +78,7 @@ angular.module('serbleApp')
       if ($scope.file) {
         $scope.upload($scope.file);
       }
-      else{
+      else {
         $scope.loading = false;
       }
     };
@@ -74,12 +86,13 @@ angular.module('serbleApp')
     // upload on file select or drop
     $scope.upload = function (file) {
       Upload.upload({
-        url: $rootScope.apiURL+'/upload',
+        url: $rootScope.apiURL + '/upload',
         data: {file: file, data: $scope.articleData}
       }).then(function (response) {
-        $scope.loading=false;
+        $scope.loading = false;
         if (response.data.success) {
           toggleModalSuccess();
+          $scope.modalShownError = false;
         }
         else {
           $scope.errorMessages = response.data.err;
