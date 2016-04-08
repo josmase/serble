@@ -51,10 +51,11 @@ angular.module('serbleApp')
       );
     }
     function convertTime(){
+      var timeZoneOffset,unixTime;
       for (var article = 0; article < $scope.articles.length; article++) {
-        var timeZoneOffset = (new Date().getTimezoneOffset())*3600;
-        var unixTime = Date.parse( $scope.articles[article].date_creation)/1000;
-        console.log(unixTime+timeZoneOffset);
+        timeZoneOffset = (new Date().getTimezoneOffset())*60;
+        unixTime = Date.parse( $scope.articles[article].date_creation)/1000;
+        $scope.articles[article].date_creation = new Date((unixTime-timeZoneOffset)*1000);
       }
     }
 
