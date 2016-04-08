@@ -116,15 +116,16 @@ var exp = {
     },
 
     /**
-     * Gets a profile based on username
+     * Gets a profile
      * @param username Username
+     * @param id Profile ID
      * @param filter Use filter (True if the visitor is not the profile owner)
      * @param callback Callback
      */
-    getProfile: function (username, filter, callback) {
+    getProfile: function (username, id, filter, callback) {
         var err = [];
 
-        if (!username) {
+        if (username == null && id == null) {
             err.push("nouser");
         }
 
@@ -135,31 +136,20 @@ var exp = {
 
         var self = this;
 
-        var options = {
-            username: username
-        };
+        var options;
 
-        database.query("SELECT `user_id` FROM `account` WHERE ?", options, function (e, res) {
-            if (e) {
-                console.log("Database error: " + e);
+        if (username != null) {
+            options = "`account`.`username` = " + database.escape(username);
+        } else if (id != null) {
+            options = "`profile`.`profile_id` = " + database.escape(id);
+        }
+
+        database.query("SELECT DISTINCT `profile`.* FROM `profile` INNER JOIN `account` ON `profile`.`user_id` = `account`.`user_id` WHERE " + options, function (e, res) {
+            if (res.length <= 0) {
+                err.push("noprofile");
+                callback(err);
             } else {
-                if (res.length <= 0) {
-                    err.push("noaccount");
-                    callback(err);
-                } else {
-                    var options = {
-                        user_id: res[0].user_id
-                    };
-
-                    database.query("SELECT * FROM `profile` WHERE ?", options, function (e, res) {
-                        if (res.length <= 0) {
-                            err.push("noprofile");
-                            callback(err);
-                        } else {
-                            callback(null, self.profile.filter(res[0], filter));
-                        }
-                    });
-                }
+                callback(null, self.profile.filter(res[0], filter));
             }
         });
     },
@@ -189,9 +179,9 @@ var exp = {
 
         bcrypt.genSalt(10, function (e, salt) {
             bcrypt.hash(password, salt, function (e, hash) {
-                var query = "SELECT `user_id`, `username`, `password` FROM `account` WHERE `username` = "
+                var query = "SELECT DISTINCT t1.`user_id`, t1.`username`, t1.`password`, t2.`profile_id` FROM `account` AS t1 INNER JOIN `profile` AS t2 ON t1.`user_id` = t2.`user_id` WHERE t1.`username` = "
                     + database.escape(credentials)
-                    + " OR `email` = "
+                    + " OR t1.`email` = "
                     + database.escape(credentials);
 
                 database.query(query, function (e, res) {
@@ -204,13 +194,11 @@ var exp = {
                         } else {
                             bcrypt.compare(password, res[0].password, function (e, valid) {
                                 if (valid) {
-                                    database.query("SELECT `profile_id` FROM `profile` WHERE ?", {user_id: res[0].user_id}, function (e, pres) {
-                                        callback(null, tokens.sign({
-                                            username: res[0].username,
-                                            user_id: res[0].user_id,
-                                            profile_id: pres[0].profile_id
-                                        }), res[0].username);
-                                    });
+                                    callback(null, tokens.sign({
+                                        username: res[0].username,
+                                        user_id: res[0].user_id,
+                                        profile_id: res[0].profile_id
+                                    }), res[0].username);
                                 } else {
                                     err.push("passwordinvalid");
                                     callback(err);
