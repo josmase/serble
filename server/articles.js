@@ -35,7 +35,7 @@ var exp = {
 
                         //check if type is string when supposed to be int and try to parse
                         if (this.structure[sk].type == "number" && typeof data[dk] =="string") {
-                              try{data[dk] = parseInt(data[dk]);}
+                              try{data[dk] = Number(data[dk]);}
                               catch(e){result.err.push(sk + "cantparsetoint");}
                         }
 
@@ -82,7 +82,7 @@ var exp = {
                 var sqldata = verified.filtered;
               console.log(sqldata);
               sqldata.author_id = token.profile_id;
-                database.query("INSERT INTO `advertisement` SET ?, `date_creation` = NOW()", sqldata, function (e) {
+                database.query("INSERT INTO `advertisement` SET ?, `date_creation` = UTC_TIMESTAMP()", sqldata, function (e) {
                     if (e) {
                         console.log("Database error: " + e);
                     } else {
@@ -308,10 +308,9 @@ exp.structure = {
     },
 
     file: {
-      ignore:false,
+      ignore: false,
       type: "string"
     }
-
 
 };
 
