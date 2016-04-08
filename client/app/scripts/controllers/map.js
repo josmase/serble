@@ -15,10 +15,20 @@ angular.module('serbleApp')
       libraries: 'weather,geometry,visualization'
     });
   })
-  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService) {
+  .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService,geocodeService) {
+
+    function calculateDistance() {
+      myMapServices.getCurrentLocation().then(function (currentLocation) {
+        for (var article = 0; article < $scope.markers.length; article++) {
+          $scope.markers[article].distance = geocodeService.getDistanceFromLatLon(currentLocation, $scope.markers[article]);
+        }
+        }
+      );
+    }
 
     getAndPostArticlesService.getArticles($scope.search).then(function (returnedArticles) {
       $scope.markers = returnedArticles.data.result;
+      calculateDistance();
     });
 
     $scope.showClickedArticle = function (clickedMarker, eventName, shortInfoClickedMarker) {
@@ -47,7 +57,6 @@ angular.module('serbleApp')
         bounds: {},
         options: {}
       };
-      console.log($scope.map);
 
       $scope.map.options = myMapServices.getMapOptions().mapOptions;
 
