@@ -106,7 +106,8 @@
           <div>
             <p>{{article.description | limitTo:170}}... </p>
             <p><span class="blue">{{article.price | money:"kr"}}</span></p>
-          </div>
+            <span>{{article.date_creation | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
         </div>
         <a ng-href="#/article/{{article.advert_id}}">
           <div class="details">

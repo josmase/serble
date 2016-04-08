@@ -41,7 +41,6 @@ angular.module('serbleApp')
       $location.search('page', currentPage);
     };
 
-
     function calculateDistance() {
       myMapServices.getCurrentLocation().then(function (data) {
           $scope.currentLocation = data;
@@ -51,10 +50,16 @@ angular.module('serbleApp')
         }
       );
     }
+    function convertTime(){
+      for (var article = 0; article < $scope.articles.length; article++) {
+        var timeZoneOffset = (new Date().getTimezoneOffset())*3600;
+        var unixTime = Date.parse( $scope.articles[article].date_creation)/1000;
+        console.log(unixTime+timeZoneOffset);
+      }
+    }
 
     $scope.getArticles = function () {
       resetPage();
-      console.log('asd');
 
       articleRange = [startPoint, NumberOfArticles];
 
@@ -68,6 +73,7 @@ angular.module('serbleApp')
           startPoint += NumberOfArticles;
           articleRange = [startPoint, NumberOfArticles];
           calculateDistance();
+          convertTime();
         }, function errorFCallback() {
         }
       );
@@ -81,6 +87,7 @@ angular.module('serbleApp')
             $scope.articles = $scope.articles.concat(returnedArticles.data.result);
             $scope.loading = false;
             calculateDistance();
+            convertTime();
             if (callback) {
               callback();
             }

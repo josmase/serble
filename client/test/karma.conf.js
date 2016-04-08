@@ -40,6 +40,9 @@ module.exports = function(config) {
       'bower_components/ladda/dist/ladda.min.js',
       'bower_components/angular-ladda/dist/angular-ladda.min.js',
       'bower_components/ng-file-upload/ng-file-upload.js',
+      'bower_components/moment/moment.js',
+      'bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js',
+      'bower_components/angular-moment/angular-moment.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
