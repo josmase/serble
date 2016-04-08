@@ -7,10 +7,10 @@
 
   UserService.$inject = ['$http','$rootScope'];
   function UserService($http,$rootScope) {
-   
+
     var service = {};
     var server = $rootScope.apiURL;
-    
+
     service.GetAll = GetAll;
     service.GetById = GetById;
     service.GetByUsername = GetByUsername;
@@ -25,7 +25,13 @@
     }
 
     function GetById(id) {
-      return $http.get('/api/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
+      return $http({
+        method: 'GET',
+        url: server + '/user/profile/get',
+        params: {
+          'profile_id': id
+        }
+      }).then(handleSuccess, handleError('Error getting user by id'));
     }
 
     function GetByUsername(username) {
