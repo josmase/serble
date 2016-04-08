@@ -42,6 +42,21 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-6">
+          <div class="form-group" ng-class="{ 'has-error': articelForm.sublocality.$touched && articelForm.city.$invalid }">
+            <label>Stadsdel</label>
+            <input type="text" name="sublocality" class="form"
+                   placeholder="Umedalen"
+                   ng-model="articleData.sublocality"
+                   ng-minlength="1"
+                   ng-maxlength="70"
+                   required>
+
+            <div class="help-block" ng-messages="articelForm.sublocality.$error" ng-if="articelForm.sublocality.$touched">
+              <div ng-messages-include="../resources/error.html"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
           <div class="form-group"
                ng-class="{ 'has-error': articelForm.contact.$touched && articelForm.contact.$invalid }">
             <label>Kontaktinformation</label>
