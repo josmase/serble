@@ -14,7 +14,8 @@ angular.module('serbleApp')
       function getAuthorById(authorId) {
         UserService.GetById(authorId).then(function (response) {
           if (response.success) {
-            $scope.authorInfo = response.data.result[0];
+            console.log(response);
+            $scope.authorInfo = response.result[0];
           }
           else {
             console.log(response);
