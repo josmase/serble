@@ -42,7 +42,6 @@ angular.module('serbleApp')
     }
 
     function addLocationToArticle(response) {
-      console.log(response.data.results[0]);
       $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
       $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
       $scope.articleData.neighborhood = response.data.results[0].address_components[2].long_name;
@@ -74,10 +73,8 @@ angular.module('serbleApp')
 
     // upload on file select or drop
     $scope.upload = function (file) {
-      console.log($scope.articleData);
       Upload.upload({
         url: $rootScope.apiURL+'/upload',
-        dataType: 'json',
         data: {file: file, data: $scope.articleData}
       }).then(function (response) {
         $scope.loading=false;
@@ -94,7 +91,6 @@ angular.module('serbleApp')
         toggleModalError();
       }, function (evt) {
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       });
     };
 
