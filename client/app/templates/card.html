@@ -1,0 +1,23 @@
+<div class="article fadeInUp animated">
+    <div class="articleHeader">
+        <div class="articleImage">
+            <img ng-src="{{apiURL}}/content/articles/{{article.file}}"/>
+        </div>
+        <div class="articleInfo">
+            <h4>{{article.title}}</h4>
+            <p>{{article.neighborhood}}, {{article.city}} ({{article.distance | distance}})</p>
+        </div>
+    </div>
+    <div class="row articleDescription">
+        <div>
+            <p>{{article.description | limitTo:170}}... </p>
+            <p><span class="blue">{{article.price | money:"kr"}}</span></p>
+            <span>{{article.date_creation | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </div>
+    </div>
+    <a ng-href="#/article/{{article.advert_id}}">
+        <div class="details">
+            <p>Läs mer</p>
+        </div>
+    </a>
+</div>
