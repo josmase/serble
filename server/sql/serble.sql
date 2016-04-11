@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
     `phone`        VARCHAR(45)   NULL,
     `address`      VARCHAR(45)   NULL,
     `description`  VARCHAR(2048) NULL,
-    `avatar_url`   VARCHAR(45)            DEFAULT '/img/avatars/default.png',
+    `avatar_url`   VARCHAR(45)            DEFAULT 'default.png',
     `show_city`    TINYINT(1)    NOT NULL DEFAULT 1,
     `show_address` TINYINT(1)    NOT NULL DEFAULT 0,
     `show_age`     TINYINT(1)    NOT NULL DEFAULT 0,
