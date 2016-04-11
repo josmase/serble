@@ -104,38 +104,6 @@ app.get('/articles/get', function (req, res) {
     });
 });
 
-app.post('/articles/post', function (req, res) {
-    var data = req.body.data;
-
-    if (typeof data == "string") {
-        try {
-            data = JSON.parse(data);
-        } catch (e) {
-            res.json({success: false, err: ["invalidjson"]});
-            return;
-        }
-    } else if (typeof data != "object") {
-        res.json({success: false, err: ["invalidjson"]});
-        return;
-    }
-
-    tokens.tryUnlock(req.headers.authorization, function (data) {
-        if (data.user_id) {
-            articles.postArticle(data, req.body.data, function (e, result) {
-                if (e) {
-                    res.json({success: false, err: e});
-                } else {
-                    res.json({success: true});
-                }
-            });
-        } else {
-            res.json({success: false, err: ["tokenerror"]});
-        }
-    }, function () {
-        res.json({success: false, err: ["tokeninvalid"]});
-    });
-});
-
 app.post('/user/profile/update', function (req, res) {
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.username) {
@@ -202,9 +170,10 @@ app.post('/user/register', function (req, res) {
 
 var multer = require('multer');
 var filename = "";
-var storage = multer.diskStorage({ //multers disk storage settings
+
+var aImgStorage = multer.diskStorage({ //multers disk storage settings
     destination: function (req, file, cb) {
-        cb(null, './img/article/')
+        cb(null, './content/articles/');
     },
     filename: function (req, file, cb) {
         var datetimestamp = Date.now();
@@ -212,50 +181,61 @@ var storage = multer.diskStorage({ //multers disk storage settings
     }
 });
 
-var upload = multer({
-    storage: storage
+var pImgStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './content/avatars/');
+    },
+    filename: function (req, file, cb) {
+        var datetimestamp = Date.now();
+        cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
+    }
+});
+
+var aImgUpload = multer({
+    storage: aImgStorage
 }).single('file');
 
 /** API path that will upload the files */
-app.post('/upload', function (req, res) {
-    upload(req, res, function (err) {
-        if (err) {
-            res.json({success: false, err_desc: err});
-            return;
-        }
+app.post('/articles/post', function (req, res) {
+    var data = req.body.data;
 
-        var data = req.body.data;
+    console.log(req.body);
 
-        if (typeof data == "string") {
-            try {
-                data = JSON.parse(data);
-            } catch (e) {
-                res.json({success: false, err: ["invalidjson"]});
-                return;
-            }
-        } else if (typeof data != "object") {
+    if (typeof data == "string") {
+        try {
+            data = JSON.parse(data);
+        } catch (e) {
             res.json({success: false, err: ["invalidjson"]});
             return;
         }
+    } else if (typeof data != "object") {
+        res.json({success: false, err: ["invalidjson"]});
+        return;
+    }
 
-        req.body.data.file = req.file.filename;
-        tokens.tryUnlock(req.headers.authorization, function (data) {
-            if (data.user_id) {
-                articles.postArticle(data, req.body.data, function (e, result) {
-                    if (e) {
-                        res.json({success: false, err: e});
-                    } else {
+    req.body.data.file = req.file.filename;
+
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.user_id) {
+            articles.postArticle(data, req.body.data, function (e, result) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    aImgUpload(req, res, function (err) {
+                        if (err) {
+                            res.json({success: false, err_desc: err});
+                            return;
+                        }
                         res.json({success: true});
-                    }
-                });
-            } else {
-                res.json({success: false, err: ["tokenerror"]});
-            }
-        }, function () {
-            res.json({success: false, err: ["tokeninvalid"]});
-        });
-    })
-
+                    });
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
 });
 
 
@@ -263,12 +243,15 @@ app.post('/upload', function (req, res) {
 
 var fs = require('fs');
 
-app.get('/file/:filename', function (req, res) {
+app.get('/content/avatars/:filename', function (req, res) {
+});
+
+app.get('/content/articles/:filename', function (req, res) {
     var filename;
-    var defaultFile = __dirname + '/img/article/default.png';
+    var defaultFile = __dirname + '/content/articles/default.png';
     var retry = false;
     if (req.params.filename) {
-        filename = __dirname + '/img/article/' + req.params.filename;
+        filename = __dirname + '/content/articles/' + req.params.filename;
     }
     else {
         filename = defaultFile;
