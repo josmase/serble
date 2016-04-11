@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
     `archived`        TINYINT(1)    NOT NULL DEFAULT 0,
     `type`            TINYINT(1)    NOT NULL DEFAULT 0,
     `stage`           TINYINT(4)    NOT NULL DEFAULT 0,
-    `file`            VARCHAR(50)   NULL,
+    `file`            VARCHAR(50)   NULL DEFAULT "avatars/default.png",
     PRIMARY KEY (`advert_id`),
     CONSTRAINT `fk_author_id`
     FOREIGN KEY (`author_id`)

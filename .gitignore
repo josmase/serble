@@ -5,5 +5,6 @@ client/.tmp
 client/.sass-cache
 client/bower_components
 server/node_modules
-server/img
+server/content/articles
+server/content/avatars
 .idea/
