@@ -1,4 +1,3 @@
-/server/img/article/file-
 client/node_modules
 client/dist
 client/.tmp
@@ -7,4 +6,7 @@ client/bower_components
 server/node_modules
 server/content/articles
 server/content/avatars
+!server/content/articles/default.png
+!server/content/avatars/default.png
+
 .idea/
