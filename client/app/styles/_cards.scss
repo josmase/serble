@@ -30,22 +30,17 @@
             }
         }
         .articleInfo {
-            min-width: 40%;
             max-width: 70%;
             height: 80px;
             position: absolute;
             left: 0;
             top: 75px;
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
             background: rgba(0, 0, 0, 0.7);
-            padding: 15px 0 15px 15px;
+            padding: 15px 15px 15px 15px;
             h4 {
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                flex: 1 0 100%;
                 margin: 3px 0 0 0;
             }
             h4:first-letter {
@@ -53,7 +48,6 @@
             }
             p {
                 text-transform: capitalize;
-                flex: 1 0 100%;
                 color: white;
                 margin: 0;
             }
