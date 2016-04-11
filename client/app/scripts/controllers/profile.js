@@ -47,11 +47,9 @@ angular.module('serbleApp')
 
     function update() {
       $scope.loading = true;
-      $scope.user.file = $scope.file || "No image";
-      UserService.Update($scope.user).then(function (response) {
+      UserService.Update($scope.user,$scope.file).then(function (response) {
         $scope.loading = false;
         console.log(response);
-
         if (response.success) {
           $scope.modalShownSuccess = true;
         }
@@ -60,7 +58,7 @@ angular.module('serbleApp')
             $scope.error = response.err[0];
           }
           catch(err){
-            $scope.error = "Gick inte "
+            $scope.error = "Inget error"
           }
           toggleModalError();
         }
