@@ -48,11 +48,10 @@
       return $http.post(server+'/user/register', user).then(handleSuccess, handleError('Error creating user'));
     }
 
-    function Update(user) {
-      console.log(user);
+    function Update(user,file) {
       return Upload.upload({
-        url: $rootScope.apiURL + '/upload',
-        data: {file: user.file, data: user}
+        url: $rootScope.apiURL + '/user/profile/update',
+        data: {file: file, data: user}
       }).then(handleSuccess, handleError('Error updating user'));
     }
 
