@@ -8,18 +8,24 @@
  * Service in the serbleApp.
  */
 angular.module('serbleApp')
-  .service('getAndPostArticlesService', function ($http ,$rootScope) {
+  .service('getAndPostArticlesService', function ($http ,$rootScope,Upload) {
     var server = $rootScope.apiURL;
 
-    function postArticleData(data) {
-      return $http({
-        method: 'POST',
-        url: server + '/articles/post',
-        dataType: 'json',
-        data: {
-          data: data
-        }
-      });
+    function handleSuccess(res) {
+      return res.data;
+    }
+
+    function handleError(error) {
+      return function () {
+        return {success: false, message: error};
+      };
+    }
+
+    function postArticleData(data,file) {
+      return Upload.upload({
+        url: $rootScope.apiURL + '/articles/post',
+        data: {file: file, data: data}
+      }).then(handleSuccess, handleError('Kunde inte nå server'));
     }
 
     function getArticles(search, articleRange) {
@@ -40,6 +46,14 @@ angular.module('serbleApp')
             title: {
               strict: true,
               value: title
+            },
+            category: {
+              strict: true,
+              value: category
+            },
+            type: {
+              strict: true,
+              value: type
             },
             range: articleRange
           }
