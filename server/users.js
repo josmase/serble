@@ -87,8 +87,7 @@ var exp = {
      */
     updateProfile: function (username, data, callback) {
         var err = [];
-
-        if (!data) {
+      if (!data) {
             err.push("nodata");
         }
 
@@ -105,9 +104,18 @@ var exp = {
                         err.push("noaccount");
                         callback(err);
                     } else {
-                        database.query("UPDATE `profile` SET ? WHERE `user_id` = "
+                      
+                      verified.filtered.show_city = null;
+                      verified.filtered.show_address = null;
+                      verified.filtered.show_phone = null;
+
+                      database.query("UPDATE `profile` SET ? WHERE `user_id` = "
                             + database.escape(res[0].user_id), verified.filtered, function (e) {
-                            callback();
+                        if (e) {
+                          console.log("Database error: " + e);
+                        } else {
+                          callback();
+                        }
                         });
                     }
                 });
