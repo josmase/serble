@@ -289,6 +289,8 @@ app.get('/content/:path/:file', function (req, res) {
           return
         }
         retry = true;
+          path = __dirname + '/content/articles/';
+          file = 'default.png';
         fs.readFile(path + file, makeInformFunction(path + file));
       }
       else {
