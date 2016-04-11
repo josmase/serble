@@ -15,7 +15,7 @@
                    placeholder="Umeå"
                    ng-model="articleData.city"
                    ng-minlength="1"
-                   ng-maxlength="70"
+                   ng-maxlength="45"
                    required>
 
             <div class="help-block" ng-messages="articelForm.city.$error" ng-if="articelForm.city.$touched">
@@ -30,7 +30,7 @@
             <input type="number" name="zipcode" class="form"
                    placeholder="90210"
                    ng-model="articleData.zipcode"
-                   ng-minlength="4"
+                   ng-minlength="5"
                    ng-maxlength="5"
                    required>
 
@@ -48,7 +48,7 @@
                    placeholder="Umedalen"
                    ng-model="articleData.sublocality"
                    ng-minlength="1"
-                   ng-maxlength="70"
+                   ng-maxlength="45"
                    required>
 
             <div class="help-block" ng-messages="articelForm.sublocality.$error" ng-if="articelForm.sublocality.$touched">
@@ -81,8 +81,8 @@
             <input type="text" name="title" class="form"
                    placeholder="Måla staket..."
                    ng-model="articleData.title"
-                   ng-minlength="1"
-                   ng-maxlength="32"
+                   ng-minlength="6"
+                   ng-maxlength="45"
                    required>
 
             <div class="help-block" ng-messages="articelForm.title.$error" ng-if="articelForm.title.$touched">
@@ -119,9 +119,9 @@
                       placeholder="Jag..."
                       ng-model="articleData.description"
                       ng-minlength="1"
-                      ng-maxlength="10000"
+                      ng-maxlength="2048"
                       required> </textarea>
-            <p class="wordCount">{{articleData.description.length||0}}/10000</p>
+            <p class="wordCount">{{articleData.description.length||0}}/2048</p>
 
             <div class="help-block" ng-messages="articelForm.description.$error"
                  ng-if="articelForm.description.$touched">
