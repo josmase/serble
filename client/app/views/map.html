@@ -1,37 +1,18 @@
 <div id="map_canvas">
-  <div class="angular-google-map-container">
-    <ui-gmap-google-map center="map.center" zoom="zoom" draggable="true" options="map.options"
-                        bounds="map.bounds">
+    <div class="angular-google-map-container">
+        <ui-gmap-google-map center="map.center" zoom="zoom" draggable="true" options="map.options"
+                            bounds="map.bounds">
 
-      <ui-gmap-markers models="markers" coords="'self'" idKey="'advert_id'" icon="'icon'" click="showClickedArticle">
-      </ui-gmap-markers>
-    </ui-gmap-google-map>
-  </div>
+            <ui-gmap-markers models="markers" coords="'self'" idKey="'advert_id'" icon="'icon'"
+                             click="showClickedArticle">
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
 </div>
 
 <div class="container" id="cards">
-  <div class="card" ng-repeat="article in clickedArticle | orderBy:search.order | filter:search.type">
-    <div class="article fadeInUp animated">
-      <div class="articleHeader">
-        <div class="articleImage">
-          <img ng-src="{{apiURL}}/file/{{article.file}}"/>
-        </div>
-        <div class="articleInfo">
-          <h4>{{article.title}}</h4>
-          <p>{{article.neighborhood}}, {{article.city}} ({{article.distance | distance:0}})</p>
-        </div>
-      </div>
-      <div class="row articleDescription">
-        <div>
-          <p>{{article.description | limitTo:170}}... </p>
-          <p><span class="blue">{{article.price | money:"kr"}}</span></p>
-        </div>
-      </div>
-      <a ng-href="#/article/{{article.advert_id}}">
-        <div class="details">
-          <p>Läs mer</p>
-        </div>
-      </a>
+    <div class="card" ng-repeat="article in clickedArticle">
+        <card-directive>
+        </card-directive>
     </div>
-  </div>
 </div>
