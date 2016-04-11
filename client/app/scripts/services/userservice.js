@@ -5,8 +5,8 @@
     .module('serbleApp')
     .factory('UserService', UserService);
 
-  UserService.$inject = ['$http','$rootScope'];
-  function UserService($http,$rootScope) {
+  UserService.$inject = ['$http','$rootScope','Upload'];
+  function UserService($http,$rootScope,Upload) {
 
     var service = {};
     var server = $rootScope.apiURL;
@@ -49,12 +49,10 @@
     }
 
     function Update(user) {
-      return $http({
-        method: 'POST',
-        url: server + '/user/profile/update',
-        data: {
-          'data': user
-        }
+      console.log(user);
+      return Upload.upload({
+        url: $rootScope.apiURL + '/upload',
+        data: {file: user.file, data: user}
       }).then(handleSuccess, handleError('Error updating user'));
     }
 

@@ -37,6 +37,14 @@
       <input type="checkbox" ng-model="user.show_email">
       Visa min email
     </label>
+    <div class="form-group imageUpload">
+      <img ngf-src="file"/>
+      <div ngf-drop ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+           ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">
+        <p>Klicka för att ladda upp en bild</p>
+      </div>
+      <span class="deleteImage" ng-show="file" ng-click="deleteImage()"></span>
+    </div>
   </div>
   <button class="btn-accept" ladda="loading" ng-click="update()">save</button>
 </div>
