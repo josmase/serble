@@ -24,14 +24,14 @@ angular.module('serbleApp')
     }
 
     function postArticle() {
-      getAndPostArticlesService.postArticleData($scope.articleData)
+      getAndPostArticlesService.postArticleData($scope.articleData,$scope.file)
         .then(function successCallback(response) {
           $scope.loading = false;
-          if (response.data.success) {
+          if (response.success) {
             toggleModalSuccess();
           }
           else {
-            $scope.errorMessages = response.data.err;
+            $scope.errorMessages = response.err;
             toggleModalError();
           }
         }, function errorCallback() {
@@ -57,15 +57,14 @@ angular.module('serbleApp')
       $scope.loading = true;
 
       geocodeService.geocode($scope.articleData).then(function (response) {
-        if(addLocationToArticle(response)){
-          $scope.submit();
+        if(addLocationToArticle(response) && $scope.file){
+          postArticle();
         }
         else{
          $scope.loading = false;
           toggleModalError();
           $scope.errorMessages = ["Adressen gick inte att använda"];
         }
-        // postArticle();
       });
 
     }

@@ -121,6 +121,7 @@
                       ng-minlength="1"
                       ng-maxlength="10000"
                       required> </textarea>
+            <p class="wordCount">{{articleData.description.length||0}}/10000</p>
 
             <div class="help-block" ng-messages="articelForm.description.$error"
                  ng-if="articelForm.description.$touched">
