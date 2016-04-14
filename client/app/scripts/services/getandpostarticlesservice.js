@@ -8,90 +8,98 @@
  * Service in the serbleApp.
  */
 angular.module('serbleApp')
-  .service('getAndPostArticlesService', function ($http ,$rootScope,Upload) {
-    var server = $rootScope.apiURL;
+    .service('getAndPostArticlesService', function ($http, $rootScope, Upload) {
+        var server = $rootScope.apiURL;
 
-    function handleSuccess(res) {
-      return res.data;
-    }
-
-    function handleError(error) {
-      return function () {
-        return {success: false, message: error};
-      };
-    }
-
-    function postArticleData(data,file) {
-      return Upload.upload({
-        url: $rootScope.apiURL + '/articles/post',
-        data: {file: file, data: data}
-      }).then(handleSuccess, handleError('Kunde inte nå server'));
-    }
-
-    function getArticles(search, articleRange) {
-
-      if (typeof search !== 'undefined') {
-        var title = search.text || "";
-        var category = search.category || "";
-        var type = search.type || "";
-      }
-      articleRange = articleRange || [0, 10];
-
-      return $http({
-        method: 'GET',
-        url: server + '/articles/get',
-        dataType: 'json',
-        params: {
-          filter: {
-            title: {
-              strict: true,
-              value: title
-            },
-            category: {
-              strict: true,
-              value: category
-            },
-            type: {
-              strict: true,
-              value: type
-            },
-            range: articleRange
-          }
+        function handleSuccess(res) {
+            return res.data;
         }
-      });
-    }
 
-    function getById(id) {
-      return $http({
-        method: 'GET',
-        url: server + '/articles/get',
-        dataType: 'json',
-        params: {
-          filter: {
-            advert_id: {
-              strict: false,
-              value: id
+        function handleError(error) {
+            return function () {
+                return {success: false, message: error};
+            };
+        }
+
+        function postArticleData(data, files) {
+            console.log(files);
+            if (typeof files == "undefined") {
+                return $http({
+                    method: 'POST',
+                    url: $rootScope.apiURL + '/articles/post',
+                    data: { data: data}
+                }).then(handleSuccess, handleError('Kunde inte nå server'));
             }
-          }
+            return Upload.upload({
+                url: $rootScope.apiURL + '/articles/post',
+                data: {files: files, data: data}
+            }).then(handleSuccess, handleError('Kunde inte nå server'));
         }
-      });
-    }
 
-    function removeById(id) {
-      return $http({
-        method: 'POST',
-        url: server + '/articles/remove',
-        dataType: 'json',
-        data: {
-          id: id
+        function getArticles(search, articleRange) {
+
+            if (typeof search !== 'undefined') {
+                var title = search.text || "";
+                var category = search.category || "";
+                var type = search.type || "";
+            }
+            articleRange = articleRange || [0, 10];
+
+            return $http({
+                method: 'GET',
+                url: server + '/articles/get',
+                dataType: 'json',
+                params: {
+                    filter: {
+                        title: {
+                            strict: true,
+                            value: title
+                        },
+                        category: {
+                            strict: true,
+                            value: category
+                        },
+                        type: {
+                            strict: true,
+                            value: type
+                        },
+                        range: articleRange
+                    }
+                }
+            });
         }
-      });
-    }
 
-    this.postArticleData = postArticleData;
-    this.getArticles = getArticles;
-    this.getById = getById;
-    this.removeById = removeById;
-  });
+        function getById(id) {
+            return $http({
+                method: 'GET',
+                url: server + '/articles/get',
+                dataType: 'json',
+                params: {
+                    filter: {
+                        advert_id: {
+                            strict: false,
+                            value: id
+                        }
+                    }
+                }
+            });
+        }
+
+        function removeById(id) {
+            return $http({
+                method: 'POST',
+                url: server + '/articles/remove',
+                dataType: 'json',
+                data: {
+                    id: id
+                }
+            });
+        }
+
+        this.postArticleData = postArticleData;
+        this.getArticles = getArticles;
+        this.getById = getById;
+        this.removeById = removeById;
+    });
 
 
