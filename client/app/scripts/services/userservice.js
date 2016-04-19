@@ -1,75 +1,73 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('serbleApp')
-    .factory('UserService', UserService);
+    function UserService($http, $rootScope, Upload) {
 
-  UserService.$inject = ['$http','$rootScope','Upload'];
-  function UserService($http,$rootScope,Upload) {
+        var service = {};
+        var server = $rootScope.apiURL;
 
-    var service = {};
-    var server = $rootScope.apiURL;
-
-    service.GetAll = GetAll;
-    service.GetById = GetById;
-    service.GetByUsername = GetByUsername;
-    service.Create = Create;
-    service.Update = Update;
-    service.Delete = Delete;
-
-    return service;
-
-    function GetAll() {
-      return $http.get('/api/users').then(handleSuccess, handleError('Error getting all users'));
-    }
-
-    function GetById(id) {
-      return $http({
-        method: 'GET',
-        url: server + '/user/profile/get',
-        params: {
-          'profile_id': id
+        function handleSuccess(res) {
+            return res.data;
         }
-      }).then(handleSuccess, handleError('Error getting user by id'));
-    }
 
-    function GetByUsername(username) {
-      return $http({
-        method: 'GET',
-        url: server + '/user/profile/get',
-        params: {
-          'username': username
+        function handleError(error) {
+            return function () {
+                return {success: false, message: error};
+            };
         }
-      }).then(handleSuccess, handleError('Error getting user by username'));
-    }
 
-    function Create(user) {
-      return $http.post(server+'/user/register', user).then(handleSuccess, handleError('Error creating user'));
-    }
+        function GetAll() {
+            return $http.get('/api/users').then(handleSuccess, handleError('Error getting all users'));
+        }
 
-    function Update(user,file) {
-      return Upload.upload({
-        url: $rootScope.apiURL + '/user/profile/update',
-        data: {file: file, data: user}
-      }).then(handleSuccess, handleError('Error updating user'));
-    }
+        function GetById(id) {
+            return $http({
+                method: 'GET',
+                url: server + '/user/profile/get',
+                params: {
+                    'profile_id': id
+                }
+            }).then(handleSuccess, handleError('Error getting user by id'));
+        }
 
-    function Delete(id) {
-      return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
-    }
+        function GetByUsername(username) {
+            return $http({
+                method: 'GET',
+                url: server + '/user/profile/get',
+                params: {
+                    'username': username
+                }
+            }).then(handleSuccess, handleError('Error getting user by username'));
+        }
 
-    // private functions
+        function Create(user) {
+            return $http.post(server + '/user/register', user).then(handleSuccess, handleError('Error creating user'));
+        }
 
-    function handleSuccess(res) {
-      return res.data;
-    }
+        function Update(user, file) {
+            return Upload.upload({
+                url: $rootScope.apiURL + '/user/profile/update',
+                data: {file: file, data: user}
+            }).then(handleSuccess, handleError('Error updating user'));
+        }
 
-    function handleError(error) {
-      return function () {
-        return {success: false, message: error};
-      };
+        function Delete(id) {
+            return $http.delete('/api/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+        }
+
+        service.GetAll = GetAll;
+        service.GetById = GetById;
+        service.GetByUsername = GetByUsername;
+        service.Create = Create;
+        service.Update = Update;
+        service.Delete = Delete;
+
+        return service;
+
     }
-  }
+    angular
+        .module('serbleApp')
+        .factory('UserService', UserService);
+    UserService.$inject = ['$http', '$rootScope', 'Upload'];
 
 })();

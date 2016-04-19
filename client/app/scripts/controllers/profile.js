@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('ProfileCtrl', function ($scope, UserService, $rootScope,Upload) {
+  .controller('ProfileCtrl', function ($scope, UserService, $rootScope) {
     $scope.loading = false;
     $scope.modalShownSuccess = false;
     $scope.modalShownError = false;
@@ -58,7 +58,7 @@ angular.module('serbleApp')
             $scope.error = response.err[0];
           }
           catch(err){
-            $scope.error = "Inget error"
+            $scope.error = "Inget error";
           }
           toggleModalError();
         }

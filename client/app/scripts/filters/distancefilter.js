@@ -11,7 +11,7 @@
 angular.module('serbleApp')
   .filter('distance', function () {
     return function (input) {
-      if (typeof input == 'undefined') {
+      if (typeof input === 'undefined') {
         return null;
       }
       else if (input >= 1000) {

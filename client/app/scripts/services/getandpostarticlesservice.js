@@ -23,11 +23,11 @@ angular.module('serbleApp')
 
         function postArticleData(data, files) {
             console.log(files);
-            if (typeof files == "undefined") {
+            if (typeof files === "undefined") {
                 return $http({
                     method: 'POST',
                     url: $rootScope.apiURL + '/articles/post',
-                    data: { data: data}
+                    data: {data: data}
                 }).then(handleSuccess, handleError('Kunde inte nå server'));
             }
             return Upload.upload({
@@ -37,11 +37,11 @@ angular.module('serbleApp')
         }
 
         function getArticles(search, articleRange) {
-
+            var title = "", category = "", type = "";
             if (typeof search !== 'undefined') {
-                var title = search.text || "";
-                var category = search.category || "";
-                var type = search.type || "";
+                title = search.text || "";
+                category = search.category || "";
+                type = search.type || "";
             }
             articleRange = articleRange || [0, 10];
 
