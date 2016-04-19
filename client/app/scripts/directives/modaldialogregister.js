@@ -14,6 +14,6 @@ angular.module('serbleApp')
       controller: 'RegisterCtrl',
       controllerAs: 'register',
       bindToController: {},
-      templateUrl: '/templates/registerTemplate.html'
+      templateUrl: 'views/registerTemplate.html'
     };
   });

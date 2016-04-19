@@ -11,6 +11,6 @@ angular.module('serbleApp')
       return {
           restrict: 'E',
           replace: true, // Replace with the template below
-          templateUrl: '/templates/card.html'
+          templateUrl: 'views/card.html'
       };
   });
