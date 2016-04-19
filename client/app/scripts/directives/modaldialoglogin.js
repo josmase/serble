@@ -14,6 +14,6 @@ angular.module('serbleApp')
       controller: 'LoginCtrl',
       controllerAs: 'login',
       bindToController: {},
-      templateUrl: "../../templates/loginTemplate.html"
+      templateUrl: '/templates/loginTemplate.html'
     };
   });

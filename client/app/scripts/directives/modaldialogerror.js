@@ -27,6 +27,6 @@ angular.module('serbleApp')
           scope.show = false;
         };
       },
-      templateUrl: '../../templates/errorTemplate.html'
+      templateUrl: '/templates/errorTemplate.html'
     };
   });
