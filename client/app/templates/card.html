@@ -12,8 +12,8 @@
         <div>
             <p>{{article.description | limitTo:170}}... </p>
             <p>{{article.type | articleTypeFilter}}</p>
-            <p><span class="blue">{{article.price | money:"kr"}}</span></p>
-            <span>{{article.date_creation | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+            <p>{{article.price | money:":-"}}</p>
+            <p>{{article.date_creation | date:'dd/M HH:MM'}}</p>
         </div>
     </div>
     <a ng-href="#/article/{{article.advert_id}}">

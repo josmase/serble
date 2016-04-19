@@ -1,9 +1,6 @@
 
 $circle-size: 100px;
 
-.blue{
-  color: $primary-blue;
-}
 
 .btn, .button {
   border-width: 0;
@@ -45,7 +42,7 @@ header.hideHeader {
 .create-article {
   text-align: center;
   p:nth-child(2) {
-    width: 500px;
+    width: 70%;
     margin: 0 auto;
   }
   .container {
