@@ -13,11 +13,11 @@ describe('Filter: distance', function () {
 
   it('should 2000 meters in kilometers with km appended', function () {
     var distanceToFilter = 2000;
-    expect(distance(distanceToFilter)).toBe(2+'.00km');
+    expect(distance(distanceToFilter)).toBe('2km');
   });
 
   it('should 200 meters in meters with m appended', function () {
     var distanceToFilter = 200;
-    expect(distance(distanceToFilter)).toBe(200+'m');
+    expect(distance(distanceToFilter)).toBe('200m');
   });
 });
