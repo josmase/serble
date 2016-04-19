@@ -1,4 +1,4 @@
-<div class="article fadeInUp animated">
+<div class="article fadeInUp animated" ng-init="limit=200">
     <div class="articleHeader" style="background-image: url('{{apiURL}}/content/articles/{{article.file}}')">
         <div class="articleInfo">
             <h4>{{article.title}}</h4>
@@ -6,17 +6,20 @@
         </div>
 
     </div>
-    <div class="row articleDescription">
-        <div>
-            <p>{{article.description | limitTo:200}}... </p>
-            <p>{{article.type | articleTypeFilter}}</p>
-            <p>{{article.price | money:":-"}}</p>
-            <p>{{article.date_creation | date:'dd/M HH:MM'}}</p>
+    <div class="row articleDescription" animate-on-change-directive="limit">
+
+        <pre>{{article.description | limitTo:limit}}... </pre>
+        <p>{{article.type | articleTypeFilter}}</p>
+        <p>{{article.price | money:":-"}}</p>
+        <p class="date">{{article.date_creation | date:'dd/M HH:MM'}}</p>
+
+        <div ng-if="limit>200">
+            <a href=""><p>Karl karlsson</p></a>
+            <p>kaka@kaka.com</p>
         </div>
     </div>
-    <div class="details">
-        <a ng-href="#/article/{{article.advert_id}}">
-            Läs mer
-        </a>
+
+    <div class="details" ng-click="limit = { 200: 3000, 3000:200}[limit]">
+        <p>Läs mer</p>
     </div>
 </div>
