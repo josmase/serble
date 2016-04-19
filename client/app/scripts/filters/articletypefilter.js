@@ -15,7 +15,7 @@ angular.module('serbleApp')
                 return 'Behöver hjälp'
             }
             else if (input == 1) {
-                return 'Kan hjälpa'
+                return 'Erbjuder hjälp'
             }
         };
     });
