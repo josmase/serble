@@ -22,7 +22,7 @@ angular.module('serbleApp')
       $rootScope.modalShownLogin = false;
       $rootScope.modalShownRegister = false;
     });
-    
+
 
     $scope.toggleModalRegister = function () {
       $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
@@ -41,11 +41,6 @@ angular.module('serbleApp')
       $rootScope.modalShownRegister = !$rootScope.modalShownRegister;
       $rootScope.modalShownLogin = !$rootScope.modalShownLogin;
     };
-    $window.on('scroll', function () {
-      var scrollTop = $window.scrollTop();
-      header.toggleClass('hideHeader', scrollTop > prev);
-      prev = scrollTop;
-    });
 
     function signOut() {
       authenticationService.ClearCredentials();
