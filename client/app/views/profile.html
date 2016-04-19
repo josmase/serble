@@ -1,68 +1,74 @@
 <div id="profileImage"><img ng-src="{{apiURL}}/content/avatars/{{user.avatar_url}}"/></div>
 <div class="container profile">
-  <div class="profileInfo">
-    <img src="../images/working.jpg">
-    <label>Stad
-      <input type="text" ng-model="user.city">
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" ng-model="user.show_city">
-      Visa min stad
-    </label>
+    <div class="profileInfo">
+        <img src="../images/working.jpg">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="firstname">Förnamn </label>
+                <input type="text" id="firstname" ng-model="user.firstname">
 
-    <label>Beskrivning
-     <textarea type="text" name="description"
-               cols="40"
-               rows="10"
-               ng-model="user.description"
-     > </textarea>
-    </label>
-    <label>Förnamn
-      <input type="text" ng-model="user.firstname">
-    </label>
-    <label>Efternamn
-      <input type="text" ng-model="user.lastname">
-    </label>
-    <label> Telefon
-      <input type="tel" ng-model="user.phone">
-    </label>
-    <label>
-      <input type="checkbox" ng-model="user.show_phone">
-      Visa mitt nummer
-    </label>
-    <label>Email
-      <input type="email" ng-model="user.email">
-    </label>
-    <label>
-      <input type="checkbox" ng-model="user.show_email">
-      Visa min email
-    </label>
-    <div class="form-group imageUpload">
-      <img ngf-src="file"/>
-      <div ngf-drop ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-           ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">
-        <p>Klicka för att ladda upp en bild</p>
-      </div>
-      <span class="deleteImage" ng-show="file" ng-click="deleteImage()"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Efternamn </label>
+                <input type="text" id="lastname" ng-model="user.lastname">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="phone"> Telefon </label>
+                <input type="tel" id="phone" ng-model="user.phone">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" id="email" ng-model="user.email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="description">Beskrivning</label>
+                 <textarea type="text" name="description" id="description"
+                           cols="40"
+                           rows="10"
+                           ng-model="user.description">
+                 </textarea>
+                <p class="wordCount">{{user.description.length||0}}/2048</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="city">Stad</label>
+                <input type="text" id="city" ng-model="user.city">
+            </div>
+            <div class="form-group  col-md-6">
+                <label for="file">Profilbild</label>
+                <div class="imageUpload">
+                    <img ngf-src="file"/>
+                    <div ngf-drop ngf-select ng-model="file" id="file" name="file" ngf-pattern="'image/*'"
+                         ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">
+                        <p>Klicka för att ladda upp en bild</p>
+                    </div>
+                    <span class="deleteImage" ng-show="file" ng-click="deleteImage()"></span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <button class="btn-accept" ladda="loading" ng-click="update()">save</button>
+    <button class="btn-accept" ladda="loading" ng-click="update()">save</button>
 </div>
 <modal-success show='modalShownSuccess'>
-  <div class="modalInfo">
-    <div class="infoIcon success">
-      ✓
+    <div class="modalInfo">
+        <div class="infoIcon success">
+            ✓
+        </div>
+        <p>Din profil har uppdaterats</p>
     </div>
-    <p>Din profil har uppdaterats</p>
-  </div>
-  <button class="btn-accept" ng-click="toggleModalSuccess()">Ok</button>
+    <button class="btn-accept" ng-click="toggleModalSuccess()">Ok</button>
 </modal-success>
 <modal-dialog-error show='modalShownError'>
-  <div class="modalInfo">
-    <div class="infoIcon error">
-      ✖
+    <div class="modalInfo">
+        <div class="infoIcon error">
+            ✖
+        </div>
+        <p>{{error}}</p>
     </div>
-    <p>{{error}}</p>
-  </div>
-  <button class="btn-accept error" ng-click="toggleModalError()">Ok</button>
+    <button class="btn-accept error" ng-click="toggleModalError()">Ok</button>
 </modal-dialog-error>

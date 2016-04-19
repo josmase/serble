@@ -41,6 +41,7 @@
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
+                padding-bottom: 5px;
                 margin: 3px 0 0 0;
             }
             h4:first-letter {
@@ -61,8 +62,11 @@
             padding-bottom: 50px;
             padding-top: 25px;
             div {
-                p {
-                    margin-bottom: 25px;
+                p:nth-child(1) {
+                    margin-bottom: 20px;
+                }
+                p{
+                    margin-bottom: 5px ;
                 }
             }
         }

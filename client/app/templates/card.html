@@ -11,6 +11,7 @@
     <div class="row articleDescription">
         <div>
             <p>{{article.description | limitTo:170}}... </p>
+            <p>{{article.type | articleTypeFilter}}</p>
             <p><span class="blue">{{article.price | money:"kr"}}</span></p>
             <span>{{article.date_creation | date:'yyyy-MM-dd HH:mm:ss'}}</span>
         </div>

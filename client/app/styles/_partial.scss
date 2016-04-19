@@ -30,21 +30,6 @@ $circle-size: 100px;
   background: $green-light;
 }
 
-input::-webkit-input-placeholder,
-input:-moz-placeholder,
-input::-moz-placeholder,
-input:-ms-input-placeholder,
-input:-ms-input-placeholder {
-  color: $white;
-}
-
-/*Remove all ugly number spinners on input elements*/
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 ul {
   padding-left: 0;
   li {
@@ -59,13 +44,13 @@ header.hideHeader {
 
 .create-article {
   text-align: center;
-  margin-top: 70px;
   p:nth-child(2) {
-    width: 200px;
+    width: 500px;
     margin: 0 auto;
   }
   .container {
     background: $white;
+      padding-top: 50px;
   }
 }
 
