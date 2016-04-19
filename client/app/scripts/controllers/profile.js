@@ -58,7 +58,7 @@ angular.module('serbleApp')
             $scope.error = response.err[0];
           }
           catch(err){
-            $scope.error = "Inget error";
+            $scope.error = 'Inget error';
           }
           toggleModalError();
         }

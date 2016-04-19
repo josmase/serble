@@ -9,6 +9,7 @@
  */
 angular.module('serbleApp')
     .service('getAndPostArticlesService', function ($http, $rootScope, Upload) {
+        // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
         var server = $rootScope.apiURL;
 
         function handleSuccess(res) {
@@ -23,7 +24,7 @@ angular.module('serbleApp')
 
         function postArticleData(data, files) {
             console.log(files);
-            if (typeof files === "undefined") {
+            if (typeof files === 'undefined') {
                 return $http({
                     method: 'POST',
                     url: $rootScope.apiURL + '/articles/post',
@@ -37,11 +38,11 @@ angular.module('serbleApp')
         }
 
         function getArticles(search, articleRange) {
-            var title = "", category = "", type = "";
+            var title = '', category = '', type = '';
             if (typeof search !== 'undefined') {
-                title = search.text || "";
-                category = search.category || "";
-                type = search.type || "";
+                title = search.text || '';
+                category = search.category || '';
+                type = search.type || '';
             }
             articleRange = articleRange || [0, 10];
 

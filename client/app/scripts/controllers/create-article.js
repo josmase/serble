@@ -10,7 +10,7 @@
 angular.module('serbleApp')
     .controller('CreateArticleCtrl', function ($scope, geocodeService, getAndPostArticlesService, Upload, $rootScope) {
         $scope.articleData = {};
-
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
         if (!$rootScope.globals.currentUser) {
             $rootScope.modalShownRegister = true;
         }
@@ -47,7 +47,7 @@ angular.module('serbleApp')
             if (response.data.results.length > 0) {
                 $scope.articleData.latitude = response.data.results[0].geometry.location.lat;
                 $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
-                
+
                 $scope.articleData.neighborhood = response.data.results[0].address_components[0].long_name;
 
                 console.log($scope.articleData);
@@ -68,7 +68,7 @@ angular.module('serbleApp')
                 else {
                     $scope.loading = false;
                     toggleModalError();
-                    $scope.errorMessages = ["Adressen gick inte att använda"];
+                    $scope.errorMessages = ['Adressen gick inte att använda'];
                 }
             });
 
