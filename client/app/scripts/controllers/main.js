@@ -8,7 +8,7 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-    .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices) {
+    .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices, UserService) {
         // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
         $scope.articles = [];
         $scope.search = {};
@@ -26,21 +26,22 @@ angular.module('serbleApp')
         $scope.search.category = category;
 
 
-        var loadArticlesIfPage = function () {
+        function loadArticlesIfPage() {
             for (var i = 1; i <= currentPage; i++) {
-                $scope.getMoreArticles();
+                getMoreArticles();
             }
-        };
+        }
 
-        var resetPage = function () {
+        function resetPage() {
             startPoint = 0;
             currentPage = 1;
             $location.search('page', currentPage);
-        };
-        var incrementPage = function () {
+        }
+
+        function incrementPage() {
             currentPage++;
             $location.search('page', currentPage);
-        };
+        }
 
         function calculateDistance() {
             myMapServices.getCurrentLocation().then(function (data) {
@@ -61,7 +62,18 @@ angular.module('serbleApp')
             }
         }
 
-        $scope.getArticles = function () {
+        function getUserById(article, limit) {
+            if (limit > 500) {
+                UserService.GetById(article.author_id).then(function (result) {
+                    if (result.success) {
+                        article.author = result.result;
+                    }
+                })
+            }
+
+        }
+
+        function getArticles() {
             resetPage();
 
             articleRange = [startPoint, NumberOfArticles];
@@ -80,10 +92,10 @@ angular.module('serbleApp')
                 }, function errorFCallback() {
                 }
             );
-        };
+        }
 
 
-        $scope.getMoreArticles = function (callback) {
+        function getMoreArticles(callback) {
             $scope.loading = true;
             getAndPostArticlesService.getArticles($scope.search, articleRange).then(function successCallback(returnedArticles) {
                     if (returnedArticles.data.success) {
@@ -104,26 +116,26 @@ angular.module('serbleApp')
             );
             startPoint += NumberOfArticles;
             articleRange = [startPoint, NumberOfArticles];
-        };
+        }
 
-        $scope.noArticles = function () {
+        function noArticles() {
             return (!$scope.loading && $scope.articles.length < 1 );
-        };
+        }
 
-        $scope.viewMore = function () {
+        function viewMore() {
             var articlesLength = $scope.articles.length;
             $scope.getMoreArticles(function () {
                 if (articlesLength !== $scope.articles.length) {
                     incrementPage();
                 }
             });
-        };
+        }
 
         if (currentPage > 1) {
             loadArticlesIfPage();
         }
         else {
-            $scope.getArticles();
+            getArticles();
         }
 
         myMapServices.getCurrentLocation().then(function (data) {
@@ -131,4 +143,8 @@ angular.module('serbleApp')
         });
 
         calculateDistance();
+
+        $scope.noArticles = noArticles;
+        $scope.viewMore = viewMore;
+        $scope.getUserById = getUserById;
     });

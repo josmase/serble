@@ -14,12 +14,12 @@
         <p class="date">{{article.date_creation | date:'dd/M HH:MM'}}</p>
 
         <div ng-if="limit>200">
-            <a href=""><p>Karl karlsson</p></a>
-            <p>kaka@kaka.com</p>
+            <a href=""><p>{{article.author.firstname}}, {{article.author.lastname}}</p></a>
+            <p>{{article.contact}}</p>
         </div>
     </div>
 
-    <div class="details" ng-click="limit = { 200: 3000, 3000:200}[limit]">
+    <div class="details" ng-click="limit = { 200: 3000, 3000:200}[limit];getUserById(article,limit)">
         <p>Läs mer</p>
     </div>
 </div>
