@@ -26,12 +26,6 @@ angular.module('serbleApp')
         $scope.search.category = category;
 
 
-        function loadArticlesIfPage() {
-            for (var i = 1; i <= currentPage; i++) {
-                getMoreArticles();
-            }
-        }
-
         function resetPage() {
             startPoint = 0;
             currentPage = 1;
@@ -68,7 +62,7 @@ angular.module('serbleApp')
                     if (result.success) {
                         article.author = result.result;
                     }
-                })
+                });
             }
 
         }
@@ -131,12 +125,19 @@ angular.module('serbleApp')
             });
         }
 
+        function loadArticlesIfPage() {
+            for (var i = 1; i <= currentPage; i++) {
+                getMoreArticles();
+            }
+        }
+
         if (currentPage > 1) {
             loadArticlesIfPage();
         }
         else {
             getArticles();
         }
+
 
         myMapServices.getCurrentLocation().then(function (data) {
             $scope.currentLocation = data;
