@@ -23,7 +23,6 @@ angular.module('serbleApp')
         }
 
         function postArticleData(data, files) {
-            console.log(files);
             if (typeof files === 'undefined') {
                 return $http({
                     method: 'POST',
@@ -89,7 +88,7 @@ angular.module('serbleApp')
         function removeById(id) {
             return $http({
                 method: 'DELETE',
-                url: server + '/articles/remove/'+id,
+                url: server + '/articles/remove/' + id,
                 dataType: 'json'
             });
         }

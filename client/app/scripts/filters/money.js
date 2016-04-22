@@ -9,8 +9,8 @@
  * Filter in the serbleApp.
  */
 angular.module('serbleApp')
-  .filter('money', function () {
-    return function (input,currency) {
-      return input+currency;
-    };
-  });
+    .filter('money', function () {
+        return function (input, currency) {
+            return input + currency;
+        };
+    });

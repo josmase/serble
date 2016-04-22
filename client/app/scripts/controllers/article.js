@@ -14,11 +14,7 @@ angular.module('serbleApp')
             function getAuthorById(authorId) {
                 UserService.GetById(authorId).then(function (response) {
                     if (response.success) {
-                        console.log(response);
                         $scope.authorInfo = response.result[0];
-                    }
-                    else {
-                        console.log(response);
                     }
                 });
             }
@@ -38,11 +34,7 @@ angular.module('serbleApp')
                         getAuthorById($scope.articleInfo.author_id);
                         calculateDistance();
                     }
-                    else {
-                        console.log('No article');
-                    }
                 }, function errorCallback(response) {
-                    console.log(response);
                 });
             }
 

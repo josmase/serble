@@ -91,8 +91,6 @@ angular.module('serbleApp')
                     if (response.success) {
                         $scope.user = response.result;
                         getArticle($scope.user.profile_id);
-                    } else {
-                        console.log(response);
                     }
                 });
         }

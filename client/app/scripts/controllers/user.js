@@ -8,28 +8,25 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-  .controller('UserCtrl', function (UserService, $scope, $location) {
-    $scope.userPrivate = {};
+    .controller('UserCtrl', function (UserService, $scope, $location) {
+        $scope.userPrivate = {};
 
-    $scope.toggleContactInfo = function toggleContactInfo() {
-      $scope.userPrivate.email = $scope.user.email;
-      $scope.userPrivate.phone = $scope.user.phone;
-      $scope.toggleContactInfoPressed = true;
-    };
+        $scope.toggleContactInfo = function toggleContactInfo() {
+            $scope.userPrivate.email = $scope.user.email;
+            $scope.userPrivate.phone = $scope.user.phone;
+            $scope.toggleContactInfoPressed = true;
+        };
 
-    var username = $location.path().split("/")[2] || "Unknown";
+        var username = $location.path().split("/")[2] || "Unknown";
 
-    function get() {
-      UserService.GetByUsername(username)
-        .then(function (response) {
-          if (response.success) {
-            console.log(response);
-            $scope.user = response.result;
-          } else {
-            console.log(response);
-          }
-        });
-    }
+        function get() {
+            UserService.GetByUsername(username)
+                .then(function (response) {
+                    if (response.success) {
+                        $scope.user = response.result;
+                    }
+                });
+        }
 
-    get();
-  });
+        get();
+    });

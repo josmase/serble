@@ -34,6 +34,7 @@ angular.module('serbleApp')
                     }
                     else {
                         $scope.errorMessages = response.err;
+                        if(!response.err){$scope.errorMessages=['För många filer (max 5)']}
                         toggleModalError();
                     }
                 }, function errorCallback() {
@@ -49,8 +50,6 @@ angular.module('serbleApp')
                 $scope.articleData.longitude = response.data.results[0].geometry.location.lng;
 
                 $scope.articleData.neighborhood = response.data.results[0].address_components[0].long_name;
-
-                console.log($scope.articleData);
 
                 return true;
             }
