@@ -8,9 +8,9 @@
     "body-parser": "^1.14.2",
     "cors": "^2.7.1",
     "express": "^4.13.4",
-    "jsonwebtoken": "^5.7.0",
-    "mysql": "^2.10.2",
     "fs": "0.0.2",
-    "multer": "1.1.0"
+    "jsonwebtoken": "^5.7.0",
+    "multer": "^1.1.0",
+    "mysql": "^2.10.2"
   }
 }

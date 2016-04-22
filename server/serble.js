@@ -1,5 +1,7 @@
 'use strict';
 
+var fs = require('fs');
+
 var exp = {
     objects: {},
     settings: {},
@@ -16,7 +18,20 @@ var exp = {
         expiration: 86400
     },
 
-    verify: function (data) {
+    unlinkFiles: function (files, local) {
+        if (files) {
+            files.forEach(function (ent) {
+                if (local) {
+                    fs.stat(ent, function (err, stat) {
+                        if (err != null) {
+                            fs.unlink(__dirname + ent);
+                        }
+                    });
+                } else {
+                    fs.unlink(ent.path);
+                }
+            });
+        }
     }
 };
 

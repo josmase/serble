@@ -1,5 +1,6 @@
 CREATE DATABASE IF NOT EXISTS `serble`;
 USE `serble`;
+
 CREATE TABLE IF NOT EXISTS `settings` (
     `key`   VARCHAR(255) NOT NULL,
     `value` VARCHAR(255) NOT NULL,
@@ -18,13 +19,13 @@ CREATE TABLE IF NOT EXISTS `group` (
     CONSTRAINT `inheritance_id`
     FOREIGN KEY (`inheritance_id`)
     REFERENCES `group` (`group_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE SET NULL
+        ON UPDATE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS `account` (
     `user_id`    INT         NOT NULL AUTO_INCREMENT,
-    `group_id`   INT         NOT NULL,
+    `group_id`   INT         NULL,
     `username`   VARCHAR(45) NOT NULL,
     `password`   VARCHAR(61) NOT NULL,
     `email`      VARCHAR(45) NOT NULL,
@@ -36,8 +37,8 @@ CREATE TABLE IF NOT EXISTS `account` (
     CONSTRAINT `group_id`
     FOREIGN KEY (`group_id`)
     REFERENCES `group` (`group_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE SET NULL
+        ON UPDATE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS `profile` (
@@ -78,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `profile_rating` (
     CONSTRAINT `profile_id`
     FOREIGN KEY (`profile_id`)
     REFERENCES `profile` (`profile_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     CONSTRAINT `author_id`
     FOREIGN KEY (`author_id`)
     REFERENCES `profile` (`profile_id`)
@@ -95,13 +96,13 @@ CREATE TABLE IF NOT EXISTS `profile_contact` (
     CONSTRAINT `profile1_id`
     FOREIGN KEY (`profile1_id`)
     REFERENCES `profile` (`profile_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     CONSTRAINT `profile2_id`
     FOREIGN KEY (`profile2_id`)
     REFERENCES `profile` (`profile_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `advertisement` (
@@ -122,13 +123,24 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
     `archived`        TINYINT(1)    NOT NULL DEFAULT 0,
     `type`            TINYINT(1)    NOT NULL DEFAULT 0,
     `stage`           TINYINT(4)    NOT NULL DEFAULT 0,
-    `file`            VARCHAR(50)   NULL DEFAULT "avatars/default.png",
     PRIMARY KEY (`advert_id`),
     CONSTRAINT `fk_author_id`
     FOREIGN KEY (`author_id`)
     REFERENCES `profile` (`profile_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS `advertisement_image` (
+    `image_id`  INT         NOT NULL AUTO_INCREMENT,
+    `advert_id` INT         NOT NULL,
+    `path`      VARCHAR(100) NULL     DEFAULT "default.png",
+    PRIMARY KEY (`image_id`),
+    CONSTRAINT `fk_advert_id`
+    FOREIGN KEY (`advert_id`)
+    REFERENCES `advertisement` (`advert_id`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `advertisement_participant` (
@@ -142,13 +154,13 @@ CREATE TABLE IF NOT EXISTS `advertisement_participant` (
     CONSTRAINT `fk_participant_id`
     FOREIGN KEY (`participant_id`)
     REFERENCES `profile` (`profile_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     CONSTRAINT `advert_id`
     FOREIGN KEY (`advert_id`)
     REFERENCES `advertisement` (`advert_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `group_privileges` (
@@ -161,6 +173,6 @@ CREATE TABLE IF NOT EXISTS `group_privileges` (
     CONSTRAINT `privilege_id`
     FOREIGN KEY (`group_id`)
     REFERENCES `group` (`group_id`)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
