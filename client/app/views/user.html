@@ -4,7 +4,7 @@
     <h4 id="name">{{user.firstname}} {{user.lastname}}</h4>
     <p>{{user.city}}</p>
     <pre>{{user.description}}</pre>
-    <button class="button-accept animated " ng-click="toggleContactInfo()" ng-class="{fadeOut: toggleContactInfoPressed}" ng-show="!toggleContactInfoPressed">kontakta mig</button>
+    <button class="button-accept animated " ng-click="toggleContactInfo()" ng-class="{fadeOut: toggleContactInfoPressed}" ng-if="!toggleContactInfoPressed">kontakta mig</button>
     <div class="animated" ng-class="{fadeIn: toggleContactInfoPressed}">
       <ul>
         <li>{{userPrivate.phone}}</li>
