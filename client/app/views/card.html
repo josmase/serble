@@ -1,5 +1,5 @@
 <div class="article fadeInUp animated" ng-init="limit=200">
-    <div class="articleHeader" style="background-image: url('{{apiURL}}/content/articles/{{article.file}}')">
+    <div class="articleHeader" style="background-image: url('{{apiURL}}{{article.images[0]}}')">
         <div class="articleInfo">
             <h4>{{article.title}}</h4>
             <p>{{article.neighborhood}}, {{article.city}} ({{article.distance | distance}})</p>
