@@ -1,7 +1,6 @@
 <div id="profileImage"><img ng-src="{{apiURL}}{{user.avatar_url}}"/></div>
 <div class="container profile">
     <div class="profileInfo">
-        <img src="../images/working.jpg">
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="firstname">Förnamn </label>
@@ -39,16 +38,16 @@
                 <label for="city">Stad</label>
                 <input type="text" id="city" ng-model="user.city">
             </div>
-            <div class="form-group  col-md-6">
+            <div class="form-group col-xs-12 col-md-6">
                 <label for="file">Profilbild</label>
                 <div class="imageUpload">
-                    <img ngf-src="file"/>
-                    <div ngf-drop ngf-select ng-model="file" id="file" name="file" ngf-pattern="'image/*'"
-                         ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">
+                    <div id="file" ngf-drop ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                         ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="200">
                         <p>Klicka för att ladda upp en bild</p>
                     </div>
                     <span class="deleteImage" ng-show="file" ng-click="deleteImage()"></span>
                 </div>
+                <div class="images"><img ngf-src="file"/></div>
             </div>
         </div>
     </div>

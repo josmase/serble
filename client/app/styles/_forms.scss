@@ -44,11 +44,13 @@
         float: right;
     }
 }
-.images{
+
+.images {
     display: inline-block;
-    img{
+    img {
         max-width: 100px;
         margin: 5px;
+        border-radius: 0;
     }
 }
 

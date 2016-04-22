@@ -36,15 +36,4 @@
   input[type=checkbox] {
     display: inline;
   }
-  img {
-    filter: blur(0);
-    margin-top: $circle-size * -0.5;
-    margin-left: auto;
-    margin-right: auto;
-    width: $circle-size;
-    height: $circle-size;
-    border-radius: 100%;
-    border: 2px solid white;
-  }
-
 }
