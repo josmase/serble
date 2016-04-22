@@ -52,10 +52,17 @@
         }
 
         function Update(user, file) {
+            if (typeof files === 'undefined') {
+                return $http({
+                    method: 'POST',
+                    url: $rootScope.apiURL + '/user/profile/update',
+                    data: {data: user}
+                }).then(handleSuccess, handleError('Kunde inte nå server'));
+            }
             return Upload.upload({
                 url: $rootScope.apiURL + '/user/profile/update',
-                data: {file: file, data: user}
-            }).then(handleSuccess, handleError('Error updating user'));
+                data: {files: file, data: user}
+            }).then(handleSuccess, handleError('Kunde inte nå server'));
         }
 
         function Delete(id) {
