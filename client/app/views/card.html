@@ -14,7 +14,7 @@
         <p class="date">{{article.date_creation | date:'dd/M HH:MM'}}</p>
 
         <div ng-if="limit>200">
-            <a href=""><p>{{article.author.firstname}}, {{article.author.lastname}}</p></a>
+            <a href="#/user/{{article.author.username}}"><p>{{article.author.firstname}}, {{article.author.lastname}}</p></a>
             <p>{{article.contact}}</p>
         </div>
     </div>
