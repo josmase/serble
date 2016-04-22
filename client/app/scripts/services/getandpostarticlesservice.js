@@ -88,12 +88,9 @@ angular.module('serbleApp')
 
         function removeById(id) {
             return $http({
-                method: 'POST',
-                url: server + '/articles/remove',
-                dataType: 'json',
-                data: {
-                    id: id
-                }
+                method: 'DELETE',
+                url: server + '/articles/remove/'+id,
+                dataType: 'json'
             });
         }
 
