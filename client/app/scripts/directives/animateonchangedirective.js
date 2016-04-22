@@ -17,5 +17,5 @@ angular.module('serbleApp')
                     elem.removeClass('fadeIn animated');
                 }
             });
-        }
+        };
     });
