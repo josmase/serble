@@ -91,6 +91,7 @@ https.createServer(app);
 app
     .use(express.static(__dirname + '/../client/dist'))
     .get('/', function (req, res) {
+        res.end();
     });
 
 serble.objects.app = app;
@@ -230,7 +231,6 @@ app.get('/user/profile/get', function (req, res) {
 app.post('/user/profile/update', profileUpload.any(), function (req, res) {
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.username) {
-            console.log(req.body.data);
             users.updateProfile(data.username, req.body.data, function (e) {
                 if (e) {
                     res.json({success: false, err: e});

@@ -19,17 +19,19 @@ var exp = {
     },
 
     unlinkFiles: function (files, local) {
-        files.forEach(function (ent) {
-            if (local) {
-                fs.stat(ent, function (err, stat) {
-                    if (err != null) {
-                        fs.unlink(__dirname + ent);
-                    }
-                });
-            } else {
-                fs.unlink(ent.path);
-            }
-        });
+        if (files) {
+            files.forEach(function (ent) {
+                if (local) {
+                    fs.stat(ent, function (err, stat) {
+                        if (err != null) {
+                            fs.unlink(__dirname + ent);
+                        }
+                    });
+                } else {
+                    fs.unlink(ent.path);
+                }
+            });
+        }
     }
 };
 
