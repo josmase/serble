@@ -7,7 +7,14 @@
         var server = $rootScope.apiURL;
 
         function handleSuccess(res) {
+            try {
+                JSON.parse(res.data)
+            }
+            catch (err) {
+                return res.data
+            }
             return res.data;
+
         }
 
         function handleError(error) {
@@ -65,6 +72,7 @@
         return service;
 
     }
+
     angular
         .module('serbleApp')
         .factory('UserService', UserService);
