@@ -52,7 +52,7 @@
         }
 
         function Update(user, file) {
-            if (typeof files === 'undefined') {
+            if (typeof file === 'undefined') {
                 return $http({
                     method: 'POST',
                     url: $rootScope.apiURL + '/user/profile/update',

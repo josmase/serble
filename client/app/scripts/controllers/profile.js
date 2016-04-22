@@ -24,7 +24,6 @@ angular.module('serbleApp')
         function getArticle(id) {
             getAndPostArticlesService.getById(id).then(function (result) {
                     $scope.articles = result.data.result;
-                    console.log(result.data.result);
                 }
             ).catch(function (error) {
                 console.log(error);
