@@ -69,6 +69,7 @@ angular.module('serbleApp')
 
         function getArticles() {
             resetPage();
+            console.log('apa');
 
             articleRange = [startPoint, NumberOfArticles];
 
@@ -148,4 +149,5 @@ angular.module('serbleApp')
         $scope.noArticles = noArticles;
         $scope.viewMore = viewMore;
         $scope.getUserById = getUserById;
+        $scope.getArticles = getArticles;
     });
