@@ -87,7 +87,8 @@ var exp = {
      */
     updateProfile: function (username, data, callback) {
         var err = [];
-      if (!data) {
+
+        if (!data) {
             err.push("nodata");
         }
 
@@ -104,18 +105,9 @@ var exp = {
                         err.push("noaccount");
                         callback(err);
                     } else {
-                      
-                      verified.filtered.show_city = null;
-                      verified.filtered.show_address = null;
-                      verified.filtered.show_phone = null;
-
-                      database.query("UPDATE `profile` SET ? WHERE `user_id` = "
+                        database.query("UPDATE `profile` SET ? WHERE `user_id` = "
                             + database.escape(res[0].user_id), verified.filtered, function (e) {
-                        if (e) {
-                          console.log("Database error: " + e);
-                        } else {
-                          callback();
-                        }
+                            callback();
                         });
                     }
                 });
@@ -152,7 +144,7 @@ var exp = {
             options = "`profile`.`profile_id` = " + database.escape(id);
         }
 
-        database.query("SELECT DISTINCT `profile`.* FROM `profile` INNER JOIN `account` ON `profile`.`user_id` = `account`.`user_id` WHERE " + options, function (e, res) {
+        database.query("SELECT DISTINCT `account`.`username`, `profile`.* FROM `profile` INNER JOIN `account` ON `profile`.`user_id` = `account`.`user_id` WHERE " + options, function (e, res) {
             if (res.length <= 0) {
                 err.push("noprofile");
                 callback(err);

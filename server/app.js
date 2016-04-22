@@ -15,288 +15,275 @@ var https = require('https');
 var path = require('path');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var crypto = require('crypto');
+var multer = require('multer');
+
+var articleStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, __dirname + '/content/articles');
+    },
+    filename: function (req, file, cb) {
+        var str = Date.now()
+            + '-' + crypto.randomBytes(16).toString('hex')
+            + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1];
+
+        cb(null, str);
+    }
+});
+
+var articleUpload = multer({
+    storage: articleStorage,
+    limits: {
+        fieldNameSize: 50,
+        files: 5,
+        fileSize: 20 * 1024 * 1024
+    }
+});
 
 var mysql = require('mysql');
 var serble = require('./serble.js');
 
 // Private (Custom) modules
 var database = mysql.createConnection({
-  host: serble.database.host,
-  port: serble.database.port,
-  database: serble.database.name,
-  user: serble.database.user,
-  password: serble.database.password
+    host: serble.database.host,
+    port: serble.database.port,
+    database: serble.database.name,
+    user: serble.database.user,
+    password: serble.database.password
 });
 
-var privateKey = "q"
+var privateKey = "q";
 var certificate = "asd";
 
 var credentials = {key: privateKey, cert: certificate};
 
 var app = express()
-  .use(cors())
-  .use(bodyParser.json());
+    .use(cors())
+    .use(bodyParser.json());
 
 app.listen(PORT_DEFAULT);
 
 https.createServer(app);
 
 app
-  .use(express.static(__dirname + '/../client/dist'))
-  .get('/', function (req, res) {
-    res.sendFile(path.resolve('./../client/dist/index.html'));
-  });
+    .use(express.static(__dirname + '/../client/dist'))
+    .get('/', function (req, res) {
+        res.sendFile(path.resolve('./../client/dist/index.html'));
+    });
 
 serble.objects.app = app;
 serble.objects.database = database;
 
 database.connect(function (e) {
-  if (e) {
-    console.log("Database error: " + e);
-  }
+    if (e) {
+        console.log("Database error: " + e);
+    }
 });
 
 var tokens = require('./tokens.js');
 var users = require('./users.js');
 var articles = require('./articles.js');
 
+function unlinkFiles(files) {
+    files.forEach(function (ent) {
+        fs.unlink(ent.path);
+    });
+}
+
 // HTTP Requests
 
-app.get('/articles/remove', function (req, res) {
-  tokens.tryUnlock(req.headers.authorization, function (data) {
-    if (data.profile_id) {
-      articles.removeArticle(req.query.id, function (e) {
-        if (e) {
-          res.json({success: false, err: e});
+app.delete('/articles/remove/:id', function (req, res) {
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.profile_id) {
+            articles.removeArticle(req.params.id, function (e) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
         } else {
-          res.json({success: true});
+            res.json({success: false, err: ["tokenerror"]});
         }
-      });
-    } else {
-      res.json({success: false, err: ["tokenerror"]});
-    }
-  }, function () {
-    res.json({success: false, err: ["tokeninvalid"]});
-  });
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+    });
 });
 
 app.get('/articles/get', function (req, res) {
-  var filter = req.query.filter;
+    var filter = req.query.filter;
 
-  if (typeof filter == "string") {
-    try {
-      filter = JSON.parse(filter);
-    } catch (e) {
-      res.json({success: false, err: ["invalidjson"]});
-      return;
+    if (typeof filter == "string") {
+        try {
+            filter = JSON.parse(filter);
+        } catch (e) {
+            res.json({success: false, err: ["invalidjson"]});
+            return;
+        }
+    } else if (typeof filter != "object") {
+        res.json({success: false, err: ["invalidjson"]});
+        return;
     }
-  } else if (typeof filter != "object") {
-    res.json({success: false, err: ["invalidjson"]});
-    return;
-  }
 
-  articles.getArticles(filter, function (e, result) {
-    if (e) {
-      res.json({success: false, err: e});
-    } else {
-      res.json({success: true, result: result});
+    articles.getArticles(filter, function (e, result) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            articles.setArticleImages(result, function (result2) {
+                res.json({success: true, result: result2});
+            });
+        }
+    });
+});
+
+app.post('/articles/post', articleUpload.any(), function (req, res) {
+    var data = req.body.data;
+
+    if (typeof data == "string") {
+        try {
+            data = JSON.parse(data);
+        } catch (e) {
+            res.json({success: false, err: ["invalidjson"]});
+            unlinkFiles(req.files);
+            return;
+        }
+    } else if (typeof data != "object") {
+        res.json({success: false, err: ["invalidjson"]});
+        unlinkFiles(req.files);
+        return;
     }
-  });
+
+    data.zipcode = 90120;
+
+    tokens.tryUnlock(req.headers.authorization, function (data) {
+        if (data.user_id) {
+            articles.postArticle(data, req.body.data, function (e, result) {
+                if (e) {
+                    res.json({success: false, err: e});
+                    unlinkFiles(req.files);
+                } else {
+                    res.json({success: true});
+
+                    var path;
+
+                    req.files.forEach(function (ent) {
+                        path = '/content/articles/' + ent.filename;
+
+                        articles.addArticleImage(result, path, function () {});
+                    });
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+            unlinkFiles(req.files);
+        }
+    }, function () {
+        res.json({success: false, err: ["tokeninvalid"]});
+        unlinkFiles(req.files);
+    });
 });
 
 app.get('/user/profile/get', function (req, res) {
-  tokens.tryUnlock(req.headers.authorization, function (data) {
-    var filter = true;
-
-    if ((req.query.username != null && data.username.toLowerCase() === req.query.username.toLowerCase()) || data.profile_id === req.query.profile_id) {
-      filter = false;
-    }
-
-    users.getProfile(req.query.username, req.query.profile_id, filter, function (e, profile) {
-      if (e) {
-        res.json({success: false, err: e});
-      } else {
-        res.json({success: true, result: profile});
-      }
-    });
-  }, function () {
-    users.getProfile(req.query.username, req.query.profile_id, true, function (e, profile) {
-      if (e) {
-        res.json({success: false, err: e});
-      } else {
-        res.json({success: true, result: profile});
-      }
-    });
-  });
-});
-
-app.post('/user/login', function (req, res) {
-  users.login(req.body.credentials, req.body.password, function (e, token, username) {
-    if (e) {
-      res.json({success: false, err: e});
-    } else {
-      res.json({success: true, result: token, username: username});
-    }
-  });
-});
-
-app.post('/user/register', function (req, res) {
-  users.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
-    if (e) {
-      res.json({success: false, err: e});
-    } else {
-      res.json({success: true});
-    }
-  });
-});
-
-var multer = require('multer');
-var filename = "";
-
-var aImgStorage = multer.diskStorage({ //multers disk storage settings
-  destination: function (req, file, cb) {
-    cb(null, './content/articles/');
-  },
-  filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
-  }
-});
-
-var pImgStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './content/avatars/');
-  },
-  filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1]);
-  }
-});
-
-var aImgUpload = multer({
-  storage: aImgStorage
-}).single('file');
-
-var pImgUpload = multer({
-  storage: pImgStorage
-}).single('file');
-
-/** API path that will upload the files */
-app.post('/articles/post', function (req, res) {
-  aImgUpload(req, res, function (err) {
-    if (err) {
-      res.json({success: false, err: err});
-      return;
-    }
-
-    var data = req.body.data;
-
-    console.log(req.body);
-
-    if (typeof data == "string") {
-      try {
-        data = JSON.parse(data);
-      } catch (e) {
-        res.json({success: false, err: ["invalidjson"]});
-        return;
-      }
-    } else if (typeof data != "object") {
-      res.json({success: false, err: ["invalidjson"]});
-      return;
-    }
-
-    req.body.data.file = req.file.filename;
-
     tokens.tryUnlock(req.headers.authorization, function (data) {
-      if (data.user_id) {
-        articles.postArticle(data, req.body.data, function (e, result) {
-          if (e) {
-            res.json({success: false, err: e});
-          } else {
-            res.json({success: true});
-          }
+        var filter = true;
+
+        if ((req.query.username != null && data.username.toLowerCase() === req.query.username.toLowerCase()) || data.profile_id === req.query.profile_id) {
+            filter = false;
+        }
+
+        users.getProfile(req.query.username, req.query.profile_id, filter, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
         });
-      } else {
-        res.json({success: false, err: ["tokenerror"]});
-      }
     }, function () {
-      res.json({success: false, err: ["tokeninvalid"]});
+        users.getProfile(req.query.username, req.query.profile_id, true, function (e, profile) {
+            if (e) {
+                res.json({success: false, err: e});
+            } else {
+                res.json({success: true, result: profile});
+            }
+        });
     });
-  });
 });
 
 app.post('/user/profile/update', function (req, res) {
-  pImgUpload(req, res, function (err) {
-    if (err) {
-      res.json({success: false, err: err});
-      return;
-    }
-    if(req.file){
-    req.body.data.avatar_url = req.file.filename || "";
-    }
-
     tokens.tryUnlock(req.headers.authorization, function (data) {
-      if (data.username) {
-        users.updateProfile(data.username, req.body.data, function (e) {
-          if (e) {
-            res.json({success: false, err: e});
-          } else {
-            res.json({success: true});
-          }
-        });
-      } else {
-        res.json({success: false, err: ["tokenerror"]});
-      }
+        if (data.username) {
+            users.updateProfile(data.username, req.body.data, function (e) {
+                if (e) {
+                    res.json({success: false, err: e});
+                } else {
+                    res.json({success: true});
+                }
+            });
+        } else {
+            res.json({success: false, err: ["tokenerror"]});
+        }
     }, function () {
-      res.json({success: false, err: ["tokeninvalid"]});
+        res.json({success: false, err: ["tokeninvalid"]});
     });
-  });
 });
 
-//read file from uploads folder
+app.post('/user/login', function (req, res) {
+    users.login(req.body.credentials, req.body.password, function (e, token, username) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true, result: token, username: username});
+        }
+    });
+});
 
-var fs = require('fs');
+app.post('/user/register', function (req, res) {
+    users.register(req.body.username, req.body.password, req.body.email, req.body.ssn, function (e) {
+        if (e) {
+            res.json({success: false, err: e});
+        } else {
+            res.json({success: true});
+        }
+    });
+});
 
 app.get('/content/:path/:file', function (req, res) {
-  var path;
-  var file;
+    var path;
+    var file;
 
-  var defaultPath = __dirname + '/content/';
+    var defaultPath = __dirname + '/content/';
 
-  var retry = false;
+    var retry = false;
 
-  if (req.params.path) {
-    path = __dirname + '/content/' + req.params.path + "/";
-  } else {
-    path = defaultPath;
-  }
-
-  if (req.params.file) {
-    file = req.params.file;
-  } else {
-    file = "default.png";
-  }
-
-  console.log(path + file);
-  //read the file
-  fs.readFile(path + file, makeInformFunction(path + file));
-
-  function makeInformFunction() {
-    return function (err, content) {
-      if (err) {
-        if (retry) {
-          res.json({success: false, err: err});
-          return
-        }
-        retry = true;
-          path = __dirname + '/content/articles/';
-          file = 'default.png';
-        fs.readFile(path + file, makeInformFunction(path + file));
-      }
-      else {
-        res.writeHead(200, {'Content-Type': 'image/gif'});
-        res.end(content, 'binary');
-      }
+    if (req.params.path) {
+        path = __dirname + '/content/' + req.params.path + "/";
+    } else {
+        path = defaultPath;
     }
-  }
+
+    if (req.params.file) {
+        file = req.params.file;
+    } else {
+        file = "default.png";
+    }
+
+    //read the file
+    fs.readFile(path + file, makeInformFunction(path + file));
+
+    function makeInformFunction() {
+        return function (err, content) {
+            if (err) {
+                if (retry) {
+                    res.json({success: false, err: err});
+                    return
+                }
+                retry = true;
+                fs.readFile(path + file, makeInformFunction(path + file));
+            } else {
+                res.writeHead(200, {'Content-Type': 'image/gif'});
+                res.end(content, 'binary');
+            }
+        }
+    }
 });
