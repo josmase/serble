@@ -1,7 +1,6 @@
 'use strict';
 
 var serble = require('./serble.js');
-var fs = require('fs');
 
 var app = serble.objects.app;
 var database = serble.objects.database;
@@ -127,8 +126,6 @@ var exp = {
             }
         }
 
-        console.log(query);
-
         database.query(query, function (e, res) {
             if (e) {
                 console.log("Database error: " + e);
@@ -171,9 +168,7 @@ var exp = {
             callback(err);
         } else {
             exp.getArticleImages(id, function (err, result) {
-                result.forEach(function (ent) {
-                    fs.unlink(__dirname + ent);
-                });
+                serble.unlinkFiles(result, true);
 
                 database.query("DELETE FROM `advertisement` WHERE ?", {advert_id: id}, function (e) {
                     if (e) {

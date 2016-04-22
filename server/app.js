@@ -41,6 +41,28 @@ var articleUpload = multer({
     }
 });
 
+var profileStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, __dirname + '/content/avatars');
+    },
+    filename: function (req, file, cb) {
+        var str = Date.now()
+            + '-' + crypto.randomBytes(16).toString('hex')
+            + '.' + file.originalname.split('.')[file.originalname.split('.').length - 1];
+
+        cb(null, str);
+    }
+});
+
+var profileUpload = multer({
+    storage: profileStorage,
+    limits: {
+        fieldNameSize: 50,
+        files: 1,
+        fileSize: 20 * 1024 * 1024
+    }
+});
+
 var mysql = require('mysql');
 var serble = require('./serble.js');
 
@@ -69,7 +91,6 @@ https.createServer(app);
 app
     .use(express.static(__dirname + '/../client/dist'))
     .get('/', function (req, res) {
-        res.sendFile(path.resolve('./../client/dist/index.html'));
     });
 
 serble.objects.app = app;
@@ -84,12 +105,6 @@ database.connect(function (e) {
 var tokens = require('./tokens.js');
 var users = require('./users.js');
 var articles = require('./articles.js');
-
-function unlinkFiles(files) {
-    files.forEach(function (ent) {
-        fs.unlink(ent.path);
-    });
-}
 
 // HTTP Requests
 
@@ -145,12 +160,12 @@ app.post('/articles/post', articleUpload.any(), function (req, res) {
             data = JSON.parse(data);
         } catch (e) {
             res.json({success: false, err: ["invalidjson"]});
-            unlinkFiles(req.files);
+            serble.unlinkFiles(req.files);
             return;
         }
     } else if (typeof data != "object") {
         res.json({success: false, err: ["invalidjson"]});
-        unlinkFiles(req.files);
+        serble.unlinkFiles(req.files);
         return;
     }
 
@@ -161,26 +176,28 @@ app.post('/articles/post', articleUpload.any(), function (req, res) {
             articles.postArticle(data, req.body.data, function (e, result) {
                 if (e) {
                     res.json({success: false, err: e});
-                    unlinkFiles(req.files);
+                    serble.unlinkFiles(req.files);
                 } else {
                     res.json({success: true});
 
-                    var path;
+                    if (req.files) {
+                        var path;
 
-                    req.files.forEach(function (ent) {
-                        path = '/content/articles/' + ent.filename;
+                        req.files.forEach(function (ent) {
+                            path = '/content/articles/' + ent.filename;
 
-                        articles.addArticleImage(result, path, function () {});
-                    });
+                            articles.addArticleImage(result, path, function () {});
+                        });
+                    }
                 }
             });
         } else {
             res.json({success: false, err: ["tokenerror"]});
-            unlinkFiles(req.files);
+            serble.unlinkFiles(req.files);
         }
     }, function () {
         res.json({success: false, err: ["tokeninvalid"]});
-        unlinkFiles(req.files);
+        serble.unlinkFiles(req.files);
     });
 });
 
@@ -210,21 +227,29 @@ app.get('/user/profile/get', function (req, res) {
     });
 });
 
-app.post('/user/profile/update', function (req, res) {
+app.post('/user/profile/update', profileUpload.any(), function (req, res) {
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.username) {
+            console.log(req.body.data);
             users.updateProfile(data.username, req.body.data, function (e) {
                 if (e) {
                     res.json({success: false, err: e});
+                    serble.unlinkFiles(req.files);
                 } else {
                     res.json({success: true});
+
+                    if (req.files && req.files[0]) {
+                        users.setProfileImage(data.profile_id, '/content/avatars/' + req.files[0].filename);
+                    }
                 }
             });
         } else {
             res.json({success: false, err: ["tokenerror"]});
+            serble.unlinkFiles(req.files);
         }
     }, function () {
         res.json({success: false, err: ["tokeninvalid"]});
+        serble.unlinkFiles(req.files);
     });
 });
 

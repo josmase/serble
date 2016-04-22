@@ -212,6 +212,21 @@ var exp = {
     },
 
     /**
+     * Set profile image
+     * @param id Profile ID
+     * @param path Image path
+     */
+    setProfileImage: function(id, path) {
+        database.query("SELECT `avatar_url` FROM `profile` WHERE ?", {profile_id: id}, function (e, res) {
+            if (res && res[0] && res[0].avatar_url != null && res[0].avatar_url !== '/content/avatars/default.png') {
+                serble.unlinkFiles([res[0].avatar_url], true);
+            }
+        });
+
+        database.query("UPDATE `profile` SET `avatar_url` = " + database.escape(path) + " WHERE `profile_id` = " + database.escape(id));
+    },
+
+    /**
      * Registers a new account
      * @param username Username
      * @param password Password
@@ -412,16 +427,7 @@ exp.profile.structure = {
     },
 
     avatar_url: {
-        ignore: false,
-        check: function (val) {
-            if (val.length) {
-                if (val.length > 45) {
-                    return "avatartoolong";
-                }
-            } else {
-                return "avatarinvalid";
-            }
-        }
+        ignore: true
     }
 };
 
