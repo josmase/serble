@@ -1,5 +1,5 @@
 
-header.ng-scope {
+header#header {
     box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.75);
     min-height: 55px;
     background: white;
@@ -103,7 +103,7 @@ header.ng-scope {
 }
 
 @media screen and (min-width: 760px) {
-    header.ng-scope {
+    header#header {
         .navbar-header {
             border-bottom: none;
         }
