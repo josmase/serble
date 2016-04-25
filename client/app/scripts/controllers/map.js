@@ -15,7 +15,8 @@ angular.module('serbleApp')
             libraries: 'weather,geometry,visualization'
         });
     })
-    .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService, geocodeService) {
+    .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService,
+                                     geocodeService, UserService) {
 
         function calculateDistance() {
             myMapServices.getCurrentLocation().then(function (currentLocation) {
@@ -69,5 +70,19 @@ angular.module('serbleApp')
             } //else it exists and we good for lodash3 without doing anything else
             /* jshint ignore:end */
         });
+
+        function getUserById(article, limit) {
+            if (limit > 500) {
+                UserService.GetById(article.author_id).then(function (result) {
+                    if (result.success) {
+                        article.author = result.result;
+                    }
+                });
+            }
+
+        }
+
+        $scope.getUserById = getUserById;
+
     });
 
