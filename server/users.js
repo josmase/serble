@@ -17,7 +17,7 @@ var EMAIL_UPPER_LIMIT = 45;
 /**
  * Users module
  * @author Emil Bertillson, Serble
- * @version 2016-02-19
+ * @version 2016-04-25
  */
 var exp = {
     profile: {
@@ -69,7 +69,9 @@ var exp = {
                                 result.filtered[dk] = data[dk];
                             }
                         } else if (dk === "show_" + sk) {
-                            result.filtered[dk] = Number(data[dk]);
+                            if (typeof data[dk] == "boolean") {
+                                result.filtered[dk] = data[dk] ? 1 : 0;
+                            }
                         }
                     }
                 }
@@ -106,7 +108,8 @@ var exp = {
                         callback(err);
                     } else {
                         database.query("UPDATE `profile` SET ? WHERE `user_id` = "
-                            + database.escape(res[0].user_id), verified.filtered, function (e) {
+                            + database.escape(res[0].user_id), verified.filtered, function (e, res) {
+                            console.log(verified.filtered);
                             callback();
                         });
                     }
@@ -216,7 +219,7 @@ var exp = {
      * @param id Profile ID
      * @param path Image path
      */
-    setProfileImage: function(id, path) {
+    setProfileImage: function (id, path) {
         database.query("SELECT `avatar_url` FROM `profile` WHERE ?", {profile_id: id}, function (e, res) {
             if (res && res[0] && res[0].avatar_url != null && res[0].avatar_url !== '/content/avatars/default.png') {
                 serble.unlinkFiles([res[0].avatar_url], true);

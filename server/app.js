@@ -3,7 +3,7 @@
 /**
  * Main server-side application initialization
  * @author Emil Bertilsson, Serble
- * @version 2016-02-19
+ * @version 2016-04-25
  */
 
 // Constants and namespaces
