@@ -17,7 +17,7 @@ angular.module('serbleApp')
             $scope.toggleContactInfoPressed = true;
         };
 
-        var username = $location.path().split("/")[2] || "Unknown";
+        var username = $location.path().split('/')[2] || 'Unknown';
 
         function get() {
             UserService.GetByUsername(username)

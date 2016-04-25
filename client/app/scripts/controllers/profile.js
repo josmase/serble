@@ -46,7 +46,7 @@ angular.module('serbleApp')
                         $scope.loading = false;
                         if (response.data.success) {
                             $scope.modalShownSuccess = true;
-                            $scope.success = "Radering av annonsen lyckades";
+                            $scope.success = 'Radering av annonsen lyckades';
                         }
                         else {
                             try {
@@ -67,6 +67,7 @@ angular.module('serbleApp')
         }
 
         function getUserById(article, limit) {
+            // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
             if (limit > 500) {
                 UserService.GetById(article.author_id).then(function (result) {
                     if (result.success) {
@@ -97,7 +98,7 @@ angular.module('serbleApp')
                 $scope.loading = false;
                 if (response.success) {
                     $scope.modalShownSuccess = true;
-                    $scope.success = "Uppdatering av profilen lyckades";
+                    $scope.success = 'Uppdatering av profilen lyckades';
                 }
                 else {
                     try {

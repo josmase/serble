@@ -9,7 +9,7 @@
 angular.module('serbleApp')
     .directive('passwordVerify', function () {
         return {
-            require: "ngModel",
+            require: 'ngModel',
             scope: {
                 passwordVerify: '='
             },
@@ -26,10 +26,10 @@ angular.module('serbleApp')
                         ctrl.$parsers.unshift(function (viewValue) {
                             var origin = scope.passwordVerify;
                             if (origin !== viewValue) {
-                                ctrl.$setValidity("passwordVerify", false);
+                                ctrl.$setValidity('passwordVerify', false);
                                 return undefined;
                             } else {
-                                ctrl.$setValidity("passwordVerify", true);
+                                ctrl.$setValidity('passwordVerify', true);
                                 return viewValue;
                             }
                         });
