@@ -8,7 +8,7 @@ var database = serble.objects.database;
 /**
  * Articles module
  * @author Emil Bertillson, Serble
- * @version 2016-02-19
+ * @version 2016-04-25
  */
 var exp = {
     structure: {},
