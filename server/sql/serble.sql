@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
     `phone`        VARCHAR(45)   NULL,
     `address`      VARCHAR(45)   NULL,
     `description`  VARCHAR(2048) NULL,
-    `avatar_url`   VARCHAR(45)            DEFAULT 'default.png',
+    `avatar_url`   VARCHAR(80)            DEFAULT 'default.png',
     `show_city`    TINYINT(1)    NOT NULL DEFAULT 1,
     `show_address` TINYINT(1)    NOT NULL DEFAULT 0,
     `show_age`     TINYINT(1)    NOT NULL DEFAULT 0,
@@ -132,8 +132,8 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
 );
 
 CREATE TABLE IF NOT EXISTS `advertisement_image` (
-    `image_id`  INT         NOT NULL AUTO_INCREMENT,
-    `advert_id` INT         NOT NULL,
+    `image_id`  INT          NOT NULL AUTO_INCREMENT,
+    `advert_id` INT          NOT NULL,
     `path`      VARCHAR(100) NULL     DEFAULT "default.png",
     PRIMARY KEY (`image_id`),
     CONSTRAINT `fk_advert_id`

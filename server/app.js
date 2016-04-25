@@ -179,17 +179,20 @@ app.post('/articles/post', articleUpload.any(), function (req, res) {
                     res.json({success: false, err: e});
                     serble.unlinkFiles(req.files);
                 } else {
-                    res.json({success: true});
-
                     if (req.files) {
                         var path;
 
                         req.files.forEach(function (ent) {
                             path = '/content/articles/' + ent.filename;
 
-                            articles.addArticleImage(result, path, function () {});
+                            articles.addArticleImage(result, path, function (error) {
+                                if (error) {
+                                    res.json({success: false, err: error});
+                                }
+                            });
                         });
                     }
+                    res.json({success: true});
                 }
             });
         } else {
