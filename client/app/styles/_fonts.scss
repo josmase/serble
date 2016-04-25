@@ -1,64 +1,60 @@
 @font-face {
-  font-family: 'Sak-light'; /*a name to be used later*/
-  src: url('fonts/Campton-Light.ttf'); /*URL to font*/
+    font-family: 'Sak-light'; /*a name to be used later*/
+    src: font-url('Campton-Light.ttf') format("truetype"); /*URL to font*/
 }
 
 @font-face {
-  font-family: 'Sak-medium'; /*a name to be used later*/
-  src: url('fonts/Campton-Medium.ttf'); /*URL to font*/
+    font-family: 'Sak-medium'; /*a name to be used later*/
+    src: font-url('Campton-Medium.ttf') format("truetype"); /*URL to font*/
 }
 
 $h-font-family: 'Sak-medium', sans-serif;
 $text-font-family: 'Sak-light', sans-serif;
 /*Color and font for all p elements*/
-p, a, a:hover,button,pre {
-  color: $primary-font-color;
-  font-family: $text-font-family;
-  text-decoration: none;
+p, a, a:hover, button, pre {
+    color: $primary-font-color;
+    font-family: $text-font-family;
+    text-decoration: none;
 }
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .material-icons.md-24 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 .material-icons.md-36 {
-  font-size: 36px;
+    font-size: 36px;
 }
 
 .material-icons.md-48 {
-  font-size: 48px;
+    font-size: 48px;
 }
 
 a, a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, label {
-  color: $primary-font-color;
-  font-family: $h-font-family;
+    color: $primary-font-color;
+    font-family: $h-font-family;
 }
 
 label {
-  letter-spacing: 1px;
+    letter-spacing: 1px;
 }
 
 .create-article {
-  h1 {
-    color: black;
-  }
+    h1 {
+        color: black;
+    }
 }
 
 .form-group {
-  input, select, textarea {
-    font-family: $text-font-family;
-  }
-}
-
-input::placeholder, select, textarea::placeholder {
-  color: $placeholder-font-color;
+    input, select, textarea {
+        font-family: $text-font-family;
+    }
 }
