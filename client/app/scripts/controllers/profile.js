@@ -29,6 +29,9 @@ angular.module('serbleApp')
             $scope.modalShownError = !$scope.modalShownError;
         }
 
+        function deleteImage() {
+            $scope.file = null;
+        }
 
         function getArticle(id) {
             getAndPostArticlesService.getById(id).then(function (result) {
@@ -119,6 +122,7 @@ angular.module('serbleApp')
         $scope.getUserById = getUserById;
         $scope.removeById = removeById;
         $scope.update = update;
+        $scope.deleteImage = deleteImage;
 
         getByUsername();
     });
