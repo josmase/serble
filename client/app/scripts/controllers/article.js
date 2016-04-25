@@ -34,7 +34,6 @@ angular.module('serbleApp')
                         getAuthorById($scope.articleInfo.author_id);
                         calculateDistance();
                     }
-                }, function errorCallback(response) {
                 });
             }
 

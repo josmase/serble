@@ -34,7 +34,9 @@ angular.module('serbleApp')
                     }
                     else {
                         $scope.errorMessages = response.err;
-                        if(!response.err){$scope.errorMessages=['För många filer (max 5)']}
+                        if (!response.err) {
+                            $scope.errorMessages = ['För många filer (max 5)'];
+                        }
                         toggleModalError();
                     }
                 }, function errorCallback() {

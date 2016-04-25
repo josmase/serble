@@ -8,10 +8,10 @@
 
         function handleSuccess(res) {
             try {
-                JSON.parse(res.data)
+                JSON.parse(res.data);
             }
             catch (err) {
-                return res.data
+                return res.data;
             }
             return res.data;
 

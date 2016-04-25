@@ -19,7 +19,7 @@ angular.module('serbleApp')
                     mapTypeControl: false,
                     scaleControl: false,
                     streetViewControl: false,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP, // jshint ignore:line
                     disableDoubleClickZoom: false,
                     keyboardShortcuts: true,
                     styles: [

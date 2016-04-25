@@ -21,13 +21,22 @@ angular.module('serbleApp')
             $rootScope.modalShownLogin = true;
         }
 
+        function toggleModalSuccess() {
+            $scope.modalShownSuccess = !$scope.modalShownSuccess;
+        }
+
+        function toggleModalError() {
+            $scope.modalShownError = !$scope.modalShownError;
+        }
+
+
         function getArticle(id) {
             getAndPostArticlesService.getById(id).then(function (result) {
                     $scope.articles = result.data.result;
                 }
             ).catch(function (error) {
                 console.log(error);
-            })
+            });
         }
 
         function removeById(id) {
@@ -37,7 +46,7 @@ angular.module('serbleApp')
                         $scope.loading = false;
                         if (response.data.success) {
                             $scope.modalShownSuccess = true;
-                            $scope.success = "Radering av annonsen lyckades"
+                            $scope.success = "Radering av annonsen lyckades";
                         }
                         else {
                             try {
@@ -49,14 +58,10 @@ angular.module('serbleApp')
                             toggleModalError();
                         }
                     }
-                ).catch(function (error) {
+                ).catch(function () {
                 $scope.loading = false;
-                try {
-                    $scope.error = response.err[0];
-                }
-                catch (err) {
-                    $scope.error = 'Inget error';
-                }
+                $scope.error = 'Kunde inte nå serble';
+
                 toggleModalError();
             });
         }
@@ -76,14 +81,6 @@ angular.module('serbleApp')
             $scope.showContactInfo = !$scope.showContactInfo;
         }
 
-        function toggleModalSuccess() {
-            $scope.modalShownSuccess = !$scope.modalShownSuccess;
-        }
-
-        function toggleModalError() {
-            $scope.modalShownError = !$scope.modalShownError;
-        }
-
         function getByUsername() {
             UserService.GetByUsername(username)
                 .then(function (response) {
@@ -100,7 +97,7 @@ angular.module('serbleApp')
                 $scope.loading = false;
                 if (response.success) {
                     $scope.modalShownSuccess = true;
-                    $scope.success = "Uppdatering av profilen lyckades"
+                    $scope.success = "Uppdatering av profilen lyckades";
                 }
                 else {
                     try {
