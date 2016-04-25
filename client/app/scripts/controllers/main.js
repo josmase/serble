@@ -69,7 +69,6 @@ angular.module('serbleApp')
 
         function getArticles() {
             resetPage();
-            console.log('apa');
 
             articleRange = [startPoint, NumberOfArticles];
 

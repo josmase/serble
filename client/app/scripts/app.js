@@ -23,7 +23,7 @@ angular
         'angular-ladda',
         'ngFileUpload'
     ])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $compileProvider) {
             $routeProvider
                 .when('/home', {
                     templateUrl: 'views/main.html',
@@ -64,11 +64,12 @@ angular
                 .otherwise({
                     redirectTo: '/home'
                 });
+            $compileProvider.debugInfoEnabled(false);
         }
     ).run(function ($rootScope, $cookies, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = JSON.parse($cookies.get('globals') || '{}');
-        $rootScope.apiURL = 'http://192.168.0.92:3000';
+        $rootScope.apiURL = 'http://localhost:3000';
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token; // jshint ignore:line
         }
