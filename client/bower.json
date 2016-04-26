@@ -2,22 +2,22 @@
   "name": "serble",
   "version": "0.0.0",
   "dependencies": {
-      "angular": "latest",
-      "angular-animate": "latest",
-      "angular-cookies": "latest",
-      "angular-resource": "latest",
-      "angular-route": "latest",
-      "angular-sanitize": "latest",
-      "angular-touch": "latest",
-      "angular-google-maps": "latest",
-      "angular-loading-bar": "latest",
-      "angular-messages": "latest",
-      "bootstrap": "latest",
-      "angular-ladda": "latest",
-      "ng-file-upload": "latest"
+      "angular": "^1.4.0",
+      "angular-animate": "^1.4.0",
+      "angular-cookies": "^1.4.0",
+      "angular-resource": "^1.4.0",
+      "angular-route": "^1.4.0",
+      "angular-sanitize": "^1.4.0",
+      "angular-touch": "^1.4.0",
+      "angular-google-maps": "~2.2.1",
+      "angular-loading-bar": "~0.8.0",
+      "angular-messages": "~1.4.8",
+      "bootstrap": "~3.3.6",
+      "angular-ladda": "^0.3.4",
+      "ng-file-upload": "^11.2.3"
   },
   "devDependencies": {
-      "angular-mocks": "latest"
+      "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
   "moduleName": "serbleApp",
@@ -31,7 +31,7 @@
     }
   },
   "resolutions": {
-      "angular": "latest",
-      "moment": "latest"
+      "angular": "1.4.10",
+      "moment": "^2.12.0"
   }
 }

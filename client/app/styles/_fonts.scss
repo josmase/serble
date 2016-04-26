@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Sak-light'; /*a name to be used later*/
-    src: font-url('Campton-Light.ttf') format("truetype"); /*URL to font*/
+    src: url('Campton-Light.ttf') format("truetype"); /*URL to font*/
 }
 
 @font-face {
     font-family: 'Sak-medium'; /*a name to be used later*/
-    src: font-url('Campton-Medium.ttf') format("truetype"); /*URL to font*/
+    src: url('Campton-Medium.ttf') format("truetype"); /*URL to font*/
 }
 
 $h-font-family: 'Sak-medium', sans-serif;
