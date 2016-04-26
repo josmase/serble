@@ -1,12 +1,11 @@
-@font-face {
-    font-family: 'Sak-light'; /*a name to be used later*/
-    src: font-url('Campton-Light.ttf') format("truetype"); /*URL to font*/
-}
+@import "compass/css3";
 
-@font-face {
-    font-family: 'Sak-medium'; /*a name to be used later*/
-    src: font-url('Campton-Medium.ttf') format("truetype"); /*URL to font*/
-}
+@include font-face(
+        'Sak-light', font-files('Campton-Light.ttf')
+);
+@include font-face(
+        'Sak-medium', font-files('Campton-Medium.ttf')
+);
 
 $h-font-family: 'Sak-medium', sans-serif;
 $text-font-family: 'Sak-light', sans-serif;
