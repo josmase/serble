@@ -149,4 +149,5 @@ angular.module('serbleApp')
         $scope.viewMore = viewMore;
         $scope.getUserById = getUserById;
         $scope.getArticles = getArticles;
+        $scope.getMoreArticles = getMoreArticles;
     });
