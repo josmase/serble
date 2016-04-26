@@ -413,14 +413,9 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         '*.html',
-                        'images/{,*/}*.{webp}'
-
+                        'images/{,*/}*.{webp}',
+                        'styles/fonts/{,*/}*.*'
                     ]
-                }, {
-                    expand: true,
-                    cwd: 'app/styles/fonts/',
-                    dest: '<%= yeoman.dist %>/styles',
-                    src: '{,*/}*.*'
                 }, {
                     expand: true,
                     cwd: '.tmp/images',
