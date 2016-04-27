@@ -103,7 +103,7 @@ var exp = {
      */
     getArticles: function (filter, callback) {
         var self = this;
-        var query = "SELECT * FROM `advertisement` WHERE `author_id` > 0";
+        var query = "SELECT DISTINCT `advertisement`.* FROM `advertisement` INNER JOIN `profile` ON `profile`.`profile_id` = `advertisement`.`author_id` INNER JOIN `account` ON `account`.`user_id` = `profile`.`user_id` WHERE `author_id` > 0";
 
         if (filter && typeof filter == "object") {
             var range;
@@ -112,11 +112,13 @@ var exp = {
                 if (key == "range") {
                     range = filter[key];
                     delete filter[key];
+                } else if (key == "username") {
+                    query += " AND `account`.`username` = " + database.escape(filter[key].value);
                 } else if (filter[key].value) {
                     if (filter[key].strict === false) {
-                        query += " AND `" + key.replace("\\", '').replace('`', '') + "` = " + database.escape(filter[key].value);
+                        query += " AND `advertisement`.`" + key.replace("\\", '').replace('`', '') + "` = " + database.escape(filter[key].value);
                     } else {
-                        query += " AND `" + key.replace("\\", '').replace('`', '') + "` LIKE(" + database.escape("%" + filter[key].value + "%") + ")";
+                        query += " AND `advertisement`.`" + key.replace("\\", '').replace('`', '') + "` LIKE(" + database.escape("%" + filter[key].value + "%") + ")";
                     }
                 }
             }
