@@ -402,10 +402,6 @@ exp.structure = {
         type: "number"
     },
 
-    zipcode: {
-        type: "number"
-    },
-
     neighborhood: {
         ignore: false,
         type: "string",

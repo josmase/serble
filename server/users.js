@@ -191,7 +191,7 @@ var exp = {
                         console.log("Database error: " + e);
                     } else {
                         if (res.length <= 0) {
-                            err.push("noaccount");
+                            err.push("noaccountorpassword");
                             callback(err);
                         } else {
                             bcrypt.compare(password, res[0].password, function (e, valid) {
@@ -202,7 +202,7 @@ var exp = {
                                         profile_id: res[0].profile_id
                                     }), res[0].username);
                                 } else {
-                                    err.push("passwordinvalid");
+                                    err.push("noaccountorpassword");
                                     callback(err);
                                 }
                             });
