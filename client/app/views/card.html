@@ -11,7 +11,7 @@
         <pre>{{article.description | limitTo:limit}}... </pre>
         <p>{{article.type | articleTypeFilter}}</p>
         <p>{{article.price | money:":-"}}</p>
-        <p class="date">{{article.date_creation | date:'dd/M HH:MM'}}</p>
+        <p class="date">{{article.date_creation | date:'dd/M HH:mm'}}</p>
 
         <div ng-if="limit>200">
             <a href="#/user/{{article.author.username}}"><p>{{article.author.firstname}} {{article.author.lastname}}</p>
