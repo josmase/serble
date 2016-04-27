@@ -33,8 +33,8 @@ angular.module('serbleApp')
             $scope.file = null;
         }
 
-        function getArticle(id) {
-            getAndPostArticlesService.getById(id).then(function (result) {
+        function getArticle(username) {
+            getAndPostArticlesService.getArticleByUsername(username).then(function (result) {
                     $scope.articles = result.data.result;
                 }
             ).catch(function (error) {
@@ -90,7 +90,7 @@ angular.module('serbleApp')
                 .then(function (response) {
                     if (response.success) {
                         $scope.user = response.result;
-                        getArticle($scope.user.profile_id);
+                        getArticle(username);
                     }
                 });
         }

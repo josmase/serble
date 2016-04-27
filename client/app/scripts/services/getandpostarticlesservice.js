@@ -69,16 +69,16 @@ angular.module('serbleApp')
             });
         }
 
-        function getById(id) {
+        function getArticleByUsername(username) {
             return $http({
                 method: 'GET',
                 url: server + '/articles/get',
                 dataType: 'json',
                 params: {
                     filter: {
-                        advert_id: {
+                        username: {
                             strict: false,
-                            value: id
+                            value: username
                         }
                     }
                 }
@@ -95,7 +95,7 @@ angular.module('serbleApp')
 
         this.postArticleData = postArticleData;
         this.getArticles = getArticles;
-        this.getById = getById;
+        this.getArticleByUsername = getArticleByUsername;
         this.removeById = removeById;
     });
 
