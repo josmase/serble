@@ -112,7 +112,7 @@ var articles = require('./articles.js');
 app.delete('/articles/remove/:id', function (req, res) {
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.profile_id) {
-            articles.removeArticle(req.params.id, function (e) {
+            articles.removeArticle(req.params.id, data.profile_id, function (e) {
                 if (e) {
                     res.json({success: false, err: e});
                 } else {

@@ -22,11 +22,16 @@ var exp = {
         if (files) {
             files.forEach(function (ent) {
                 if (local) {
-                    fs.stat(ent, function (err, stat) {
-                        if (err != null) {
-                            fs.unlink(__dirname + ent);
-                        }
-                    });
+                    try {
+                        fs.stat(ent, function (err, stat) {
+                            if (err != null) {
+                                fs.unlink(__dirname + ent);
+                            }
+                        });
+                    } catch (e) {
+                        console.log("Tried to remove unexisting files: ");
+                        console.log(files);
+                    }
                 } else {
                     fs.unlink(ent.path);
                 }
