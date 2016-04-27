@@ -273,7 +273,7 @@ var exp = {
                     console.log("Database error: " + e);
                     callback(["dberror"]);
                 } else if (res.length <= 0) {
-                    callback(["noimages"]);
+                    callback(null, ["/content/articles/default.png"]);
                 } else {
                     var images = [];
 

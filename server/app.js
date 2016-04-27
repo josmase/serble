@@ -170,8 +170,6 @@ app.post('/articles/post', articleUpload.any(), function (req, res) {
         return;
     }
 
-    data.zipcode = 90120;
-
     tokens.tryUnlock(req.headers.authorization, function (data) {
         if (data.user_id) {
             articles.postArticle(data, req.body.data, function (e, result) {
@@ -180,18 +178,25 @@ app.post('/articles/post', articleUpload.any(), function (req, res) {
                     serble.unlinkFiles(req.files);
                 } else {
                     if (req.files) {
-                        var path;
+                        if (req.files.length <= 5) {
+                            var path;
 
-                        req.files.forEach(function (ent) {
-                            path = '/content/articles/' + ent.filename;
+                            req.files.forEach(function (ent) {
+                                path = '/content/articles/' + ent.filename;
 
-                            articles.addArticleImage(result, path, function (error) {
-                                if (error) {
-                                    res.json({success: false, err: error});
-                                }
+                                articles.addArticleImage(result, path, function (error) {
+                                    if (error) {
+                                        res.json({success: false, err: error});
+                                        articles.removeArticle(result, null, function () {});
+                                    }
+                                });
                             });
-                        });
+                        } else {
+                            res.json({success: true, err: ["toomanyfiles"]})
+                            articles.removeArticle(result, null, function () {});
+                        }
                     }
+
                     res.json({success: true});
                 }
             });
