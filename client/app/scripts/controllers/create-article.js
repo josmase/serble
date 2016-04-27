@@ -35,7 +35,7 @@ angular.module('serbleApp')
                     else {
                         $scope.errorMessages = response.err;
                         if (!response.err) {
-                            $scope.errorMessages = ['För många filer (max 5)'];
+                            $scope.errorMessages = ['Något gick fel. Kolla att du inte skickade mer än 5 bilder'];
                         }
                         toggleModalError();
                     }
