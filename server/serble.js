@@ -24,7 +24,7 @@ var exp = {
                 if (local) {
                     try {
                         fs.stat(ent, function (err, stat) {
-                            if (err != null) {
+                            if (err != null && stat != null) {
                                 fs.unlink(__dirname + ent);
                             }
                         });

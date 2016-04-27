@@ -1,0 +1,9 @@
+{
+    "uid": "api",
+    "append": true,
+    "watch": true,
+    "minUptime": 2000,
+    "spinSleepTime": 1000,
+    "script": "app.js",
+    "sourceDir": "/home/jonas/gitgud/serble/server"
+}
