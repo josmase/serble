@@ -155,9 +155,10 @@ var exp = {
     /**
      * Removes an article
      * @param id Article ID
+     * @param pid Profile ID (Optional, when checking if the author is removing his articles)
      * @param callback Callback
      */
-    removeArticle: function (id, callback) {
+    removeArticle: function (id, pid, callback) {
         var err = [];
 
         if (!id) {
@@ -167,17 +168,32 @@ var exp = {
         if (err.length > 0) {
             callback(err);
         } else {
-            exp.getArticleImages(id, function (err, result) {
-                serble.unlinkFiles(result, true);
+            database.query("SELECT `author_id` FROM `advertisement` WHERE ?", {advert_id: id}, function (e, res) {
+                if (e) {
+                    console.log("Database error: " + e);
+                    callback(["dberror"]);
+                } else {
+                    if (res && res[0] && res[0].author_id) {
+                        if (pid && res[0].author_id != pid) {
+                            callback(["noaccess"]);
+                        } else {
+                            exp.getArticleImages(id, function (err, result) {
+                                serble.unlinkFiles(result, true);
 
-                database.query("DELETE FROM `advertisement` WHERE ?", {advert_id: id}, function (e) {
-                    if (e) {
-                        console.log("Database error: " + e);
-                        callback(["dberror"]);
+                                database.query("DELETE FROM `advertisement` WHERE ?", {advert_id: id}, function (e) {
+                                    if (e) {
+                                        console.log("Database error: " + e);
+                                        callback(["dberror"]);
+                                    } else {
+                                        callback();
+                                    }
+                                });
+                            });
+                        }
                     } else {
-                        callback();
+                        callback(["noarticle"]);
                     }
-                });
+                }
             });
         }
     },

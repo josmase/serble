@@ -109,7 +109,6 @@ var exp = {
                     } else {
                         database.query("UPDATE `profile` SET ? WHERE `user_id` = "
                             + database.escape(res[0].user_id), verified.filtered, function (e, res) {
-                            console.log(verified.filtered);
                             callback();
                         });
                     }
