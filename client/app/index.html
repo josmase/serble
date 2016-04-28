@@ -1,117 +1,116 @@
 <!doctype html>
 <html lang="se">
 <head>
-  <meta charset="utf-8">
-  <title>Serble</title>
-  <meta name="description" content="">
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta charset="utf-8">
+    <title>Serble</title>
+    <meta name="description" content="">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(.) styles/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/ladda/dist/ladda.min.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/fontello.css">
-  <!-- endbuild -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
- 
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/ladda/dist/ladda.min.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/fontello.css">
+    <!-- endbuild -->
+
 </head>
 <body ng-app="serbleApp"> <!--Used for production mode insert into body tag: ng-strict-di-->
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
 <header id="header" ng-controller="indexCtrl">
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
-                aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar top-bar"></span>
-          <span class="icon-bar middle-bar"></span>
-          <span class="icon-bar bottom-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#/home">serble</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="#/home" ng-class="{ active: isActive('/home')}">startsida</a></li>
-          <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">skapa annons</a></li>
-          <li><a href="#/map" ng-class="{ active: isActive('/map')}">karta </a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" ng-show="!checkIfLoggedIn()">
-          <li><a href="" ng-click="toggleModalLogin()">logga in</a></li>
-          <li><a href="" ng-click="toggleModalRegister()">registrera</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" ng-show="checkIfLoggedIn()">
-          <li><a href="#/profile">{{username}}</a></li>
-          <li><a href="" ng-click="signOut()">logga ut</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <modal-dialog-register show='modalShownRegister'>
-  </modal-dialog-register>
-  <modal-dialog-login show='modalShownLogin'>
-  </modal-dialog-login>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/home">serble</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#/home" ng-class="{ active: isActive('/home')}">startsida</a></li>
+                    <li><a href="#/create-article" ng-class="{ active: isActive('/create-article')}">skapa annons</a>
+                    </li>
+                    <li><a href="#/map" ng-class="{ active: isActive('/map')}">karta </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="!checkIfLoggedIn()">
+                    <li><a href="" ng-click="toggleModalLogin()">logga in</a></li>
+                    <li><a href="" ng-click="toggleModalRegister()">registrera</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="checkIfLoggedIn()">
+                    <li><a href="#/profile">{{username}}</a></li>
+                    <li><a href="" ng-click="signOut()">logga ut</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <modal-dialog-register show='modalShownRegister'>
+    </modal-dialog-register>
+    <modal-dialog-login show='modalShownLogin'>
+    </modal-dialog-login>
 
 </header>
 <div ng-view=""></div>
 
 <footer ng-controller="indexCtrl">
-  <div class="container">
-    <div class="row">
-        <ul>
-          <li><h5>Besök oss</h5></li>
-          <li><p>Kungsgatan 348 D</p></li>
-          <li><p>903 26 Umea</p></li>
-        </ul>
-        <ul>
-          <li><h5>Säg hej</h5></li>
-          <li><a href=""><p>mail@serble.se</p></a></li>
-          <li><a href=""><p>+46 90 231 281</p></a></li>
-        </ul>
-        <ul>
-          <li><h5>Support</h5></li>
-          <li><a href=""><p>support@serble.se</p></a></li>
-          <li><a href=""><p>+46 90 231 381</p></a></li>
-        </ul>
-      <ul>
-        <li><h5>Vi är sociala</h5>
-        </li>
-        <li>
-          <a href="" class="icon-facebook-circled social-media"></a>
-          <a href="" class="icon-twitter-circled social-media"></a>
-        </li>
-      </ul>
-      </div>
-    <div class="row">
-      <p id="Copyright">Copyright (©) Serble 2016</p>
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li><h5>Besök oss</h5></li>
+                <li><p>Kungsgatan 348 D</p></li>
+                <li><p>903 26 Umea</p></li>
+            </ul>
+            <ul>
+                <li><h5>Säg hej</h5></li>
+                <li><a href=""><p>mail@serble.se</p></a></li>
+                <li><a href=""><p>+46 90 231 281</p></a></li>
+            </ul>
+            <ul>
+                <li><h5>Support</h5></li>
+                <li><a href=""><p>support@serble.se</p></a></li>
+                <li><a href=""><p>+46 90 231 381</p></a></li>
+            </ul>
+            <ul>
+                <li><h5>Vi är sociala</h5>
+                </li>
+                <li>
+                    <a href="" class="icon-facebook-circled social-media"></a>
+                    <a href="" class="icon-twitter-circled social-media"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <p id="Copyright">Copyright (©) Serble 2016</p>
+        </div>
     </div>
-  </div>
 </footer>
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
-  !function (A, n, g, u, l, a, r) {
-    A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
-        (A[l].q = A[l].q || []).push(arguments)
-      }, A[l].l = +new Date, a = n.createElement(g),
-      r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
-  }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    !function (A, n, g, u, l, a, r) {
+        A.GoogleAnalyticsObject = l, A[l] = A[l] || function () {
+                (A[l].q = A[l].q || []).push(arguments)
+            }, A[l].l = +new Date, a = n.createElement(g),
+            r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+    }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-XXXXX-X');
-  ga('send', 'pageview');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
 </script>
 
 <!-- build:js(.) scripts/vendor.js -->
