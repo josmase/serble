@@ -2,6 +2,7 @@
 header#header {
     box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.75);
     min-height: 55px;
+    height: auto;
     background: white;
     width: 100%;
     padding-left: 0;
@@ -96,7 +97,7 @@ header#header {
             }
         }
     }
-    .navbar-left{
+    .navbar-left {
         margin-left: -15px;
     }
 
@@ -122,7 +123,7 @@ header#header {
                         padding-bottom: 15px;
                     }
                 }
-                .navbar-left{
+                .navbar-left {
                     margin-left: 20px;
                 }
             }
