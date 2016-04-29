@@ -126,9 +126,9 @@
 @media screen and (min-width: 768px) {
     .card:nth-child(odd) {
         margin: 0 1rem 1rem 0;
-        -webkit-flex: 0 1 calc(50% - 1rem); /* Safari 6.1+ */
-        -ms-flex: 0 1 calc(50% - 1rem); /* IE 10 */
-        flex: 0 1 calc(50% - 1rem);
+        -webkit-flex: 0 1 calc(50% - 1.6rem); /* Safari 6.1+ */
+        -ms-flex: 0 1 calc(50% - 1.6rem); /* IE 10 */
+        flex: 0 1 calc(50% - 1.6rem);
     }
     .card {
         -webkit-flex: 0 1 50%; /* Safari 6.1+ */
