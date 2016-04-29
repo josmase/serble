@@ -36,6 +36,10 @@ var exp = {
             for (var key in profile) {
                 var match = key.match("^show_(.+)");
 
+                if (profile[key] === "null") {
+                    delete profile[key];
+                }
+
                 if (match) {
                     profile[key] = Boolean(profile[key]);
                     if (!profile[key] && filter) {
