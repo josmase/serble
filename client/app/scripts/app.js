@@ -69,7 +69,7 @@ angular
     ).run(function ($rootScope, $cookies, $http) {
         // keep user logged in after page refresh
         $rootScope.globals = JSON.parse($cookies.get('globals') || '{}');
-        $rootScope.apiURL = 'https://api.josmase.se:8000/serble';
+        $rootScope.apiURL = 'https://api.josmase.se/serble';
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = $rootScope.globals.currentUser.token; // jshint ignore:line
         }
