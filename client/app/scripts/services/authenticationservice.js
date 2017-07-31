@@ -15,7 +15,7 @@ function authenticationService($http, $cookies, $rootScope) {
 
     function Login(credentials, password, callback) {
         $http.post(server + '/user/login', {credentials: credentials, password: password})
-            .success(function (response) {
+            .then(function (response) {
                 callback(response);
             });
 
