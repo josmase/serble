@@ -16,8 +16,11 @@ function authenticationService($http, $cookies, $rootScope) {
     function Login(credentials, password, callback) {
         $http.post(server + '/user/login', {credentials: credentials, password: password})
             .then(function (response) {
-                callback(response);
-            });
+                callback(response.data);
+            }).catch(function (response) {
+            response.message = "Could not reach server";
+            callback(response);
+        });
 
     }
 
