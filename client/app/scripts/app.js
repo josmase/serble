@@ -23,7 +23,7 @@ angular
         'angular-ladda',
         'ngFileUpload'
     ])
-    .config(function ($routeProvider, $compileProvider,$locationProvider) {
+    .config(function ($routeProvider, $compileProvider, $locationProvider) {
             $routeProvider
                 .when('/home', {
                     templateUrl: 'views/main.html',
@@ -64,10 +64,8 @@ angular
                 .otherwise({
                     redirectTo: '/home'
                 });
+            $locationProvider.html5Mode(true);
             $compileProvider.debugInfoEnabled(false);
-        // enable html5Mode for pushstate ('#'-less URLs)
-        $locationProvider.html5Mode(true);
-        $locationProvider.hashPrefix('!');
         }
     ).run(function ($rootScope, $cookies, $http) {
         // keep user logged in after page refresh
