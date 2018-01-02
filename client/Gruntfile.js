@@ -22,7 +22,7 @@ module.exports = function (grunt) {
     // Configurable paths for the application
     var appConfig = {
         app: require('./bower.json').appPath || 'app',
-        dist: 'dist'
+        dist: 'serble'
     };
     var serveStatic = require('serve-static');
 
@@ -246,7 +246,12 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+                    imagesDir: '<%= yeoman.dist %>/images',
+                    javascriptsDir: '<%= yeoman.dist %>/scripts',
+                    fontsDir: '<%= yeoman.dist %>/styles/fonts',
+                    httpImagesPath: '<%= yeoman.dist %>/images',
+                    httpGeneratedImagesPath: '<%= yeoman.dist %>/images/generated',
+                    relativeAssets: true
                 }
             },
             server: {
@@ -293,6 +298,7 @@ module.exports = function (grunt) {
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             js: ['<%= yeoman.dist %>/scripts/{,*/}*.js'],
             options: {
+                basedir: ['<%= yeoman.dist %>'],
                 assetsDirs: [
                     '<%= yeoman.dist %>',
                     '<%= yeoman.dist %>/images',
