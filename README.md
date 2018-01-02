@@ -3,7 +3,7 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.14.0.
 
-##Setup
+## Setup
 
 setup for the server and client
 ###Client
@@ -26,7 +26,7 @@ Run
  
 Done
 
-###Server
+### Server
 
  Download and install [MySql] (http://dev.mysql.com/downloads/mysql/) and create a user "serble" with the password "serble"
  
@@ -39,11 +39,11 @@ Done
 `mysql -u "serble" "-pserble" "serble" < "/sql/data.sql"`
 
 ## Build & development
-###Client
+### Client
 
 Run `grunt` for building and `grunt serve` for preview. 
 
-###Server
+### Server
 
 Run `node app.js` to start the server.
 ## Testing
