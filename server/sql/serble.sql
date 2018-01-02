@@ -115,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
     `contact`         VARCHAR(45)   NULL,
     `latitude`        DOUBLE        NULL,
     `longitude`       DOUBLE        NULL,
-    `zipcode`         INT           NOT NULL,
     `neighborhood`    VARCHAR(45)   NULL,
     `city`            VARCHAR(45)   NULL,
     `date_creation`   DATETIME(6)   NULL,
