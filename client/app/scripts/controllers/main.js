@@ -8,11 +8,12 @@
  * Controller of the serbleApp
  */
 angular.module('serbleApp')
-    .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices, UserService) {
+    .controller('MainCtrl', function ($scope, getAndPostArticlesService, $location, geocodeService, myMapServices, UserService, $http) {
         // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
         $scope.articles = [];
         $scope.search = {};
         $scope.key = 'AIzaSyAz9VB62M7bhTVi5qmToMnrqdbQjq5Xugk';
+        $scope.hasImage = false;
 
         var startPoint = 0;
         var NumberOfArticles = 20;
@@ -113,7 +114,7 @@ angular.module('serbleApp')
         }
 
         function noArticles() {
-            return (!$scope.loading && $scope.articles.length < 1 );
+            return (!$scope.loading && $scope.articles.length < 1);
         }
 
         function viewMore() {
@@ -141,6 +142,12 @@ angular.module('serbleApp')
 
         myMapServices.getCurrentLocation().then(function (data) {
             $scope.currentLocation = data;
+            var url = 'https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location=' + $scope.currentLocation.latitude + ',' + $scope.currentLocation.longitude + '&key=' + $scope.key;
+            $http.get(url).then(function (res) {
+                $scope.hasImage = res.data.status === 'OK';
+            }, function () {
+                $scope.hasImage = false;
+            });
         });
 
         calculateDistance();

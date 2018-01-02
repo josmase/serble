@@ -17,6 +17,7 @@ angular.module('serbleApp')
     })
     .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi, myMapServices, $filter, getAndPostArticlesService,
                                      geocodeService, UserService) {
+        // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 
         function calculateDistance() {
             myMapServices.getCurrentLocation().then(function (currentLocation) {

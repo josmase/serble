@@ -2,7 +2,7 @@
     <div class="jumbotron" id="pitch">
         <div class="filter">
             <img src="images/working.jpg"/>
-            <img src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location={{currentLocation.latitude}},{{currentLocation.longitude}}&key={{key}}"/>
+            <img ng-show="hasImage" src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location={{currentLocation.latitude}},{{currentLocation.longitude}}&key={{key}}"/>
         </div>
         <div class="container">
             <div class="row">

@@ -23,7 +23,7 @@ angular
         'angular-ladda',
         'ngFileUpload'
     ])
-    .config(function ($routeProvider, $compileProvider, $locationProvider) {
+    .config(function ($routeProvider, $compileProvider) {
             $routeProvider
                 .when('/home', {
                     templateUrl: 'views/main.html',

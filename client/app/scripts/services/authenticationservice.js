@@ -18,7 +18,7 @@ function authenticationService($http, $cookies, $rootScope) {
             .then(function (response) {
                 callback(response.data);
             }).catch(function (response) {
-            response.message = "Could not reach server";
+            response.message = 'Could not reach server';
             callback(response);
         });
 
