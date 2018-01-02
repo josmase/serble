@@ -6,7 +6,9 @@ version 0.14.0.
 ## Setup
 
 setup for the server and client
-###Client
+
+### Client
+
 Download [ruby] (http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.7.exe) (add it to path),
 [nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
 
