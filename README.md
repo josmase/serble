@@ -9,8 +9,8 @@ setup for the server and client
 
 ### Client
 
-Download [ruby] (http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.7.exe) (add it to path),
-[nodejs] (https://nodejs.org/en/download/) and [git]  (https://git-scm.com/download/win)
+Download [ruby](http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.1.7.exe) and add it to path,
+[nodejs](https://nodejs.org/en/download/) and [git](https://git-scm.com/download/win)
 
 Run 
 
@@ -30,7 +30,7 @@ Done
 
 ### Server
 
- Download and install [MySql] (http://dev.mysql.com/downloads/mysql/) and create a user "serble" with the password "serble"
+ Download and install [MySql](http://dev.mysql.com/downloads/mysql/) and create a user "serble" with the password "serble"
  
  `cd ../server`
  
