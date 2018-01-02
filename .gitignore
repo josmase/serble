@@ -10,3 +10,4 @@ server/content/avatars/*
 !server/content/avatars/default.png
 
 .idea/
+/client/serble/
